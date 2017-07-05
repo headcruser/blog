@@ -1,0 +1,21 @@
+{
+    "name": "headcruser/blog",
+    "description": "Sitio de pruebas para php usando estandares de programacion",
+    "type": "proyect",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "headcruser",
+            "email": "headcruser@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "core\\":"core/"
+        }
+    },
+    "require": {
+        "smarty/smarty": "dev-trunk",
+         "raveren/kint": "0.9"
+    }
+}
