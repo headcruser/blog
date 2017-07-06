@@ -7,6 +7,12 @@
 
         {if isset($titulo)}
             <title>{$titulo}</title>
+            {else}
+             {if isset($smarty.session.nombre)}
+                <title>Bienvenido {$smarty.session.nombre}</title>
+                {else}
+                <title>Titulo principal</title>
+             {/if}
         {/if}
 
         <link rel="stylesheet" href="{$smarty.const.CSS}bootstrap.min.css"/>
@@ -16,10 +22,9 @@
         <link rel="stylesheet" href="{$smarty.const.CSS}normalize.css">
         <link rel="stylesheet" href="{$smarty.const.CSS}overhang.min.css"/>
         <link rel="stylesheet" href="{$smarty.const.CSS}bootstrapValidator.min.css"/>
+        <link rel="stylesheet" href="{$smarty.const.CSS}dataTables.bootstrap.min.css"/>
         <link rel="stylesheet" href="{$smarty.const.CSS}login.css"/>
         <link rel="stylesheet" href="{$smarty.const.CSS}estilos.css"/>
         
     </head>
 <body>
-
-

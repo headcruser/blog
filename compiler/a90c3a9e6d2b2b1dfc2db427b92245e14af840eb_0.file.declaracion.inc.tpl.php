@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-04 19:59:49
+/* Smarty version 3.1.32-dev-11, created on 2017-07-05 17:18:16
   from "/var/www/html/blog/styles/templates/overall/declaracion.inc.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_595c3a05acec10_75102262',
+  'unifunc' => 'content_595d65a80c8699_85605848',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a90c3a9e6d2b2b1dfc2db427b92245e14af840eb' => 
     array (
       0 => '/var/www/html/blog/styles/templates/overall/declaracion.inc.tpl',
-      1 => 1499216133,
+      1 => 1499293067,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_595c3a05acec10_75102262 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595d65a80c8699_85605848 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Declaracion del documento html -->
 <!DOCTYPE html>
@@ -32,6 +32,13 @@ function content_595c3a05acec10_75102262 (Smarty_Internal_Template $_smarty_tpl)
         <?php if (isset($_smarty_tpl->tpl_vars['titulo']->value)) {?>
             <title><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
 </title>
+            <?php } else { ?>
+             <?php if (isset($_SESSION['nombre'])) {?>
+                <title>Bienvenido <?php echo $_SESSION['nombre'];?>
+</title>
+                <?php } else { ?>
+                <title>Titulo principal</title>
+             <?php }?>
         <?php }?>
 
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>
@@ -47,13 +54,12 @@ overhang.min.css"/>
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>
 bootstrapValidator.min.css"/>
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>
+dataTables.bootstrap.min.css"/>
+        <link rel="stylesheet" href="<?php echo @constant('CSS');?>
 login.css"/>
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>
 estilos.css"/>
         
     </head>
-<body>
-
-
-<?php }
+<body><?php }
 }

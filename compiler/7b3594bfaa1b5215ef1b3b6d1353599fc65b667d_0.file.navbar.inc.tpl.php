@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-04 20:05:22
+/* Smarty version 3.1.32-dev-11, created on 2017-07-05 17:06:32
   from "/var/www/html/blog/styles/templates/overall/navbar.inc.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_595c3b52739fb7_58790453',
+  'unifunc' => 'content_595d62e80c6987_33160133',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7b3594bfaa1b5215ef1b3b6d1353599fc65b667d' => 
     array (
       0 => '/var/www/html/blog/styles/templates/overall/navbar.inc.tpl',
-      1 => 1499216718,
+      1 => 1499292377,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_595c3b52739fb7_58790453 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595d62e80c6987_33160133 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
  <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
@@ -31,25 +31,42 @@ function content_595c3b52739fb7_58790453 (Smarty_Internal_Template $_smarty_tpl)
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home">BlogHS</a>
+            <?php if (isset($_SESSION['nombre'])) {?>
+                <a class="navbar-brand" href="http://<?php echo $_SERVER['SERVER_NAME'];?>
+/blog/admin">AdminHS</a>
+            <?php } else { ?>
+                <a class="navbar-brand" href="home">BlogHS</a>
+            <?php }?>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>
+
+                <?php if (isset($_SESSION['nombre'])) {?>
+                    <li>
+                    <a href="http://<?php echo $_SERVER['SERVER_NAME'];?>
+/blog/admin">
+                        <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Menu Principal
+                    </a>
+                    </li>
+                <?php } else { ?>
+                    <li>
                     <a href="#">
                         <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Entradas
                     </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Favoritos
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="glyphicon glyphicon-education" aria-hidden="true"></span> Autores
-                    </a>
-                </li>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Favoritos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-education" aria-hidden="true"></span> Autores
+                        </a>
+                    </li>
+                    
+                <?php }?>
+               
             </ul>
            
             <ul class="nav navbar-nav navbar-right">

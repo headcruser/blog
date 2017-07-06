@@ -7,25 +7,40 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home">BlogHS</a>
+            {if isset($smarty.session.nombre)}
+                <a class="navbar-brand" href="http://{$smarty.server.SERVER_NAME}/blog/admin">AdminHS</a>
+            {else}
+                <a class="navbar-brand" href="home">BlogHS</a>
+            {/if}
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>
+
+                {if isset($smarty.session.nombre)}
+                    <li>
+                    <a href="http://{$smarty.server.SERVER_NAME}/blog/admin">
+                        <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Menu Principal
+                    </a>
+                    </li>
+                {else}
+                    <li>
                     <a href="#">
                         <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Entradas
                     </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Favoritos
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="glyphicon glyphicon-education" aria-hidden="true"></span> Autores
-                    </a>
-                </li>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Favoritos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-education" aria-hidden="true"></span> Autores
+                        </a>
+                    </li>
+                    
+                {/if}
+               
             </ul>
            
             <ul class="nav navbar-nav navbar-right">

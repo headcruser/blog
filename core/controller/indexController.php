@@ -14,7 +14,7 @@ class indexController
 	 * @return type void
 	 */
 	public function index()
-	{
+	{	
 		//template(dir/tpl), nombre variable , contenido variable
 		return Vista::crear("home.index","titulo","Bienvenido a la pagina principal");
 	}
