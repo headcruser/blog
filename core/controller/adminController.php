@@ -12,6 +12,9 @@ class adminController
 	 */
 	public function index()
 	{
+		if(!$_SESSION['nombre'])
+			header('location: http://192.168.86.129/blog');
+
 		return Vista::crear("admin.admin");
 	}
 
@@ -20,7 +23,10 @@ class adminController
 	 * @return type void
 	 */
 	public function altaUsuario()
-	{	
+	{
+		if(!$_SESSION['nombre'])
+			header('location: http://192.168.86.129/blog');
+
 		$variables=array();
 
 		//Si envia datos, Agregar a la base de datos

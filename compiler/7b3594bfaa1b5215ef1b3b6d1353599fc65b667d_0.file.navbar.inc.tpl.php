@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-05 17:06:32
+/* Smarty version 3.1.32-dev-11, created on 2017-07-06 16:28:34
   from "/var/www/html/blog/styles/templates/overall/navbar.inc.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_595d62e80c6987_33160133',
+  'unifunc' => 'content_595eab82c6e594_43258960',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7b3594bfaa1b5215ef1b3b6d1353599fc65b667d' => 
     array (
       0 => '/var/www/html/blog/styles/templates/overall/navbar.inc.tpl',
-      1 => 1499292377,
+      1 => 1499376499,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_595d62e80c6987_33160133 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595eab82c6e594_43258960 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
  <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
@@ -80,7 +80,8 @@ function content_595d62e80c6987_33160133 (Smarty_Internal_Template $_smarty_tpl)
                       </a>
                         <ul id="login-dp" class="dropdown-menu">
                             <li>
-                                <a href="home/logout">
+                                <a href="http://<?php echo $_SERVER['SERVER_NAME'];?>
+/blog/home/logout">
                                     <span class="glyphicon glyphicon-user" aria-hidden="true">  
                                          Cerrar Sesion 
                                     </span> 

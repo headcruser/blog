@@ -53,7 +53,7 @@
                       </a>
                         <ul id="login-dp" class="dropdown-menu">
                             <li>
-                                <a href="home/logout">
+                                <a href="http://{$smarty.server.SERVER_NAME}/blog/home/logout">
                                     <span class="glyphicon glyphicon-user" aria-hidden="true">  
                                          Cerrar Sesion 
                                     </span> 
