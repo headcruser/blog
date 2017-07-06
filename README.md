@@ -23,3 +23,28 @@ La estructrura del proyecto es la siguiente :
       *  js: Archivos JS
       *  templates: Plantillas utilizadas para la viata
 
+Esta estructura puede variar, dependiendo del estandar implementado por frameworks como Laravel o symfony.
+
+# Librerias
+Al utilizar elementos más avanzados, conforme pasa el tiempo, el desarrollo se vuelve mas tedioso, por lo que en estos casos,
+se utiliza un gestor de dependencias, lo cual me permite gestionar una gran cantidad de librerias, sin la necesidad de preocuparse por romper dependencias.
+ 
+ Las librerias que se utilizaron fueron:
+ 
+    -  Smarty (Gestor de plantillas)
+    -  Kinki ( Depurador para ver arreglos)
+    -  composer (Gestor de dependencias)
+ 
+ # Sobre el uso de composer
+ Composer ofrece la posiblidad de gestionar la carga de clases, mediante los namespaces de php, lo cual evita realizar demasados 
+ includes en el archivo de configuracion.
+ La estrucura de los namespace esta dada por el directorio en que se encuentra, por ejemplo, para la carga de los modelos se 
+ define como 
+    - namespace core/models;
+  
+  Para usarlos en una clase cualquiera, basta con usar 
+   - use core/models/<nombreClase
+ 
+Para más informacion, consulta el sitio web de composer https://getcomposer.org/.
+
+    
