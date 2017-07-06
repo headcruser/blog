@@ -1,7 +1,7 @@
 <?php namespace core\help;
  
  /**
- * Clase que gestiona elementos de validacion
+ * Clase que gestiona elementos de validación
  */
  class help
  {

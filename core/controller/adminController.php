@@ -33,11 +33,11 @@ class adminController
 		if($_POST)
 		{
 			/*Realizar Validaciones*/
-			$variables['mensaje']='<div class="alert alert-success" role ="alert">
-										<span class="glyphicon glyphicon-ok"></span> 
-										<b>El usuario se agrego con exito</b>
-										<b>Ya puedes acceder a la plataforma</b> 
-								</div>';
+			// $variables['mensaje']='<div class="alert alert-success" role ="alert">
+			// 							<span class="glyphicon glyphicon-ok"></span> 
+			// 							<b>El usuario se agrego con exito</b>
+			// 							<b>Ya puedes acceder a la plataforma</b> 
+			// 					</div>';
 
 			// $usuario=new Usuario();
 
