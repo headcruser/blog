@@ -1,5 +1,5 @@
 {*Formulario para crear un usuario en administrador*}
-<form name="agrega_usuario" method="post" action="http://{$smarty.server.SERVER_NAME}/blog/admin/altaUsuario" accept-charset="UTF-8" >
+<form id="registro" method="post" action="http://{$smarty.server.SERVER_NAME}/blog/admin/altaUsuario" accept-charset="UTF-8" >
     <div class="form-group" >
         <div class="input-group" >
             <span class="input-group-addon">Nombre completo</span>

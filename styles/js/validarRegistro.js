@@ -2,7 +2,6 @@ $(document).ready(function()
 {
     $("#registro").bootstrapValidator(
     {
-        
        fields:
        {
             nombre:
@@ -73,6 +72,36 @@ $(document).ready(function()
                 }
             }
        }
-    });
+    }).on('submit', function (e) 
+    {
+        $.ajax({
+            type:$(this).attr("method"),
+            url:$(this).attr("action"),
+            data:$(this).serialize(),
+            success: function(response)
+            {
+                $("body").overhang({
+                    type: "success",
+                    message: "Redirigiendo a Pagina Principal",
+                    callback:function()
+                    {
+                        window.location.href="http://192.168.86.129/blog/admin";
+                    }
+                });
+                
+                $('#registro')[0].reset(); //Resetea el valor de los campos
+                
+            },
+            error:function()
+            {
+                 $("body").overhang({
+                    type: "error",
+                    message: "Los datos no se enviaron"
+                });
+            }
+        });
+    
+        return false;
+    })
 
 });

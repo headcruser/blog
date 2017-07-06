@@ -33,16 +33,17 @@ class adminController
 										<b>Ya puedes acceder a la plataforma</b> 
 								</div>';
 
-			$usuario=new Usuario();
+			// $usuario=new Usuario();
 
-			//insertar nuevo usuario
+			// //insertar nuevo usuario
 			
-			$usuario->nombre=$_POST['nombre'];
-			$usuario->email=$_POST['email'];
-			$usuario->password=$_POST['pasword'];
-			$usuario->fecha_registro = date("Y-m-d");
-			$usuario->activo="1";
-			$usuario->guardar();		
+			// $usuario->nombre=$_POST['nombre'];
+			// $usuario->email=$_POST['email'];
+			// $usuario->password=$_POST['pasword'];
+			// $usuario->fecha_registro = date("Y-m-d");
+			// $usuario->activo="1";
+			// $usuario->guardar();
+			die("Termine");		
 		}
 		 //Se va a registrar
 		$variables['accion']=1;
