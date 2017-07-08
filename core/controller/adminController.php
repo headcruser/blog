@@ -27,11 +27,13 @@ class adminController
 		if(!$_SESSION['nombre'])
 			header('location: http://192.168.86.129/blog');
 
-		$variables=array();
+		$variables=array('accion'=>1);
+		//$variables['accion']=1;
 
 		//Si envia datos, Agregar a la base de datos
-		if($_POST)
+		if($_SERVER['REQUEST_METHOD']=='POST')
 		{
+			
 			/*Realizar Validaciones*/
 			// $variables['mensaje']='<div class="alert alert-success" role ="alert">
 			// 							<span class="glyphicon glyphicon-ok"></span> 
@@ -49,11 +51,49 @@ class adminController
 			// $usuario->fecha_registro = date("Y-m-d");
 			// $usuario->activo="1";
 			// $usuario->guardar();
-			die("Termine");		
+
+			header('Content-type: application/json');
+			header("Cache-Control: no-cache");
+			header("Pragma: no-cache");	
+			$mensajeUsuario=array();
+
+			if(isse($_POST['nombre'])){
+				$mensajeUsuario=array("estado"=>"true","mensaje"=>"He recibido correctamente tu usuario");
+			}else
+			{
+				$mensajeUsuario=array("estado"=>"false","mensaje"=>"No he correctamente tu nombre");
+			}
+
+			return print (json_encode($resultado));	
+			//die("termine");
 		}
 		 //Se va a registrar
-		$variables['accion']=1;
+		
 					
+		return Vista::crear("admin.admin",'variables',$variables);
+	}
+
+	/**
+	 * Muestra El registro de usuario
+	 * @return type void
+	 */
+	public function adminUsuario()
+	{
+		if(!$_SESSION['nombre'])
+			header('location: http://192.168.86.129/blog');
+
+		$variables=array('accion'=>2);
+		//$variables['accion']=1
+
+		 $usuario=new Usuario();
+		 $datos = $usuario->seleccionaCampos(array("id","nombre","email"));
+
+		 $campos=$usuario->getNombresColumnas($datos);
+		 $campos[3]="Accion";
+		 
+		 $variables['campos']=$campos;
+		 $variables['datos']=$datos;
+
 		return Vista::crear("admin.admin",'variables',$variables);
 	}
 }

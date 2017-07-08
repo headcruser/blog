@@ -22,7 +22,8 @@ class Ruta
 								   "/home/login"=>"indexController",
 								   "/registro"=>"registroController",
 								   "/admin" =>"adminController",
-								   "/admin/altaUsuario" =>"adminController");
+								   "/admin/altaUsuario" =>"adminController",
+								   "/admin/adminUsuario"=>"adminController");
 
 		//condicion?proceso:no proceso
 		$uri=isset($_GET["uri"])?$_GET["uri"]:"/";

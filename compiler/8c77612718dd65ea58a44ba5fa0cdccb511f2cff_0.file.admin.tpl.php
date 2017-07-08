@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-05 19:14:12
+/* Smarty version 3.1.32-dev-11, created on 2017-07-07 22:04:49
   from "/var/www/html/blog/styles/templates/admin/admin.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_595d80d4825646_66377134',
+  'unifunc' => 'content_59604bd12cc412_83105605',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8c77612718dd65ea58a44ba5fa0cdccb511f2cff' => 
     array (
       0 => '/var/www/html/blog/styles/templates/admin/admin.tpl',
-      1 => 1499299985,
+      1 => 1499483080,
       2 => 'file',
     ),
   ),
@@ -21,11 +21,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:overall/declaracion.inc.tpl' => 1,
     'file:overall/navbar.inc.tpl' => 1,
     'file:admin/crearUsuario.tpl' => 1,
+    'file:admin/editarUsuario.tpl' => 1,
     'file:overall/footer.inc.tpl' => 1,
     'file:overall/cierre.inc.tpl' => 1,
   ),
 ),false)) {
-function content_595d80d4825646_66377134 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59604bd12cc412_83105605 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:overall/declaracion.inc.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -57,11 +58,15 @@ $_smarty_tpl->_subTemplateRender('file:overall/declaracion.inc.tpl', $_smarty_tp
                         <?php $_smarty_tpl->_subTemplateRender('file:admin/crearUsuario.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
-                        <?php } else { ?>
-                        Bienvenido al index principal
                     <?php }?>
+                    <?php if ($_smarty_tpl->tpl_vars['variables']->value['accion'] == 2) {?>
+                        <?php $_smarty_tpl->_subTemplateRender('file:admin/editarUsuario.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
                     <?php } else { ?>
                         Bienvenido al index principal
+                    <?php }?>
+                        
                  <?php }?>
             </div>
         </div>

@@ -21,11 +21,13 @@
                 {if isset($variables.accion)}
                     {if $variables.accion eq 1}
                         {include file='admin/crearUsuario.tpl'}
-                        {else}
-                        Bienvenido al index principal
                     {/if}
+                    {if $variables.accion eq 2}
+                        {include file='admin/editarUsuario.tpl'}
                     {else}
                         Bienvenido al index principal
+                    {/if}
+                        
                  {/if}
             </div>
         </div>
