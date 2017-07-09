@@ -17,7 +17,7 @@
 		<td>{$elemento.nombre}</td>
 		<td>{$elemento.email}</td>
 		<td>
-			<a class="btn btn-primary" href="usuario/editar/{$elemento.id}">
+			<a class="btn btn-primary" href="http://{$smarty.server.SERVER_NAME}/blog/usuario/editar/{$elemento.id}">
 				<span class="glyphicon glyphicon-pencil"></span>
 			</a>
 			<button class="btn btn-danger"> <span class="glyphicon glyphicon-trash"></span></button>

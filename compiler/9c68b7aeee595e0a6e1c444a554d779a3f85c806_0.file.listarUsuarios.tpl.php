@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-09 13:24:14
+/* Smarty version 3.1.32-dev-11, created on 2017-07-09 16:29:05
   from "/var/www/html/blog/styles/templates/admin/usuario/listarUsuarios.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_596274ce557446_88442985',
+  'unifunc' => 'content_5962a0212fe405_33479640',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9c68b7aeee595e0a6e1c444a554d779a3f85c806' => 
     array (
       0 => '/var/www/html/blog/styles/templates/admin/usuario/listarUsuarios.tpl',
-      1 => 1499620635,
+      1 => 1499635741,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_596274ce557446_88442985 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5962a0212fe405_33479640 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <h1>administar usuarios</h1>
 <table class="table">
@@ -62,7 +62,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['elemento']->value) {
 		<td><?php echo $_smarty_tpl->tpl_vars['elemento']->value['email'];?>
 </td>
 		<td>
-			<a class="btn btn-primary" href="usuario/editar/<?php echo $_smarty_tpl->tpl_vars['elemento']->value['id'];?>
+			<a class="btn btn-primary" href="http://<?php echo $_SERVER['SERVER_NAME'];?>
+/blog/usuario/editar/<?php echo $_smarty_tpl->tpl_vars['elemento']->value['id'];?>
 ">
 				<span class="glyphicon glyphicon-pencil"></span>
 			</a>

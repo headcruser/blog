@@ -22,15 +22,9 @@ class Ruta
 		$this->_controllers=array( "/"=>"indexController",
 								   "/home"=>"indexController",
 								   "/auth"=>"AuthController",
-								   "/auth/login"=>"AuthController",
-								   "/auth/logout"=>"AuthController",
 								   "/registro"=>"registroController",
-								   "/registro/alta"=>"registroController",
 								   "/admin" =>"adminController",
-								   "/usuario" =>"usuarioController",
-								   "/usuario/listar" =>"usuarioController",
-								   "/usuario/crear" =>"usuarioController"
-								   );
+								   "/usuario" =>"usuarioController");
 
 		//condicion?proceso:no proceso
 		$uri=isset($_GET["uri"])?$_GET["uri"]:"/";
@@ -42,25 +36,35 @@ class Ruta
 		//¿No es el index? , entonces es un controlador
 		if($uri!="/")
 		{
-
 			//Controladores y metodos
 			$estado=false;
 			foreach ($this->_controllers as $ruta => $cont) 
 			{
-				if( trim($ruta,'/') == $paths[0])
+				if( trim($ruta,'/')!="")
 				{
-					$estado=true;
-					$controlador=$cont;
-					$metodo = "";
-
-					if( count($paths) > 1)
-						$metodo=$paths[1];
-
-					
-					$this->getController($metodo,$controlador);
+					$pos = strpos($uri, trim($ruta, "/"));
+					if($pos!==false)
+					{
+						$arrayParams  = array(); //array donde se guardaran los parametros de la web
+                        $estado       = true; // estado de ruta
+                        $controlador  = $cont;
+                        $metodo       = "";
+                        $cantidadRuta = count(explode("/", trim($ruta, "/")));
+                        $cantidad     = count($paths);
+                        if ($cantidad > $cantidadRuta) 
+						{
+                            $metodo = $paths[$cantidadRuta];
+                            for ($i = 0; $i < count($paths); $i++) 
+							{
+                                if ($i > $cantidadRuta) {
+                                    $arrayParams[] = $paths[$i];
+                                }
+                            }
+                        }
+                        $this->getController($metodo, $controlador, $arrayParams);
+					}
 				}
 			}
-			
 			if( $estado == false)
 				return Vista::crear("error.error","error","La Ruta no existe");
 			
@@ -87,7 +91,7 @@ class Ruta
 	 * @param type $controlador Es el control a cargar 
 	 * @return type void 
 	 */
-	public function getController($metodo,$controlador)
+	public function getController($metodo,$controlador,$params = null)
 	{
 		$metodoControler="";
 
@@ -107,8 +111,19 @@ class Ruta
 		if( ! is_callable(array($claseTemporal,$metodoControler)))
 			return Vista::crear("error.error","error","El método no existe");
 
-		//llama al metodo en cuestion
-		$claseTemporal->$metodoControler();
+
+		if ($metodoControler == "index") 
+		{
+			if (count($params) == 0) 
+			{
+				//llama al metodo en cuestion
+				$claseTemporal->$metodoControler();		
+			} else {
+				die("error en parametros");
+			}
+		} else {
+			call_user_func_array(array($claseTemporal, $metodoControler), $params);
+		}
 	}
 
 	/**

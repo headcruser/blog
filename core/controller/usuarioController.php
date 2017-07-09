@@ -74,7 +74,7 @@ class usuarioController
 
 	/**
 	 * Muestra El registro de usuario
-	 * @return type void
+	 * @return type Vista Muestra la vista al usuario
 	 */
 	public function listar()
 	{
@@ -91,5 +91,15 @@ class usuarioController
         $variables['titulo']='Lista de usuarios';
 
 		return Vista::crear("admin.usuario.index",'variables',$variables);
+	}
+
+	/**
+	 * Edita a un usuario especificado
+	 * @param 	$id 	identificador del usuario
+	 * @return type Vista Muestra la vista al usuario
+	 */
+	public function editar($id)
+	{
+		die($id);
 	}
 }
