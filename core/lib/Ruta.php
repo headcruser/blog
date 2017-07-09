@@ -19,11 +19,15 @@ class Ruta
 		//this referencia al objeto instanciado de la clase
 		$this->_controllers=array( "/"=>"indexController",
 								   "/home"=>"indexController",
-								   "/home/login"=>"indexController",
+								   "/auth"=>"AuthController",
+								   "/auth/login"=>"AuthController",
+								   "/auth/logout"=>"AuthController",
 								   "/registro"=>"registroController",
 								   "/admin" =>"adminController",
-								   "/admin/altaUsuario" =>"adminController",
-								   "/admin/adminUsuario"=>"adminController");
+								   "/usuario" =>"usuarioController",
+								   "/usuario/listar" =>"usuarioController",
+								   "/usuario/crear" =>"usuarioController"
+								   );
 
 		//condicion?proceso:no proceso
 		$uri=isset($_GET["uri"])?$_GET["uri"]:"/";
