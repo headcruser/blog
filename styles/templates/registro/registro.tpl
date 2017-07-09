@@ -57,8 +57,8 @@
                 </div>  
                 <div class="panel-body">
 
-                	<form id="registro" role="form" method="post" 
-                     action="http://localhost:8081/blog/registro/alta">
+                	<form role="form" method="post" 
+                     action="http://{$smarty.server.SERVER_NAME}/blog/registro/alta">
                 		<div class="form-group" >
                 			<label class="help-block">Nombre Usuario</label>
                 			<input class="form-control" type="text" id='nombre' 

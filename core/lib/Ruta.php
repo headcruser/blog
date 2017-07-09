@@ -1,10 +1,12 @@
 <?php namespace core\lib;
  use core\lib\Vista;
-/**
- * Clase que gestiona la carga de rutas
- * @author Headcruser
- * @version 2017_v1
- */
+
+/** @class: Ruta (PHP4 & PHP5, with comments)
+  * @project: PHP Input Filter
+  * @author: Daniel Martinez
+  * @email: headcruser@gmail.com
+  * @license: GNU General Public License (GPL)
+  */
 class Ruta
 {
 
@@ -23,6 +25,7 @@ class Ruta
 								   "/auth/login"=>"AuthController",
 								   "/auth/logout"=>"AuthController",
 								   "/registro"=>"registroController",
+								   "/registro/alta"=>"registroController",
 								   "/admin" =>"adminController",
 								   "/usuario" =>"usuarioController",
 								   "/usuario/listar" =>"usuarioController",
@@ -115,10 +118,10 @@ class Ruta
 	 */
 	public function incluirControlador($controlador)
 	{
-		if( ! file_exists(PATH_APP.'controller/'.$controlador.'.php') )
+		if( ! file_exists(CONTROLLERS.$controlador.'.php') )
 			die("Error al Cargar el controlador");
 		
-		require_once PATH_APP.'controller/'.$controlador.'.php';		
+		require_once CONTROLLERS.$controlador.'.php';		
 	}
 	
 }

@@ -12,15 +12,15 @@
 	define('DB_NAME','blog');
 
 
-	//Crea las rutas Globales
+	//Crea las rutas del motor de la aplicacion
 	define ('PATH_APP',RUTA_BASE."core/");
-	define ('PATH',PATH_APP."path/");
-	define ('CONFIG_DB',PATH_APP."ORM/");
-	define ('MODELS',PATH_APP."model/");
+	define ('CONTROLLERS',PATH_APP.'controller/');
 	define ('PATH_VIEW',RUTA_BASE."styles/templates/");
-	define ('SERVER','http://localhost/');
+
+	//Ruta principal
 	define ('INDEX',dirname($_SERVER['PHP_SELF'])."/");
 
+	//Constantes para sytles
 	define ('CSS',INDEX.'styles/css/');
 	define ('JS',INDEX.'styles/js/');
 	define ('IMG',INDEX.'styles/img/');
