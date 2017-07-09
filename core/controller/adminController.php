@@ -85,14 +85,12 @@ class adminController
 		$variables=array('accion'=>2);
 		//$variables['accion']=1
 
-		 $usuario=new Usuario();
-		 $datos = $usuario->seleccionaCampos(array("id","nombre","email"));
-
-		 $campos=$usuario->getNombresColumnas($datos);
-		 $campos[3]="Accion";
-		 
-		 $variables['campos']=$campos;
-		 $variables['datos']=$datos;
+		$usuario=new Usuario();
+		$datos = $usuario->fetchAll(array("id","nombre","email"));
+		$campos=$usuario->getNombresColumnas($datos);
+		
+		$variables['campos']=$campos;
+		$variables['datos']=$datos;
 
 		return Vista::crear("admin.admin",'variables',$variables);
 	}

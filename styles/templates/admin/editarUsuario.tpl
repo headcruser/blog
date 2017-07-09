@@ -6,19 +6,23 @@
 			{$variables.campos[columna]}
 		</th>
 		{/section}
+		<th>
+			Acción
+		</th>
 	</tr>
-    {section name=renglon loop=$variables.datos}
-        <tr>
-        	{foreach from=$variables.datos[renglon] item=dato key=name}
-        	<td>
-        		{$dato}
-        	</td>
-        	{/foreach}
-            <td>
-        		<button type="button" class="btn btn-primary">Editar</button>
-        		<button type="button" class="btn btn-danger">Eliminar</button>
-        	</td>
-        </tr>
-    {/section}
+
+    {foreach $variables.datos as $elemento}
+	<tr>
+        <td>{$elemento.id}</td>
+		<td>{$elemento.nombre}</td>
+		<td>{$elemento.email}</td>
+		<td>
+			<a class="btn btn-primary" href="usuario/editar/{$elemento.id}">
+				<span class="glyphicon glyphicon-pencil"></span>
+			</a>
+			<button class="btn btn-danger"> <span class="glyphicon glyphicon-trash"></span></button>
+		</td>
+	</tr>
+    {/foreach}
 </table>
 </div>

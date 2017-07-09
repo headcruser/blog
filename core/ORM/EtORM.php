@@ -231,11 +231,25 @@ class EtORM extends Conexion
      * Obtiene un arreglo asociativo con la informarcion de la base de datos
      * @return type Object[]
      */
-    public static function fetchAll()
+    public static function fetchAll($params=null)
     {
         $datos=array();
-        $query = "SELECT * FROM ". static ::$table ;
-        $class = get_called_class();
+        $query = "SELECT ";
+        
+        if(is_array($params))
+        {
+            for($i=0;$i < count($params);$i++)
+            {
+                if( $i == ( count($params)-1) )
+                    $query.= $params[$i]." ";
+                else
+                    $query.= $params[$i].",";
+            }
+
+            $query.="FROM ". static ::$table;
+        }else{
+            $query.=" * FROM ". static ::$table;
+        }
 
         self::conectar();
         $res =self::$cnx->prepare($query);
@@ -249,33 +263,6 @@ class EtORM extends Conexion
         return $datos;
     }
 
-     /**
-     * Obtiene los elementos de la tabla 
-     * @return type Object[] Regresa un arreglo de los elementos
-     */
-    public static function seleccionaCampos($elementos)
-    {
-        $datos=array();
-        $query = "SELECT ";
-
-        for($i=0;$i < count($elementos);$i++)
-        {
-            if( $i == ( count($elementos)-1) )
-                $query.= $elementos[$i]." ";
-            else
-                $query.= $elementos[$i].",";
-        }
-
-        $query.="FROM ". static ::$table;    
-
-        self::conectar();
-        $res =self::$cnx->prepare($query);
-        $res->execute();        
-       //Obtiene los elementos usando fetchAll
-        $datos=$res->FetchAll(PDO::FETCH_ASSOC);
-        self::$cnx=null;
-        return $datos;
-    }
 
     /**
      * Obtiene el nombre de las columnas
