@@ -51,14 +51,23 @@
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>{$smarty.session.email}</b> 
                           <span class="glyphicon glyphicon-log-in"></span>
                       </a>
-                        <ul id="login-dp" class="dropdown-menu">
+                        <ul class="dropdown-menu">
                             <li>
                                 <a href="http://{$smarty.server.SERVER_NAME}/blog/auth/logout">
-                                    <span class="glyphicon glyphicon-user" aria-hidden="true">  
-                                         Cerrar Sesion 
+                                    <span class="glyphicon glyphicon-off" aria-hidden="true">  
                                     </span> 
+                                    Cerrar Sesión 
                                 </a>
                             </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-user" aria-hidden="true">  
+                                    </span> 
+                                    Mi perfil 
+                                </a>
+                            </li>
+
                         </ul>
                 </li>
             {else}
