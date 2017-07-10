@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-09 13:35:18
+/* Smarty version 3.1.32-dev-11, created on 2017-07-09 21:42:01
   from "/var/www/html/blog/styles/templates/admin/usuario/index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_59627766deaab4_68002545',
+  'unifunc' => 'content_5962e9797f8443_40548542',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ed45e69cbaef017a4202b61f6c26737af0f175dc' => 
     array (
       0 => '/var/www/html/blog/styles/templates/admin/usuario/index.tpl',
-      1 => 1499625306,
+      1 => 1499654516,
       2 => 'file',
     ),
   ),
@@ -26,7 +26,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:overall/cierre.inc.tpl' => 1,
   ),
 ),false)) {
-function content_59627766deaab4_68002545 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5962e9797f8443_40548542 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:overall/declaracion.inc.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -54,6 +54,16 @@ echo $_smarty_tpl->tpl_vars['variables']->value['titulo'];
 } else { ?>Panel Usuarios<?php }?></b></center>
             </div>
             <div class="panel-body" width="95%">
+            <?php if (isset($_smarty_tpl->tpl_vars['variables']->value['alerta'])) {?>
+                 <div class="alert alert-danger">
+                    	<a href="http://<?php echo $_SERVER['SERVER_NAME'];?>
+/blog/usuario/crear" 
+                        type="button" class="close" data-dismiss="alert">&times;</a>
+                    	<strong>Error! </strong> <?php echo $_smarty_tpl->tpl_vars['variables']->value['alerta'];?>
+
+                </div>
+            <?php }?>
+
                 <?php if (isset($_smarty_tpl->tpl_vars['variables']->value['accion'])) {?>
                     <?php if ($_smarty_tpl->tpl_vars['variables']->value['accion'] == 1) {?>
                         <?php $_smarty_tpl->_subTemplateRender('file:admin/usuario/crearUsuario.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);

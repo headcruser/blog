@@ -100,6 +100,23 @@ class usuarioController
 	 */
 	public function editar($id)
 	{
-		die($id);
+		if(!$_SESSION['nombre'])
+			header('location: http://192.168.86.129/blog');
+
+		$usuario=new Usuario();
+		$usuarios = $usuario->find($id);
+
+        if (count($usuarios)) 
+		{
+			$variables['usuarios']=$usuarios;
+			$variables['accion']=1;
+			$variables['titulo']='Lista de usuarios';
+
+			return Vista::crear("admin.usuario.index",'variables',$variables);
+           
+        }
+		$variables=array('accion'=>1);
+		$variables['alerta']='El usuario especificado no existe';
+		return Vista::crear("admin.usuario.index",'variables',$variables);
 	}
 }

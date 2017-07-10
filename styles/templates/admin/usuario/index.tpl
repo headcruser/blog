@@ -16,6 +16,14 @@
                 <center><b>{if isset($variables.titulo)}{$variables.titulo}{else}Panel Usuarios{/if}</b></center>
             </div>
             <div class="panel-body" width="95%">
+            {if isset($variables.alerta)}
+                 <div class="alert alert-danger">
+                    	<a href="http://{$smarty.server.SERVER_NAME}/blog/usuario/crear" 
+                        type="button" class="close" data-dismiss="alert">&times;</a>
+                    	<strong>Error! </strong> {$variables.alerta}
+                </div>
+            {/if}
+
                 {if isset($variables.accion)}
                     {if $variables.accion eq 1}
                         {include file='admin/usuario/crearUsuario.tpl'}
