@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ed95c56c4b2a87ece11f5208d17980d1",
+    "content-hash": "e5d0099e353fdefee8df36f36c3e5895",
     "packages": [
         {
             "name": "raveren/kint",
@@ -105,13 +105,52 @@
                 "templating"
             ],
             "time": "2017-05-27 12:37:35"
+        },
+        {
+            "name": "wixel/gump",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Wixel/GUMP.git",
+                "reference": "8e6c82626055b81c9d1bfeea8ff3a29701e7f5bb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Wixel/GUMP/zipball/8e6c82626055b81c9d1bfeea8ff3a29701e7f5bb",
+                "reference": "8e6c82626055b81c9d1bfeea8ff3a29701e7f5bb",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "gump.class.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sean Nieuwoudt",
+                    "homepage": "https://wixelhq.com"
+                },
+                {
+                    "name": "Filis Futsarov",
+                    "homepage": "https://filis.me"
+                }
+            ],
+            "description": "A fast, extensible & stand-alone PHP input validation class that allows you to validate any data",
+            "homepage": "https://wixelhq.com/",
+            "time": "2017-06-14 21:48:40"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "smarty/smarty": 20
+        "smarty/smarty": 20,
+        "wixel/gump": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

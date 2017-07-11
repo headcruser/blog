@@ -19,6 +19,29 @@ class registroController
 
 	public function alta()
 	{
+		$validacion = new \GUMP();
+		$_POST = $validacion->sanitize($_POST);
+		$validacion->validation_rules(array(
+		'nombre'    => 'required|max_len,30|min_len,4',
+		'email'       => 'required|valid_email',
+		'pasword'    => 'required|max_len,100|min_len,6',));
+
+		$validacion->filter_rules(array(
+			'nombre' => 'trim|sanitize_string',
+			'email'    => 'trim|sanitize_email',
+			'pasword' => 'trim',
+		));
+
+		$validated_data = $validacion->run($_POST);
+
+		if($validated_data === false) {
+			echo $validacion->get_readable_errors(true);
+		} else {
+			print_r($validated_data); // validation successful
+		}
+
+		die("termine");
+
 		if(isset($_SESSION['nombre']))
 			header('location: http://192.168.86.129/blog');
 

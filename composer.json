@@ -16,6 +16,7 @@
     },
     "require": {
         "smarty/smarty": "dev-trunk",
-         "raveren/kint": "0.9"
+         "raveren/kint": "0.9",
+         "wixel/gump":   "dev-master"
     }
 }
