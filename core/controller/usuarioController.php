@@ -20,6 +20,7 @@ class usuarioController
 
 	/**
 	 * Muestra El registro de usuario
+	 * nota** Revisar el sistema de envio del fomrulario
 	 * @return type void
 	 */
 	public function crear()
@@ -32,43 +33,46 @@ class usuarioController
 		//Si envia datos, Agregar a la base de datos
 		if($_SERVER['REQUEST_METHOD']=='POST')
 		{
-			
-			/*Realizar Validaciones*/
-			// $variables['mensaje']='<div class="alert alert-success" role ="alert">
-			// 							<span class="glyphicon glyphicon-ok"></span> 
-			// 							<b>El usuario se agrego con exito</b>
-			// 							<b>Ya puedes acceder a la plataforma</b> 
-			// 					</div>';
-
-			// $usuario=new Usuario();
-
-			// //insertar nuevo usuario
-			
-			// $usuario->nombre=$_POST['nombre'];
-			// $usuario->email=$_POST['email'];
-			// $usuario->password=$_POST['pasword'];
-			// $usuario->fecha_registro = date("Y-m-d");
-			// $usuario->activo="1";
-			// $usuario->guardar();
-
-			header('Content-type: application/json');
-			header("Cache-Control: no-cache");
-			header("Pragma: no-cache");	
-			$mensajeUsuario=array();
-
-			if(isse($_POST['nombre'])){
-				$mensajeUsuario=array("estado"=>"true","mensaje"=>"He recibido correctamente tu usuario");
-			}else
-			{
-				$mensajeUsuario=array("estado"=>"false","mensaje"=>"No he correctamente tu nombre");
-			}
-
-			return print (json_encode($resultado));	
-			//die("termine");
-		}
-		 //Se va a registrar
+			$validacion = new \GUMP();
+			$_POST = $validacion->sanitize($_POST);
 		
-					
+			$validacion->validation_rules(array(
+				'nombre'    => 'required|max_len,30|min_len,4',
+				'email'       => 'required|valid_email',
+				'pasword'    => 'required|max_len,8|min_len,6',
+				'pasword2'    => 'required|max_len,8|min_len,6',));
+
+			$validacion->filter_rules(array(
+				'nombre' => 'trim|sanitize_string',
+				'email'    => 'trim|sanitize_email',
+				'pasword' => 'trim',
+				'pasword2' => 'trim',));
+
+			$is_valid = $validacion->is_valid($_POST, array(
+				'pasword'  => 'required|max_len,8|min_len,6',
+				'pasword2' => 'equalsfield,pasword',));
+
+			$validated_data = $validacion->run($_POST);
+
+			if($validated_data === false) 
+				die( $validacion->get_readable_errors(true) );
+			
+			if($is_valid !== true) 
+				die(print_r( $is_valid ));
+			
+			
+			$usuario=new Usuario();
+
+			// //insertar nuevo usuario			
+			$usuario->nombre=$_POST['nombre'];
+			$usuario->email=$_POST['email'];
+			$usuario->password=$_POST['pasword'];
+			$usuario->fecha_registro = date("Y-m-d");
+			$usuario->activo="1";
+			$usuario->guardar();
+		}
+
+		 //Se va a registrar
 		return Vista::crear("admin.usuario.index",'variables',$variables);
 	}
 
