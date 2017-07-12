@@ -29,7 +29,8 @@ se utiliza un gestor de dependencias, lo cual me permite gestionar una gran cant
  
 **Las librerias que se utilizaron fueron:**
  - Smarty (Gestor de plantillas)
- - Kinki ( Depurador para ver arreglos)
+ - Kint ( Depurador para ver arreglos)
+ - GUMP ( Validacion de formularios en php)
  - composer (Gestor de dependencias)
  
 ### Composer
@@ -39,10 +40,13 @@ Al instalar composer, se incluye un archivo Json para indicar que elementos se d
 Para más información: [Ir a composer](https://getcomposer.org/).
 
 ### Smarty
-Smarty es un gestor de plantillas, encargado de construir las vistas, sin necesidad de utilizar dierectamente codigo php en las plantillas de html. Existen otros motores de plantillas como Twig. 
+Smarty es un motor de plantillas para PHP. Mas especificamente, esta herramienta facilita la manera de separar la aplicación lógica y el contenido en la presentación. La mejor descripción esta en una situación donde la aplicación del programador y la plantilla del diseñador juegan diferentes roles, o en la mayoria de los casos no la misma persona. Para más informacion acerca de este motor de plantillas: [Documentación Smarty](http://www.smarty.net/docsv2/es/what.is.smarty.tpl).
 
-### Kinki
-Es una herramienta para presentar los array de una forma mucho mas interactiva 
+### Kint
+Es una herramienta moderna y poderosa para debugear en php. Esta libreria es muy util para poder analizar la estructura de los array de una manera mas clara. [Repositorio en git](https://github.com/kint-php/kint.git).
+
+### GUMP
+Es una libreria que facilita el trabajo de validación de los formularios. ademas de tener diversos tipos de validaciones, tambien el usuario puede agregar sus propios tipos de validaciones. [Repositorio en git](https://github.com/Wixel/GUMP.git).
 
 ***
 
