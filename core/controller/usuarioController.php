@@ -101,27 +101,51 @@ class usuarioController
 	public function editar($id)
 	{
 		if(!$_SESSION['nombre'])
-			header('location: http://192.168.86.129/blog');
+			header('location: http://192.168.86.129/blog/usuario');
+		
+		if(!is_numeric($id))
+			header('location: http://192.168.86.129/blog/usuario');
 
 		$usuario=new Usuario();
 		$usuarios = $usuario->find($id);
+		$variables['accion']=1;
 
         if (count($usuarios)) 
 		{
 			$variables['usuarios']=$usuarios;
-			$variables['accion']=1;
 			$variables['titulo']='Lista de usuarios';
-
-			return Vista::crear("admin.usuario.index",'variables',$variables);
-           
+			return Vista::crear("admin.usuario.index",'variables',$variables);   
         }
-		$variables=array('accion'=>1);
+		
 		$variables['alerta']='El usuario especificado no existe';
 		return Vista::crear("admin.usuario.index",'variables',$variables);
 	}
 
 	public function eliminar($id)
 	{
-		die('eliminado');
+		if(!$_SESSION['nombre'])
+			header('location: http://192.168.86.129/blog/usuario');
+		
+		if(!is_numeric($id))
+			header('location: http://192.168.86.129/blog/usuario');
+
+		$User=new Usuario();
+		$usuarios = $User->find($id);
+		
+        if (count($usuarios))
+		{
+			if($usuarios->eliminar($id)){
+				header('location: http://192.168.86.129/blog/usuario/listar');
+			}
+			else
+			{
+				$variables['alerta']='El usuario que desea eliminar no existe';
+				return Vista::crear("admin.usuario.index",'variables',$variables);
+			}
+		}
+        
+		$variables['alerta']='El usuario que desea eliminar no existe';
+		return Vista::crear("admin.usuario.index",'variables',$variables);
+		
 	}
 }

@@ -1,4 +1,4 @@
-<h1>administar usuarios</h1>
+<h1 class="text-center">Administar usuarios</h1>
 <table class="table">
 	<tr>
 		{section name=columna loop=$variables.campos}
@@ -36,6 +36,7 @@
    	function confirmar(url)
 	   {
 			$.confirm({
+			theme: 'light',
 			title: 'Eliminar',
 			content: '¿Desea eliminar al usuario?',
 			autoClose: 'cancelAction|15000',

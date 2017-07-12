@@ -36,6 +36,6 @@
     </div>
     <center>
         <input type="submit" name="btn_save" value="Guardar Usuario" class="btn btn-primary">
-        <a href="http://{$smarty.server.SERVER_NAME}/blog/admin" class="btn btn-danger"> Cancelar Registro</a>
+        <a href="http://{$smarty.server.SERVER_NAME}/blog/usuario/listar" class="btn btn-danger"> Cancelar Registro</a>
     </center>
 </form>
