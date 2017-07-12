@@ -23,6 +23,7 @@
         <link rel="stylesheet" href="{$smarty.const.CSS}overhang.min.css"/>
         <link rel="stylesheet" href="{$smarty.const.CSS}bootstrapValidator.min.css"/>
         <link rel="stylesheet" href="{$smarty.const.CSS}dataTables.bootstrap.min.css"/>
+        <link rel="stylesheet" href="{$smarty.const.CSS}jquery-confirm.min.css"/>
         <link rel="stylesheet" href="{$smarty.const.CSS}login.css"/>
         <link rel="stylesheet" href="{$smarty.const.CSS}estilos.css"/>
         
