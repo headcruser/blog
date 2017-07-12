@@ -20,9 +20,45 @@
 			<a class="btn btn-primary" href="http://{$smarty.server.SERVER_NAME}/blog/usuario/editar/{$elemento.id}">
 				<span class="glyphicon glyphicon-pencil"></span>
 			</a>
-			<button class="btn btn-danger"> <span class="glyphicon glyphicon-trash"></span></button>
+			<button class="btn btn-danger" 
+				onclick="confirmar('http://{$smarty.server.SERVER_NAME}/blog/usuario/eliminar/{$elemento.id}')"> 
+				<span class="glyphicon glyphicon-trash"></span>
+			</button>
 		</td>
 	</tr>
     {/foreach}
 </table>
 </div>
+
+<script>
+   //Pasar despues a un archivo de js
+   {literal}
+   	function confirmar(url)
+	   {
+			$.confirm({
+			title: 'Eliminar',
+			content: '¿Desea eliminar al usuario?',
+			autoClose: 'cancelAction|15000',
+			animation: 'zoom',
+			buttons: 
+			{
+				deleteUser: 
+				{
+					btnClass: 'btn-danger',
+					text: 'Eliminar',
+					action: function () {
+						window.location.href=url;
+					}
+				},
+				cancelAction:
+				{
+					btnClass: 'btn-info',
+					text: 'Cancelar',
+					action:function () {
+					}
+				}
+			}
+		});
+	   }
+   {/literal}
+</script>

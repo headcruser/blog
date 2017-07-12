@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-05 17:18:16
+/* Smarty version 3.1.32-dev-11, created on 2017-07-11 21:04:55
   from "/var/www/html/blog/styles/templates/overall/declaracion.inc.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_595d65a80c8699_85605848',
+  'unifunc' => 'content_596583c75af6b5_49507088',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a90c3a9e6d2b2b1dfc2db427b92245e14af840eb' => 
     array (
       0 => '/var/www/html/blog/styles/templates/overall/declaracion.inc.tpl',
-      1 => 1499293067,
+      1 => 1499823982,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_595d65a80c8699_85605848 (Smarty_Internal_Template $_smarty_tpl) {
+function content_596583c75af6b5_49507088 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Declaracion del documento html -->
 <!DOCTYPE html>
@@ -55,6 +55,8 @@ overhang.min.css"/>
 bootstrapValidator.min.css"/>
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>
 dataTables.bootstrap.min.css"/>
+        <link rel="stylesheet" href="<?php echo @constant('CSS');?>
+jquery-confirm.min.css"/>
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>
 login.css"/>
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>

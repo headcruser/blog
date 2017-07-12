@@ -119,4 +119,9 @@ class usuarioController
 		$variables['alerta']='El usuario especificado no existe';
 		return Vista::crear("admin.usuario.index",'variables',$variables);
 	}
+
+	public function eliminar($id)
+	{
+		die('eliminado');
+	}
 }

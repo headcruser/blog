@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-09 16:29:05
+/* Smarty version 3.1.32-dev-11, created on 2017-07-11 22:04:15
   from "/var/www/html/blog/styles/templates/admin/usuario/listarUsuarios.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_5962a0212fe405_33479640',
+  'unifunc' => 'content_596591af4c1921_24226334',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9c68b7aeee595e0a6e1c444a554d779a3f85c806' => 
     array (
       0 => '/var/www/html/blog/styles/templates/admin/usuario/listarUsuarios.tpl',
-      1 => 1499635741,
+      1 => 1499828651,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5962a0212fe405_33479640 (Smarty_Internal_Template $_smarty_tpl) {
+function content_596591af4c1921_24226334 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <h1>administar usuarios</h1>
 <table class="table">
@@ -67,7 +67,12 @@ foreach ($_from as $_smarty_tpl->tpl_vars['elemento']->value) {
 ">
 				<span class="glyphicon glyphicon-pencil"></span>
 			</a>
-			<button class="btn btn-danger"> <span class="glyphicon glyphicon-trash"></span></button>
+			<button class="btn btn-danger" 
+				onclick="confirmar('http://<?php echo $_SERVER['SERVER_NAME'];?>
+/blog/usuario/eliminar/<?php echo $_smarty_tpl->tpl_vars['elemento']->value['id'];?>
+')"> 
+				<span class="glyphicon glyphicon-trash"></span>
+			</button>
 		</td>
 	</tr>
     <?php
@@ -78,5 +83,40 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 
 </table>
 </div>
+
+<?php echo '<script'; ?>
+>
+   // this one will need literal escapement
+   
+   	function confirmar(url)
+	   {
+			$.confirm({
+			title: 'Eliminar',
+			content: '¿Desea eliminar al usuario?',
+			autoClose: 'cancelAction|15000',
+			animation: 'zoom',
+			buttons: 
+			{
+				deleteUser: 
+				{
+					btnClass: 'btn-danger',
+					text: 'Eliminar',
+					action: function () {
+						window.location.href=url;
+					}
+				},
+				cancelAction:
+				{
+					btnClass: 'btn-info',
+					text: 'Cancelar',
+					action:function () {
+					}
+				}
+			}
+		});
+	   }
+   
+<?php echo '</script'; ?>
+>
 <?php }
 }
