@@ -1,5 +1,5 @@
 <h1 class="text-center">Administar usuarios</h1>
-<table class="table">
+<table class="table" id="tbl_usuario">
 	<tr>
 		{section name=columna loop=$variables.campos}
 		<th>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-11 22:25:48
+/* Smarty version 3.1.32-dev-11, created on 2017-07-12 21:36:21
   from "/var/www/html/blog/styles/templates/admin/usuario/listarUsuarios.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_596596bc242af7_14263001',
+  'unifunc' => 'content_5966dca59dfae0_07800259',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9c68b7aeee595e0a6e1c444a554d779a3f85c806' => 
     array (
       0 => '/var/www/html/blog/styles/templates/admin/usuario/listarUsuarios.tpl',
-      1 => 1499829937,
+      1 => 1499913330,
       2 => 'file',
     ),
   ),
@@ -20,10 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_596596bc242af7_14263001 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5966dca59dfae0_07800259 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <h1 class="text-center">Administar usuarios</h1>
-<table class="table">
+<table class="table" id="tbl_usuario">
 	<tr>
 		<?php
 $__section_columna_0_saved = isset($_smarty_tpl->tpl_vars['__smarty_section_columna']) ? $_smarty_tpl->tpl_vars['__smarty_section_columna'] : false;
