@@ -6,12 +6,6 @@
 <script src="{$smarty.const.JS}validarRegistro.js"></script>
 <script src="{$smarty.const.JS}overhang.min.js"></script>
 <script src="{$smarty.const.JS}inicioSesion.js"></script>
-<script src="{$smarty.const.JS}jquery.dataTables.min.js"></script>
-<script src="{$smarty.const.JS}dataTables.bootstrap.min.js"></script>
-<script type="text/javascript">
-					{literal}
-						$(document).ready(function(){ $("#tbl_usuario").DataTable(); });
-					{/literal}
-		</script>
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
     </body>
 </html>

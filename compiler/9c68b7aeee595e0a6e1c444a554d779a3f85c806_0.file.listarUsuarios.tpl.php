@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-12 21:36:21
+/* Smarty version 3.1.32-dev-11, created on 2017-07-12 22:08:23
   from "/var/www/html/blog/styles/templates/admin/usuario/listarUsuarios.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_5966dca59dfae0_07800259',
+  'unifunc' => 'content_5966e427b37313_74912988',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9c68b7aeee595e0a6e1c444a554d779a3f85c806' => 
     array (
       0 => '/var/www/html/blog/styles/templates/admin/usuario/listarUsuarios.tpl',
-      1 => 1499913330,
+      1 => 1499915297,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5966dca59dfae0_07800259 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5966e427b37313_74912988 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <h1 class="text-center">Administar usuarios</h1>
 <table class="table" id="tbl_usuario">
@@ -83,41 +83,13 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 
 </table>
 </div>
-
 <?php echo '<script'; ?>
+ src="<?php echo @constant('JS');?>
+/acciones/eliminar.js"><?php echo '</script'; ?>
 >
-   //Pasar despues a un archivo de js
-   
-   	function confirmar(url)
-	   {
-			$.confirm({
-			theme: 'light',
-			title: 'Eliminar',
-			content: '¿Desea eliminar al usuario?',
-			autoClose: 'cancelAction|15000',
-			animation: 'zoom',
-			buttons: 
-			{
-				deleteUser: 
-				{
-					btnClass: 'btn-danger',
-					text: 'Eliminar',
-					action: function () {
-						window.location.href=url;
-					}
-				},
-				cancelAction:
-				{
-					btnClass: 'btn-info',
-					text: 'Cancelar',
-					action:function () {
-					}
-				}
-			}
-		});
-	   }
-   
-<?php echo '</script'; ?>
+<?php echo '<script'; ?>
+ src="<?php echo @constant('JS');?>
+/tablas/tbl_usuarios.js"><?php echo '</script'; ?>
 >
 <?php }
 }

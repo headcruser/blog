@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-12 21:45:27
+/* Smarty version 3.1.32-dev-11, created on 2017-07-12 21:55:11
   from "/var/www/html/blog/styles/templates/overall/declaracion.inc.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_5966dec7eb0f72_61394814',
+  'unifunc' => 'content_5966e10f045e16_19650999',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a90c3a9e6d2b2b1dfc2db427b92245e14af840eb' => 
     array (
       0 => '/var/www/html/blog/styles/templates/overall/declaracion.inc.tpl',
-      1 => 1499913923,
+      1 => 1499914410,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5966dec7eb0f72_61394814 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5966e10f045e16_19650999 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Declaracion del documento html -->
 <!DOCTYPE html>
@@ -47,14 +47,14 @@ bootstrap.min.css"/>
 font-awesome.min.css">        
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600i,700" 
               rel="stylesheet"> 
+        <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>
 normalize.css">
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>
 overhang.min.css"/>
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>
 bootstrapValidator.min.css"/>
-        <link rel="stylesheet" href="<?php echo @constant('CSS');?>
-dataTables.bootstrap.min.css"/>
+        
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>
 jquery-confirm.min.css"/>
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>
