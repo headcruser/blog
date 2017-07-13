@@ -17,11 +17,6 @@
             <ul class="nav navbar-nav">
 
                 {if isset($smarty.session.nombre)}
-                    <li>
-                    <a href="http://{$smarty.server.SERVER_NAME}/blog/admin">
-                        <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Menu Principal
-                    </a>
-                    </li>
                 {else}
                     <li>
                     <a href="#">

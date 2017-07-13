@@ -28,6 +28,10 @@
         <link rel="stylesheet" href="{$smarty.const.CSS}jquery-confirm.min.css"/>
         <link rel="stylesheet" href="{$smarty.const.CSS}jquery.dataTables.min.css"/>
         <link rel="stylesheet" href="{$smarty.const.CSS}dataTables.bootstrap.min.css"/>
+
+        {*Estilos para el panel administrador*}
+        <link rel="stylesheet" href="{$smarty.const.CSS}/metisMenu/metisMenu.min.css"/>
+        <link rel="stylesheet" href="{$smarty.const.CSS}/metisMenu/sb-admin-2.css"/>
         
         {*Archvos para javascript*}
         <script src="{$smarty.const.JS}jquery.js"></script>
@@ -40,5 +44,9 @@
         <script src="{$smarty.const.JS}inicioSesion.js"></script>
         <script src="{$smarty.const.JS}jquery.dataTables.min.js"></script>
         <script src="{$smarty.const.JS}dataTables.bootstrap.js"></script>
+
+        {*Archivos para menus*}
+        <script src="{$smarty.const.JS}/metisMenu/metisMenu.min.js"></script>
+        <script src="{$smarty.const.JS}/metisMenu/sb-admin-2.js"></script>
     </head>
 <body>

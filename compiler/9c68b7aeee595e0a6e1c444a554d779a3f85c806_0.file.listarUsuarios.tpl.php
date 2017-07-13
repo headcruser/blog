@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-13 12:36:22
+/* Smarty version 3.1.32-dev-11, created on 2017-07-13 15:26:04
   from "/var/www/html/blog/styles/templates/admin/usuario/listarUsuarios.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_5967af967ea660_46492638',
+  'unifunc' => 'content_5967d75c167fd5_42853503',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9c68b7aeee595e0a6e1c444a554d779a3f85c806' => 
     array (
       0 => '/var/www/html/blog/styles/templates/admin/usuario/listarUsuarios.tpl',
-      1 => 1499967372,
+      1 => 1499970846,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5967af967ea660_46492638 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5967d75c167fd5_42853503 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <h1 class="text-center">Administar usuarios</h1>
 <table id="tbl_usuarios" class="display" cellspacing="0" width="100%">
@@ -94,7 +94,5 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 <?php echo '<script'; ?>
  src="<?php echo @constant('JS');?>
 /tablas/tbl_usuarios.js"><?php echo '</script'; ?>
->
-
-<?php }
+><?php }
 }

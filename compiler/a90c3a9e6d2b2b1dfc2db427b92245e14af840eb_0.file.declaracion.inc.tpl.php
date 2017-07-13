@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-13 12:19:59
+/* Smarty version 3.1.32-dev-11, created on 2017-07-13 14:20:34
   from "/var/www/html/blog/styles/templates/overall/declaracion.inc.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_5967abbf606de3_17389559',
+  'unifunc' => 'content_5967c8029f8f52_23051848',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a90c3a9e6d2b2b1dfc2db427b92245e14af840eb' => 
     array (
       0 => '/var/www/html/blog/styles/templates/overall/declaracion.inc.tpl',
-      1 => 1499966367,
+      1 => 1499973591,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5967abbf606de3_17389559 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5967c8029f8f52_23051848 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Declaracion del documento html -->
 <!DOCTYPE html>
@@ -64,6 +64,12 @@ jquery-confirm.min.css"/>
 jquery.dataTables.min.css"/>
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>
 dataTables.bootstrap.min.css"/>
+
+        
+        <link rel="stylesheet" href="<?php echo @constant('CSS');?>
+/metisMenu/metisMenu.min.css"/>
+        <link rel="stylesheet" href="<?php echo @constant('CSS');?>
+/metisMenu/sb-admin-2.css"/>
         
         
         <?php echo '<script'; ?>
@@ -104,6 +110,16 @@ jquery.dataTables.min.js"><?php echo '</script'; ?>
         <?php echo '<script'; ?>
  src="<?php echo @constant('JS');?>
 dataTables.bootstrap.js"><?php echo '</script'; ?>
+>
+
+        
+        <?php echo '<script'; ?>
+ src="<?php echo @constant('JS');?>
+/metisMenu/metisMenu.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="<?php echo @constant('JS');?>
+/metisMenu/sb-admin-2.js"><?php echo '</script'; ?>
 >
     </head>
 <body><?php }

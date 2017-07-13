@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-09 16:12:27
+/* Smarty version 3.1.32-dev-11, created on 2017-07-13 15:24:35
   from "/var/www/html/blog/styles/templates/overall/navbar.inc.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_59629c3be10f89_51268169',
+  'unifunc' => 'content_5967d703b579f8_39816689',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7b3594bfaa1b5215ef1b3b6d1353599fc65b667d' => 
     array (
       0 => '/var/www/html/blog/styles/templates/overall/navbar.inc.tpl',
-      1 => 1499634743,
+      1 => 1499977472,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:home/login.tpl' => 1,
   ),
 ),false)) {
-function content_59629c3be10f89_51268169 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5967d703b579f8_39816689 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
  <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
@@ -43,12 +43,6 @@ function content_59629c3be10f89_51268169 (Smarty_Internal_Template $_smarty_tpl)
             <ul class="nav navbar-nav">
 
                 <?php if (isset($_SESSION['nombre'])) {?>
-                    <li>
-                    <a href="http://<?php echo $_SERVER['SERVER_NAME'];?>
-/blog/admin">
-                        <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Menu Principal
-                    </a>
-                    </li>
                 <?php } else { ?>
                     <li>
                     <a href="#">

@@ -35,4 +35,3 @@
 </div>
 <script src="{$smarty.const.JS}/acciones/eliminar.js"></script>
 <script src="{$smarty.const.JS}/tablas/tbl_usuarios.js"></script>
-

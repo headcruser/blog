@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-13 12:36:22
+/* Smarty version 3.1.32-dev-11, created on 2017-07-13 15:38:41
   from "/var/www/html/blog/styles/templates/admin/usuario/index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_5967af967914c6_80779462',
+  'unifunc' => 'content_5967da51b1c4b0_52437014',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ed45e69cbaef017a4202b61f6c26737af0f175dc' => 
     array (
       0 => '/var/www/html/blog/styles/templates/admin/usuario/index.tpl',
-      1 => 1499967229,
+      1 => 1499978317,
       2 => 'file',
     ),
   ),
@@ -26,15 +26,15 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:overall/cierre.inc.tpl' => 1,
   ),
 ),false)) {
-function content_5967af967914c6_80779462 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5967da51b1c4b0_52437014 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:overall/declaracion.inc.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 <?php $_smarty_tpl->_subTemplateRender('file:overall/navbar.inc.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
-<div class="container" style="width=90%">
-    <h1 class="container well text-center">Administrador de usuarios</h1>
+<div class="container panel panel-body" style="width=90%">
+    <h1 class="panel panel-heading text-center">Administrador de usuarios</h1>
     <div class="default col-md-3">
         <div class="list-group">
             <a href="http://<?php echo $_SERVER['SERVER_NAME'];?>
@@ -44,6 +44,9 @@ $_smarty_tpl->_subTemplateRender('file:overall/declaracion.inc.tpl', $_smarty_tp
             <a href="http://<?php echo $_SERVER['SERVER_NAME'];?>
 /blog/usuario/crear" class="list-group-item">Agregar Usuarios</a>
             <a href="#" class="list-group-item">Reporte Usuario</a>
+            <a href="http://<?php echo $_SERVER['SERVER_NAME'];?>
+/blog/admin" class="list-group-item">
+                    <span class="glyphicon glyphicon-menu-left"></span>Regresar a menu Principal</a>
         </div>
     </div>
     <div class="default col-md-9" style="height=200%">
@@ -82,19 +85,6 @@ echo $_smarty_tpl->tpl_vars['variables']->value['titulo'];
         </div>
     </div>
 </div>
-<?php echo '<script'; ?>
->
-
-    	$(document).ready(function() {
-    $('#example').DataTable();
-		} );
-
-<?php echo '</script'; ?>
->
-
-
-
-
 <?php $_smarty_tpl->_subTemplateRender('file:overall/footer.inc.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
