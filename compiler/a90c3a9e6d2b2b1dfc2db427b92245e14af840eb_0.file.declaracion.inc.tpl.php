@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-12 21:55:11
+/* Smarty version 3.1.32-dev-11, created on 2017-07-13 12:19:59
   from "/var/www/html/blog/styles/templates/overall/declaracion.inc.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_5966e10f045e16_19650999',
+  'unifunc' => 'content_5967abbf606de3_17389559',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a90c3a9e6d2b2b1dfc2db427b92245e14af840eb' => 
     array (
       0 => '/var/www/html/blog/styles/templates/overall/declaracion.inc.tpl',
-      1 => 1499914410,
+      1 => 1499966367,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5966e10f045e16_19650999 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5967abbf606de3_17389559 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Declaracion del documento html -->
 <!DOCTYPE html>
@@ -41,27 +41,70 @@ function content_5966e10f045e16_19650999 (Smarty_Internal_Template $_smarty_tpl)
              <?php }?>
         <?php }?>
 
+        
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>
 bootstrap.min.css"/>
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>
 font-awesome.min.css">        
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600i,700" 
               rel="stylesheet"> 
-        <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>
 normalize.css">
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>
 overhang.min.css"/>
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>
 bootstrapValidator.min.css"/>
-        
-        <link rel="stylesheet" href="<?php echo @constant('CSS');?>
-jquery-confirm.min.css"/>
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>
 login.css"/>
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>
 estilos.css"/>
+        <link rel="stylesheet" href="<?php echo @constant('CSS');?>
+jquery-confirm.min.css"/>
+        <link rel="stylesheet" href="<?php echo @constant('CSS');?>
+jquery.dataTables.min.css"/>
+        <link rel="stylesheet" href="<?php echo @constant('CSS');?>
+dataTables.bootstrap.min.css"/>
         
+        
+        <?php echo '<script'; ?>
+ src="<?php echo @constant('JS');?>
+jquery.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="<?php echo @constant('JS');?>
+bootstrap.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="<?php echo @constant('JS');?>
+bootstrapValidator.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="<?php echo @constant('JS');?>
+jquery-confirm.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="<?php echo @constant('JS');?>
+validarRegistro.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="<?php echo @constant('JS');?>
+overhang.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="<?php echo @constant('JS');?>
+inicioSesion.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="<?php echo @constant('JS');?>
+jquery.dataTables.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="<?php echo @constant('JS');?>
+dataTables.bootstrap.js"><?php echo '</script'; ?>
+>
     </head>
 <body><?php }
 }

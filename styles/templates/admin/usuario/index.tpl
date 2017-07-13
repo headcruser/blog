@@ -24,19 +24,31 @@
                 </div>
             {/if}
 
-                {if isset($variables.accion)}
-                    {if $variables.accion eq 1}
-                        {include file='admin/usuario/crearUsuario.tpl'}
-                    {/if}
-                    {if $variables.accion eq 2}
-                        {include file='admin/usuario/listarUsuarios.tpl'}
-                    {/if}
-                        
-                 {/if}
+            {if isset($variables.accion)}
+                {if $variables.accion eq 1}
+                    {include file='admin/usuario/crearUsuario.tpl'}
+                {/if}
+                {if $variables.accion eq 2}
+                    {include file='admin/usuario/listarUsuarios.tpl'}
+                {/if}
+                    
+                {/if}
+    
             </div>
         </div>
     </div>
 </div>
+<script>
+{literal}
+    	$(document).ready(function() {
+    $('#example').DataTable();
+		} );
+{/literal}
+</script>
+
+
+
+
 {include file='overall/footer.inc.tpl'}
 <!-- incluye el cierre de la declaracion -->
 {include file='overall/cierre.inc.tpl'}
