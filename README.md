@@ -49,6 +49,16 @@ Es una herramienta moderna y poderosa para debugear en php. Esta libreria es muy
 Es una libreria que facilita el trabajo de validación de los formularios. ademas de tener diversos tipos de validaciones, tambien el usuario puede agregar sus propios tipos de validaciones. [Repositorio en git](https://github.com/Wixel/GUMP.git).
 
 ***
+## FrontEnd
+### Boostrap
+Boostrap es un framework frontend, el cual ofrece diversas herramientas para la maquetacion de la página web, ademas de que ofrece un diseño responsive
+### Jquery
+Esta libreria auque actualmente no es de las mas solicitadas, tiene muchos complementos que permiten una página web mucho mas intetactiva con el usuario. Alguna de las librerias utiizadas en este proyecto en particular fueron 
+- [overhang](https://paulkr.github.io/overhang.js/)
+- [jquery-Confirm](https://craftpip.github.io/jquery-confirm/)
+- [Data Tables](https://datatables.net/)
+Actualmente hay otras soluciones como Angular JS, ReactJS,vue.js, pero posiblemente se agregen más adelante 
+***
 
 ## Arquitectura
 En este apartado, se describe el funcionamiento de los diferentes módulos integrados hasta el momento.
@@ -61,16 +71,13 @@ En este apartado, se describe el funcionamiento de los diferentes módulos integ
   - 'Vista': En esta version del proyecto, se utilza un gestor de plantillas. En este caso Smarty cumple con esa función, pero  independientemente del motor de plantillas, estas se encuentran encapsuladas mediante una clase llamada vistas, la cual se encarga de realizar las configuraciones necesarias para mostrarlas al usuario. Por la forma de estar programado, tiene limitaciones en cuanto al numero de variables que se le pueden asignar a la vista, pero se
 * _Controlador:_
   -Controllers Se encargan de manejar las interacciones entre el sistema y el usuario. En esta clase se definen los metodos que se encargaran de mostrar las vistas. 
-    
- ### Estándar PSR-4
- Esta norma define la forma de estructurar los archivos para la construccion de los **namespaces**. Los namespace se definen como: 
-    - namespace core/models;
-  
-  Para usarlos en una clase cualquiera, basta con usar 
-   - use core/models/<nombreClase.
  
- **SISTEMA ORM**
-  
+ ## SISTEMA ORM
+  Este sistema se encarga de realizar el mapeo de las entidades de la base de datos, por lo que es de vital importancia tener un sistema optimo que se encarge de realizar esta tarea, actualmente hay 3 alternativas por tomar 
+  - Eloquen 
+  - Doctrine 
+  - Codigo Personal 
+ Este sistema cuenta con su propio ORM, sin embargo no es un optimo en cuanto a desepeño, pero existe la posibilidad de poder cambiar a otra libreria, sin embargo este sistema se ira desarrollando confomre se vayan adquieriendo mas conocimientos
 
 
     
