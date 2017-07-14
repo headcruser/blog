@@ -1,5 +1,8 @@
 # Created by https://www.gitignore.io/api/linux,windows,composer
 
+### compiler Smarty ###
+/compiler/
+
 ### Composer ###
 composer.phar
 /vendor/
