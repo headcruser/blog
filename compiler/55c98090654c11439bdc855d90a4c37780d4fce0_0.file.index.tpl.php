@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-13 19:02:30
+/* Smarty version 3.1.32-dev-11, created on 2017-07-13 20:15:59
   from "/var/www/html/blog/styles/templates/admin/index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_59680a16709434_11699052',
+  'unifunc' => 'content_59681b4fb64664_72394357',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '55c98090654c11439bdc855d90a4c37780d4fce0' => 
     array (
       0 => '/var/www/html/blog/styles/templates/admin/index.tpl',
-      1 => 1499978588,
+      1 => 1499994956,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:overall/cierre.inc.tpl' => 1,
   ),
 ),false)) {
-function content_59680a16709434_11699052 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59681b4fb64664_72394357 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:overall/declaracion.inc.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -34,7 +34,7 @@ $_smarty_tpl->_subTemplateRender('file:overall/declaracion.inc.tpl', $_smarty_tp
 <div class="container panel panel-primary" style="width=90%">
     <h1 class="panel panel-heading text-center">Administrador Blog headcruser</h1>
     <div class=" col-md-3 " >
-        <div class="sidebar-nav navbar-collapse ">
+        <div class="sidebar-nav navbar-collapse panel">
 			<ul class="nav" id="side-menu">
 				<li class="sidebar-search">
 					<div class="input-group custom-search-form" >

@@ -3,7 +3,7 @@
 <div class="container panel panel-primary" style="width=90%">
     <h1 class="panel panel-heading text-center">Administrador Blog headcruser</h1>
     <div class=" col-md-3 " >
-        <div class="sidebar-nav navbar-collapse ">
+        <div class="sidebar-nav navbar-collapse panel">
 			<ul class="nav" id="side-menu">
 				<li class="sidebar-search">
 					<div class="input-group custom-search-form" >

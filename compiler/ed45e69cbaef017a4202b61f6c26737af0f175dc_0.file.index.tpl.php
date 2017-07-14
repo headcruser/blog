@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-13 19:46:37
+/* Smarty version 3.1.32-dev-11, created on 2017-07-13 20:10:32
   from "/var/www/html/blog/styles/templates/admin/usuario/index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_5968146ddcdac9_84835813',
+  'unifunc' => 'content_59681a0825c960_67729559',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ed45e69cbaef017a4202b61f6c26737af0f175dc' => 
     array (
       0 => '/var/www/html/blog/styles/templates/admin/usuario/index.tpl',
-      1 => 1499993188,
+      1 => 1499994626,
       2 => 'file',
     ),
   ),
@@ -26,17 +26,17 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:overall/cierre.inc.tpl' => 1,
   ),
 ),false)) {
-function content_5968146ddcdac9_84835813 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59681a0825c960_67729559 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:overall/declaracion.inc.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 <?php $_smarty_tpl->_subTemplateRender('file:overall/navbar.inc.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
-<div class="container panel panel-body" style="width=90%">
+<div class="container panel panel-primary" style="width=90%">
     <h1 class="panel panel-heading text-center">Administrador de usuarios</h1>
-    <div class="default col-md-3">
-        <div class="list-group">
+    <div class="default col-md-3 " >
+        <div class="list-group panel panel-primary">
             <a href="http://<?php echo $_SERVER['SERVER_NAME'];?>
 /blog/usuario" class="list-group-item active"> <span class="glyphicon glyphicon-list"></span> Menú </a>
             <a href="http://<?php echo $_SERVER['SERVER_NAME'];?>

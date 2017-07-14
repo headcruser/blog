@@ -1,9 +1,9 @@
 {include file='overall/declaracion.inc.tpl'}
 {include file='overall/navbar.inc.tpl'}
-<div class="container panel panel-body" style="width=90%">
+<div class="container panel panel-primary" style="width=90%">
     <h1 class="panel panel-heading text-center">Administrador de usuarios</h1>
-    <div class="default col-md-3">
-        <div class="list-group">
+    <div class="default col-md-3 " >
+        <div class="list-group panel panel-primary">
             <a href="http://{$smarty.server.SERVER_NAME}/blog/usuario" class="list-group-item active"> <span class="glyphicon glyphicon-list"></span> Menú </a>
             <a href="http://{$smarty.server.SERVER_NAME}/blog/usuario/listar" class="list-group-item"><span class="glyphicon glyphicon-wrench"></span> Administrar Usuario</a>
             <a href="http://{$smarty.server.SERVER_NAME}/blog/usuario/crear" class="list-group-item"><span class="glyphicon glyphicon-user"></span> Crear usuario</a>
