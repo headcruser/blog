@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-13 14:20:34
+/* Smarty version 3.1.32-dev-11, created on 2017-07-13 19:28:11
   from "/var/www/html/blog/styles/templates/overall/declaracion.inc.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_5967c8029f8f52_23051848',
+  'unifunc' => 'content_5968101b7c9486_80306015',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a90c3a9e6d2b2b1dfc2db427b92245e14af840eb' => 
     array (
       0 => '/var/www/html/blog/styles/templates/overall/declaracion.inc.tpl',
-      1 => 1499973591,
+      1 => 1499992088,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5967c8029f8f52_23051848 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5968101b7c9486_80306015 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Declaracion del documento html -->
 <!DOCTYPE html>
@@ -32,14 +32,21 @@ function content_5967c8029f8f52_23051848 (Smarty_Internal_Template $_smarty_tpl)
         <?php if (isset($_smarty_tpl->tpl_vars['titulo']->value)) {?>
             <title><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
 </title>
-            <?php } else { ?>
-             <?php if (isset($_SESSION['nombre'])) {?>
-                <title>Bienvenido <?php echo $_SESSION['nombre'];?>
+        <?php } else { ?>
+            <?php if (isset($_smarty_tpl->tpl_vars['variables']->value['titulo'])) {?>
+                <title><?php echo $_smarty_tpl->tpl_vars['variables']->value['titulo'];?>
 </title>
                 <?php } else { ?>
-                <title>Titulo principal</title>
-             <?php }?>
+                <?php if (isset($_SESSION['nombre'])) {?>
+                    <title>Bienvenido <?php echo $_SESSION['nombre'];?>
+</title>
+                    <?php } else { ?>
+                        <title>Titulo predeterminado</title>
+                <?php }?>
+            <?php }?>
         <?php }?>
+
+        
 
         
         <link rel="stylesheet" href="<?php echo @constant('CSS');?>

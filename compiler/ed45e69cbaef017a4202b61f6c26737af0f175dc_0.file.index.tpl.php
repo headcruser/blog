@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-13 15:38:41
+/* Smarty version 3.1.32-dev-11, created on 2017-07-13 19:46:37
   from "/var/www/html/blog/styles/templates/admin/usuario/index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_5967da51b1c4b0_52437014',
+  'unifunc' => 'content_5968146ddcdac9_84835813',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ed45e69cbaef017a4202b61f6c26737af0f175dc' => 
     array (
       0 => '/var/www/html/blog/styles/templates/admin/usuario/index.tpl',
-      1 => 1499978317,
+      1 => 1499993188,
       2 => 'file',
     ),
   ),
@@ -26,7 +26,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:overall/cierre.inc.tpl' => 1,
   ),
 ),false)) {
-function content_5967da51b1c4b0_52437014 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5968146ddcdac9_84835813 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:overall/declaracion.inc.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -38,12 +38,12 @@ $_smarty_tpl->_subTemplateRender('file:overall/declaracion.inc.tpl', $_smarty_tp
     <div class="default col-md-3">
         <div class="list-group">
             <a href="http://<?php echo $_SERVER['SERVER_NAME'];?>
-/blog/usuario" class="list-group-item active">Menú Usuarios</a>
+/blog/usuario" class="list-group-item active"> <span class="glyphicon glyphicon-list"></span> Menú </a>
             <a href="http://<?php echo $_SERVER['SERVER_NAME'];?>
-/blog/usuario/listar" class="list-group-item">Administrar Usuarios</a>
+/blog/usuario/listar" class="list-group-item"><span class="glyphicon glyphicon-wrench"></span> Administrar Usuario</a>
             <a href="http://<?php echo $_SERVER['SERVER_NAME'];?>
-/blog/usuario/crear" class="list-group-item">Agregar Usuarios</a>
-            <a href="#" class="list-group-item">Reporte Usuario</a>
+/blog/usuario/crear" class="list-group-item"><span class="glyphicon glyphicon-user"></span> Crear usuario</a>
+            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-file"></span> Reporte Usuario</a>
             <a href="http://<?php echo $_SERVER['SERVER_NAME'];?>
 /blog/admin" class="list-group-item">
                     <span class="glyphicon glyphicon-menu-left"></span>Regresar a menu Principal</a>
@@ -52,9 +52,9 @@ $_smarty_tpl->_subTemplateRender('file:overall/declaracion.inc.tpl', $_smarty_tp
     <div class="default col-md-9" style="height=200%">
         <div class="panel panel-primary">
             <div class="panel panel-heading"> 
-                <center><b><?php if (isset($_smarty_tpl->tpl_vars['variables']->value['titulo'])) {
-echo $_smarty_tpl->tpl_vars['variables']->value['titulo'];
-} else { ?>Panel Usuarios<?php }?></b></center>
+                <center><b><?php if (isset($_smarty_tpl->tpl_vars['variables']->value['panelTitulo'])) {
+echo $_smarty_tpl->tpl_vars['variables']->value['panelTitulo'];
+} else { ?>Panel<?php }?></b></center>
             </div>
             <div class="panel-body" width="95%">
             <?php if (isset($_smarty_tpl->tpl_vars['variables']->value['alerta'])) {?>

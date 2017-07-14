@@ -14,7 +14,7 @@ class registroController
 		if(isset($_SESSION['nombre']))
 			header('location: http://192.168.86.129/blog/admin');
 
-	   	return Vista::crear("registro.registro");
+	   	return Vista::crear("registro.registro","titulo","Registro de usuarios");
 	}
 
 	public function alta()

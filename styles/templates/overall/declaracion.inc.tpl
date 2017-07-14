@@ -7,13 +7,19 @@
 
         {if isset($titulo)}
             <title>{$titulo}</title>
-            {else}
-             {if isset($smarty.session.nombre)}
-                <title>Bienvenido {$smarty.session.nombre}</title>
+        {else}
+            {if isset($variables.titulo)}
+                <title>{$variables.titulo}</title>
                 {else}
-                <title>Titulo principal</title>
-             {/if}
+                {if isset($smarty.session.nombre)}
+                    <title>Bienvenido {$smarty.session.nombre}</title>
+                    {else}
+                        <title>Titulo predeterminado</title>
+                {/if}
+            {/if}
         {/if}
+
+        
 
         {*Hojas de estilos*}
         <link rel="stylesheet" href="{$smarty.const.CSS}bootstrap.min.css"/>

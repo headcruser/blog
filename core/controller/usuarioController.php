@@ -15,7 +15,7 @@ class usuarioController
 		if(!$_SESSION['nombre'])
 			header('location: http://192.168.86.129/blog');
 
-		return Vista::crear("admin.usuario.index");
+		return Vista::crear("admin.usuario.index","titulo","Usuarios del sistema");
 	}
 
 	/**
@@ -73,6 +73,8 @@ class usuarioController
 		}
 
 		 //Se va a registrar
+		$variables['panelTitulo']='Ingresa tu información';
+		$variables['titulo']='Crear Usuario';
 		return Vista::crear("admin.usuario.index",'variables',$variables);
 	}
 
@@ -92,7 +94,8 @@ class usuarioController
 		$variables['campos']=$campos;
 		$variables['datos']=$datos;
         $variables['accion']=2;
-        $variables['titulo']='Lista de usuarios';
+        $variables['panelTitulo']='Lista de usuarios';
+		$variables['titulo']='Administrar usuarios';
 
 		return Vista::crear("admin.usuario.index",'variables',$variables);
 	}
@@ -117,7 +120,8 @@ class usuarioController
         if (count($usuarios)) 
 		{
 			$variables['usuarios']=$usuarios;
-			$variables['titulo']='Lista de usuarios';
+			$variables['panelTitulo']='Lista de usuarios';
+			$variables['titulo']='Editar Usuario';
 			return Vista::crear("admin.usuario.index",'variables',$variables);   
         }
 		

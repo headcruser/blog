@@ -4,10 +4,10 @@
     <h1 class="panel panel-heading text-center">Administrador de usuarios</h1>
     <div class="default col-md-3">
         <div class="list-group">
-            <a href="http://{$smarty.server.SERVER_NAME}/blog/usuario" class="list-group-item active">Menú Usuarios</a>
-            <a href="http://{$smarty.server.SERVER_NAME}/blog/usuario/listar" class="list-group-item">Administrar Usuarios</a>
-            <a href="http://{$smarty.server.SERVER_NAME}/blog/usuario/crear" class="list-group-item">Agregar Usuarios</a>
-            <a href="#" class="list-group-item">Reporte Usuario</a>
+            <a href="http://{$smarty.server.SERVER_NAME}/blog/usuario" class="list-group-item active"> <span class="glyphicon glyphicon-list"></span> Menú </a>
+            <a href="http://{$smarty.server.SERVER_NAME}/blog/usuario/listar" class="list-group-item"><span class="glyphicon glyphicon-wrench"></span> Administrar Usuario</a>
+            <a href="http://{$smarty.server.SERVER_NAME}/blog/usuario/crear" class="list-group-item"><span class="glyphicon glyphicon-user"></span> Crear usuario</a>
+            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-file"></span> Reporte Usuario</a>
             <a href="http://{$smarty.server.SERVER_NAME}/blog/admin" class="list-group-item">
                     <span class="glyphicon glyphicon-menu-left"></span>Regresar a menu Principal</a>
         </div>
@@ -15,7 +15,7 @@
     <div class="default col-md-9" style="height=200%">
         <div class="panel panel-primary">
             <div class="panel panel-heading"> 
-                <center><b>{if isset($variables.titulo)}{$variables.titulo}{else}Panel Usuarios{/if}</b></center>
+                <center><b>{if isset($variables.panelTitulo)}{$variables.panelTitulo}{else}Panel{/if}</b></center>
             </div>
             <div class="panel-body" width="95%">
             {if isset($variables.alerta)}
