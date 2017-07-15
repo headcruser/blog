@@ -57,7 +57,7 @@
                 </div>  
                 <div class="panel-body">
 
-                	<form role="form" method="post" 
+                	<form id="usuarioNuevo" role="form" method="post" 
                      action="http://{$smarty.server.SERVER_NAME}/blog/registro/alta">
                 		<div class="form-group" >
                 			<label class="help-block">Nombre Usuario</label>
@@ -93,5 +93,6 @@
         </div>
     </div>
 </div>
+    <script src="{$smarty.const.JS}usuarioNuevo.js"></script>
 {include file='overall/footer.inc.tpl'}
 {include file='overall/cierre.inc.tpl'}

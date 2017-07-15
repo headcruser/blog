@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-09 14:34:25
+/* Smarty version 3.1.32-dev-11, created on 2017-07-14 20:01:12
   from "/var/www/html/blog/styles/templates/registro/registro.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_59628541f27203_37240885',
+  'unifunc' => 'content_5969695823ebe4_50633757',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2fde380170e9e9cf58b9bcf0ca9f603dd043a64d' => 
     array (
       0 => '/var/www/html/blog/styles/templates/registro/registro.tpl',
-      1 => 1499628860,
+      1 => 1500080461,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:overall/cierre.inc.tpl' => 1,
   ),
 ),false)) {
-function content_59628541f27203_37240885 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5969695823ebe4_50633757 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:overall/declaracion.inc.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -88,7 +88,7 @@ $_smarty_tpl->_subTemplateRender('file:overall/declaracion.inc.tpl', $_smarty_tp
                 </div>  
                 <div class="panel-body">
 
-                	<form role="form" method="post" 
+                	<form id="usuarioNuevo" role="form" method="post" 
                      action="http://<?php echo $_SERVER['SERVER_NAME'];?>
 /blog/registro/alta">
                 		<div class="form-group" >
@@ -125,6 +125,10 @@ $_smarty_tpl->_subTemplateRender('file:overall/declaracion.inc.tpl', $_smarty_tp
         </div>
     </div>
 </div>
+    <?php echo '<script'; ?>
+ src="<?php echo @constant('JS');?>
+usuarioNuevo.js"><?php echo '</script'; ?>
+>
 <?php $_smarty_tpl->_subTemplateRender('file:overall/footer.inc.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 

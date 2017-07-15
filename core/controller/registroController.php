@@ -26,6 +26,7 @@ class registroController
 		if($_SERVER['REQUEST_METHOD']!='POST')
 			return Vista::crear("error.error","error","Envia por metodo post ¬¬");
 
+		$resultado=array();
 		$validacion = new \GUMP();
 		$_POST = $validacion->sanitize($_POST);
 		
@@ -48,27 +49,47 @@ class registroController
 		$validated_data = $validacion->run($_POST);
 
 		if($validated_data === false) 
-			die( $validacion->get_readable_errors(true) );
+		{
+			header('Content-type: application/json');
+			header("Cache-Control: no-cache");
+			header("Pragma: no-cache");
+			$resultado=array("estado"=>"false","mensaje"=>$validacion->get_readable_errors(true));
+			return print (json_encode($resultado));
+			//die( $validacion->get_readable_errors(true) );
+		}
 		
 		if($is_valid !== true) 
-			die(print_r( $is_valid ));
-		
-		$usuario=new Usuario();
-		try
-		{	
-			//insertar nuevo usuario
-			$usuario->nombre=$_POST['nombre'];
-			$usuario->email=$_POST['email'];
-			$usuario->password=password_hash($_POST['pasword'], PASSWORD_DEFAULT);
-			$usuario->fecha_registro = date("Y-m-d");
-			$usuario->activo="1";
-			$usuario->guardar();
+		{
+			header('Content-type: application/json');
+			header("Cache-Control: no-cache");
+			header("Pragma: no-cache");
+			$resultado=array("estado"=>"false","mensaje"=>$is_valid);
+			return print (json_encode($resultado));
+			//die(print_r( $is_valid ));
 		}
-		catch(Exception $e){
-			Vista::crear("error.error","error",$e->getMessage());
-		}
+
+		header('Content-type: application/json');
+		header("Cache-Control: no-cache");
+		header("Pragma: no-cache");
+		$resultado=array("estado"=>"true","mensaje"=>"Validación Aceptada");
+		return print (json_encode($resultado)); 
 		
-		if($usuario->login($_POST['email'],$_POST['pasword']))
-			header('location: http://192.168.86.129/blog/admin');
+		// $usuario=new Usuario();
+		// try
+		// {	
+		// 	//insertar nuevo usuario
+		// 	$usuario->nombre=$_POST['nombre'];
+		// 	$usuario->email=$_POST['email'];
+		// 	$usuario->password=password_hash($_POST['pasword'], PASSWORD_DEFAULT);
+		// 	$usuario->fecha_registro = date("Y-m-d");
+		// 	$usuario->activo="1";
+		// 	$usuario->guardar();
+		// }
+		// catch(Exception $e){
+		// 	Vista::crear("error.error","error",$e->getMessage());
+		// }
+		
+		// if($usuario->login($_POST['email'],$_POST['pasword']))
+		// 	header('location: http://192.168.86.129/blog/admin');
 	}
 }

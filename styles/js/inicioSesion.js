@@ -39,10 +39,8 @@ $(document).ready(function()
                 }
             }
        }
-    });
-
-   
-   $("#login").submit(function(){
+    }).on ('submit',function(e)
+    {
         
         $.ajax({
             type:$(this).attr("method"),
@@ -50,7 +48,6 @@ $(document).ready(function()
             data:$(this).serialize(),
             success: function(response)
             {
-
                 if(response.estado=="true")
                 {
                     $("body").overhang({
@@ -66,8 +63,7 @@ $(document).ready(function()
                     $("body").overhang({
                     type: "error",
                     message: "Usuario y/o Password incorrecto"
-                });
-
+                    });
                 }
             },
             error:function()
@@ -80,5 +76,5 @@ $(document).ready(function()
         });
         return false; 
 
-    });   
+    })  
 });

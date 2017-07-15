@@ -52,7 +52,7 @@
         <script src="{$smarty.const.JS}dataTables.bootstrap.js"></script>
 
         {*Archivos para menus*}
-        <script src="{$smarty.const.JS}/metisMenu/metisMenu.min.js"></script>
-        <script src="{$smarty.const.JS}/metisMenu/sb-admin-2.js"></script>
+        <script src="{$smarty.const.JS}metisMenu/metisMenu.min.js"></script>
+        <script src="{$smarty.const.JS}metisMenu/sb-admin-2.js"></script>
     </head>
 <body>
