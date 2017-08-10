@@ -58,6 +58,7 @@ Esta libreria auque actualmente no es de las mas solicitadas, tiene muchos compl
 - [jquery-Confirm](https://craftpip.github.io/jquery-confirm/)
 - [Data Tables](https://datatables.net/)
 Actualmente hay otras soluciones como Angular JS, ReactJS,vue.js, pero posiblemente se agregen más adelante 
+
 ***
 
 ## Arquitectura
@@ -70,8 +71,25 @@ En este apartado, se describe el funcionamiento de los diferentes módulos integ
 * _Vista_
   - 'Vista': En esta version del proyecto, se utilza un gestor de plantillas. En este caso Smarty cumple con esa función, pero  independientemente del motor de plantillas, estas se encuentran encapsuladas mediante una clase llamada vistas, la cual se encarga de realizar las configuraciones necesarias para mostrarlas al usuario. Por la forma de estar programado, tiene limitaciones en cuanto al numero de variables que se le pueden asignar a la vista, pero se
 * _Controlador:_
-  -Controllers Se encargan de manejar las interacciones entre el sistema y el usuario. En esta clase se definen los metodos que se encargaran de mostrar las vistas. 
- 
+  -Controllers Se encargan de manejar las interacciones entre el sistema y el usuario. En esta clase se definen los metodos que se encargaran de mostrar las vistas.
+
+### SOLID
+Principios del diseño orientado a objetos proporcionan estabilidad y flexibildad a las aplicaciones web utilizando php. SOLID es un acronimo de los cinco principios de diseño orientado a objetos creados por Uncle Bob. Los cinco principios son:
+
+* _'S'_. Single responsiblity principle
+* _'O'_. Open /Close principle
+* _'L'_. Liskov substitutuion principle
+* _'I'_. Interface segregation principle
+* _'D'_. Dependency inversion principle
+
+Estos principios combinados facilitan al desarrollador crear proyectos fáciles de mantener y expandir
+- Principio de responsablidad unica: 'Una clase solo debe tener un motivo para cambiar, lo que significa que solo debe tener una tarea'
+- Principio abierto/cerrado: 'Los objetos o entidades deben estar abiertas a extension, pero cerradas para su modificación'
+- Principio de substiucion de Liskov: 'Cualquier subclase deberia poder ser substituida por la clase padre'
+- principio de segregación de interfaces ' una clase nunca debe ser forzada a implementar una interfaz que no utilza.'
+- Principio de inversion de dependencias ' Las entidades deben depender de abstraciones, no de concreciones' 
+***
+
  ## SISTEMA ORM
   Este sistema se encarga de realizar el mapeo de las entidades de la base de datos, por lo que es de vital importancia tener un sistema optimo que se encarge de realizar esta tarea, actualmente hay 3 alternativas por tomar 
   - Eloquen 
