@@ -90,6 +90,19 @@ Estos principios combinados facilitan al desarrollador crear proyectos fáciles 
 - Principio de inversion de dependencias ' Las entidades deben depender de abstraciones, no de concreciones' 
 ***
 
+### ACTIVE RECORD
+En Ingeniería de software, active record es un patrón de arquitectura encontrado en aplicaciones que almacenan sus datos en Bases de datos relacionales. Fue llamado así por Martin Fowler en su libro Patterns of Enterprise Application Architecture. 
+
+La interfaz de un cierto objeto debe incluir funciones como por ejemplo insertar (INSERT),actualizar (UPDATE), eliminar (DELETE) y propiedades que correspondan de cierta manera directamente a las columnas de la base de datos asociada.
+
+Active record es un enfoque para acceso de datos en una base de datos. Una tabla de la base de datos o vista (view) está envuelta en una clase. Por lo tanto, una instancia de un objeto está ligada a un único registro (tupla) en la tabla. Después de crear y grabar un objeto, un nuevo registro es adicionado a la tabla. Cualquier objeto cargado obtiene su información a partir de la base de datos. 
+
+Cuando un objeto es actualizado, un registro correspondiente en la tabla también es actualizado. Una clase de envoltura implementa los métodos de acceso (setter e getter) o propiedades para cada columna en la tabla o vista.
+
+Este patrón suele ser utilizado por herramientas de persistencia de objetos en el mapeo objeto-relacional. Generalmente las relaciones de llave foránea serán expuestas como una instancia de objeto de tipo apropiado por medio de una propiedad.
+***
+
+
  ## SISTEMA ORM
   Este sistema se encarga de realizar el mapeo de las entidades de la base de datos, por lo que es de vital importancia tener un sistema optimo que se encarge de realizar esta tarea, actualmente hay 3 alternativas por tomar 
   - Eloquen 
