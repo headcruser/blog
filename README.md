@@ -76,11 +76,11 @@ En este apartado, se describe el funcionamiento de los diferentes módulos integ
 ### SOLID
 Principios del diseño orientado a objetos proporcionan estabilidad y flexibildad a las aplicaciones web utilizando php. SOLID es un acronimo de los cinco principios de diseño orientado a objetos creados por Uncle Bob. Los cinco principios son:
 
-* _'S'_. Single responsiblity principle
-* _'O'_. Open /Close principle
-* _'L'_. Liskov substitutuion principle
-* _'I'_. Interface segregation principle
-* _'D'_. Dependency inversion principle
+* _S_. Single responsiblity principle
+* _O_. Open /Close principle
+* _L_. Liskov substitutuion principle
+* _I_. Interface segregation principle
+* _D_. Dependency inversion principle
 
 Estos principios combinados facilitan al desarrollador crear proyectos fáciles de mantener y expandir
 - Principio de responsablidad unica: 'Una clase solo debe tener un motivo para cambiar, lo que significa que solo debe tener una tarea'
