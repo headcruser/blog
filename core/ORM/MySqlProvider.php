@@ -21,7 +21,7 @@ class MySqlProvider extends DatabaseProvider
             {
                 error_log("ERROR: " . $ex -> getMessage());
             }
-            return $resource;
+            return $this->$resource;
     }
     
     public function disconnect()
