@@ -1,9 +1,13 @@
 <?php namespace core\lib;
  use core\lib\Vista;
 
-/** @class: Ruta (PHP4 & PHP5, with comments)
-  * @project: PHP Input Filter
-  * @author: Daniel Martinez
+
+/** @class: Ruta (Gestiona el routing) 
+  * @project: BlogProyect
+  * @date: 12-09-2017
+  * @version: php7
+  * @author: Daniel Martinez 
+  * @copyright: Daniel Martinez
   * @email: headcruser@gmail.com
   * @license: GNU General Public License (GPL)
   */

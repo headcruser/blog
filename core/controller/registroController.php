@@ -3,9 +3,16 @@ use core\lib\Vista;
 use core\model\Usuario;
 use core\help\help;
 
-/**
- * Clase que se encarga de controlar el registro usuarios
- */
+
+/** @class: registroController (Registro de usuarios)
+  * @project: BlogProyect
+  * @date: 12-09-2017
+  * @version: php7
+  * @author: Daniel Martinez 
+  * @copyright: Daniel Martinez
+  * @email: headcruser@gmail.com
+  * @license: GNU General Public License (GPL)
+  */
 class registroController
 {
 	

@@ -1,9 +1,15 @@
 <?php namespace core\lib;
 use Smarty;
 
-/**
- * Clase que gestiona la vista de la aplicacion
- */
+/** @class: Vista (Construye las vistas)
+  * @project: BlogProyect
+  * @date: 12-09-2017
+  * @version: php7
+  * @author: Daniel Martinez 
+  * @copyright: Daniel Martinez
+  * @email: headcruser@gmail.com
+  * @license: GNU General Public License (GPL)
+  */
 class Vista 
 {
     /**
