@@ -1,4 +1,4 @@
-<?php namespace core\ORM;
+<?php namespace core\ORM\Database;
 
 /** @class: DatabaseProvider
   * @project: BlogProyect
@@ -11,9 +11,17 @@
   */
 abstract class DatabaseProvider
 {
+    /**
+     * @var DatabaseProvider
+     */
     protected $resource;
-    public abstract function connect($host,$user,$pass,$dbname);
+
+    /**
+     * @var DabaseConfiguration
+     */
+    protected $configuration;
+
     public abstract function disconnect();
     public abstract function getNoError();
-    public abstract function isConnected();
+    public abstract function isConnected():bool;
 }

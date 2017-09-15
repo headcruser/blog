@@ -1,4 +1,4 @@
-<?php namespace core\ORM;
+<?php namespace core\ORM\Database;
 
 /**se debe incluir cuando se utiliza namespace*/
 use \PDO;

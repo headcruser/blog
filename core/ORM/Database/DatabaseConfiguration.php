@@ -1,5 +1,7 @@
-<?php namespace core\ORM;
+<?php namespace core\ORM\Database;
+
 use Exception;
+
 /**
 *Configuración de la información del servidor
   * @class: DatabaseConfiguration
@@ -105,12 +107,6 @@ class DatabaseConfiguration
 
     public function __toString(): string
     {
-        return sprintf(
-            $this->getHost(),
-            join(', ', $this->getPort()),
-            join(', ', $this->getUsername()),
-            join(', ', $this->getPassword()),
-            join(', ', $this->getDbName())
-        );
+        return sprintf( "hola");
     }
 }
