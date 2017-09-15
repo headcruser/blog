@@ -1,6 +1,6 @@
 <?php namespace core\ORM;
 
- use core\ORM\Conexion;
+ use core\ORM\Database\Conexion;
  use \PDO;
 
 /**

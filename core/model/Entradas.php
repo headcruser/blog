@@ -1,8 +1,9 @@
 <?php namespace core\model;
 
-use core\ORM\Modelo;
+use core\model\Modelo;
 
-/** @class: AuthController 
+/** Modelo de la tabla Entrada
+  * @class: AuthController 
   * @project: BlogProyect
   * @date: 12-09-2017
   * @version: php7
@@ -11,7 +12,7 @@ use core\ORM\Modelo;
   * @email: headcruser@gmail.com
   * @license: GNU General Public License (GPL)
   */
-class Entradas extends Modelo
+final class Entradas extends Modelo
 {
 	protected static $table='entradas';
 }
