@@ -1,14 +1,22 @@
 <?php namespace core\ORM;
 
  use core\ORM\Database\Conexion;
+ use core\ORM\Database\MySqlProvider;
+ use core\ORM\Database\DatabaseConfiguration;
  use \PDO;
 
 /**
-* Clase que gestiona las consultas con la base de datos 
-* @author Headcruser
-* @version 2017_v1
-*/
-class EtORM extends Conexion
+  * Gestión de consultas a la base de datos
+  * @class: DatabaseConfiguration
+  * @project: BlogProyect
+  * @date: 15-09-2017
+  * @version: php7
+  * @author: Daniel Martinez 
+  * @copyright: Daniel Martinez
+  * @email: headcruser@gmail.com
+  * @license: GNU General Public License (GPL)
+  */
+class EtORM
 {    
     protected static $cnx;
     protected static $table;
@@ -19,7 +27,8 @@ class EtORM extends Conexion
      */
     public static function conectar()
     {
-        self::$cnx=Conexion::getConection();
+        $Mysql=new MySqlProvider( new DatabaseConfiguration() );
+        self::$cnx=$Mysql->getConection();
     }
 
     /**
