@@ -10,6 +10,8 @@
 	define('USUARIO','conta');
 	define('PASSWORD','123');		
 	define('DB_NAME','blog');
+	define('PUERTO','3306');
+	define('ENCODING','utf8');
 
 
 	//Crea las rutas del motor de la aplicacion
