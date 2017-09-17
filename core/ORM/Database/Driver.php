@@ -95,7 +95,7 @@ abstract class Driver
      * @return \Cake\Database\StatementInterface
      */
     /**
-     * Check whether or not the driver is connected.
+     * Revisa si el driver esta conectado
      *
      * @return bool
      */
