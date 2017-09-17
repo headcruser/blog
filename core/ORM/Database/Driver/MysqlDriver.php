@@ -37,11 +37,7 @@ class MysqlDriver extends Driver
         'timezone' => null,
         'init' => [],
     ];
-    /**
-     * Versión del servidor
-     *
-     * @var string
-     */
+    
     protected $_version;
     /**
      * Establece una conexion con la base de datos
@@ -106,5 +102,16 @@ class MysqlDriver extends Driver
     public function enabled():bool
     {
         return in_array('mysql', PDO::getAvailableDrivers());
+    }
+
+    /**
+     * Obtiene la version del servidor actual
+     *
+     * @access public
+     * @return string Nombre de la version
+     */
+    public function versionServer():string
+    {
+        return $this->_connection->getAttribute(PDO::ATTR_SERVER_VERSION);
     }
 }
