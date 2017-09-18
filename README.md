@@ -111,8 +111,33 @@ Este patrón suele ser utilizado por herramientas de persistencia de objetos en 
   * **Model:** Realiza la abstracción del mapeo de las tablas 
   * **Paginator:** Optimiza las consultas para reducir la gran cantidad de información recibida.
 
-  ### Database
-  Este módulo es encargado de realizar la conexion con la base de datos 
-   __(en desarrollo)__
+### Database
+Este módulo es encargado unicamente de realizar la conexion con la base de datos. Este módulo se divide en varias secciones, las cuales son indispensables para su buen funcionamiento  
 
-    
+1. Drivers
+2. Excepciones 
+3. Interfaces
+
+#### Drivers
+Esta seccion comienza con una clase abstracta llamada drivers, la cual define los métodos para administrar una conexion con la base de datos. La finalidad es tener una configuración basica para poder trabjar con diversos drivers entre los cuales destacan:
+- mysql 
+- postgres 
+
+La finalidad es poder agregar diversos driver que proporcionen flexibilidad a la hora de cambiar de gestor de base de datos sin modificar ninguna linea de código. Los drivers expecializados podran extender de este driver generico, y podra ser implementado por las clases en concreto.
+
+Para construir un driver, se tiene la siguiente estructura. 
+
+    ` use core\ORM\Database\Driver\MysqlDriver;
+      use core\ORM\Database\Connection;
+
+      $driver = new MysqlDriver([
+ 	    'database' => 'test',
+ 	    'username' => 'root',
+ 	    'password' => 'secret']);`
+
+De esta manera, en el constructor se le puede asignar un parámetro que especifique un array con las configuracion deseada.  
+En caso de no asignar ningun parámetro, tomara la conexion por defecto especificada en el driver correspondiente.
+
+ `$driver = new MysqlDriver();`
+
+ > Para hacer uso de estas clases, hay que llamar al namespace correspondiente _`core\ORM\Database\Driver\MysqlDriver`_
