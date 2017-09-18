@@ -119,7 +119,7 @@ Este módulo es encargado unicamente de realizar la conexion con la base de dato
 3. Interfaces
 
 #### Drivers
-Esta seccion comienza con una clase abstracta llamada drivers, la cual define los métodos para administrar una conexion con la base de datos. La finalidad es tener una configuración basica para poder trabjar con diversos drivers entre los cuales destacan:
+Esta sección comienza con una clase abstracta llamada **Drivers**, la cual define los métodos para administrar una conexión con la base de datos. La finalidad es tener una configuración basica para poder trabjar con diversos drivers entre los cuales destacan:
 - mysql 
 - postgres 
 
@@ -127,13 +127,13 @@ La finalidad es poder agregar diversos driver que proporcionen flexibilidad a la
 
 Para construir un driver, se tiene la siguiente estructura. 
 
-    ` use core\ORM\Database\Driver\MysqlDriver;
+      use core\ORM\Database\Driver\MysqlDriver;
       use core\ORM\Database\Connection;
 
       $driver = new MysqlDriver([
  	    'database' => 'test',
  	    'username' => 'root',
- 	    'password' => 'secret']);`
+ 	    'password' => 'secret']);
 
 De esta manera, en el constructor se le puede asignar un parámetro que especifique un array con las configuracion deseada.  
 En caso de no asignar ningun parámetro, tomara la conexion por defecto especificada en el driver correspondiente.
@@ -141,3 +141,8 @@ En caso de no asignar ningun parámetro, tomara la conexion por defecto especifi
  `$driver = new MysqlDriver();`
 
  > Para hacer uso de estas clases, hay que llamar al namespace correspondiente _`core\ORM\Database\Driver\MysqlDriver`_
+
+ ##### PDOTraits
+ En versiones de php 5 en adelante, se hace uso de una caracteristica llamada Trait la cual es una mezcla entre una interfaz y una clase abstracta, en donde se pueden definir métodos y variables, sin la necesidad de instanciar un objeto. 
+ 
+ Este principio es aplicado para realizar la conexión mediante PDO, el cual es el encargado de realizar la conexión. 
