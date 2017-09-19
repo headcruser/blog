@@ -1,17 +1,14 @@
 <?php
 use core\lib\Vista;
 use core\model\Usuario;
-
-
-/** @class: usuarioController (Gestion de usuarios)
-  * @project: BlogProyect
-  * @date: 12-09-2017
-  * @version: php7
-  * @author: Daniel Martinez 
-  * @copyright: Daniel Martinez
-  * @email: headcruser@gmail.com
-  * @license: GNU General Public License (GPL)
-  */
+/**
+* Administración de usuarios
+*
+* @author  Headcruser
+* @copyright: Daniel Martinez
+* @version 2017_v1
+* @license https://opensource.org/licenses/mit-license.php MIT License
+*/
 class usuarioController 
 {
 	/**

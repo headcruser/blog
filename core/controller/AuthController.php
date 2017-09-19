@@ -2,16 +2,14 @@
  use core\model\Usuario; 
  use core\lib\Vista;
  use core\help\help;
-
-/** @class: AuthController 
-  * @project: BlogProyect
-  * @date: 12-09-2017
-  * @version: php7
-  * @author: Daniel Martinez 
-  * @copyright: Daniel Martinez
-  * @email: headcruser@gmail.com
-  * @license: GNU General Public License (GPL)
-  */
+/**
+* Control de acceso al sistema de usuarios
+*
+* @author  Headcruser
+* @copyright: Daniel Martinez
+* @version 2017_v1
+* @license https://opensource.org/licenses/mit-license.php MIT License
+*/
 class AuthController 
 {
 	
@@ -26,8 +24,10 @@ class AuthController
 	}
 
 	/**
-	 * Iniciar sesion en la aplicacion
-	 * @return type
+	 * Login 
+	 *
+	 * Concede el acceso al usuario
+	 * @return mixed Obtiene un Json para conceder el acceso
 	 */
 	public function login()
 	{
@@ -56,7 +56,13 @@ class AuthController
 	      
 	     return print (json_encode($resultado)); 
 	}
-
+	
+	/**
+	 * logout
+	 * 
+	 * Finaliza la sesion del usuario.
+	 * @return mixed 
+	 */
 	function logout()
 	{
 		unset( $_SESSION['id'],
@@ -66,5 +72,5 @@ class AuthController
 			   $_SESSION['validado']);
 		session_destroy(); //destruye la sesion
 		header('location: http://192.168.86.129/blog');
-	}////////////////////Fin de la funcion ///////////////////////////////////
+	}
 }

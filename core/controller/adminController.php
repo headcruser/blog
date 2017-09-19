@@ -2,26 +2,27 @@
 use core\lib\Vista;
 use core\model\Usuario;
 
- /** @class: AdminController 
-  * @project: BlogProyect
-  * @date: 12-09-2017
-  * @version: php7
-  * @author: Daniel Martinez 
-  * @copyright: Daniel Martinez
-  * @email: headcruser@gmail.com
-  * @license: GNU General Public License (GPL)
-  */
-class adminController 
+/**
+* Controla el panel de administración del sistema
+*
+* @author  Headcruser
+* @copyright: Daniel Martinez
+* @version 2017_v1
+* @license https://opensource.org/licenses/mit-license.php MIT License
+*/
+class adminController
 {
-	/**
-	 * Muestra la pagina principal
+    /**
+     * Muestra la pagina principal
 	 * @return type void
-	 */
-	public function index()
-	{
-		if(!$_SESSION['nombre'])
-			header('location: http://192.168.86.129/blog');
+	 * @access public
+     */
+    public function index()
+    {
+        if (!$_SESSION['nombre']) {
+            header('location: http://192.168.86.129/blog');
+        }
 
-		return Vista::crear("admin.index");
-	}
+        return Vista::crear("admin.index");
+    }
 }
