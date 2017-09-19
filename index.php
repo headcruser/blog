@@ -39,7 +39,24 @@
 
 	//Usando La nueva abstraccion
 	
-	use core\ORM\MySqlProvider;
-	$mysqDB=new MySqlProvider();
-	$cnx=$mysqDB->connect(SERVIDOR,USUARIO,PASSWORD,DB_NAME);
-	print_r($cnx);
+	// use core\ORM\MySqlProvider;
+	// $mysqDB=new MySqlProvider();
+	// $cnx=$mysqDB->connect(SERVIDOR,USUARIO,PASSWORD,DB_NAME);
+	// print_r($cnx);
+
+	use core\ORM\Database\Driver\MysqlDriver;
+	use core\ORM\Database\Connection;
+	
+	// $driver = new MysqlDriver([
+	// 	'database' => 'test',
+	// 	'username' => 'root',
+	// 	'password' => 'secret'
+	// ]);
+	$driver = new MysqlDriver();
+	$connection = new Connection([
+		'driver' => $driver
+	]);
+	$connection->connect();
+	$query = "SELECT * from comentarios limit 1";
+	$connection->execute($query);
+	$connection->disconnect();
