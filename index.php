@@ -38,8 +38,44 @@
 	// $cnx=null;
 
 	//Usando La nueva abstraccion
+/*
+	use core\ORM\Database\MySqlProvider;
+	use core\ORM\Database\DatabaseConfiguration;
 	
-	use core\ORM\MySqlProvider;
-	$mysqDB=new MySqlProvider();
-	$cnx=$mysqDB->connect(SERVIDOR,USUARIO,PASSWORD,DB_NAME);
-	print_r($cnx);
+	
+	$Mysql=new MySqlProvider( new DatabaseConfiguration() );
+	$cnx = $Mysql->getConection();
+	
+	
+	 $query = "SELECT * from comentarios limit 1";
+	 $res =$cnx->prepare($query);
+	 $res->execute();
+	
+	// //Obtiene los elementos usando fetchAll
+	 $datos=$res->FetchAll(PDO::FETCH_ASSOC);
+	 d($datos);
+	
+	$Mysql->disconnect();
+*/
+
+// use core\model\Usuario;
+// $usuario=new Usuario();
+// $datos = $usuario->fetchAll(array("id","nombre","email"));
+// d($datos);
+
+use core\ORM\Database\Driver\MysqlDriver;
+use core\ORM\Database\Connection;
+
+// $driver = new MysqlDriver([
+// 	'database' => 'test',
+// 	'username' => 'root',
+// 	'password' => 'secret'
+// ]);
+$driver = new MysqlDriver();
+$connection = new Connection([
+	'driver' => $driver
+]);
+$connection->connect();
+$query = "SELECT * from comentarios limit 1";
+$connection->execute($query);
+$connection->disconnect();
