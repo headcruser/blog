@@ -3,7 +3,8 @@
 use Exception;
 
 /**
-*Configuración de la información del servidor
+* (Obsoleto) 
+*  Configuración de la información del servidor
   * @class: DatabaseConfiguration
   * @project: BlogProyect
   * @date: 15-09-2017

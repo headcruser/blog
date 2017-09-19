@@ -1,17 +1,13 @@
-<?php
-/**
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
- * 
- * @since         3.0.0
- * @license       https://opensource.org/licenses/mit-license.php MIT License
- */
-namespace core\Exception;
+<?php namespace core\Exception;
 use RuntimeException;
 /**
- * Clase base para las exepciones del sistema
- */
+* Excepcion General para el sistema
+*
+* @author  Headcruser
+* @copyright: Daniel Martinez
+* @version 2017_v1
+* @license https://opensource.org/licenses/mit-license.php MIT License
+*/
 class GenericException extends RuntimeException
 {
     /**

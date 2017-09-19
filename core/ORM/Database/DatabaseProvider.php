@@ -1,14 +1,5 @@
 <?php namespace core\ORM\Database;
-
-/** @class: DatabaseProvider
-  * @project: BlogProyect
-  * @date: 12-09-2017
-  * @version: php7
-  * @author: Daniel Martinez 
-  * @copyright: Daniel Martinez
-  * @email: headcruser@gmail.com
-  * @license: GNU General Public License (GPL)
-  */
+//Obsoleto
 abstract class DatabaseProvider
 {
     /**
