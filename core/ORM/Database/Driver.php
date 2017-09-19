@@ -1,25 +1,18 @@
-<?php
-/**
- * Blog(tm) : Desarrollo de un miniframework para aprendizaje personal
- * El desarrollo de este driver fue con la guia del repositorio de
- * Cake Software Foundation, Inc. 
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @link          https://cakephp.org CakePHP(tm) Project
- * @since         3.0.0
- * @license       https://opensource.org/licenses/mit-license.php MIT License
- */
-namespace core\ORM\Database;
+<?php namespace core\ORM\Database;
+
 use InvalidArgumentException;
 use PDO;
 
-/**
+/** 
+ * Abstract Driver 
+ * 
  * Representa un driver de base de datos que contiene todas las 
  * especificaciones de un motor de de construcción de consultas.
  *
+ * @author  Headcruser
+ * @copyright: Daniel Martinez
+ * @version 2017_v1
+ * @license https://opensource.org/licenses/mit-license.php MIT License
  * @property  $_connection
  */
 abstract class Driver
@@ -89,11 +82,12 @@ abstract class Driver
      */
     abstract public function enabled() :bool;
     /**
-     * Prepares a sql statement to be executed
+     * Prepara una sentencia SQL para ejecutar
      *
-     * @param string|\Cake\Database\Query $query The query to convert into a statement.
-     * @return \Cake\Database\StatementInterface
+     * @param string|\core\Database\Query $query Convertir query a sql
+     * @return (De momento Toda la consulta)
      */
+    abstract public function prepare() ;
     /**
      * Revisa si el driver esta conectado
      *

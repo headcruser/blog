@@ -1,24 +1,18 @@
-<?php
-/**
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- * @link          https://cakephp.org CakePHP(tm) Project
- * @since         3.0.0
- * @license       https://opensource.org/licenses/mit-license.php MIT License
- */
-namespace core\ORM\Database;
+<?php namespace core\ORM\Database;
 
 use core\ORM\Database\Driver;
 use core\ORM\Database\IConnection;
 use core\ORM\Database\Exception\MissingConnectionException;
 use core\ORM\Database\Exception\MissingExtensionException;
+
 /**
- * Representa una conecion con la base de datos
- */
+* Encapsula la conexión, dependiendo el driver implementado. 
+*
+* @author  Headcruser
+* @copyright: Daniel Martinez
+* @version 2017_v1
+* @license https://opensource.org/licenses/mit-license.php MIT License
+*/
 class Connection implements IConnection
 {
     /**
@@ -28,7 +22,9 @@ class Connection implements IConnection
      */
     protected $_config;
     /**
-     * Objeto Driver,Responsable de crear la conexion real 
+     * Objeto Driver
+     * 
+     * Responsable de crear la conexion real 
      *
      * @var \core\ORM\Database
      */
@@ -88,7 +84,7 @@ class Connection implements IConnection
      * @throws \Cake\Database\Exception\MissingExtensionException When a driver's PHP extension is missing.
      * @return \Cake\Database\Driver
      */
-    public function driver($driver = null, $config = [])
+    public function driver($driver = null, $config = []):Driver
     {
         if ($driver !== null) {
             $this->setDriver($driver, $config);
@@ -97,6 +93,7 @@ class Connection implements IConnection
     }
     /**
     * Obtiene los parámetros de configuración
+    * @return $_config
     */
     public function config()
     {
@@ -104,8 +101,9 @@ class Connection implements IConnection
     }
     /**
     * Configura el nombre de la conexion
+    * @return string
     */
-    public function configName()
+    public function configName():string
     {
         if (empty($this->_config['name'])) {
             return '';
@@ -154,5 +152,11 @@ class Connection implements IConnection
      {
          $this->_driver=null;
      }
+
+    public function execute($query)
+    {
+        $res=$this->_driver->prepare($query);
+        d($res);
+    }
    
 }

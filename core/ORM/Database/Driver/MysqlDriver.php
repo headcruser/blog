@@ -1,22 +1,19 @@
 <?php
-/**
- * Blog(tm) : Desarrollo de un miniframework para aprendizaje personal
- * El desarrollo de este driver fue con la guia del repositorio de
- * Cake Software Foundation, Inc. 
- * 
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @link          https://cakephp.org CakePHP(tm) Project
- * @since         0.0.1
- * @license       https://opensource.org/licenses/mit-license.php MIT License
- */
+
 namespace core\ORM\Database\Driver;
 
 use core\ORM\Database\Driver;
 use PDO;
 
+/**
+* Driver Mysql
+*
+* Se encarga de gestionar la conexión con el servidor de BD.
+* @author  Headcruser
+* @copyright: Daniel Martinez
+* @version 2017_v1
+* @license https://opensource.org/licenses/mit-license.php MIT License
+*/
 class MysqlDriver extends Driver
 {
     use PDODriverTrait;
@@ -103,7 +100,6 @@ class MysqlDriver extends Driver
     {
         return in_array('mysql', PDO::getAvailableDrivers());
     }
-
     /**
      * Obtiene la version del servidor actual
      *
@@ -113,5 +109,16 @@ class MysqlDriver extends Driver
     public function versionServer():string
     {
         return $this->_connection->getAttribute(PDO::ATTR_SERVER_VERSION);
+    }
+    
+    // metodo provicional **
+    public function prepare($query)
+    {
+        $this->connect();        
+        $statement = $this->_connection->prepare($query);
+        $statement->execute();
+        $datos=$statement->FetchAll(PDO::FETCH_ASSOC);
+        
+        return $datos;
     }
 }

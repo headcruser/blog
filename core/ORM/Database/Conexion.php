@@ -4,9 +4,10 @@
 use \PDO;
 
 /**
+ * (Version obsoleta, vease Driver)
  * Gestiona la conexión con la base de datos 
  * @author Headcruser
- * @version 2017_v1
+ * @version 2017_V0.1
  */
 class Conexion
 {
@@ -39,6 +40,7 @@ class Conexion
     }
 
     /**
+     * 
      * Cierra la conexion con la base de datos 
      * @return void
      */
@@ -47,10 +49,9 @@ class Conexion
         if (isset(self::$conexion)) 
             self::$conexion = null;
     }
-
-    
     /** 
      * Obtiene la conexión de la base de datos 
+     *
      *	@return Conexion Referencia de la conexion
      */
     public static function getConection() 
@@ -60,5 +61,4 @@ class Conexion
 
          return self::$conexion;
     }
-} //Fin de la clase 
- 
+}
