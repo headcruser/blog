@@ -81,13 +81,13 @@ abstract class Driver
      * @return bool true Si es valido el driver
      */
     abstract public function enabled() :bool;
-    /**
-     * Prepara una sentencia SQL para ejecutar
-     *
-     * @param string|\core\Database\Query $query Convertir query a sql
-     * @return (De momento Toda la consulta)
-     */
-    abstract public function prepare() ;
+    // /**
+    //  * Prepara una sentencia SQL para ejecutar
+    //  *
+    //  * @param string|\core\Database\Query $query Convertir query a sql
+    //  * @return (De momento Toda la consulta)
+    //  */
+    // abstract public function prepare() ;
     /**
      * Revisa si el driver esta conectado
      *
