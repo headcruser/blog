@@ -65,17 +65,26 @@
 
 use core\ORM\Database\Driver\MysqlDriver;
 use core\ORM\Database\Connection;
-
-// $driver = new MysqlDriver([
-// 	'database' => 'test',
-// 	'username' => 'root',
-// 	'password' => 'secret'
+use core\ORM\Database\ConnectionManager;
+// $driver = new MysqlDriver();
+// // $driver = new MysqlDriver([
+// // 	'database' => 'test',
+// // 	'username' => 'root',
+// // 	'password' => 'secret'
+// // ]);
+// $connection = new Connection([
+// 	'driver' => $driver
 // ]);
-$driver = new MysqlDriver();
-$connection = new Connection([
-	'driver' => $driver
-]);
-$connection->connect();
+// $connection->connect();
+// $query = "SELECT * from comentarios limit 1";
+// $connection->execute($query);
+// $connection->disconnect();
+
+
+//Nueva sintaxis usando una clase manejadora de conexiones
+
+$conn=ConnectionManager::get()->Connection();
+$conn->connect();
 $query = "SELECT * from comentarios limit 1";
-$connection->execute($query);
-$connection->disconnect();
+$conn->execute($query);
+$conn->disconnect();

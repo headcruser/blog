@@ -34,8 +34,6 @@ class MysqlDriver extends Driver
         'timezone' => null,
         'init' => [],
     ];
-    
-    protected $_version;
     /**
      * Establece una conexion con la base de datos
      * 

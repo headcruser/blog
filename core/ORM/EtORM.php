@@ -27,7 +27,7 @@ class EtORM
      */
     public static function conectar()
     {
-        $Mysql=new MySqlProvider( new DatabaseConfiguration() );
+        //$Mysql=new MySqlProvider( new DatabaseConfiguration() );
         self::$cnx=$Mysql->getConection();
     }
 

@@ -42,9 +42,6 @@ class Connection implements IConnection
             $driver = $config['driver'];
         }
         $this->setDriver($driver, $config);
-        if (!empty($config['log'])) {
-            $this->logQueries($config['log']);
-        }
     }
     /**
      * Asigna las instancias drivers, si es un string, lo pasa a una clase instanciada
