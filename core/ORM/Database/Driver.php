@@ -30,19 +30,12 @@ abstract class Driver
      */
     protected $_baseConfig = [];
     /**
-     * Indicates whether or not the driver is doing automatic identifier quoting
-     * for all queries
-     *
-     * @var bool
-     */
-    protected $_autoQuoting = false;
-    /**
      * Constructor
      *
      * @param array $config The configuration for the driver.
      * @throws \InvalidArgumentException
      */
-    public function __construct($config = [])
+    public function __construct(array $config = [])
     {
         if (empty($config['username']) && !empty($config['login'])) {
             throw new InvalidArgumentException(
@@ -51,9 +44,6 @@ abstract class Driver
         }
         $config += $this->_baseConfig;
         $this->_config = $config;
-        if (!empty($config['quoteIdentifiers'])) {
-            $this->enableAutoQuoting();
-        }
     }
     /**
      * Establecer una conexión con el servidor
@@ -81,50 +71,27 @@ abstract class Driver
      * @return bool true Si es valido el driver
      */
     abstract public function enabled() :bool;
-    // /**
-    //  * Prepara una sentencia SQL para ejecutar
-    //  *
-    //  * @param string|\core\Database\Query $query Convertir query a sql
-    //  * @return (De momento Toda la consulta)
-    //  */
-    // abstract public function prepare() ;
     /**
      * Revisa si el driver esta conectado
      *
      * @return bool
      */
-    public function isConnected():bool
-    {
-        return $this->_connection !== null;
-    }
+    abstract public function isConnected():bool;
+
     /**
-     * Identificador para las consutlas
+     * Prepara la consulta escrita mediante sql 
      *
-     * @param bool $enable Whether to enable auto quoting
-     * @return $this
+     * @param string $query Consulta SQL
+     * @return Statement
      */
-    public function enableAutoQuoting($enable = true):Driver
-    {
-        $this->_autoQuoting = (bool)$enable;
-        return $this;
-    }
-    /**
-     * Returns whether or not this driver should automatically quote identifiers
-     * in queries
-     *
-     * @access public
-     * @return bool
-     */
-    public function isAutoQuotingEnabled():bool
-    {
-        return $this->_autoQuoting;
-    }
+    abstract public function prepare($query);
     /**
      * Destructor
      */
     public function __destruct()
     {
-        $this->_connection = null;
+        //$this->_connection = null;
+        $this->disconnect();
     }
     /**
      * Regresa un arreglo con la información del estado de la conexión
@@ -134,8 +101,6 @@ abstract class Driver
      */
     public function __debugInfo():array
     {
-        return [
-            'connected' => $this->_connection !== null
-        ];
+        return [ 'connected' => $this->_connection !== null];
     }
 }

@@ -1,10 +1,17 @@
 <?php namespace core\ORM\Database;
-
-
+/**
+* Interface conection
+*
+* Methods on conection
+* @author  Headcruser
+* @copyright: Daniel Martinez
+* @version 2017_v1
+* @license https://opensource.org/licenses/mit-license.php MIT License
+*/
 interface IConnection
 {
     /**
-     * Obtiene la configuración de la conexión
+     * get the configuration of name a database conection
      *
      * @return string
      */
@@ -15,5 +22,4 @@ interface IConnection
      * @return array
      */
     public function config();
-    
 }

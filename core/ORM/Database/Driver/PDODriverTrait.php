@@ -56,7 +56,7 @@ trait PDODriverTrait
       *
       * @return void
       */
-    public function disconnect()
+    public function dispose()
     {
         $this->_connection = null;
     }

@@ -153,10 +153,17 @@ class Connection implements IConnection
          $this->_driver=null;
      }
 
+     /**
+    * Obtiene los resultados de manera temporal
+    */
     public function execute($query)
     {
-        $res=$this->_driver->prepare($query);
-        d($res);
+        $statement = $this->_driver->prepare($query);
+        $statement->execute();
+        
+        //poner otra clase para encapsulacion de resultados  **
+        $datos=$statement->FetchAll(\PDO::FETCH_ASSOC);        
+        return $datos;
     }
    
 }

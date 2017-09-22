@@ -52,11 +52,22 @@
 	// 	'username' => 'root',
 	// 	'password' => 'secret'
 	// ]);
+	// $driver = new MysqlDriver();
+	// $connection = new Connection([
+	// 	'driver' => $driver
+	// ]);
+	// $connection->connect();
+	// $query = "SELECT * from comentarios limit 1";
+	// $connection->execute($query);
+	// $connection->disconnect();
+	
 	$driver = new MysqlDriver();
 	$connection = new Connection([
 		'driver' => $driver
 	]);
 	$connection->connect();
 	$query = "SELECT * from comentarios limit 1";
-	$connection->execute($query);
+	$datos=$connection->execute($query);
+	d($datos);
 	$connection->disconnect();
+	

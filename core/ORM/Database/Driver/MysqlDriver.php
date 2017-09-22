@@ -1,9 +1,7 @@
-<?php
-
-namespace core\ORM\Database\Driver;
+<?php namespace core\ORM\Database\Driver;
 
 use core\ORM\Database\Driver;
-use PDO;
+use \PDO;
 
 /**
 * Driver Mysql
@@ -90,6 +88,17 @@ class MysqlDriver extends Driver
         }
         return true;
     }
+
+    /**
+    * Disconnect on server Database
+    *
+    * @access public
+    * @return bool true Es valido usar estre driver.
+    */
+    public function disconnect()
+    {
+        $this->dispose();
+    }
     /**
      * Regresa un driver valido
      *
@@ -108,17 +117,14 @@ class MysqlDriver extends Driver
      */
     public function versionServer():string
     {
-        return $this->_connection->getAttribute(PDO::ATTR_SERVER_VERSION);
+        return $this->connection()->getAttribute(PDO::ATTR_SERVER_VERSION);
     }
-    
-    // metodo provicional **
-    public function prepare($query)
-    {
-        $this->connect();        
-        $statement = $this->_connection->prepare($query);
-        $statement->execute();
-        $datos=$statement->FetchAll(PDO::FETCH_ASSOC);
-        
-        return $datos;
+    /**
+    * Metodo Parcial para obtener las consultas
+    *
+    */
+    public function prepare($consult){
+        $statement = $this->connection()->prepare($consult);
+        return $statement;
     }
 }
