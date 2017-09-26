@@ -1,5 +1,6 @@
-{include file='overall/declaracion.inc.tpl'}
-{include file='overall/navbar.inc.tpl'}
+{extends file="home/GenericTemplate.tpl"}
+{block name=title} Principal {/block}
+{block name=body}
 <div class="container panel panel-primary" style="width=90%">
     <h1 class="panel panel-heading text-center">Administrador Blog headcruser</h1>
     <div class=" col-md-3 " >
@@ -51,6 +52,4 @@
         </div>
     </div>
 </div>
-{include file='overall/footer.inc.tpl'}
-<!-- incluye el cierre de la declaracion -->
-{include file='overall/cierre.inc.tpl'}
+{/block}

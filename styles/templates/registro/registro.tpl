@@ -1,24 +1,19 @@
-{include file='overall/declaracion.inc.tpl'}
-{include file='overall/navbar.inc.tpl'}
-
+{extends file="home/GenericTemplate.tpl"}
+{block name=title} {$titulo} {/block}
+{block name=body}
 <div class="container">
  	<div class="jumbotron">
  		<h1 class="text-center">Formulario de Registro</h1>
  	</div>
  </div>
-
  <div class="container">
  	<div class="row">
  		<div class="col-md-6">
  			<div class=""></div>
  		</div>
- 		<div class="col-md-6">
- 			
- 		</div>
+ 		<div class="col-md-6"></div>
  	</div>
  </div>
-
-
  <div class="container">
     <div class="row">
         <div class="col-md-6 text-center">
@@ -56,7 +51,7 @@
                     </h3>
                 </div>  
                 <div class="panel-body">
-
+                    {* Formulario de registro *}
                 	<form id="usuarioNuevo" role="form" method="post" 
                      action="http://{$smarty.server.SERVER_NAME}/blog/registro/alta">
                 		<div class="form-group" >
@@ -86,7 +81,6 @@
                 		<button type="submit" class="btn btn-default btn-primary"> Registrarse</button>
                 		<button type="reset" class="btn btn-default btn-primary" 
                          id="send_request" name="enviar"> Limpiar Formulario</button>
-
                 	</form>
                 </div>
             </div>
@@ -94,5 +88,4 @@
     </div>
 </div>
     <script src="{$smarty.const.JS}usuarioNuevo.js"></script>
-{include file='overall/footer.inc.tpl'}
-{include file='overall/cierre.inc.tpl'}
+{/block}

@@ -1,5 +1,6 @@
-{include file='overall/declaracion.inc.tpl'}
-{include file='overall/navbar.inc.tpl'}
+{extends file="home/GenericTemplate.tpl"}
+{block name=title} Revisar Usuarios {/block}
+{block name=body}
 <div class="container panel panel-primary" style="width=90%">
     <h1 class="panel panel-heading text-center">Administrador de usuarios</h1>
     <div class="default col-md-3 " >
@@ -25,7 +26,6 @@
                     	<strong>Error! </strong> {$variables.alerta}
                 </div>
             {/if}
-
             {if isset($variables.accion)}
                 {if $variables.accion eq 1}
                     {include file='admin/usuario/crearUsuario.tpl'}
@@ -40,6 +40,4 @@
         </div>
     </div>
 </div>
-{include file='overall/footer.inc.tpl'}
-<!-- incluye el cierre de la declaracion -->
-{include file='overall/cierre.inc.tpl'}
+{/block}

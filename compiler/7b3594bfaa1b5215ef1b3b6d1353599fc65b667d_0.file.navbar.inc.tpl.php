@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-13 15:24:35
+/* Smarty version 3.1.32-dev-11, created on 2017-09-26 15:38:12
   from "/var/www/html/blog/styles/templates/overall/navbar.inc.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_5967d703b579f8_39816689',
+  'unifunc' => 'content_59cabab42bdbd3_32677134',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7b3594bfaa1b5215ef1b3b6d1353599fc65b667d' => 
     array (
       0 => '/var/www/html/blog/styles/templates/overall/navbar.inc.tpl',
-      1 => 1499977472,
+      1 => 1506458202,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:home/login.tpl' => 1,
   ),
 ),false)) {
-function content_5967d703b579f8_39816689 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59cabab42bdbd3_32677134 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
  <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
