@@ -17,8 +17,8 @@
 	
     use core\lib\Ruta;
 	//Rutas Disponibles del sistema 
-	 //$ruta = new Ruta();
-	 //$ruta->submit();
+	$ruta = new Ruta();
+	$ruta->submit();
 
 	
 	//Clase Conexion normal
@@ -44,8 +44,8 @@
 	// $cnx=$mysqDB->connect(SERVIDOR,USUARIO,PASSWORD,DB_NAME);
 	// print_r($cnx);
 
-	use core\ORM\Database\Driver\MysqlDriver;
-	use core\ORM\Database\Connection;
+	// use core\ORM\Database\Driver\MysqlDriver;
+	// use core\ORM\Database\Connection;
 	
 	// $driver = new MysqlDriver([
 	// 	'database' => 'test',
@@ -61,13 +61,13 @@
 	// $connection->execute($query);
 	// $connection->disconnect();
 	
-	$driver = new MysqlDriver();
-	$connection = new Connection([
-		'driver' => $driver
-	]);
-	$connection->connect();
-	$query = "SELECT * from comentarios limit 1";
-	$datos=$connection->execute($query);
-	d($datos);
-	$connection->disconnect();
+	// $driver = new MysqlDriver();
+	// $connection = new Connection([
+	// 	'driver' => $driver
+	// ]);
+	// $connection->connect();
+	// $query = "SELECT * from comentarios limit 1";
+	// $datos=$connection->execute($query);
+	// d($datos);
+	// $connection->disconnect();
 	
