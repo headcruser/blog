@@ -6,8 +6,14 @@
     <title>{block name=title}TITULO DEFAULT{/block}</title>
         {block name=estilos}No hay estilos{/block}
         {block name=js}no hay Js{/block}
+        {block name=menu} 
+            {include file='overall/navbar.inc.tpl'}
+        {/block}
   </head>
   <body>
     {block name=body}Default Body{/block}
   </body>
+        {block name=footer} 
+                {include file='overall/footer.inc.tpl'}
+        {/block}
 </html>
