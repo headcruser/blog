@@ -37,7 +37,9 @@ class Vista
 
         //Ejecutamos el motor de plantillas
         $template=new Smarty();
-       
+        $template->setTemplateDir(PATH_VIEW);
+        $template->setCompileDir(RUTA_BASE."compiler");
+        $template->setCacheDir(RUTA_BASE."compiler/cache");
 
         //comprobar si existe $key (Variable)
         if(!is_null($key))
