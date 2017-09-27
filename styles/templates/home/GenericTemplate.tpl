@@ -36,7 +36,9 @@
       <script src="{$smarty.const.JS}metisMenu/sb-admin-2.js"></script>
     {/block}
 
-      <link rel="shortcut icon" href="{$smarty.const.IMG}iconPrincipal.png" />
+      <link rel="shortcut icon" href="{$smarty.const.IMG}iconPrincipal.ico"/>      
+      {* Agrega una imagen en hmtml
+      {html_image file="{$smarty.const.IMG}iconPrincipal.ico"} *}
     
     <title>{block name=title}TITULO DEFAULT{/block}</title>
   </head>

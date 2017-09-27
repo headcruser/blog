@@ -3,3 +3,5 @@ RewriteBase /blog/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteRule ^(.+)$ index.php?uri=$1 [QSA,L]
+Options All -Indexes
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/x-javascript
