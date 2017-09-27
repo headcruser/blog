@@ -35,6 +35,9 @@
       <script src="{$smarty.const.JS}metisMenu/metisMenu.min.js"></script>
       <script src="{$smarty.const.JS}metisMenu/sb-admin-2.js"></script>
     {/block}
+
+      <link rel="shortcut icon" href="{$smarty.const.IMG}iconPrincipal.png" />
+    
     <title>{block name=title}TITULO DEFAULT{/block}</title>
   </head>
   <body>        {* Cuerpo del documento  *}
