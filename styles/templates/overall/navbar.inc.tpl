@@ -10,7 +10,7 @@
             {if isset($smarty.session.nombre)}
                 <a class="navbar-brand" href="http://{$smarty.server.SERVER_NAME}/blog/admin">AdminHS</a>
             {else}
-                <a class="navbar-brand" href="home">BlogHS</a>
+                <a class="navbar-brand" href="http://{$smarty.server.SERVER_NAME}/blog/">BlogHS</a>
             {/if}
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -19,17 +19,17 @@
                 {if isset($smarty.session.nombre)}
                 {else}
                     <li>
-                    <a href="#">
+                    <a href="http://{$smarty.server.SERVER_NAME}/blog/home/entradas">
                         <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Entradas
                     </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="http://{$smarty.server.SERVER_NAME}/blog/home/favoritos">
                             <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Favoritos
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="http://{$smarty.server.SERVER_NAME}/blog/home/autores">
                             <span class="glyphicon glyphicon-education" aria-hidden="true"></span> Autores
                         </a>
                     </li>

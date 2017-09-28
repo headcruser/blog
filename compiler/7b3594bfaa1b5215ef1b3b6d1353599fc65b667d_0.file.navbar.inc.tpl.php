@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-09-26 15:38:12
+/* Smarty version 3.1.32-dev-11, created on 2017-09-28 16:23:11
   from "/var/www/html/blog/styles/templates/overall/navbar.inc.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_59cabab42bdbd3_32677134',
+  'unifunc' => 'content_59cd683f3525a9_03348167',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7b3594bfaa1b5215ef1b3b6d1353599fc65b667d' => 
     array (
       0 => '/var/www/html/blog/styles/templates/overall/navbar.inc.tpl',
-      1 => 1506458202,
+      1 => 1506633780,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:home/login.tpl' => 1,
   ),
 ),false)) {
-function content_59cabab42bdbd3_32677134 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59cd683f3525a9_03348167 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
  <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
@@ -36,7 +36,8 @@ function content_59cabab42bdbd3_32677134 (Smarty_Internal_Template $_smarty_tpl)
                 <a class="navbar-brand" href="http://<?php echo $_SERVER['SERVER_NAME'];?>
 /blog/admin">AdminHS</a>
             <?php } else { ?>
-                <a class="navbar-brand" href="home">BlogHS</a>
+                <a class="navbar-brand" href="http://<?php echo $_SERVER['SERVER_NAME'];?>
+/blog/">BlogHS</a>
             <?php }?>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -45,17 +46,20 @@ function content_59cabab42bdbd3_32677134 (Smarty_Internal_Template $_smarty_tpl)
                 <?php if (isset($_SESSION['nombre'])) {?>
                 <?php } else { ?>
                     <li>
-                    <a href="#">
+                    <a href="http://<?php echo $_SERVER['SERVER_NAME'];?>
+/blog/home/entradas">
                         <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Entradas
                     </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="http://<?php echo $_SERVER['SERVER_NAME'];?>
+/blog/home/favoritos">
                             <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Favoritos
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="http://<?php echo $_SERVER['SERVER_NAME'];?>
+/blog/home/autores">
                             <span class="glyphicon glyphicon-education" aria-hidden="true"></span> Autores
                         </a>
                     </li>

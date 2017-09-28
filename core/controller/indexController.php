@@ -20,7 +20,40 @@ class indexController
 		if(isset($_SESSION['nombre']))
 			header('location: http://192.168.86.129/blog/admin');
 
-		//template(dir/tpl), nombre variable , contenido variable
+		//(dir.tpl), <nomVar> ,<Contenido>
 		return Vista::crear("home.index","titulo","Bienvenido a la pagina principal");
+	}
+	/**
+	 * Entradas
+	 *
+	 * Muestra una vista de las entradas en general
+	 * @return Vista Muestra al usuario la vista.
+	 */
+	public function entradas()
+	{
+		//(dir.tpl), <nomVar> ,<Contenido>
+		return Vista::crear("home.Entradas");
+	}
+	/**
+	 * Favoritos
+	 *
+	 * Muestra una vista de favoritos
+	 * @return Vista Muestra al usuario la vista
+	 */
+	public function favoritos()
+	{
+		//(dir.tpl), <nomVar> ,<Contenido>
+		return Vista::crear("home.Favoritos");
+	}
+	/**
+	 * Autores
+	 *
+	 * Muestra una vista de los autores de cada Blog
+	 * @return Vista Muestra al usuario la vista Generada 
+	 */
+	public function autores()
+	{
+		//(dir.tpl), <nomVar> ,<Contenido>
+		return Vista::crear("home.Autores");
 	}
 }
