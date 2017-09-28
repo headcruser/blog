@@ -1,3 +1,7 @@
+<p align="center"><img src="./styles/img/about/BlogHeadcruser.JPG">
+</p>
+
+
 # Descipción del funcionamiento del proyecto.
 
 Este proyecto se construyo con la finalidad de seguir explorando la construcción de sitios web. Conforme paso el tiempo se fueron agregando diversos elementos, que mejoraban la apariencia y rendimiento de la pag. El proyecto contiene código fuente de otros autores, por lo que no me atribuyo la autoria del mismo. Sin embargo, se adaptaron la buenas practicas utlizadas para poder hacer uso de diversos elementos que sirvieron de aprendizaje para poder implementar en la construcción. 
