@@ -22,10 +22,10 @@
 				</li>
 
 				<li>
-					<a href="http://{$smarty.server.SERVER_NAME}/blog/entradas"><i class="fa fa-table fa-fw"></i>Entradas</a>
+					<a href="http://{$smarty.server.SERVER_NAME}/blog/admin/entradas"><i class="fa fa-table fa-fw"></i>Entradas</a>
 				</li>
 				<li>
-					<a href="http://{$smarty.server.SERVER_NAME}/blog/comentarios"><i class="fa fa-edit fa-fw"></i> Comentarios</a>
+					<a href="http://{$smarty.server.SERVER_NAME}/blog/admin/comentarios"><i class="fa fa-edit fa-fw"></i> Comentarios</a>
 				</li>
 				<li>
 					<a href="#"><i class="fa fa-wrench fa-fw">
@@ -46,7 +46,7 @@
     </div>
     <div class="default col-md-9" style="height=200%">
         <div class="panel panel-primary">
-            <div class="panel panel-heading"> <center><b>Pagina Principal</b></center></div>
+            <div class="panel panel-heading"> <center><b>Perfl de {$smarty.session.nombre}</b></center></div>
             <div class="panel-body" width="95%">
             </div>
         </div>

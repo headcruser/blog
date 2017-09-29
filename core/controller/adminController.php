@@ -25,4 +25,12 @@ class adminController
 
         return Vista::crear("admin.index");
     }
+
+    public function entradas(){
+        echo "entradas";
+    }
+
+    public function comentarios(){
+        echo "comentarios";
+    }
 }
