@@ -1,36 +1,65 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-13 20:10:32
+/* Smarty version 3.1.32-dev-11, created on 2017-09-29 14:47:40
   from "/var/www/html/blog/styles/templates/admin/usuario/index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_59681a0825c960_67729559',
+  'unifunc' => 'content_59cea35cd392a5_75758423',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ed45e69cbaef017a4202b61f6c26737af0f175dc' => 
     array (
       0 => '/var/www/html/blog/styles/templates/admin/usuario/index.tpl',
-      1 => 1499994626,
+      1 => 1506460337,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:overall/declaracion.inc.tpl' => 1,
-    'file:overall/navbar.inc.tpl' => 1,
     'file:admin/usuario/crearUsuario.tpl' => 1,
     'file:admin/usuario/listarUsuarios.tpl' => 1,
-    'file:overall/footer.inc.tpl' => 1,
-    'file:overall/cierre.inc.tpl' => 1,
   ),
 ),false)) {
-function content_59681a0825c960_67729559 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_subTemplateRender('file:overall/declaracion.inc.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+function content_59cea35cd392a5_75758423 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_loadInheritance();
+$_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
-<?php $_smarty_tpl->_subTemplateRender('file:overall/navbar.inc.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_29876400159cea35cd06e71_48762856', 'title');
+?>
+
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_25247536559cea35cd08971_49499095', 'body');
+$_smarty_tpl->inheritance->endChild($_smarty_tpl, "home/GenericTemplate.tpl");
+}
+/* {block 'title'} */
+class Block_29876400159cea35cd06e71_48762856 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'title' => 
+  array (
+    0 => 'Block_29876400159cea35cd06e71_48762856',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+?>
+ Revisar Usuarios <?php
+}
+}
+/* {/block 'title'} */
+/* {block 'body'} */
+class Block_25247536559cea35cd08971_49499095 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'body' => 
+  array (
+    0 => 'Block_25247536559cea35cd08971_49499095',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <div class="container panel panel-primary" style="width=90%">
@@ -66,7 +95,6 @@ echo $_smarty_tpl->tpl_vars['variables']->value['panelTitulo'];
 
                 </div>
             <?php }?>
-
             <?php if (isset($_smarty_tpl->tpl_vars['variables']->value['accion'])) {?>
                 <?php if ($_smarty_tpl->tpl_vars['variables']->value['accion'] == 1) {?>
                     <?php $_smarty_tpl->_subTemplateRender('file:admin/usuario/crearUsuario.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
@@ -85,10 +113,8 @@ echo $_smarty_tpl->tpl_vars['variables']->value['panelTitulo'];
         </div>
     </div>
 </div>
-<?php $_smarty_tpl->_subTemplateRender('file:overall/footer.inc.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>
-
-<!-- incluye el cierre de la declaracion -->
-<?php $_smarty_tpl->_subTemplateRender('file:overall/cierre.inc.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+<?php
 }
+}
+/* {/block 'body'} */
 }

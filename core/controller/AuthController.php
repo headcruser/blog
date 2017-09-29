@@ -1,7 +1,7 @@
-<?php
- use core\model\Usuario; 
+<?php 
  use core\lib\Vista;
  use core\help\help;
+ use core\lib\Autentication\AutenticationService;
 /**
 * Control de acceso al sistema de usuarios
 *
@@ -12,17 +12,15 @@
 */
 class AuthController 
 {
-	
 	/**
 	 * Muestra la pagina principal
 	 * @return type void
 	 */
 	public function index()
 	{	
-		//template(dir/tpl), nombre variable , contenido variable
-		die("vista Login");
+		//Login pagina Completa
+		print_r('Login Full');
 	}
-
 	/**
 	 * Login 
 	 *
@@ -31,32 +29,26 @@ class AuthController
 	 */
 	public function login()
 	{
-		if( $_SERVER['REQUEST_METHOD']!='POST'){
+		if( $_SERVER['REQUEST_METHOD']!='POST')
 			return Vista::crear("error.error","error","No has enviado por post");
-		}
-
-		if( !isset($_POST['email']) || !isset($_POST['pasword'])){
+		
+		if( !isset($_POST['email']) || !isset($_POST['pasword']))
 			return Vista::crear("error.error","error","Uno de los campos esta vacio");
-		}
-
+		
 		$email=help::validarCampo($_POST['email']);
 		$pasword=help::validarCampo($_POST['pasword']);
 
-		$resultado=array();
-		$usuario=new Usuario();
+		$autentication=AutenticationService::create();
 
 		header('Content-type: application/json');
 		header("Cache-Control: no-cache");
 		header("Pragma: no-cache");
-
-	      if($usuario->login($email,$pasword))
-	      	$resultado=array("estado"=>"true");
-	      else
-	      	$resultado=array("estado"=>"false");	
-	      
-	     return print (json_encode($resultado)); 
+		  
+		if( !$autentication->login($email,$pasword))			
+			return print ( json_encode(array("estado"=>"false") ) ); 
+		
+	     return print ( json_encode( array("estado"=>"true") ) ); 
 	}
-	
 	/**
 	 * logout
 	 * 
@@ -65,12 +57,8 @@ class AuthController
 	 */
 	function logout()
 	{
-		unset( $_SESSION['id'],
-			   $_SESSION['nombre'],
-			   $_SESSION['email'],
-			   $_SESSION['fecha_registro'],
-			   $_SESSION['validado']);
-		session_destroy(); //destruye la sesion
+		$autentication=AutenticationService::create();
+		$autentication->logout();	
 		header('location: http://192.168.86.129/blog');
 	}
 }

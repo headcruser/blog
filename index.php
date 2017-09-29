@@ -71,3 +71,8 @@
 	// d($datos);
 	// $connection->disconnect();
 	
+	// use core\lib\Autentication\AutenticationService;
+
+	// $autentication=AutenticationService::create();
+	// $respuesta=$autentication->login("headcruser@gmail.com","123456");
+	// print_r($respuesta);

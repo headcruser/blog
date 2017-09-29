@@ -16,7 +16,7 @@
   * @email: headcruser@gmail.com
   * @license: GNU General Public License (GPL)
   */
-class EtORM
+class EtORM extends Conexion 
 {    
     protected static $cnx;
     protected static $table;
@@ -27,8 +27,9 @@ class EtORM
      */
     public static function conectar()
     {
-        $Mysql=new MySqlProvider( new DatabaseConfiguration() );
-        self::$cnx=$Mysql->getConection();
+        //$Mysql=new MySqlProvider( new DatabaseConfiguration() );
+        //self::$cnx=$Mysql->getConection();
+        self::$cnx=Conexion::getConection();
     }
 
     /**
