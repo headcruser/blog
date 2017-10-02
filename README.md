@@ -3,7 +3,6 @@
 
 
 # Sobre este Proyecto
-<p align="Justify">
 El proyecto tiene la finalidad de crear una página web donde simule de manera ficticia un blog, dónde diversos autores puedan publicar sus articulos de manera sencilla para que puedan ser leidos por los usuarios que visiten la página.
 
 Al iniciar este proyecto, simplemente fue pensado como un pasatiempo personal, pero conforme fue creciendo el proyecto, simplemente me di cuenta de que se debia estructurar, por lo que me he dado a la tarea de estar actualizando el sitio ficticio, desde documentar de manera adecuada todos los aspectos del codigo, hasta aprender el uso adeuado de herramientas como GitHub, de esta manera puedo obtener experiencia como desarrollador web.
@@ -13,6 +12,7 @@ Es cierto que este tipo de trabajo se pudo realizar mediante algún framework(**
   Daniel Martinez | Octubre 2017
 
 ***
+
 ## La estructrura del proyecto es la siguiente :
   - **Compiler:** Guarda el cache generado de la construccion de plantillas
   - **Config:** Almacena el archivo de configuracón de la base de datos
