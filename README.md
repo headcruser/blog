@@ -9,11 +9,8 @@ El proyecto tiene la finalidad de crear una página web donde simule de manera f
 Al iniciar este proyecto, simplemente fue pensado como un pasatiempo personal, pero conforme fue creciendo el proyecto, simplemente me di cuenta de que se debia estructurar, por lo que me he dado a la tarea de estar actualizando el sitio ficticio, desde documentar de manera adecuada todos los aspectos del codigo, hasta aprender el uso adeuado de herramientas como GitHub, de esta manera puedo obtener experiencia como desarrollador web.
 
 Es cierto que este tipo de trabajo se pudo realizar mediante algún framework(**Cake,Laravel, etc.**), pero opte por intentar generar mi propio código. Sin embargo, no soy tan bueno programando, por lo que me he dado a la tarea de ir revisando código de diversos autores, los cuales se pueden aprender buenas prácticas de programación, y de esta manera integrarlas a mi código personalizado.
-***
-<p align="center">
-  Daniel Martinez | Octubre 2017
-</p>
 
+  Daniel Martinez | Octubre 2017
 
 ***
 ## La estructrura del proyecto es la siguiente :
