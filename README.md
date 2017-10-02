@@ -2,9 +2,19 @@
 </p>
 
 
-# Descipción del funcionamiento del proyecto.
+# Sobre este Proyecto
+<p align="Justify">
+El proyecto tiene la finalidad de crear una página web donde simule de manera ficticia un blog, dónde diversos autores puedan publicar sus articulos de manera sencilla para que puedan ser leidos por los usuarios que visiten la página.
 
-Este proyecto se construyo con la finalidad de seguir explorando la construcción de sitios web. Conforme paso el tiempo se fueron agregando diversos elementos, que mejoraban la apariencia y rendimiento de la pag. El proyecto contiene código fuente de otros autores, por lo que no me atribuyo la autoria del mismo. Sin embargo, se adaptaron la buenas practicas utlizadas para poder hacer uso de diversos elementos que sirvieron de aprendizaje para poder implementar en la construcción. 
+Al iniciar este proyecto, simplemente fue pensado como un pasatiempo personal, pero conforme fue creciendo el proyecto, simplemente me di cuenta de que se debia estructurar, por lo que me he dado a la tarea de estar actualizando el sitio ficticio, desde documentar de manera adecuada todos los aspectos del codigo, hasta aprender el uso adeuado de herramientas como GitHub, de esta manera puedo obtener experiencia como desarrollador web.
+
+Es cierto que este tipo de trabajo se pudo realizar mediante algún framework(**Cake,Laravel, etc.**), pero opte por intentar generar mi propio código. Sin embargo, no soy tan bueno programando, por lo que me he dado a la tarea de ir revisando código de diversos autores, los cuales se pueden aprender buenas prácticas de programación, y de esta manera integrarlas a mi código personalizado.
+***
+<p align="center">
+  Daniel Martinez | Octubre 2017
+</p>
+
+
 ***
 ## La estructrura del proyecto es la siguiente :
   - **Compiler:** Guarda el cache generado de la construccion de plantillas
