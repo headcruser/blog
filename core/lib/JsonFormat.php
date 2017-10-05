@@ -28,6 +28,6 @@ final class JsonFormat
 		header("Cache-Control: no-cache");
         header("Pragma: no-cache");
         
-        return json_encode($array);
+        return json_encode($data);
     }
 }
