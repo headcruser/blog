@@ -1,6 +1,7 @@
 <?php 
- use core\lib\Vista;
  use core\help\help;
+ use core\lib\Vista;
+ use core\lib\JsonFormat;
  use core\lib\Autentication\AutenticationService;
 /**
 * Control de acceso al sistema de usuarios
@@ -39,15 +40,12 @@ class AuthController
 		$pasword=help::validarCampo($_POST['pasword']);
 
 		$autentication=AutenticationService::create();
-
-		header('Content-type: application/json');
-		header("Cache-Control: no-cache");
-		header("Pragma: no-cache");
+		$jsonArray=new JsonFormat();
 		  
 		if( !$autentication->login($email,$pasword))			
-			return print ( json_encode(array("estado"=>"false") ) ); 
+			return print ( $jsonArray->json_response(array("estado"=>"false") ) ); 
 		
-	     return print ( json_encode( array("estado"=>"true") ) ); 
+	     return print ( $jsonArray->json_response( array("estado"=>"true") ) ); 
 	}
 	/**
 	 * logout
