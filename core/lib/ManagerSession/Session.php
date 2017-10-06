@@ -1,4 +1,4 @@
-<?php namespace core\lib\Session;
+<?php namespace core\lib\ManagerSession;
 
 /*
 * Gestiona las sessiones de los usuarios
