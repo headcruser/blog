@@ -5,10 +5,6 @@
 **/
 class Session
 {
-    public function __construct(){
-        session_start();
-    }
-
     public function addValue(string $key ,$value){
         $_SESSION[$key] = $value;
     }

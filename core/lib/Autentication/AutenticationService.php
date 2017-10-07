@@ -1,6 +1,7 @@
 <?php namespace core\lib\Autentication; 
 use core\ORM\EtORM;
 use core\lib\Autentication\Register;
+use core\lib\ManagerSession\Session;
 
 /** @class: Sistema De autenticacion
   * @project: BlogProyect
@@ -12,16 +13,13 @@ use core\lib\Autentication\Register;
   * @license: GNU General Public License (GPL)
   */
 class AutenticationService extends EtORM implements Register
-{ 
-  /**
-	 * Crea una Instancia del servico 
-	 * @return type Register Regresa una implementacion de Register
-	 */
-  public static function create() : Register
+{
+  private $session; 
+  
+  public function __construct(Session $managerSession)
   {
-      return new static();
+    $this->session=$managerSession;
   }
-
  /**
 	 * Inicia sesion el usuario
 	 * @param String 		$email 			Correo del usuario
@@ -34,11 +32,11 @@ class AutenticationService extends EtORM implements Register
     $usuarioLogin=$this->checkUser($email);
     
     //Esta vacio
-    if(!isset($usuarioLogin[0]))
+    if(!isset($usuarioLogin['id']))
         return false;
 
       //La constraseña no coincide
-    if (!password_verify($password, $usuarioLogin[0]['password']))
+    if (!password_verify($password, $usuarioLogin['password']))
         return false;
     
     $this->addSession($usuarioLogin);
@@ -46,19 +44,8 @@ class AutenticationService extends EtORM implements Register
     return true;
   }
   /**
-	 * logout
-	 * 
-	 * Finaliza la sesion del usuario.
-	 * @return void 
-	 */
-  function logout()
-  {
-    $this->clearSession();
-    session_destroy(); //destruye la sesion
-  }
-   /**
-    * checkUser
-    *
+  * checkUser
+  *
     * Revisa si el correo del usuario se encuentra en la base de datos
     * mediante un procedimiento almacenado
     * @param string $email Email a verificar en la base de datos
@@ -66,7 +53,8 @@ class AutenticationService extends EtORM implements Register
     */
    private function checkUser(string $email):array
    {
-      return self::Ejecutar("PA_LOGIN",array($email)); 
+     $arrayUser=self::Ejecutar("PA_LOGIN",array($email)); 
+      return $arrayUser[0];
    }
    /**
     * addSession
@@ -77,26 +65,20 @@ class AutenticationService extends EtORM implements Register
     */
    private function addSession(array $dataUser)
    {
-      $this->clearSession();
-      $_SESSION['id']=$dataUser[0]['id'];
-      $_SESSION['nombre']=$dataUser[0]['nombre'];
-      $_SESSION['email']=$dataUser[0]['email'];
-      $_SESSION['fecha_registro']=$dataUser[0]['fecha_registro'];
-      $_SESSION['validado']=true;
+      $this->session->addValue('id',$dataUser['id']);
+      $this->session->addValue('nombre',$dataUser['nombre']);
+      $this->session->addValue('email',$dataUser['email']);
+      $this->session->addValue('fecha_registro',$dataUser['fecha_registro']);
+      $this->session->addValue('validado',true);
    }
    /**
-    * clearSession
+    * logout
     * 
-    * Vacia la informacion de la superGlobal $_SESSION
-    * @return void
+    * Finaliza la sesion del usuario.
+    * @return void 
     */
-   private function clearSession()
+   function logout()
    {
-      unset(  $_SESSION['id'],
-              $_SESSION['nombre'],
-              $_SESSION['email'],
-              $_SESSION['fecha_registro'],
-              $_SESSION['validado']
-            );
-   }   
+     $this->session->destroySession();
+   }
 }

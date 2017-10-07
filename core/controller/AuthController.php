@@ -3,6 +3,7 @@
  use core\lib\Vista;
  use core\lib\JsonFormat;
  use core\lib\Autentication\AutenticationService;
+ use core\lib\ManagerSession\Session;
 /**
 * Control de acceso al sistema de usuarios
 *
@@ -13,6 +14,14 @@
 */
 class AuthController 
 {
+	private $autentication;
+	private $jsonArray;
+
+	public function __construct()
+	{
+		$this->autentication=new AutenticationService(new Session);
+		$this->jsonArray=new JsonFormat();
+	}
 	/**
 	 * Muestra la pagina principal
 	 * @return type void
@@ -37,15 +46,12 @@ class AuthController
 			return Vista::crear("error.error","error","Uno de los campos esta vacio");
 		
 		$email=help::validarCampo($_POST['email']);
-		$pasword=help::validarCampo($_POST['pasword']);
-
-		$autentication=AutenticationService::create();
-		$jsonArray=new JsonFormat();
-		  
-		if( !$autentication->login($email,$pasword))			
-			return print ( $jsonArray->json_response(array("estado"=>"false") ) ); 
+		$pasword=help::validarCampo($_POST['pasword']);		
 		
-	     return print ( $jsonArray->json_response( array("estado"=>"true") ) ); 
+		if( !$this->autentication->login($email,$pasword))			
+			return print ( $this->jsonArray->json_response(array("estado"=>"false") ) ); 
+		
+		return print ( $this->jsonArray->json_response( array("estado"=>"true") ) ); 
 	}
 	/**
 	 * logout
@@ -55,8 +61,7 @@ class AuthController
 	 */
 	function logout()
 	{
-		$autentication=AutenticationService::create();
-		$autentication->logout();	
-		header('location: http://192.168.86.129/blog');
+		$this->autentication->logout();	
+		header('location: http://'.$_SERVER['SERVER_NAME'].INDEX);
 	}
 }

@@ -5,7 +5,7 @@
 	 * @author Daniel Martinez Sierra 
 	 */
 
-	//session_start(); // Iniciamos la sesion
+	session_start(); // Iniciamos la sesion
 
     //Ruta Principal del proyecto
 	define ("RUTA_BASE",dirname(realpath(__FILE__))."/");  
@@ -17,8 +17,9 @@
 	
     use core\lib\Ruta;
 	//Rutas Disponibles del sistema 
-	// $ruta = new Ruta();
-	// $ruta->submit();
+	$ruta = new Ruta();
+	$ruta->submit();
+	//die('location: '.$_SERVER['SERVER_NAME'].INDEX);
 	
 	//Clase Conexion normal
 
@@ -70,11 +71,7 @@
 	// d($datos);
 	// $connection->disconnect();
 	
-	// use core\lib\Autentication\AutenticationService;
 
-	// $autentication=AutenticationService::create();
-	// $respuesta=$autentication->login("headcruser@gmail.com","123456");
-	// print_r($respuesta);
 	
 	//Ejemplo de uso de inicio de sesion
 	// use core\lib\ManagerSession\Session;
@@ -82,3 +79,12 @@
 	// $session->addValue("usuario","headcruser@gmail.com");
 	// print_r($session->getValue("usuario"));
 	// $session->destroySession();
+	
+	//Mejora del inicio de sesion
+	// use core\lib\Autentication\AutenticationService;
+	// use core\lib\ManagerSession\Session;
+
+	// $autentication=new AutenticationService(new Session);
+	// $respuesta=$autentication->login("headcruser@gmail.com","123456");
+	// print_r($respuesta);
+	// $autentication->logout();
