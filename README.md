@@ -111,15 +111,4 @@ Cuando un objeto es actualizado, un registro correspondiente en la tabla tambié
 
 Este patrón suele ser utilizado por herramientas de persistencia de objetos en el mapeo objeto-relacional. Generalmente las relaciones de llave foránea serán expuestas como una instancia de objeto de tipo apropiado por medio de una propiedad.
 ***
-
-
- ## SISTEMA ORM
-  Es un sistema que se encarga de gestionar las actividades de la base de datos, proporcionando una capa de abstracción que permite al usurio, no hacer uso de sentencias SQL de manera nativa. De esta manera se brinda una mayor seguridad, evitando que exista inyección de sentencias SQL.
-  
-  Este Sistema esta conformado por 3 modulos que se encargan de realizar todo el trabajo 
-  
-  * **Database:** Gestiona la conexión con el gestor de base de datos.
-  * **Model:** Realiza la abstracción del mapeo de las tablas 
-  * **Paginator:** Optimiza las consultas para reducir la gran cantidad de información recibida.
-
  
