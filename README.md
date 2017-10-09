@@ -32,7 +32,13 @@ Es cierto que este tipo de trabajo se pudo realizar mediante algún framework(**
 
 Esta estructura puede variar, dependiendo del estandar implementado por frameworks como Laravel o symfony.
 ***
+## Esquema de la base de datos
 
+A continuación se presenta el diagrama de la base de datos.
+
+<p align="center"><img src="./styles/img/esquemaBD/EsquemaBlog(BD).svg">
+</p>
+***
 ## Librerias
 Al utilizar elementos más avanzados, conforme pasa el tiempo, el desarrollo se vuelve mas tedioso, por lo que en estos casos,
 se utiliza un gestor de dependencias, lo cual me permite gestionar una gran cantidad de librerias, sin la necesidad de preocuparse por romper dependencias.
