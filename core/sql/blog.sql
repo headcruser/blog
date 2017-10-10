@@ -90,3 +90,53 @@ CREATE TABLE usuario_privilegio(
                  ON UPDATE CASCADE
                  ON DELETE RESTRICT
 );
+
+
+CREATE TABLE  auditoria_usuarios(
+    codAudit int not null auto_increment,
+    nombre_anterior varchar(100),
+    email_anterior varchar(255),
+    nombre_nuevo varchar(100),
+    email_nuevo varchar(255),
+    usuario varchar(40),
+    modificado datetime,
+    activo TINYINT,
+    id_usuario int(4),
+    CONSTRAINT PK_AUDITORIA primary key(codAudit));
+
+
+-- Trigger para el registro de clientes
+
+CREATE TRIGGER auditoria_usuarios AFTER INSERT ON usuarios
+     FOR EACH ROW
+     INSERT INTO auditoria_usuarios
+                    (nombre_nuevo,
+                    email_nuevo,
+                    usuario,
+                    modificado,
+                    activo,
+                    id_usuario)
+     values (NEW.nombre,
+             NEW.email,
+             CURRENT_USER(),
+             NOW(),
+             NEW.activo,
+             NEW.id);
+
+CREATE TRIGGER updateAuditoria BEFORE UPDATE ON usuarios
+     FOR EACH ROW
+     INSERT INTO auditoria_usuarios(
+     nombre_anterior,
+     email_anterior,
+     nombre_nuevo,
+     email_nuevo,
+     usuario,
+     modificado,
+     id_usuario)
+     values ( OLD.nombre,
+              OLD.email,
+              NEW.nombre,
+              NEW.email,
+              CURRENT_USER(),
+              NOW(),
+              NEW.id);
