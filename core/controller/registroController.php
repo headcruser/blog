@@ -2,6 +2,8 @@
 use core\lib\Vista;
 use core\model\Usuario;
 use core\help\help;
+use core\lib\JsonFormat;
+
 /**
 * Registro de nuevos usuarios
 *
@@ -12,6 +14,12 @@ use core\help\help;
 */
 class registroController
 {
+	private $jsonArray;
+	
+	public function __construct()
+	{
+		$this->jsonArray=new JsonFormat();
+	}
 	
 	public function index()
 	{
@@ -54,29 +62,21 @@ class registroController
 
 		if($validated_data === false) 
 		{
-			header('Content-type: application/json');
-			header("Cache-Control: no-cache");
-			header("Pragma: no-cache");
+			
 			$resultado=array("estado"=>"false","mensaje"=>$validacion->get_readable_errors(true));
-			return print (json_encode($resultado));
+			return print ($this->jsonArray->json_response($resultado));
 			//die( $validacion->get_readable_errors(true) );
 		}
 		
 		if($is_valid !== true) 
 		{
-			header('Content-type: application/json');
-			header("Cache-Control: no-cache");
-			header("Pragma: no-cache");
 			$resultado=array("estado"=>"false","mensaje"=>$is_valid);
-			return print (json_encode($resultado));
+			return print ($this->jsonArray->json_response($resultado));
 			//die(print_r( $is_valid ));
 		}
 
-		header('Content-type: application/json');
-		header("Cache-Control: no-cache");
-		header("Pragma: no-cache");
 		$resultado=array("estado"=>"true","mensaje"=>"Validación Aceptada");
-		return print (json_encode($resultado)); 
+		return print ($this->jsonArray->json_response($resultado)); 
 		
 		// $usuario=new Usuario();
 		// try
