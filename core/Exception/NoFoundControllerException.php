@@ -2,18 +2,18 @@
 
 use core\Exception\GenericException;
 /**
-* Vista no encontrada.
+* Controlador no encontrado.
 *
-* Lanza una excepción si no se encuentra la vista
+* Lanza una excepción si no se encuentra el controlador
 * @author  Headcruser
 * @copyright: Daniel Martinez
 * @version 2017_v1
 * @license https://opensource.org/licenses/mit-license.php MIT License
 */
-final class ViewException extends GenericException
+final class NoFoundControllerExeption extends GenericException
 {
     /**
      * {@inheritDoc}
      */
-    protected $_messageTemplate = 'La vista No existe: %s';
+    protected $_messageTemplate = 'El controlador no existe: %s';
 }
