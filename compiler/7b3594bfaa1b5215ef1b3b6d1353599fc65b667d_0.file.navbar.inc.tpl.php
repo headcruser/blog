@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-09-28 16:23:11
+/* Smarty version 3.1.32-dev-11, created on 2017-10-12 14:47:51
   from "/var/www/html/blog/styles/templates/overall/navbar.inc.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_59cd683f3525a9_03348167',
+  'unifunc' => 'content_59dfc6e7a81ae3_13778522',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7b3594bfaa1b5215ef1b3b6d1353599fc65b667d' => 
     array (
       0 => '/var/www/html/blog/styles/templates/overall/navbar.inc.tpl',
-      1 => 1506633780,
+      1 => 1507837668,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:home/login.tpl' => 1,
   ),
 ),false)) {
-function content_59cd683f3525a9_03348167 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59dfc6e7a81ae3_13778522 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
  <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
@@ -37,7 +37,7 @@ function content_59cd683f3525a9_03348167 (Smarty_Internal_Template $_smarty_tpl)
 /blog/admin">AdminHS</a>
             <?php } else { ?>
                 <a class="navbar-brand" href="http://<?php echo $_SERVER['SERVER_NAME'];?>
-/blog/">BlogHS</a>
+/blog/home">BlogHS</a>
             <?php }?>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -123,7 +123,8 @@ function content_59cd683f3525a9_03348167 (Smarty_Internal_Template $_smarty_tpl)
                 </li>
                     <!-- termina login -->
                 <li>
-                    <a href="registro">
+                    <a href="http://<?php echo $_SERVER['SERVER_NAME'];?>
+/blog/registro">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Registro
                     </a>
                 </li>

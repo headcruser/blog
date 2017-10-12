@@ -15,10 +15,10 @@
 	//Incluye archivos de configuracion
     include  'config/config.php';
 	
-    use core\lib\Ruta;
+    // use core\lib\Ruta;
 	//Rutas Disponibles del sistema 
-	$ruta = new Ruta();
-	$ruta->submit();
+	// $ruta = new Ruta();
+	// $ruta->submit();
 	//die('location: '.$_SERVER['SERVER_NAME'].INDEX);
 	
 	//Clase Conexion normal
@@ -71,8 +71,6 @@
 	// d($datos);
 	// $connection->disconnect();
 	
-
-	
 	//Ejemplo de uso de inicio de sesion
 	// use core\lib\ManagerSession\Session;
 	// $session = new Session();
@@ -88,3 +86,8 @@
 	// $respuesta=$autentication->login("headcruser@gmail.com","123456");
 	// print_r($respuesta);
 	// $autentication->logout();
+
+	//Probando nuevo sistema de rutas
+	use core\lib\Route\Router;
+	$router=new Router();
+	$router->submit();

@@ -10,7 +10,7 @@
             {if isset($smarty.session.nombre)}
                 <a class="navbar-brand" href="http://{$smarty.server.SERVER_NAME}/blog/admin">AdminHS</a>
             {else}
-                <a class="navbar-brand" href="http://{$smarty.server.SERVER_NAME}/blog/">BlogHS</a>
+                <a class="navbar-brand" href="http://{$smarty.server.SERVER_NAME}/blog/home">BlogHS</a>
             {/if}
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -89,7 +89,7 @@
                 </li>
                     <!-- termina login -->
                 <li>
-                    <a href="registro">
+                    <a href="http://{$smarty.server.SERVER_NAME}/blog/registro">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Registro
                     </a>
                 </li>
