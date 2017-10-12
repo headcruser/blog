@@ -91,10 +91,52 @@ En este apartado, se describe el funcionamiento de los diferentes módulos integ
    
 ### MVC.
  Este tipo de arquitecura, nos permite separa la logica de negocio, de la vista del cliente. De esta manera el mantenimieto a largo plazo es mucho mas sencillo, que trabjar sin ningún tipo de esquema. En el caso de esta aplicación se dividen en tres grandes ramas. A continuacion se explica la categoria, junto con la analogia con este diseño aqrquitectonico.  
-* _Modelo_ 
-  - 'Models': Es una abstración de todos los elementos de la base de datos, mediante el uso de getters y setters mágicos en php
-* _Vista_
-  - 'Vista': En esta version del proyecto, se utilza un gestor de plantillas. En este caso Smarty cumple con esa función, pero  independientemente del motor de plantillas, estas se encuentran encapsuladas mediante una clase llamada vistas, la cual se encarga de realizar las configuraciones necesarias para mostrarlas al usuario. Por la forma de estar programado, tiene limitaciones en cuanto al numero de variables que se le pueden asignar a la vista, pero se
-* *Controlador:*
-  - Controllers Se encargan de manejar las interacciones entre el sistema y el usuario. En esta clase se definen los metodos que se encargaran de mostrar las vistas.
- 
+
+* **Modelo** : Es una abstración de todos los elementos de la base de datos, mediante el uso de getters y setters mágicos en php.
+
+* **Vista** : En esta version del proyecto, se utilza un gestor de plantillas. En este caso Smarty cumple con esa función, pero  independientemente del motor de plantillas, estas se encuentran encapsuladas mediante una clase llamada vistas, la cual se encarga de realizar las configuraciones necesarias para mostrarlas al usuario. 
+
+* **Controlador :**  Controllers Se encargan de manejar las interacciones entre el sistema y el usuario. En esta clase se definen los metodos que se encargaran de mostrar las vistas.
+
+ ### Estructura del sitio web
+- *Inicio ( home )*
+  - Autores
+    - Busquedas Personalizadas
+  - Entradas 
+    - Busquedas Personalizadas
+  - Blog
+    - Cometarios de un blog 
+    - Cualquiera puede comentar
+- *Registro (Usuario)*
+  - Formulario de Registro 
+  - Recuperación de cuenta
+- *Login*
+  - Autenticación de usuarios
+- *Administrador*
+  - CRUD Tablas del sistema 
+  - Perfil 
+  - Reportes PDF (Opcional en registro de auditorias)
+  - Opción Eliminar Datos
+- Usuario (Básico Autentificado)
+  - Editar Blogs Propios
+  - Crear Blogs
+  - Publicar Blogs
+  - Modificar Perfil
+    - Foto
+    - Datos Personales
+- *Modificaciones a futuro*
+  - Autentificación por facebook
+  - Adjuntar Archvivos mediante dropbox
+
+## Capturas del sitio
+**Index** 
+<p align="center"><img src="./styles/img/MaquetacionBlog/inicio.png">
+</p>
+
+**Registro usuarios**
+<p align="center"><img src="./styles/img/MaquetacionBlog/registro.png">
+</p>
+
+**Login del sitio**
+<p align="center"><img src="./styles/img/MaquetacionBlog/inicio-login.png">
+</p>
