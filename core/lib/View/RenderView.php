@@ -1,9 +1,10 @@
 <?php namespace core\lib\View;
 
-use core\Exception\ViewException;
+use core\lib\View\RenderException\ViewPathException;
+use core\lib\View\RenderException\ViewNoFoundException;
 use Smarty;
-
-/** RenderView 
+/** 
+  * RenderView 
   * 
   * Rendereriza el modelo Vista del usuario utilizando smarty
   * Como gestor de plantillas.
@@ -54,13 +55,15 @@ class RenderView
      */
     public function render(string $path,$key=null,$value=null)
     {
-        if( is_null($path) || is_empty($path) )
-            throw new ViewException(['reason' => "Escribe una ruta"]);
+        if( $this->isEmptyPath( $path ) )
+            throw new ViewPathException(
+                ['reason' =>'Por Favor, Debes Especificar una Ruta']);
 
         $ruta = $this->buildPath( $path );
 
         if(!file_exists($ruta))
-            throw new ViewException(['reason' => "La ruta no existe"]);
+            throw new ViewNoFoundException(
+                ['reason' => 'Revisa '.$ruta]);
 
         if(!is_null($key))
         {
@@ -69,6 +72,11 @@ class RenderView
         }
 
         $this->template->display($ruta);
+    }
+
+    public function isEmptyPath($pathUser)
+    {
+        return is_null($pathUser) || empty($pathUser);
     }
     /**
      * BuildPath

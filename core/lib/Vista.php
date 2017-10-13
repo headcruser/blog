@@ -1,5 +1,6 @@
 <?php namespace core\lib;
-use core\Exception\ViewException;
+use core\lib\View\RenderException\ViewPathException;
+use core\lib\View\RenderException\ViewNoFoundException;
 use Smarty;
 
 /** @class: Vista (Construye las vistas)
@@ -24,7 +25,8 @@ class Vista
     {
         //comprobamos si existe la variable path
         if($path == "")
-            throw new ViewException(['reason' => "Escribe una ruta"]);
+            throw new ViewPathException(
+                ['reason' =>'Por Favor, Debes Especificar una Ruta']);
 
         // convertimos la ruta en un array
         $paths = explode(".",$path); 
@@ -34,7 +36,8 @@ class Vista
             
         // comprobar si ese archivo existe
         if(!file_exists(PATH_VIEW.$ruta))
-            throw new ViewException(['reason' => "La ruta no existe"]);
+            throw new ViewNoFoundException(
+                ['reason' => 'Revisa '.$ruta]);
 
         //Ejecutamos el motor de plantillas
         $template=new Smarty();

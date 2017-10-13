@@ -1,24 +1,20 @@
 <?php 
     /**
-	 * CARGA LOS NAMESPACES
-	 * @filesource core/autoload.php
+	 * Página de incio.
+	 * @filesource index
 	 * @author Daniel Martinez Sierra 
+	 * @version 2017_v2
 	 */
-
-	session_start(); // Iniciamos la sesion
-
-    //Ruta Principal del proyecto
+	session_start();
 	define ("RUTA_BASE",dirname(realpath(__FILE__))."/");  
 
 	require_once 'vendor/autoload.php';
-
-	//Incluye archivos de configuracion
     include  'config/config.php';
 	
-    // use core\lib\Ruta;
-	//Rutas Disponibles del sistema 
-	// $ruta = new Ruta();
-	// $ruta->submit();
+	// use core\lib\Route\Router;
+	// $router=new Router();
+	// $router->submit();
+  
 	//die('location: '.$_SERVER['SERVER_NAME'].INDEX);
 	
 	//Clase Conexion normal
@@ -87,7 +83,7 @@
 	// print_r($respuesta);
 	// $autentication->logout();
 
-	//Probando nuevo sistema de rutas
-	use core\lib\Route\Router;
-	$router=new Router();
-	$router->submit();
+	//Prueba de la clase Render
+	// use core\lib\View\RenderView;
+	// $view=new RenderView();
+	// $view->render("home.index");
