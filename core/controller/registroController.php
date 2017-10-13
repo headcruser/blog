@@ -2,7 +2,6 @@
 use core\lib\Controllers\Controller;
 use core\model\Usuario;
 use core\help\help;
-use core\lib\JsonFormat;
 
 /**
 * Registro de nuevos usuarios
