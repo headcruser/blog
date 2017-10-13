@@ -1,5 +1,5 @@
 <?php
-use core\lib\Vista;
+use core\lib\Controllers\Controller;
 use core\model\Usuario;
 /**
 * Administración de usuarios
@@ -9,7 +9,7 @@ use core\model\Usuario;
 * @version 2017_v1
 * @license https://opensource.org/licenses/mit-license.php MIT License
 */
-class usuarioController 
+class usuarioController extends Controller
 {
 	/**
 	 * Muestra la pagina principal
@@ -20,7 +20,7 @@ class usuarioController
 		if(!$_SESSION['nombre'])
 			header('location: http://192.168.86.129/blog');
 
-		return Vista::crear("admin.usuario.index","titulo","Usuarios del sistema");
+		return $this->renderView("admin.usuario.index","titulo","Usuarios del sistema");
 	}
 
 	/**
@@ -80,7 +80,7 @@ class usuarioController
 		 //Se va a registrar
 		$variables['panelTitulo']='Ingresa tu información';
 		$variables['titulo']='Crear Usuario';
-		return Vista::crear("admin.usuario.index",'variables',$variables);
+		return $this->renderView("admin.usuario.index",'variables',$variables);
 	}
 
 	/**
@@ -102,7 +102,7 @@ class usuarioController
         $variables['panelTitulo']='Lista de usuarios';
 		$variables['titulo']='Administrar usuarios';
 
-		return Vista::crear("admin.usuario.index",'variables',$variables);
+		return $this->renderView("admin.usuario.index",'variables',$variables);
 	}
 
 	/**
@@ -127,11 +127,11 @@ class usuarioController
 			$variables['usuarios']=$usuarios;
 			$variables['panelTitulo']='Lista de usuarios';
 			$variables['titulo']='Editar Usuario';
-			return Vista::crear("admin.usuario.index",'variables',$variables);   
+			return $this->renderView("admin.usuario.index",'variables',$variables);   
         }
 		
 		$variables['alerta']='El usuario especificado no existe';
-		return Vista::crear("admin.usuario.index",'variables',$variables);
+		return $this->renderView("admin.usuario.index",'variables',$variables);
 	}
 
 	public function eliminar($id)
@@ -153,12 +153,11 @@ class usuarioController
 			else
 			{
 				$variables['alerta']='El usuario que desea eliminar no existe';
-				return Vista::crear("admin.usuario.index",'variables',$variables);
+				return $this->renderView("admin.usuario.index",'variables',$variables);
 			}
 		}
         
 		$variables['alerta']='El usuario que desea eliminar no existe';
-		return Vista::crear("admin.usuario.index",'variables',$variables);
-		
+		return $this->renderView("admin.usuario.index",'variables',$variables);
 	}
 }

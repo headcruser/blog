@@ -1,5 +1,5 @@
 <?php
-use core\lib\Vista;
+use core\lib\Controllers\Controller;
 use core\model\Usuario;
 use core\help\help;
 use core\lib\JsonFormat;
@@ -12,7 +12,7 @@ use core\lib\JsonFormat;
 * @version 2017_v1
 * @license https://opensource.org/licenses/mit-license.php MIT License
 */
-class registroController
+class registroController extends Controller
 {
 	private $jsonArray;
 	
@@ -26,7 +26,7 @@ class registroController
 		if(isset($_SESSION['nombre']))
 			header('location: http://192.168.86.129/blog/admin');
 
-	   	return Vista::crear("registro.registro","titulo","Registro de usuarios");
+	   	return $this->renderView("registro.registro","titulo","Registro de usuarios");
 	}
 
 	public function alta()
@@ -36,7 +36,7 @@ class registroController
 
 		//Si envia datos, Agregar a la base de datos
 		if($_SERVER['REQUEST_METHOD']!='POST')
-			return Vista::crear("error.error","error","Envia por metodo post ¬¬");
+			return $this->renderView("error.error","error","Envia por metodo post ¬¬");
 
 		$resultado=array();
 		$validacion = new \GUMP();
@@ -90,7 +90,7 @@ class registroController
 		// 	$usuario->guardar();
 		// }
 		// catch(Exception $e){
-		// 	Vista::crear("error.error","error",$e->getMessage());
+		// 	$this->renderView("error.error","error",$e->getMessage());
 		// }
 		
 		// if($usuario->login($_POST['email'],$_POST['pasword']))

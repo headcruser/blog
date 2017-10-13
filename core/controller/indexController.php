@@ -1,6 +1,5 @@
 <?php
- use core\lib\Vista;
-
+use core\lib\Controllers\Controller;
 /**
 * Control de la página principal del sistema.
 *
@@ -9,7 +8,7 @@
 * @version 2017_v1
 * @license https://opensource.org/licenses/mit-license.php MIT License
 */
-class indexController 
+class indexController extends Controller
 {
 	/**
 	 * Muestra la pagina principal
@@ -21,7 +20,7 @@ class indexController
 			header('location: http://192.168.86.129/blog/admin');
 
 		//(dir.tpl), <nomVar> ,<Contenido>
-		return Vista::crear("home.index","titulo","Bienvenido a la pagina principal");
+		return $this->renderView("home.index","titulo","Bienvenido a la pagina principal");
 	}
 	/**
 	 * Entradas
@@ -32,7 +31,7 @@ class indexController
 	public function entradas()
 	{
 		//(dir.tpl), <nomVar> ,<Contenido>
-		return Vista::crear("home.Entradas");
+		return $this->renderView("home.Entradas");
 	}
 	/**
 	 * Favoritos
@@ -43,7 +42,7 @@ class indexController
 	public function favoritos()
 	{
 		//(dir.tpl), <nomVar> ,<Contenido>
-		return Vista::crear("home.Favoritos");
+		return $this->renderView("home.Favoritos");
 	}
 	/**
 	 * Autores
@@ -54,6 +53,6 @@ class indexController
 	public function autores()
 	{
 		//(dir.tpl), <nomVar> ,<Contenido>
-		return Vista::crear("home.Autores");
+		return $this->renderView("home.Autores");
 	}
 }

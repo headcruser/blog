@@ -1,22 +1,20 @@
 <?php 
  use core\help\help;
- use core\lib\Vista;
  use core\lib\JsonFormat;
- use core\lib\Autentication\AutenticationService;
  use core\lib\ManagerSession\Session;
+ use core\lib\Controllers\Controller;
+ use core\lib\Autentication\AutenticationService;
 /**
 * Control de acceso al sistema de usuarios
-*
 * @author  Headcruser
 * @copyright: Daniel Martinez
 * @version 2017_v1
 * @license https://opensource.org/licenses/mit-license.php MIT License
 */
-class AuthController 
+class AuthController extends Controller
 {
 	private $autentication;
 	private $jsonArray;
-
 	public function __construct()
 	{
 		$this->autentication=new AutenticationService(new Session);
@@ -28,7 +26,6 @@ class AuthController
 	 */
 	public function index()
 	{	
-		//Login pagina Completa
 		print_r('Login Full');
 	}
 	/**

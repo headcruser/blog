@@ -11,9 +11,9 @@
 	require_once 'vendor/autoload.php';
     include  'config/config.php';
 	
-	// use core\lib\Route\Router;
-	// $router=new Router();
-	// $router->submit();
+	use core\lib\Route\Router;
+	$router=new Router();
+	$router->submit();
   
 	//die('location: '.$_SERVER['SERVER_NAME'].INDEX);
 	
