@@ -18,6 +18,7 @@ use core\lib\Controllers\ActionControllerInterface;
 abstract class Controller implements ActionControllerInterface
 {
     protected $_view;
+    private $_jsonArray;
     /**
      * __construct
      * 
@@ -27,6 +28,8 @@ abstract class Controller implements ActionControllerInterface
     public function __construct()
     {
         $this->_view=new RenderView();
+        $this->_jsonArray=new JsonFormat();
+        
     }
 
      /**
@@ -42,5 +45,16 @@ abstract class Controller implements ActionControllerInterface
     protected function renderView(string $path,$key=null,$value=null)
     {
         $this->_view->render( $path, $key ,$value );
+    }
+    /**
+     * json_response
+     * 
+     * Formatea un arreglo a formato JSON
+     * @param array|string $data 
+     * @return JSON
+     */
+    protected function formatterToJson($data)
+    {
+        return $this->_jsonArray->json_response($data);
     }
 }

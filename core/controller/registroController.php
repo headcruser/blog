@@ -13,14 +13,7 @@ use core\lib\JsonFormat;
 * @license https://opensource.org/licenses/mit-license.php MIT License
 */
 class registroController extends Controller
-{
-	private $jsonArray;
-	
-	public function __construct()
-	{
-		$this->jsonArray=new JsonFormat();
-	}
-	
+{	
 	public function index()
 	{
 		if(isset($_SESSION['nombre']))
@@ -64,19 +57,18 @@ class registroController extends Controller
 		{
 			
 			$resultado=array("estado"=>"false","mensaje"=>$validacion->get_readable_errors(true));
-			return print ($this->jsonArray->json_response($resultado));
+			return print ($this->formatterToJson($resultado));
 			//die( $validacion->get_readable_errors(true) );
 		}
 		
 		if($is_valid !== true) 
 		{
 			$resultado=array("estado"=>"false","mensaje"=>$is_valid);
-			return print ($this->jsonArray->json_response($resultado));
-			//die(print_r( $is_valid ));
+			return print ($this->formatterToJson($resultado));
 		}
 
 		$resultado=array("estado"=>"true","mensaje"=>"Validación Aceptada");
-		return print ($this->jsonArray->json_response($resultado)); 
+		return print ($this->formatterToJson($resultado)); 
 		
 		// $usuario=new Usuario();
 		// try

@@ -14,11 +14,9 @@
 class AuthController extends Controller
 {
 	private $autentication;
-	private $jsonArray;
 	public function __construct()
 	{
 		$this->autentication=new AutenticationService(new Session);
-		$this->jsonArray=new JsonFormat();
 	}
 	/**
 	 * Muestra la pagina principal
@@ -46,9 +44,9 @@ class AuthController extends Controller
 		$pasword=help::validarCampo($_POST['pasword']);		
 		
 		if( !$this->autentication->login($email,$pasword))			
-			return print ( $this->jsonArray->json_response(array("estado"=>"false") ) ); 
+			return print ( $this->formatterToJson( array("estado"=>"false") ) ); 
 		
-		return print ( $this->jsonArray->json_response( array("estado"=>"true") ) ); 
+		return print ( $this->formatterToJson( array("estado"=>"true") ) ); 
 	}
 	/**
 	 * logout
