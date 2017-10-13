@@ -6,5 +6,5 @@
 		<a href="https://headcruser.github.io/blog/" class="git"> <i class="fa fa-github"></i></a>
 		<a href="#" class="ins"> <i class="fa fa-instagram"></i></a>
 	</div>
-	<div class="derechos">Copyright © 2017 company name. All Rights Reserved.</div>		
+	<div class="derechos">Copyright © 2017 headcruserBlog. All Rights Reserved.</div>		
 </section>

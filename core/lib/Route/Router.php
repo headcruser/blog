@@ -1,5 +1,5 @@
 <?php namespace core\lib\Route;
- use core\lib\Vista;
+ use core\lib\View\RenderView;
  use core\lib\Route\HelpContoller;
 
 /** 
@@ -106,8 +106,12 @@ class Router
 				}
 			}
 		}
-		if( $estado == false)
-		  return Vista::crear("error.error","error","Error No found 404 No existe la ruta");
+    if( $estado == false)
+    {
+      $_view=new RenderView();      
+      return $_view->render('error.404');
+    }
+		  
   }
   /**
 	 * PartitionPath
