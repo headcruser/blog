@@ -71,7 +71,7 @@ class RenderView
             $this->template->assign("$key",${$key});        
         }
 
-        $this->template->display($ruta);
+        return $this->template->display($ruta);
     }
 
     public function isEmptyPath($pathUser)

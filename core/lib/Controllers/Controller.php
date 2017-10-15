@@ -45,7 +45,7 @@ abstract class Controller implements ActionControllerInterface
      */
     protected function renderView(string $path,$key=null,$value=null)
     {
-        $this->_view->render( $path, $key ,$value );
+         $this->_view->render( $path, $key ,$value );
     }
     /**
      * json_response

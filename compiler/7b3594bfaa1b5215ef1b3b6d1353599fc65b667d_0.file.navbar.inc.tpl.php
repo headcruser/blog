@@ -1,27 +1,26 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-10-12 14:47:51
+/* Smarty version 3.1.32-dev-11, created on 2017-10-14 22:56:50
   from "/var/www/html/blog/styles/templates/overall/navbar.inc.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_59dfc6e7a81ae3_13778522',
+  'unifunc' => 'content_59e2dc826df544_82193840',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7b3594bfaa1b5215ef1b3b6d1353599fc65b667d' => 
     array (
       0 => '/var/www/html/blog/styles/templates/overall/navbar.inc.tpl',
-      1 => 1507837668,
+      1 => 1508039807,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:home/login.tpl' => 1,
   ),
 ),false)) {
-function content_59dfc6e7a81ae3_13778522 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59e2dc826df544_82193840 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
  <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
@@ -101,31 +100,18 @@ function content_59dfc6e7a81ae3_13778522 (Smarty_Internal_Template $_smarty_tpl)
                 <!-- usuario no logeado -->
                
                 <!-- Login del sistema -->
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                          <span class="glyphicon glyphicon-user"></span>
-                          <b>Login</b> 
-                      </a>
-                        <ul id="login-dp" class="dropdown-menu">
-                            <li>
-                                 <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="social-buttons">
-                                                <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-                                            </div>
-                                             <?php $_smarty_tpl->_subTemplateRender('file:home/login.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>
-
-                                        </div>
-                                 </div>
-                            </li>
-                        </ul>
+                <li >
+                    <a href="http://<?php echo $_SERVER['SERVER_NAME'];?>
+/blog/auth">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <b>Login</b> 
+                    </a>
                 </li>
                     <!-- termina login -->
                 <li>
                     <a href="http://<?php echo $_SERVER['SERVER_NAME'];?>
 /blog/registro">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Registro
+                        <span class="glyphicon glyphicon-plus"></span> Registro
                     </a>
                 </li>
             <?php }?>

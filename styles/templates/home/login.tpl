@@ -9,9 +9,9 @@
     <div class="form-group">
         <label class="sr-only" for="exampleInputPassword2">Contraseña</label>
         <input type="password" class="form-control" 
-        id="pasword" 
-        name="pasword" 
-        placeholder="Password" >
+                id="pasword" 
+                name="pasword" 
+                placeholder="Password" >
         <div class="help-block text-center">
             <a  href="">Olvidaste tu contraseña ?</a>
         </div>

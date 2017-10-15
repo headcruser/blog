@@ -18,8 +18,8 @@ class adminController extends Controller
      */
     public function index()
     {
-        if (!$_SESSION['nombre']) 
-            header('location: http://192.168.86.129/blog');
+        // if (!$_SESSION['nombre']) 
+        //     header('location: http://192.168.86.129/blog');
         
         return $this->renderView("admin.index");
     }

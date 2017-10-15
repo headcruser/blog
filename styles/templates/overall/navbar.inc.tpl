@@ -69,28 +69,16 @@
                 <!-- usuario no logeado -->
                
                 <!-- Login del sistema -->
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                          <span class="glyphicon glyphicon-user"></span>
-                          <b>Login</b> 
-                      </a>
-                        <ul id="login-dp" class="dropdown-menu">
-                            <li>
-                                 <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="social-buttons">
-                                                <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-                                            </div>
-                                             {include file='home/login.tpl'}
-                                        </div>
-                                 </div>
-                            </li>
-                        </ul>
+                <li >
+                    <a href="http://{$smarty.server.SERVER_NAME}/blog/auth">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <b>Login</b> 
+                    </a>
                 </li>
                     <!-- termina login -->
                 <li>
                     <a href="http://{$smarty.server.SERVER_NAME}/blog/registro">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Registro
+                        <span class="glyphicon glyphicon-plus"></span> Registro
                     </a>
                 </li>
             {/if}

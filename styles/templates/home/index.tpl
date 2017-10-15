@@ -26,7 +26,7 @@
                             <div class="form-group">
                                 <input type="search" class="form-control" placeholder="Busqueda">
                             </div>
-                            <button class="form-control"> Buscar</button>
+                            <button class="form-control btn-primary"> Buscar</button>
                         </div>
                     </div>
                 </div>
