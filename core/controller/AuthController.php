@@ -2,7 +2,7 @@
  use core\help\help;
  use core\lib\ManagerSession\Session;
  use core\lib\Controllers\Controller;
- use core\lib\Autentication\AutenticationService;
+ use core\lib\Autentication\AutenticationService; 
 /**
 * Control de acceso al sistema de usuarios
 * @author  Headcruser
@@ -15,6 +15,7 @@ class AuthController extends Controller
 	private $autentication;
 	public function __construct()
 	{
+		parent::__construct();
 		$this->autentication=new AutenticationService(new Session);
 	}
 	/**
@@ -23,7 +24,7 @@ class AuthController extends Controller
 	 */
 	public function index()
 	{	
-		print_r('Login Full');
+		return $this->renderView('autentication.login');
 	}
 	/**
 	 * Login 

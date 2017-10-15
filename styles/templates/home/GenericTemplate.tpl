@@ -20,6 +20,7 @@
       <link rel="stylesheet" href="{$smarty.const.CSS}/metisMenu/metisMenu.min.css"/>
       <link rel="stylesheet" href="{$smarty.const.CSS}/metisMenu/sb-admin-2.css"/>
     {/block}
+
     {block name=js}{*Archvos para javascript*}
       <script src="{$smarty.const.JS}jquery.js"></script>
       <script src="{$smarty.const.JS}bootstrap.min.js"></script>

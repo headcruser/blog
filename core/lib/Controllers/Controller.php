@@ -18,7 +18,7 @@ use core\lib\JsonFormat;
   */
 abstract class Controller implements ActionControllerInterface
 {
-    protected $_view;
+    private $_view;
     private $_jsonArray;
     /**
      * __construct

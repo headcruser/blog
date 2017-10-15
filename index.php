@@ -84,6 +84,6 @@
 	// $autentication->logout();
 
 	//Prueba de la clase Render
-	// use core\lib\View\RenderView;
-	// $view=new RenderView();
-	// $view->render("home.index");
+	//  use core\lib\View\RenderView;
+	//  $view=new RenderView();
+	//  $view->render("autentication.login");
