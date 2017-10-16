@@ -81,37 +81,35 @@ class Router
 	public function readerPath(string $uri)
 	{
     $dividePaths=$this->partitionPath($uri);
-		$estado=false;
-		foreach ($this->_controllers as $ruta => $cont) 
+    $estado=false;
+		foreach ($this->_controllers as $ruta => $controller) 
 		{
 			if( $this->clearCharacterSlash($ruta) !=="" )
 			{
 				if( $this->searchFirstMatch($uri,$ruta) )
 				{
-					$arrayParams  = array(); //array donde se guardaran los parametros de la web
+					$arrayParams  = array();
 					$estado       = true;
-          $controlador  = $cont;
+          $controlador  = $controller;
 					$metodo       = "";
 					$cantidadRuta = $this->numRoutes($ruta);
           $cantidad     = count($dividePaths);
-          
 					if ($cantidad > $cantidadRuta) 
 					{
-						$metodo = $dividePaths[$cantidadRuta];
+            $metodo = $dividePaths[$cantidadRuta];
 						for ($i = 0; $i < $cantidad; $i++) 
               if ($i > $cantidadRuta)
-              $arrayParams[] = $dividePaths[$i];
+                $arrayParams[] = $dividePaths[$i];
           }
-					$this->getController($metodo, $controlador, $arrayParams);
+          $this->getController($metodo, $controlador, $arrayParams);
 				}
 			}
-		}
+    }
     if( $estado == false)
     {
       $_view=new RenderView();      
       return $_view->render('error.404');
     }
-		  
   }
   /**
 	 * PartitionPath
@@ -167,7 +165,15 @@ class Router
   {
     return strpos( $haystack, $this->clearCharacterSlash( $needle ) ) !==false;
   }
-
+  /**
+   * searchKeyInControllers
+   * 
+   * Realiza Busqueda de una clave dentro de un arreglo asociativo
+   * 
+   * @param string $key Valor a buscar en el arreglo de controladores 
+   * @return bool Devuelve True Si encontro alguna coincidencia,
+   * en caso de no encontrar coincidencias, Devuelve False
+   */
   private function searchKeyInControllers(string $key):bool
   {
     return array_key_exists($key,$this->_controllers);

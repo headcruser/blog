@@ -35,16 +35,13 @@ class GenericException extends RuntimeException
      * Crea Exepciones pudiendo especificar el codigo de exepcion perosnalizado
      * when debug = 0.
      *
-     * @param string|array $message Either the string of the error message, or an array of attributes
-     *   that are made available in the view, and sprintf()'d into Exception::$_messageTemplate
-     * @param int|null $code The code of the error, is also the HTTP status code for the error.
+     * @param string|array $Recibe un mensaje en formato de array o string, donde especifica 
+     *   Se puede acceder al mensaje, utilizando Exception::$_messageTemplate
+     * @param int|null $code Codigo de error, sobre el estandar HTTP para los errores.
      * @param \Exception|null $previous the previous exception.
      */
     public function __construct($message, $code = null, $previous = null)
     {
-        if ($code === null) {
-            $code = $this->_defaultCode;
-        }
         if (is_array($message)) {
             $this->_attributes = $message;
             $message = vsprintf($this->_messageTemplate, $message);

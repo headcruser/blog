@@ -19,7 +19,6 @@ class indexController extends Controller
 		if(isset($_SESSION['nombre']))
 			header('location: http://192.168.86.129/blog/admin');
 
-		//(dir.tpl), <nomVar> ,<Contenido>
 		return $this->renderView("home.index","titulo","Bienvenido a la pagina principal");
 	}
 	/**
@@ -30,8 +29,7 @@ class indexController extends Controller
 	 */
 	public function entradas()
 	{
-		//(dir.tpl), <nomVar> ,<Contenido>
-		return $this->renderView("home.Entradas");
+		return $this->renderView('home.Entradas');
 	}
 	/**
 	 * Favoritos
@@ -41,7 +39,6 @@ class indexController extends Controller
 	 */
 	public function favoritos()
 	{
-		//(dir.tpl), <nomVar> ,<Contenido>
 		return $this->renderView("home.Favoritos");
 	}
 	/**

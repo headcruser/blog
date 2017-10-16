@@ -58,7 +58,7 @@ trait HelpController
     private function executeController($controller,$methodContoller,$params)
     {
         if( ! class_exists($controller))
-         throw new ClassNoFoundException(['reason' => "La ruta no existe"]);
+            throw new ClassNoFoundException(['reason' => "La Clase no existe"]);
 
         $claseTemporal=new $controller();
 
@@ -66,7 +66,7 @@ trait HelpController
             throw new MethodNoFoundException(['reason' => "El Método no existes"]);
 
         if (!  $this->isIndex($methodContoller) ) 
-            call_user_func_array(array($claseTemporal, $methodContoller), $params);		        
+            return call_user_func_array(array($claseTemporal, $methodContoller), $params);		        
         
         if (count($params) == 0) 
             $claseTemporal->$methodContoller();

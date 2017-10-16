@@ -14,7 +14,6 @@
 	use core\lib\Route\Router;
 	$router=new Router();
 	$router->submit();
-  
 	//die('location: '.$_SERVER['SERVER_NAME'].INDEX);
 	
 	//Clase Conexion normal

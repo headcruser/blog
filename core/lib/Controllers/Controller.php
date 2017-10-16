@@ -2,6 +2,7 @@
 use core\lib\View\RenderView;
 use core\lib\Controllers\ActionControllerInterface;
 use core\lib\JsonFormat;
+use core\Exception\GenericException;
                          
 /** 
   * Controller
@@ -44,8 +45,13 @@ abstract class Controller implements ActionControllerInterface
      * @param array|string|null $value Pasa un argumento como objeto
      */
     protected function renderView(string $path,$key=null,$value=null)
-    {
-         $this->_view->render( $path, $key ,$value );
+    {            
+        try 
+        {
+            $this->_view->render( $path, $key ,$value );   
+        } catch (\Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+        }
     }
     /**
      * json_response

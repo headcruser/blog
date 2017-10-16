@@ -57,7 +57,7 @@ class RenderView
     {
         if( $this->isEmptyPath( $path ) )
             throw new ViewPathException(
-                ['reason' =>'Por Favor, Debes Especificar una Ruta']);
+                ['reason' =>'Escribe una ruta']);
 
         $ruta = $this->buildPath( $path );
 
