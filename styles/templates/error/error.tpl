@@ -10,7 +10,7 @@
 	<title>Version: {$smarty.version}</title>
 </head>
 	<body>
-	
+		{block name=cuerpo}
 		<div class="container">
 			<div class="panel-footer border border-primary">
 				<div class="jumbotron">
@@ -27,15 +27,19 @@
 								href="http://{$smarty.server.SERVER_NAME}/blog/home">
 								<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Regresar
 							</a>
+							
 						</div>
 					</div>
 					<div class="col-md-4"></div>
 				</div>
 			</div>
 		</div>
+	{/block}
 
+		{block name=footer}
 		<footer> 
 			{include file='overall/footer.inc.tpl'}
 		</footer>
+		{/block}
 	</body>
 </html>

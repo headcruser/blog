@@ -50,7 +50,7 @@ abstract class Controller implements ActionControllerInterface
         {
             $this->_view->render( $path, $key ,$value );   
         } catch (\Exception $e) {
-            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            $this->_view->render( 'error.exception', "message" ,$e->getMessage() ); 
         }
     }
     /**
