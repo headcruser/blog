@@ -138,5 +138,5 @@ En este apartado, se describe el funcionamiento de los diferentes módulos integ
 </p>
 
 **Login del sitio**
-<p align="center"><img src="./styles/img/MaquetacionBlog/inicio-login.png">
+<p align="center"><img src="./styles/img/MaquetacionBlog/DisignLogin.png">
 </p>
