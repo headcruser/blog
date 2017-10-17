@@ -56,19 +56,27 @@
         </div>
 
         <div class="col-md-8">
-             <div class="panel panel-default">
-                {foreach $datos as $elemento}
-                    <div class="panel-heading">
-                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span>  {$elemento.titulo}
+        {foreach $datos as $elemento}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        
+                            <div class="panel-heading">
+                                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>  {$elemento.titulo}
+                            </div>
+                            <div class="panel-body">
+                                <p>
+                                    <strong>{$elemento.fecha|date_format}</strong>
+                                </p>
+                                <article class="text-justify">
+                                    {$elemento.texto|nl2br|truncate:250:"...":true}
+                                </article>
+                                    
+                            </div>
                     </div>
-                    <div class="panel-body">
-                        <p>
-                            <strong>{$elemento.titulo}</strong>
-                        </p>
-                            {$elemento.texto}
-                    </div>
-                {/foreach}
+                </div>
             </div>
+        {/foreach}
         </div>
     </div>
 </div>
