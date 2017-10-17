@@ -53,6 +53,11 @@ abstract class Controller implements ActionControllerInterface
             $this->_view->render( 'error.exception', "message" ,$e->getMessage() ); 
         }
     }
+
+    protected function assign($key=null,$value=null)
+    {
+        $this->_view->assign($key,$value);
+    }
     /**
      * json_response
      * 

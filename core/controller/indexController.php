@@ -1,5 +1,6 @@
 <?php
 use core\lib\Controllers\Controller;
+use core\model\Entradas;
 /**
 * Control de la página principal del sistema.
 *
@@ -19,7 +20,15 @@ class indexController extends Controller
 		if(isset($_SESSION['nombre']))
 			header('location: http://192.168.86.129/blog/admin');
 
-		return $this->renderView("home.index","titulo","Bienvenido a la pagina principal");
+		$entradas=new Entradas();
+		$datos = $entradas->fetchAll();
+		$campos=$entradas->getNombresColumnas($datos);
+
+		$this->assign("titulo","Bienvenido a la pagina principal");
+		$this->assign("datos",$datos);
+		$this->assign("campos",$campos);
+		
+		return $this->renderView("home.index");
 	}
 	/**
 	 * Entradas

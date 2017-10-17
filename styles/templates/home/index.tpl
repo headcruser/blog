@@ -2,6 +2,8 @@
 {block name=title} {$titulo} {/block}
 {block name=body}
 {* Contenedor de titulo *}
+{* {$smarty.server.SERVER_NAME}
+{$smarty.const.RUTA_BASE} *}
 <header>
     <div class="contenedor">
         <div class="contenedor-texto">
@@ -52,19 +54,22 @@
                 </div>
             </div>
         </div>
+
         <div class="col-md-8">
              <div class="panel panel-default">
-                <div class="panel-heading">
-                     <span class="glyphicon glyphicon-time" aria-hidden="true"></span>  Últimas Entradas
-                </div>
-                <div class="panel-body">
-                   <p>sin entradas</p>
-                    {$smarty.server.SERVER_NAME}
-                    {$smarty.const.RUTA_BASE}
-                </div>
+                {foreach $datos as $elemento}
+                    <div class="panel-heading">
+                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span>  {$elemento.titulo}
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            <strong>{$elemento.titulo}</strong>
+                        </p>
+                            {$elemento.texto}
+                    </div>
+                {/foreach}
             </div>
         </div>
-        
     </div>
 </div>
 {/block}
