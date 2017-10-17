@@ -1,9 +1,11 @@
 <?php 
- use core\help\help;
- use core\lib\ManagerSession\Session;
- use core\lib\Controllers\Controller;
- use core\lib\Autentication\AutenticationService; 
+use core\help\help;
+use core\lib\ManagerSession\Session;
+use core\lib\Controllers\Controller;
+use core\lib\Autentication\AutenticationService; 
 /**
+* AuthController 
+*
 * Control de acceso al sistema de usuarios
 * @author  Headcruser
 * @copyright: Daniel Martinez
@@ -34,11 +36,11 @@ class AuthController extends Controller
 	 */
 	public function login()
 	{
-		if( $_SERVER['REQUEST_METHOD']!='POST')
-			return Vista::crear("error.error","error","No has enviado por post");
+		if( $_SERVER['REQUEST_METHOD']!='POST')			
+			return $this->renderView('error.exception','message','No has enviado por post');
 		
 		if( !isset($_POST['email']) || !isset($_POST['pasword']))
-			return Vista::crear("error.error","error","Uno de los campos esta vacio");
+			return $this->renderView('error.exception','message','Revisa campos Vacios en el formulario');
 		
 		$email=help::validarCampo($_POST['email']);
 		$pasword=help::validarCampo($_POST['pasword']);		

@@ -32,9 +32,9 @@ class Conexion
                 						(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);//mode error|ex
                 self::$conexion -> exec("SET CHARACTER SET utf8"); // modo de codificación  universal
 
-            } catch (PDOException $ex) 
+            } catch (\PDOException $ex) 
             {
-                die( "ERROR: " . $ex -> getMessage() . "<br>");
+                die( 'ERROR: ' . $ex -> getMessage() . '<br>');
         	}
         }
     }
