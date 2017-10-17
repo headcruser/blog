@@ -1,10 +1,12 @@
 <?php namespace core\model;
 
-use core\model\Modelo;
+use core\lib\Model\Entity;
 
-
-/** Modelo de la tabla Comentario 
-  * @class: Comentario (Modelo DB) 
+/** 
+  * Comentario
+  * 
+  * Modelo de la tabla Comentario 
+  * 
   * @project: BlogProyect
   * @date: 12-09-2017
   * @version: php7
@@ -13,7 +15,7 @@ use core\model\Modelo;
   * @email: headcruser@gmail.com
   * @license: GNU General Public License (GPL)
   */
-final class Comentario extends Modelo
+final class Comentario extends Entity
 {
 	protected static $table='comentarios';
 }

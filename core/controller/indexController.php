@@ -1,6 +1,7 @@
 <?php
 use core\lib\Controllers\Controller;
 use core\model\Entradas;
+use core\model\Usuario;
 /**
 * Control de la página principal del sistema.
 *
@@ -37,7 +38,7 @@ class indexController extends Controller
 	 * @return Vista Muestra al usuario la vista.
 	 */
 	public function entradas()
-	{
+	{		
 		return $this->renderView('home.Entradas');
 	}
 	/**

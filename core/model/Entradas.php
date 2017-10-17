@@ -1,6 +1,6 @@
 <?php namespace core\model;
 
-use core\model\Modelo;
+use core\lib\Model\Entity;
 
 /** Modelo de la tabla Entrada
   * @class: AuthController 
@@ -12,7 +12,7 @@ use core\model\Modelo;
   * @email: headcruser@gmail.com
   * @license: GNU General Public License (GPL)
   */
-final class Entradas extends Modelo
+final class Entradas extends Entity
 {
 	protected static $table='entradas';
 }
