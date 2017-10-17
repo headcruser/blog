@@ -71,7 +71,10 @@
                                 <article class="text-justify">
                                     {$elemento.texto|nl2br|truncate:250:"...":true}
                                 </article>
-                                    
+                                <div class="text-right">
+                                    <a class="btn btn-primary" href="http://{$smarty.server.SERVER_NAME}/blog/home/articulo" role="button">Seguir Leyendo</a>
+                                </div>
+
                             </div>
                     </div>
                 </div>

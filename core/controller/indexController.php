@@ -62,4 +62,14 @@ class indexController extends Controller
 		//(dir.tpl), <nomVar> ,<Contenido>
 		return $this->renderView("home.Autores");
 	}
+	/**
+	 * Articulo
+	 *
+	 * Muestra el contenido de una entrada
+	 * @return Vista Muestra al usuario la vista.
+	 */
+	public function articulo()
+	{		
+		return $this->renderView('home.LeerArticulo');
+	}
 }
