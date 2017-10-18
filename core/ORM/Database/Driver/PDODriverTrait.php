@@ -52,16 +52,8 @@ trait PDODriverTrait
         return $this->_connection;
     }
     /**
-      * Desconecta del servidor de base de datos
-      *
-      * @return void
-      */
-    public function dispose()
-    {
-        $this->_connection = null;
-    }
-
-    /**
+      * isConnected
+      *  
       * Revisa si el driver esta conectado con el servidor
       *
       * @return bool
@@ -78,5 +70,92 @@ trait PDODriverTrait
             }
         }
         return (bool)$connected;
+    }
+    /**
+      * Desconecta del servidor de base de datos
+      *
+      * @return void
+      */
+    public function dispose()
+    {
+        $this->_connection = null;
+    }
+    /**
+     * prepare
+     * 
+     * Prepara una sentencia Sql 
+     *
+     * @param string $query The query to turn into a prepared statement.
+     * @return StatementInterface
+     */
+    public function prepare($query)
+    {
+        $this->connect();
+        $statement = $this->_connection->prepare( $query);
+        return $statement;
+    }
+    /**
+     * Inicia una transacción
+     *
+     * @return bool true on success, false otherwise
+     */
+    public function beginTransaction()
+    {
+        $this->connect();
+        if ($this->_connection->inTransaction()) {
+            return true;
+        }
+        return $this->_connection->beginTransaction();
+    }
+    /**
+     * Commits a una transaccion
+     *
+     * @return bool true on success, false otherwise
+     */
+    public function commitTransaction()
+    {
+        $this->connect();
+        if (!$this->_connection->inTransaction())
+            return false;
+        
+        return $this->_connection->commit();
+    }
+    /**
+     * Rollback a transaction
+     *
+     * @return bool true on success, false otherwise
+     */
+    public function rollbackTransaction()
+    {
+        $this->connect();
+        if (!$this->_connection->inTransaction())
+            return false;
+        
+        return $this->_connection->rollback();
+    }
+    /**
+     * Entrecomilla el string de entrada (si fuera necesario) y escapa los
+     * caracteres especiales contenidos en dicho string, usando un estilo 
+     * de entrecomillado apropiado para el controlador subyacente. 
+     *
+     * @param mixed $value Cadena a entrecomiillar.
+     * @param string $type Tipo utillizado para poder realizar el entrecomillado
+     * @return string
+     */
+    public function quote($value, $type)
+    {
+        $this->connect();
+        return $this->_connection->quote($value, $type);
+    }
+    /**
+     * Regresa el ultimo id generado por la tabla en secuencia de la base de datos
+     *
+     * @param string|null $table nombre de la tabla para obtener el ultimo valor insertado
+     * @return string|int 
+     */
+    public function lastInsertId($table = null, $column = null)
+    {
+        $this->connect();
+        return $this->_connection->lastInsertId($table);
     }
 }

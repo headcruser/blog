@@ -56,11 +56,18 @@
 	// $connection->execute($query);
 	// $connection->disconnect();
 	
-	// $driver = new MysqlDriver();
 	// $connection = new Connection([
-	// 	'driver' => $driver
+	// 	'driver' => new MysqlDriver(),
+	// 	'name'=> "connectionBlog"
 	// ]);
-	// $connection->connect();
+	//  $connection->connect();
+	 
+	//  $res =$connection->prepare("select * from comentarios limit 1");
+	//  $res->execute();
+	//  $datos=$res->FetchAll(PDO::FETCH_ASSOC);
+	//  d($datos);
+	// $connection->disconnect();
+	//  die();
 	// $query = "SELECT * from comentarios limit 1";
 	// $datos=$connection->execute($query);
 	// d($datos);
@@ -86,3 +93,9 @@
 	//  use core\lib\View\RenderView;
 	//  $view=new RenderView();
 	//  $view->render("autentication.login");
+
+	// use core\model\Entradas;
+	// $entradas=new Entradas();
+	// $datos=$entradas->find(1);
+	// d($datos);
+	

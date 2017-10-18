@@ -46,6 +46,14 @@ abstract class Driver
         $this->_config = $config;
     }
     /**
+     * __descruct()
+     * Destructor
+     */
+    public function __destruct()
+    {
+        $this->disconnect();
+    }
+    /**
      * Establecer una conexión con el servidor
      *
      * @return bool true on success
@@ -85,14 +93,33 @@ abstract class Driver
      * @return Statement
      */
     abstract public function prepare($query);
-    /**
-     * Destructor
+
+        /**
+     * Starts a transaction
+     *
+     * @return bool true on success, false otherwise
      */
-    public function __destruct()
-    {
-        //$this->_connection = null;
-        $this->disconnect();
-    }
+    abstract public function beginTransaction();
+    /**
+     * Commits a transaction
+     *
+     * @return bool true on success, false otherwise
+     */
+    abstract public function commitTransaction();
+    /**
+     * Rollsback a transaction
+     *
+     * @return bool true on success, false otherwise
+     */
+    abstract public function rollbackTransaction();
+    /**
+     * Regresa una Consulta entre comiilas
+     *
+     * @param mixed $value Cadena a entrecomillar.
+     * @param string $type Tipo utilizado para realizar el entrecomillado
+     * @return string
+     */
+    abstract public function quote($value, $type);
     /**
      * Regresa un arreglo con la información del estado de la conexión
      * 

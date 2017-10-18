@@ -14,5 +14,5 @@ use core\lib\Model\Entity;
   */
 final class Entradas extends Entity
 {
-	protected static $table='entradas';
+  protected static $table='entradas';
 }

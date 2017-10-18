@@ -17,5 +17,10 @@ use core\lib\Model\Entity;
   */
 final class Comentario extends Entity
 {
-	protected static $table='comentarios';
+  protected static $table='comentarios';
+  
+  public function __construct()
+  {
+      parent::__construct();
+  }
 }

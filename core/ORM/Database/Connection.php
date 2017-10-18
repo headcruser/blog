@@ -4,10 +4,9 @@ use core\ORM\Database\Driver;
 use core\ORM\Database\IConnection;
 use core\ORM\Database\Exception\MissingConnectionException;
 use core\ORM\Database\Exception\MissingExtensionException;
-
 /**
 * Encapsula la conexión, dependiendo el driver implementado. 
-*
+* Fork de Cake php
 * @author  Headcruser
 * @copyright: Daniel Martinez
 * @version 2017_v1
@@ -37,65 +36,42 @@ class Connection implements IConnection
     public function __construct(array $config)
     {
         $this->_config = $config;
-        $driver = '';
-        if (!empty($config['driver'])) {
+
+        if (!empty($config['driver']))
             $driver = $config['driver'];
-        }
-        $this->setDriver($driver, $config);
-        if (!empty($config['log'])) {
-            $this->logQueries($config['log']);
-        }
+        
+        $this->setDriver($driver);
     }
     /**
-     * Asigna las instancias drivers, si es un string, lo pasa a una clase instanciada
+     * Asigna el driver a la conexión
      *
-     * @param \core\ORM\Database $driver Instancia de un driver.
-     * @param array $config Config for a new driver.
-     * @throws \Cake\Database\Exception\MissingExtensionException When a driver's PHP extension is missing.
+     * @param  \core\ORM\Database\Driver $driver Instancia de un driver.
+     * @throws \core\ORM\Database\Exception\MissingExtensionException Lanza una excepcion si el driver No es valido.
      * @return $this
      */
-    public function setDriver(Driver $driver,array $config = [])
+    public function setDriver(Driver $driver)
     {
-        if (!$driver->enabled()) {
+        if (!$driver->enabled()) 
             throw new MissingExtensionException(['driver' => get_class($driver)]);
-        }
+        
         $this->_driver = $driver;
+
         return $this;
     }
     /**
-     * Gets the driver instance.
+     * Obtiene el driver de la instancia
      *
-     * @return \Cake\Database\Driver
+     * @return \core\ORM\Database\Driver
      */
-    public function getDriver()
+    public function getDriver():Driver
     {
         return $this->_driver;
-    }
-    /**
-     * Sets the driver instance. If a string is passed it will be treated
-     * as a class name and will be instantiated.
-     *
-     * If no params are passed it will return the current driver instance.
-     *
-     * @deprecated 3.4.0 Use setDriver()/getDriver() instead.
-     * @param \Cake\Database\Driver|string|null $driver The driver instance to use.
-     * @param array $config Either config for a new driver or null.
-     * @throws \Cake\Database\Exception\MissingDriverException When a driver class is missing.
-     * @throws \Cake\Database\Exception\MissingExtensionException When a driver's PHP extension is missing.
-     * @return \Cake\Database\Driver
-     */
-    public function driver($driver = null, $config = []):Driver
-    {
-        if ($driver !== null) {
-            $this->setDriver($driver, $config);
-        }
-        return $this->getDriver();
     }
     /**
     * Obtiene los parámetros de configuración
     * @return $_config
     */
-    public function config()
+    public function config():array
     {
         return $this->_config;
     }
@@ -152,18 +128,68 @@ class Connection implements IConnection
      {
          $this->_driver=null;
      }
-
-     /**
-    * Obtiene los resultados de manera temporal
-    */
-    public function execute($query)
+      /**
+     * Prepara una sentencia Sql para ser Ejecutada.
+     *
+     * @param string $sql The SQL to convert into a prepared statement.
+     * @return statement
+     */
+    public function prepare($sql)
     {
-        $statement = $this->_driver->prepare($query);
-        $statement->execute();
-        
-        //poner otra clase para encapsulacion de resultados  **
-        $datos=$statement->FetchAll(\PDO::FETCH_ASSOC);        
-        return $datos;
+        return $this->_driver->prepare($sql);
     }
-   
+
+      /**
+     * Starts a new transaction.
+     *
+     * @return void
+     */
+    public function begin():bool
+    {
+        return $this->_driver->beginTransaction();
+           
+    }
+    /**
+     * Commits current transaction.
+     *
+     * @return bool true on success, false otherwise
+     */
+    public function commit():bool
+    {
+        return $this->_driver->commitTransaction();
+    }
+    /**
+     * Rollback current transaction.
+     *
+     * @return bool
+     */
+    public function rollback():bool
+    {       
+        return $this->_driver->rollbackTransaction();
+    }
+    public function lastInsertId($table = null)
+    {
+        return $this->_driver->lastInsertId($table);
+    }
+    /**
+     * Returns an array that can be used to describe the internal state of this
+     * object.
+     *
+     * @return array
+     */
+    public function __debugInfo()
+    {
+        $secrets = [
+            'password' => '*****',
+            'username' => '*****',
+            'host' => '*****',
+            'database' => '*****',
+            'port' => '*****'
+        ];
+        $replace = array_intersect_key($secrets, $this->_config);
+        $config = $replace + $this->_config;
+        return [
+            'config' => $config
+        ];
+    }
 }

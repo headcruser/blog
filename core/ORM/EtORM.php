@@ -1,10 +1,7 @@
 <?php namespace core\ORM;
-
- use core\ORM\Database\Conexion;
- use core\ORM\Database\MySqlProvider;
- use core\ORM\Database\DatabaseConfiguration;
+ use core\ORM\Database\Driver\MysqlDriver;
+ use core\ORM\Database\Connection;
  use \PDO;
-
 /**
   * Gestión de consultas a la base de datos
   * @class: DatabaseConfiguration
@@ -16,20 +13,24 @@
   * @email: headcruser@gmail.com
   * @license: GNU General Public License (GPL)
   */
-class EtORM extends Conexion 
+class EtORM
 {    
     protected static $cnx;
     protected static $table;
+
+
 
     /**
      * Sirve para obtener la conexión con la base de datos
      * @return type Void 
      */
-    public static function conectar()
+    public static function buildConection()
     {
-        //$Mysql=new MySqlProvider( new DatabaseConfiguration() );
-        //self::$cnx=$Mysql->getConection();
-        self::$cnx=Conexion::getConection();
+        $connection = new Connection([
+                    'driver' => new MysqlDriver(),
+                    'name'=> "connectionBlog"
+                    ]);
+        self::$cnx=$connection;
     }
 
     /**
@@ -40,8 +41,6 @@ class EtORM extends Conexion
     {
         echo static::$table;
     }
-
-
 
     public function Ejecutar($procedimiento,$params=null)
     {
@@ -62,7 +61,8 @@ class EtORM extends Conexion
         
         //agregando parametros al query
 
-        self::conectar();
+        self::buildConection();
+        self::$cnx->connect();
         $res = self::$cnx->prepare($query);
         for($i=0;$i < count($params);$i++)
         {
@@ -71,45 +71,42 @@ class EtORM extends Conexion
         $res->execute();
 
         $obj = [];
+        
         foreach($res as $row)
-        {
             $obj[] = $row;
-        }
-        self::$cnx=null;
+        
+        self::$cnx->disconnect();
         return $obj;
     }
-
     /**
-     * Elimina un elemento de la tabla 
+     * eliminar
+     * 
+     * Remueve un elemento de la base de datos
+     * 
      * @param type|null $valor indica el elemento a quitar
      * @param type|null $columna Especifica la columna de donde se borrara
      * @return type Boolean Regresa true si se elimino, false si hubo error
      */
     public function eliminar($valor=null,$columna=null)
     {
-        $query = "DELETE FROM ". static ::$table ." WHERE ".(is_null($columna)?"id":$columna)." = :p";
+        $query = "DELETE FROM ". static ::$table ." WHERE ".(is_null($columna)?"id":$columna)." = :p";        
         
-        //preparamos la consulta
-        self::conectar();
-
+        self::buildConection();
+        self::$cnx->connect();
         $res = self::$cnx->prepare($query);
-
-        // agregamos los parametros
+        
         if(!is_null($valor))
             $res->bindParam(":p",$valor);
         else
             $res->bindParam(":p",(is_null($this->id)?null:$this->id));
         
-        //ejecutar
-        if($res->execute())
-        {
-            self::$cnx=null;
-            return true;
-        }else{
+        if(!$res->execute())
             return false;
-        }
+        
+        self::$cnx->disconnect();
+            
+        return true;
     }
-
     /**
      * Guarda un objeto en la base de datos. Tambien sirve 
      * para la actualización, simplemente en el objeto hay que indicar 
@@ -120,21 +117,19 @@ class EtORM extends Conexion
     {
         $values = $this->getColumnas();
 
-        $filtered = null; // una variable que va almacenar las columnas
+        $filtered = null;
         foreach ($values as $key => $value) 
         {
-            // separa si es id - sino lo agrega al array
             if ($value !== null && !is_integer($key) && $value !== '' && strpos($key, 'obj_') === false && $key !== 'id') 
             {
                 if ($value === false) 
-                {
                     $value = 0;
-                }
+            
                 $filtered[$key] = $value;   
             }
         }
-        $columns = array_keys($filtered); // obteniendo las columnas
-        //echo json_encode($columns);
+        
+        $columns = array_keys($filtered);
 
         if ($this->id) 
         {
@@ -152,25 +147,19 @@ class EtORM extends Conexion
             $query = "INSERT INTO " . static ::$table . " ($columns) VALUES ($params)";
         }
         
-        //preparamos la consulta
-        self::conectar();
+        self::buildConection();
+        self::$cnx->connect();
         $res = self::$cnx->prepare($query);
 
         foreach ($filtered as $key => &$val) 
-        {//cargamos todos los valores de los parametros
             $res->bindParam(":".$key, $val);
-        }
-
-        //realizamos una respuesta
-        if($res->execute())
-        {
-            $this->id = self::$cnx->lastInsertId();
-            self::$cnx=null;
-            return true;
-        }
-        else{
+        
+        if(!$res->execute())
             return false;
-        }
+        
+        $this->id = self::$cnx->lastInsertId('');
+        self::$cnx->disconnect();        
+        return true;
     }
 
     /**
@@ -184,8 +173,9 @@ class EtORM extends Conexion
         $query = "SELECT * FROM ". static ::$table ." WHERE ".$columna." = :".$columna;
         $class = get_called_class();
 
-        self::conectar();
-        $res = self::getConection()->prepare($query);
+        self::buildConection();
+        self::$cnx->connect();
+        $res = self::$cnx->prepare($query);
         $res->bindParam(":".$columna,$valor);
         $res->execute();
         
@@ -194,46 +184,60 @@ class EtORM extends Conexion
             $data[] = new $class($row);
         }
 
-        self::$cnx=null;
+        self::$cnx->disconnect();
+
         return $data;
     }
 
     /**
      * Busqueda de un elemento por medio de su id
-     * @param type $id Identificador de la entidad
+     * @param int $id Identificador de la entidad
      * @return type Array  Regresa un arreglo con los elementos encontrados
      */
-    public static function find($id)
+    public static function find(int $id)
     {
-        //echo get_called_class();
         $resultado = self::where("id",$id);
 
-        if(count($resultado))
-            return $resultado[0];
-        else
+        if(!count($resultado))        
             return [];
-    }
 
+        return $resultado[0];
+    }
     /**
      * Obtiene los elementos de la tabla 
      * @return type Object[] Regresa un arreglo de los elementos
      */
-    public static function all()
+    public static function all($params=null)
     {
         $datos=array();
-        $query = "SELECT * FROM ". static ::$table ;
+        $query = "SELECT ";
         $class = get_called_class();
 
-        self::conectar();
+        if(is_array($params))
+        {
+            for($i=0;$i < count($params);$i++)
+            {
+                if( $i == ( count($params)-1) )
+                    $query.= $params[$i]." ";
+                else
+                    $query.= $params[$i].",";
+            }
+
+            $query.="FROM ". static ::$table;
+        }else{
+            $query.=" * FROM ". static ::$table;
+        }
+
+        self::buildConection();
+        self::$cnx->connect();
         $res =self::$cnx->prepare($query);
         $res->execute();
-        
        
-        foreach($res as $row){
-            $datos[] = new $class($row); //de esta forma se obtiene por clase
-        }
-        self::$cnx=null;
+        foreach($res as $row)
+            $datos[] = new $class($row);
+        
 
+        self::$cnx->disconnect();
         return $datos;
     }
 
@@ -261,19 +265,18 @@ class EtORM extends Conexion
             $query.=" * FROM ". static ::$table;
         }
 
-        self::conectar();
+        self::buildConection();
+        self::$cnx->connect();
         $res =self::$cnx->prepare($query);
         $res->execute();
         
         //Obtiene los elementos usando fetchAll
         $datos=$res->FetchAll(PDO::FETCH_ASSOC);
 
-        self::$cnx=null;
+        self::$cnx->disconnect();
 
         return $datos;
     }
-
-
     /**
      * Obtiene el nombre de las columnas
      * @param type $datos Obtiene un arreglo asociativo (fetchAll) 

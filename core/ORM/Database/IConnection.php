@@ -11,15 +11,15 @@
 interface IConnection
 {
     /**
-     * get the configuration of name a database conection
+     * Obtiene el nombre de la conexion a base de datos.
      *
      * @return string
      */
-    public function configName();
+    public function configName():string;
     /**
-     * Get the configuration data used to create the connection.
-     *
+     * Obtiene los datos de configuracion utilizados para crear la conexión.
+     * 
      * @return array
      */
-    public function config();
+    public function config():array;
 }

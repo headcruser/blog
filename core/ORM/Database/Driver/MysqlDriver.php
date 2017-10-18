@@ -123,8 +123,8 @@ class MysqlDriver extends Driver
     * Metodo Parcial para obtener las consultas
     *
     */
-    public function prepare($consult){
-        $statement = $this->connection()->prepare($consult);
-        return $statement;
+    public function schema()
+    {
+        return $this->_config['database'];
     }
 }
