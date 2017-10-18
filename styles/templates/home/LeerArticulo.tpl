@@ -1,7 +1,7 @@
 {extends file="home/GenericTemplate.tpl"}
 {block name=title} Articulo {/block}
 {block name=body}
-    <div class="container contenedor-articulo">
+    <div class="container contenido-articulo">
         <div class="row">
             <div class="col-md-12">
                 <h1>Mi Articulo</h1>
