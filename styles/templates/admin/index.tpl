@@ -18,16 +18,6 @@
 					<!-- /input-group -->
 				</li>
 				<li>
-					<a href="http://{$smarty.server.SERVER_NAME}/blog/admin"><i class="fa fa-dashboard fa-fw"></i> Principal</a>
-				</li>
-
-				<li>
-					<a href="http://{$smarty.server.SERVER_NAME}/blog/admin/entradas"><i class="fa fa-table fa-fw"></i>Entradas</a>
-				</li>
-				<li>
-					<a href="http://{$smarty.server.SERVER_NAME}/blog/admin/comentarios"><i class="fa fa-edit fa-fw"></i> Comentarios</a>
-				</li>
-				<li>
 					<a href="#"><i class="fa fa-wrench fa-fw">
                         </i> Administracion<span class="fa arrow"></span>
                     </a>

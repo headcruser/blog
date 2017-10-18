@@ -1,5 +1,4 @@
 <?php 
-use core\help\help;
 use core\lib\ManagerSession\Session;
 use core\lib\Controllers\Controller;
 use core\lib\Autentication\AutenticationService; 
@@ -42,8 +41,8 @@ class AuthController extends Controller
 		if( !isset($_POST['email']) || !isset($_POST['pasword']))
 			return $this->renderView('error.exception','message','Revisa campos Vacios en el formulario');
 		
-		$email=help::validarCampo($_POST['email']);
-		$pasword=help::validarCampo($_POST['pasword']);		
+		$email=$_POST['email'];
+		$pasword=$_POST['pasword'];		
 		
 		if( !$this->autentication->login($email,$pasword))			
 			return print ( $this->formatterToJson( array("estado"=>"false") ) ); 

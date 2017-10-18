@@ -31,4 +31,9 @@ class adminController extends Controller
     public function comentarios(){
         echo "comentarios";
     }
+
+    public function gestor()
+    {
+        return $this->renderView("admin.gestor");
+    }
 }

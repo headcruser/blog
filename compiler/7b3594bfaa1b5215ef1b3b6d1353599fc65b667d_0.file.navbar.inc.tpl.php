@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-10-14 22:56:50
+/* Smarty version 3.1.32-dev-11, created on 2017-10-18 16:19:41
   from "/var/www/html/blog/styles/templates/overall/navbar.inc.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_59e2dc826df544_82193840',
+  'unifunc' => 'content_59e7c56d74bc52_47863268',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7b3594bfaa1b5215ef1b3b6d1353599fc65b667d' => 
     array (
       0 => '/var/www/html/blog/styles/templates/overall/navbar.inc.tpl',
-      1 => 1508039807,
+      1 => 1508361576,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59e2dc826df544_82193840 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59e7c56d74bc52_47863268 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
  <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
@@ -68,7 +68,12 @@ function content_59e2dc826df544_82193840 (Smarty_Internal_Template $_smarty_tpl)
             </ul>
            
             <ul class="nav navbar-nav navbar-right">
-            <!-- seccion de registro -->
+                <li>
+                    <a href="http://<?php echo $_SERVER['SERVER_NAME'];?>
+/blog/admin/gestor">
+                        <span class="glyphicon glyphicon-dashboard"></span> Gestor
+                    </a>
+                </li>
             <?php if (isset($_SESSION['nombre'])) {?>
                 <!-- usuario logeado -->
                  <li class="dropdown">
