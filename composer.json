@@ -16,7 +16,8 @@
     },
     "require": {
         "smarty/smarty": "dev-trunk",
-         "raveren/kint": "0.9",
-         "wixel/gump":   "dev-master"
+         "kint-php/kint": "0.9",
+         "wixel/gump":   "dev-master",
+        "nilportugues/sql-query-builder": "^1.5"
     }
 }

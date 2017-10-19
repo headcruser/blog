@@ -4,19 +4,19 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e5d0099e353fdefee8df36f36c3e5895",
+    "content-hash": "0bc4acab4d84279ece2a8df0a57853d1",
     "packages": [
         {
-            "name": "raveren/kint",
+            "name": "kint-php/kint",
             "version": "v0.9",
             "source": {
                 "type": "git",
-                "url": "https://github.com/raveren/kint.git",
+                "url": "https://github.com/kint-php/kint.git",
                 "reference": "ada810111ced4e3a926b4040da9b86442e43b613"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/raveren/kint/zipball/ada810111ced4e3a926b4040da9b86442e43b613",
+                "url": "https://api.github.com/repos/kint-php/kint/zipball/ada810111ced4e3a926b4040da9b86442e43b613",
                 "reference": "ada810111ced4e3a926b4040da9b86442e43b613",
                 "shasum": ""
             },
@@ -50,8 +50,126 @@
                 "kint",
                 "php"
             ],
-            "abandoned": "kint-php/kint",
             "time": "2013-08-12T22:46:16+00:00"
+        },
+        {
+            "name": "nilportugues/sql-query-builder",
+            "version": "1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nilportugues/php-sql-query-builder.git",
+                "reference": "4decdb547e5145d647c26b97ca1bea12d9b63a9f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nilportugues/php-sql-query-builder/zipball/4decdb547e5145d647c26b97ca1bea12d9b63a9f",
+                "reference": "4decdb547e5145d647c26b97ca1bea12d9b63a9f",
+                "shasum": ""
+            },
+            "require": {
+                "nilportugues/sql-query-formatter": "~1.2",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "~1.9",
+                "nilportugues/php_backslasher": "~0.2",
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NilPortugues\\Sql\\QueryBuilder\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nil Portugués Calderó",
+                    "email": "contact@nilportugues.com",
+                    "homepage": "http://nilportugues.com",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Woody Gilk",
+                    "email": "woody.gilk@gmail.com",
+                    "homepage": "http://shadowhand.me/",
+                    "role": "Contributor"
+                }
+            ],
+            "description": "An elegant lightweight and efficient SQL QueryInterface BuilderInterface supporting bindings and complicated query generation.",
+            "homepage": "http://nilportugues.com",
+            "keywords": [
+                "builder",
+                "mysql",
+                "orm",
+                "query",
+                "query builder",
+                "sql"
+            ],
+            "time": "2017-06-21T14:30:14+00:00"
+        },
+        {
+            "name": "nilportugues/sql-query-formatter",
+            "version": "v1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nilportugues/sql-query-formatter.git",
+                "reference": "a539162a13e3217827237d5809fbaf25e136dc0e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nilportugues/sql-query-formatter/zipball/a539162a13e3217827237d5809fbaf25e136dc0e",
+                "reference": "a539162a13e3217827237d5809fbaf25e136dc0e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "~1.9",
+                "nilportugues/php_backslasher": "~0.2",
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "NilPortugues\\Sql\\QueryFormatter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nil Portugués Calderó",
+                    "email": "contact@nilportugues.com",
+                    "homepage": "http://nilportugues.com",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "A very lightweight PHP class that reformats unreadable and computer-generated SQL query statements to human-friendly, readable text.",
+            "homepage": "http://nilportugues.com",
+            "keywords": [
+                "format",
+                "formatter",
+                "mysql",
+                "parser",
+                "query",
+                "reformat",
+                "sql",
+                "sql server",
+                "tokenizer"
+            ],
+            "time": "2015-11-02T23:24:39+00:00"
         },
         {
             "name": "smarty/smarty",
@@ -59,12 +177,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "a6f3a518e1818908322d71296c6b023d5752cd03"
+                "reference": "668d07cda94ff0b700cd40206e353fc65e6f532e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/a6f3a518e1818908322d71296c6b023d5752cd03",
-                "reference": "a6f3a518e1818908322d71296c6b023d5752cd03",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/668d07cda94ff0b700cd40206e353fc65e6f532e",
+                "reference": "668d07cda94ff0b700cd40206e353fc65e6f532e",
                 "shasum": ""
             },
             "require": {
@@ -104,7 +222,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-05-27 12:37:35"
+            "time": "2017-10-18 12:03:22"
         },
         {
             "name": "wixel/gump",
@@ -112,12 +230,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Wixel/GUMP.git",
-                "reference": "8e6c82626055b81c9d1bfeea8ff3a29701e7f5bb"
+                "reference": "c4f97a8c0e3d8c3e7778866d549af5173946549c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Wixel/GUMP/zipball/8e6c82626055b81c9d1bfeea8ff3a29701e7f5bb",
-                "reference": "8e6c82626055b81c9d1bfeea8ff3a29701e7f5bb",
+                "url": "https://api.github.com/repos/Wixel/GUMP/zipball/c4f97a8c0e3d8c3e7778866d549af5173946549c",
+                "reference": "c4f97a8c0e3d8c3e7778866d549af5173946549c",
                 "shasum": ""
             },
             "type": "library",
@@ -142,7 +260,7 @@
             ],
             "description": "A fast, extensible & stand-alone PHP input validation class that allows you to validate any data",
             "homepage": "https://wixelhq.com/",
-            "time": "2017-06-14 21:48:40"
+            "time": "2017-09-28 15:51:24"
         }
     ],
     "packages-dev": [],

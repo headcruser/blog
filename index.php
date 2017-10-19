@@ -11,9 +11,9 @@
 	require_once 'vendor/autoload.php';
     include  'config/config.php';
 	
-	use core\lib\Route\Router;
-	$router=new Router();
-	$router->submit();
+	// use core\lib\Route\Router;
+	// $router=new Router();
+	// $router->submit();
 	//die('location: '.$_SERVER['SERVER_NAME'].INDEX);
 	
 	//Clase Conexion normal
@@ -98,4 +98,12 @@
 	// $entradas=new Entradas();
 	// $datos=$entradas->find(1);
 	// d($datos);
+
+	use core\ORM\Database\Query\Sql;
+	echo "<pre>";
+	$query = (new Sql())
+	->select(['foo', 'bar'])
+	->from('foobar', 'f')
+	->where('f.bar = ?');
+	print($query);
 	
