@@ -4,7 +4,18 @@
 * Gestiona las sessiones de los usuarios
 **/
 class Session
-{
+{   
+    private $sessionState;
+    const SESSION_STARTED=true;
+
+    public function startSession()
+    {
+        if (! $this->sessionState == self::SESSION_STARTED )
+                $this->sessionState = session_start();        
+
+        return $this->sessionState;
+    }
+
     public function addValue(string $key ,$value){
         $_SESSION[$key] = $value;
     }
@@ -30,8 +41,17 @@ class Session
         return isset($_SESSION[$value])?true:false;
     }
 
-    public function destroySession(){
-        session_unset();
-        session_destroy();
+    /**
+    * Destroys the current session.
+    * 
+    *@return    bool    TRUE is session has been deleted, else FALSE.
+    **/
+    public function destroy():bool
+    {
+       
+            $this->sessionState = !session_destroy();
+            unset( $_SESSION );
+           
+            return !$this->sessionState;
     }
 }

@@ -43,7 +43,8 @@ class AuthController extends Controller
 		
 		$email=$_POST['email'];
 		$pasword=$_POST['pasword'];		
-		
+
+
 		if( !$this->autentication->login($email,$pasword))			
 			return print ( $this->formatterToJson( array("estado"=>"false") ) ); 
 		

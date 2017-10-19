@@ -38,7 +38,7 @@ class AutenticationService extends EtORM implements Register
       //La constraseña no coincide
     if (!password_verify($password, $usuarioLogin['password']))
         return false;
-    
+      
     $this->addSession($usuarioLogin);
     
     return true;
@@ -79,6 +79,6 @@ class AutenticationService extends EtORM implements Register
     */
    function logout()
    {
-     $this->session->destroySession();
+     $this->session->destroy();
    }
 }
