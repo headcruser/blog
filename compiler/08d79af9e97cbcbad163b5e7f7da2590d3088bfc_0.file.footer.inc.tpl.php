@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-10-13 13:26:36
+/* Smarty version {Smarty::SMARTY_VERSION}, created on 2017-10-19 13:52:35
   from "/var/www/html/blog/styles/templates/overall/footer.inc.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_59e1055caf9e53_03022444',
+  'version' => '3.1.32-dev-26',
+  'unifunc' => 'content_59e8f473aa96d8_28338817',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59e1055caf9e53_03022444 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59e8f473aa96d8_28338817 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <section class="redes-sociales">
 	<div class="contenedor">

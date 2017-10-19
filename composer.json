@@ -18,6 +18,6 @@
         "smarty/smarty": "dev-trunk",
          "kint-php/kint": "0.9",
          "wixel/gump":   "dev-master",
-        "nilportugues/sql-query-builder": "^1.5"
+        "nilportugues/sql-query-builder": "dev-master"
     }
 }

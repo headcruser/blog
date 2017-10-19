@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0bc4acab4d84279ece2a8df0a57853d1",
+    "content-hash": "b0735a00ee50d8eaa4f6cdf6f54d896e",
     "packages": [
         {
             "name": "kint-php/kint",
@@ -54,7 +54,7 @@
         },
         {
             "name": "nilportugues/sql-query-builder",
-            "version": "1.5.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nilportugues/php-sql-query-builder.git",
@@ -114,7 +114,7 @@
                 "query builder",
                 "sql"
             ],
-            "time": "2017-06-21T14:30:14+00:00"
+            "time": "2017-06-21 14:30:14"
         },
         {
             "name": "nilportugues/sql-query-formatter",
@@ -268,7 +268,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "smarty/smarty": 20,
-        "wixel/gump": 20
+        "wixel/gump": 20,
+        "nilportugues/sql-query-builder": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

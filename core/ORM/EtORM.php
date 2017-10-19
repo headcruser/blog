@@ -1,6 +1,7 @@
 <?php namespace core\ORM;
  use core\ORM\Database\Driver\MysqlDriver;
  use core\ORM\Database\Connection;
+ use NilPortugues\Sql\QueryBuilder\Builder\GenericBuilder;
  use \PDO;
 /**
   * Gestión de consultas a la base de datos
@@ -17,8 +18,6 @@ class EtORM
 {    
     protected static $cnx;
     protected static $table;
-
-
 
     /**
      * Sirve para obtener la conexión con la base de datos
@@ -207,37 +206,18 @@ class EtORM
      * Obtiene los elementos de la tabla 
      * @return type Object[] Regresa un arreglo de los elementos
      */
-    public static function all($params=null)
-    {
+    public static function all(array $params=[])
+    {        
+        $res=self::prepareSelect($params);
+        
         $datos=array();
-        $query = "SELECT ";
         $class = get_called_class();
 
-        if(is_array($params))
-        {
-            for($i=0;$i < count($params);$i++)
-            {
-                if( $i == ( count($params)-1) )
-                    $query.= $params[$i]." ";
-                else
-                    $query.= $params[$i].",";
-            }
-
-            $query.="FROM ". static ::$table;
-        }else{
-            $query.=" * FROM ". static ::$table;
-        }
-
-        self::buildConection();
-        self::$cnx->connect();
-        $res =self::$cnx->prepare($query);
-        $res->execute();
-       
         foreach($res as $row)
             $datos[] = new $class($row);
-        
 
         self::$cnx->disconnect();
+
         return $datos;
     }
 
@@ -248,34 +228,37 @@ class EtORM
     public static function fetchAll($params=null)
     {
         $datos=array();
-        $query = "SELECT ";
+        $res=self::prepareSelect($params);
+        $datos=$res->FetchAll(PDO::FETCH_ASSOC);
+
+        return $datos;
+    }
+
+    public static function prepareSelect(array $params=null)
+    {
+        $builder = new GenericBuilder(); 
         
-        if(is_array($params))
-        {
-            for($i=0;$i < count($params);$i++)
-            {
-                if( $i == ( count($params)-1) )
-                    $query.= $params[$i]." ";
-                else
-                    $query.= $params[$i].",";
-            }
+        $query = $builder->select()
+                        ->setTable(static ::$table);
+        
+        if(is_array($params) && !empty($params))
+            $query->setColumns($params);
+        
+        $SQL=$builder->write($query);  
+                
+        $res=self::executeQuery($SQL);
 
-            $query.="FROM ". static ::$table;
-        }else{
-            $query.=" * FROM ". static ::$table;
-        }
+        return $res;
+    }
 
+    private function executeQuery(string $query)
+    {
         self::buildConection();
         self::$cnx->connect();
         $res =self::$cnx->prepare($query);
         $res->execute();
-        
-        //Obtiene los elementos usando fetchAll
-        $datos=$res->FetchAll(PDO::FETCH_ASSOC);
-
         self::$cnx->disconnect();
-
-        return $datos;
+        return $res;
     }
     /**
      * Obtiene el nombre de las columnas
