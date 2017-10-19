@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-10-18 16:19:41
+/* Smarty version 3.1.32-dev-11, created on 2017-10-18 23:28:19
   from "/var/www/html/blog/styles/templates/overall/navbar.inc.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_59e7c56d74bc52_47863268',
+  'unifunc' => 'content_59e829e3d9c3c3_16503969',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7b3594bfaa1b5215ef1b3b6d1353599fc65b667d' => 
     array (
       0 => '/var/www/html/blog/styles/templates/overall/navbar.inc.tpl',
-      1 => 1508361576,
+      1 => 1508387294,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59e7c56d74bc52_47863268 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59e829e3d9c3c3_16503969 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
  <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
@@ -68,13 +68,13 @@ function content_59e7c56d74bc52_47863268 (Smarty_Internal_Template $_smarty_tpl)
             </ul>
            
             <ul class="nav navbar-nav navbar-right">
+            <?php if (isset($_SESSION['nombre'])) {?>
                 <li>
                     <a href="http://<?php echo $_SERVER['SERVER_NAME'];?>
 /blog/admin/gestor">
                         <span class="glyphicon glyphicon-dashboard"></span> Gestor
                     </a>
                 </li>
-            <?php if (isset($_SESSION['nombre'])) {?>
                 <!-- usuario logeado -->
                  <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><?php echo $_SESSION['email'];?>

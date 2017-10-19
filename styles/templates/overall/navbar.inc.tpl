@@ -39,12 +39,12 @@
             </ul>
            
             <ul class="nav navbar-nav navbar-right">
+            {if isset($smarty.session.nombre)}
                 <li>
                     <a href="http://{$smarty.server.SERVER_NAME}/blog/admin/gestor">
                         <span class="glyphicon glyphicon-dashboard"></span> Gestor
                     </a>
                 </li>
-            {if isset($smarty.session.nombre)}
                 <!-- usuario logeado -->
                  <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>{$smarty.session.email}</b> 
