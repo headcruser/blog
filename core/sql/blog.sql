@@ -115,6 +115,17 @@ CREATE TABLE recuperacion_clave(
                  ON UPDATE CASCADE
                  ON DELETE RESTRICT
 );
+-- VISTAS
+-- LISTA LOS COMENTARIOS REALIZADO POR LOS USUARIOS
+CREATE VIEW LISTAR_COMENTARIOS AS 
+    select c.id as noComentario,u.id as idUsuario ,u.nombre as autor ,e.titulo as articulo, c.fecha 
+    from comentarios c inner join usuarios u on u.id=c.autor_id 
+                       inner join entradas e on c.entrada_id=e.id;
+
+-- LISTA LAS ENTRADAS REALIZADAS POR LOS USUARIOS DEL SISTEMA
+create view LISTA_ENTRADAS_AUTORES as 
+    select e.id as idEntrada, u.id as idUsuario,u.nombre 
+    from entradas e inner join usuarios u on e.autor_id=u.id;
 
 -- Trigger para el registro de clientes
 
