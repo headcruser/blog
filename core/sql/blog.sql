@@ -104,6 +104,17 @@ CREATE TABLE  auditoria_usuarios(
     id_usuario int(4),
     CONSTRAINT PK_AUDITORIA primary key(codAudit));
 
+CREATE TABLE recuperacion_clave(
+    id INT NOT NULL UNIQUE AUTO_INCREMENT,
+    usuario_id INT NOT NULL,
+    url_secreta VARCHAR(255) NOT NULL,
+    fecha DATETIME NOT NULL,
+    CONSTRAINT PKRecClave PRIMARY KEY(id),
+    CONSTRAINT FkRecClaveUsuario FOREIGN KEY(usuario_id)
+                REFERENCES usuarios(id)
+                 ON UPDATE CASCADE
+                 ON DELETE RESTRICT
+);
 
 -- Trigger para el registro de clientes
 
