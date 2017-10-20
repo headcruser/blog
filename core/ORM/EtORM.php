@@ -48,9 +48,9 @@ class EtORM
         if(!is_null($params))
         {
             $paramsa = "";
-            for($i=0;$i < count($params);$i++){
+            for($i=0;$i < count($params);$i++)
                 $paramsa .= ":".$i.",";
-            }
+            
             $paramsa =  trim($paramsa,",");
             $paramsa .= ")";
             $query .= "(".$paramsa;
@@ -58,15 +58,13 @@ class EtORM
             $query .= "()";
         }
         
-        //agregando parametros al query
 
         self::buildConection();
         self::$cnx->connect();
         $res = self::$cnx->prepare($query);
         for($i=0;$i < count($params);$i++)
-        {
             $res->bindParam(":".$i,$params[$i]);
-        }
+        
         $res->execute();
 
         $obj = [];
@@ -103,7 +101,7 @@ class EtORM
             return false;
         
         self::$cnx->disconnect();
-            
+
         return true;
     }
     /**
@@ -169,21 +167,21 @@ class EtORM
      */
     public static function where($columna,$valor)
     {
-        $query = "SELECT * FROM ". static ::$table ." WHERE ".$columna." = :".$columna;
-        $class = get_called_class();
 
-        self::buildConection();
-        self::$cnx->connect();
-        $res = self::$cnx->prepare($query);
-        $res->bindParam(":".$columna,$valor);
-        $res->execute();
+        $builder = new GenericBuilder(); 
         
-        $data = [];
-        foreach($res as $row){
-            $data[] = new $class($row);
-        }
+        $query = $builder->select()
+            ->setTable( static ::$table );
+    
+        $query->where()
+        ->equals( $columna, $valor );
+        
+        $SQL=$builder->writeFormatted($query);
+        $values = $builder->getValues();
+        
+        $res=self::executeQuery($SQL,$values);
 
-        self::$cnx->disconnect();
+        $datos=self::resultToArrayClass($res);
 
         return $data;
     }
@@ -208,19 +206,13 @@ class EtORM
      */
     public static function all(array $params=[])
     {        
-        $res=self::prepareSelect($params);
-        
-        $datos=array();
-        $class = get_called_class();
-
-        foreach($res as $row)
-            $datos[] = new $class($row);
-
-        self::$cnx->disconnect();
+        $select=self::select($params);
+        $SQL=self::buildingQuery($select);
+        $res=self::executeQuery($SQL);
+        $datos=self::resultToArrayClass($res);
 
         return $datos;
     }
-
     /**
      * Obtiene un arreglo asociativo con la informarcion de la base de datos
      * @return type Object[]
@@ -228,13 +220,19 @@ class EtORM
     public static function fetchAll($params=null)
     {
         $datos=array();
-        $res=self::prepareSelect($params);
-        $datos=$res->FetchAll(PDO::FETCH_ASSOC);
+        self::select($params);
+        $datos=$result->FetchAll(PDO::FETCH_ASSOC);
 
         return $datos;
     }
-
-    public static function prepareSelect(array $params=null)
+    /**
+     * select
+     * 
+     * Construye la sentencia select
+     * @param array $params Indica las columnas que seleccione el usuario
+     * @return string Regresa la cadena construida con la sentencia select 
+     */
+    public static function select(array $params=null)
     {
         $builder = new GenericBuilder(); 
         
@@ -244,21 +242,57 @@ class EtORM
         if(is_array($params) && !empty($params))
             $query->setColumns($params);
         
-        $SQL=$builder->write($query);  
-                
-        $res=self::executeQuery($SQL);
-
-        return $res;
+        return $query;
     }
 
-    private function executeQuery(string $query)
+
+    public static function buildingQuery($query):string
+    {
+        $builder = new GenericBuilder(); 
+        $SQL=$builder->write($query);
+        return $SQL;
+    }
+
+    /**
+     * ExecuteQuery
+     * 
+     * Ejecuta la sentencia preparada enviada por el usuario
+     * @param string $query Obtiene la consulta a ejecutar  
+     * @return object Regresa un conjunto de resultados obtenidos por la consulta
+     */
+    private function executeQuery(string $query, array $args=[])
     {
         self::buildConection();
         self::$cnx->connect();
         $res =self::$cnx->prepare($query);
+
+        if(is_array($args) && !empty($args))
+            foreach ($args as $key => &$val) 
+                $res->bindParam($key, $val);   
+        
         $res->execute();
         self::$cnx->disconnect();
+
         return $res;
+    }
+     /**
+     * ResultToArrayClass
+     * 
+     * Convierte el conjuto de resultados, en un objeto de la clase
+     * donde se este invocando,
+     * 
+     * @param type $datos Obtiene un arreglo asociativo (fetchAll) 
+     * @return type Object Regresa un arreglo con los nombres de las columnas
+     */
+    public function resultToArrayClass($resultSet):array
+    {
+        $datos=array();
+        $class = get_called_class();
+
+        foreach($resultSet as $row)
+            $datos[] = new $class($row);
+        
+        return $datos;
     }
     /**
      * Obtiene el nombre de las columnas

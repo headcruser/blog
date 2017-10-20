@@ -12,9 +12,9 @@
 	session_start();
 	$_SESSION['on'] = true; 
 	
-	use core\lib\Route\Router;
-	$router=new Router();
-	$router->submit();
+	// use core\lib\Route\Router;
+	// $router=new Router();
+	// $router->submit();
 	//die('location: '.$_SERVER['SERVER_NAME'].INDEX);
 	
 	//Clase Conexion normal
@@ -95,9 +95,27 @@
 	//  $view=new RenderView();
 	//  $view->render("autentication.login");
 
-	// use core\model\Entradas;
-	// $entradas=new Entradas();
-	// $datos=$entradas->all();
-	// d($datos);
+	use core\model\Entradas;
+	$entradas=new Entradas();
+	$entradas->eliminar(10);
+	$datos=$entradas->all();
+	d($datos);
 
-	//Utilizando el Constructor de querys   
+	// //Utilizando el Constructor de querys   
+	// use NilPortugues\Sql\QueryBuilder\Builder\GenericBuilder;
+	
+	// $builder = new GenericBuilder(); 
+	
+	// $query = $builder->select()
+	// 	->setTable('user');
+	
+	// $query->setColumns([
+	// 	'userId' => 'user_id',
+	// 	'username' => 'name',
+	// 	'email' => 'email'
+	// ]);
+
+	// $query->where()
+	// ->equals('user_id', 1);
+		  
+	// echo $builder->writeFormatted($query);      
