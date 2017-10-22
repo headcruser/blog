@@ -217,10 +217,12 @@ class EtORM
      * Obtiene un arreglo asociativo con la informarcion de la base de datos
      * @return type Object[]
      */
-    public static function fetchAll($params=null)
+    public static function fetchAll(array $params=[])
     {
         $datos=array();
-        self::select($params);
+        $select=self::select( $params );
+        $SQL=self::buildingQuery( $select );
+        $result=self::executeQuery( $SQL );
         $datos=$result->FetchAll(PDO::FETCH_ASSOC);
 
         return $datos;
