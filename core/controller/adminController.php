@@ -1,6 +1,7 @@
 <?php
 use core\lib\Controllers\Controller;
-use core\model\Usuario;
+use core\model\Entradas;
+use core\model\Comentario;
 /**
 * Controla el panel de administración del sistema
 *
@@ -25,11 +26,30 @@ class adminController extends Controller
     }
 
     public function entradas(){
-        echo "entradas";
+
+		$entradas=new Entradas();
+		$datos = $entradas->fetchAll(array("id"));
+		$campos=$entradas->getNombresColumnas($datos);
+		
+		$this->assign("datos",$datos);
+        $this->assign("campos",$campos);
+        $this->assign("accion",2);
+        return $this->renderView("admin.entradas.index");
     }
 
     public function comentarios(){
-        echo "comentarios";
+        $comentarios=new Comentario();
+		$datos = $comentarios->fetchAll(array("id","titulo"));
+		$campos=$comentarios->getNombresColumnas($datos);
+		
+		$this->assign("datos",$datos);
+        $this->assign("campos",$campos);
+        $this->assign("accion",2);
+        return $this->renderView("admin.comentarios.index");
+    }
+
+    public function favoritos(){
+        echo "favoritos";
     }
 
     public function gestor()

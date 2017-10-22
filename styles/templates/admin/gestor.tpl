@@ -12,10 +12,10 @@
         <div class="row">
             <div class=" col-md-12 " >
                 <div class="list-group panel panel-primary">
-                    <a href="http://{$smarty.server.SERVER_NAME}/blog/usuario" class="list-group-item active">  <i class="fa fa-bars"></i> Menú </a>
-                    <a href="http://{$smarty.server.SERVER_NAME}/blog/usuario/listar" class="list-group-item"><i class="fa fa-sticky-note-o"></i> Entradas</a>
-                    <a href="http://{$smarty.server.SERVER_NAME}/blog/usuario/listar" class="list-group-item"><i class="fa fa-commenting-o"></i> Comentarios</a>
-                    <a href="http://{$smarty.server.SERVER_NAME}/blog/usuario/listar" class="list-group-item"><i class="fa fa-heart"></i> Favoritos</a>
+                    <a href="http://{$smarty.server.SERVER_NAME}/blog/admin/gestor" class="list-group-item active">  <i class="fa fa-bars"></i> Menú </a>
+                    <a href="http://{$smarty.server.SERVER_NAME}/blog/admin/entradas" class="list-group-item"><i class="fa fa-sticky-note-o"></i> Entradas</a>
+                    <a href="http://{$smarty.server.SERVER_NAME}/blog/admin/comentarios" class="list-group-item"><i class="fa fa-commenting-o"></i> Comentarios</a>
+                    <a href="http://{$smarty.server.SERVER_NAME}/blog/admin/favoritos" class="list-group-item"><i class="fa fa-heart"></i> Favoritos</a>
                     <a href="http://{$smarty.server.SERVER_NAME}/blog/admin" class="list-group-item"><i class="fa fa-reply"></i> Menu Principal</a>
                 </div>
             </div>

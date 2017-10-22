@@ -90,7 +90,7 @@ header .contenedor-texto .texto .profesion
 }
 
 .navbar-brand:link, .navbar-brand:visited {
-	color: white !important;
+	color: #81CFE0 !important;
 }
 
 .navbar-brand:hover, .navbar-brand:active {
@@ -207,17 +207,17 @@ footer .redes-sociales .contenedor
 {	/*contenedor flexbox*/
 	display: flex;
 	justify-content: center;
-	margin: 0 auto 40px auto;
+	margin: 0 auto 35px auto;
 }
 
 footer .redes-sociales a
 {
 	color: #fff;
 	text-align: center;
-	width: 140px;
+	width: 100px;
 	display: block;
 	padding: 15px 0;
-	border-radius: 3px;
+	border-radius: 6px;
 	font-size: 30px;
 	margin: 0 10px;
 }
