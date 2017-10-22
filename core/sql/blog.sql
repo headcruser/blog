@@ -127,6 +127,14 @@ create view LISTA_ENTRADAS_AUTORES as
     select e.id as idEntrada, u.id as idUsuario,u.nombre 
     from entradas e inner join usuarios u on e.autor_id=u.id;
 
+    CREATE VIEW ENTRADAS_DEL_USUARIO AS
+        select e.id,e.autor_id,e.url,e.titulo,e.texto,e.fecha,e.activa,
+                COUNT(c.id) as 'noComentarios' 
+            from entradas e left join comentarios c on e.id=c.entrada_id 
+        group by e.id 
+        order by e.fecha DESC;
+
+
 -- Trigger para el registro de clientes
 
 CREATE TRIGGER auditoria_usuarios AFTER INSERT ON usuarios
