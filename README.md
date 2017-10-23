@@ -16,13 +16,13 @@ Es cierto que este tipo de trabajo se pudo realizar mediante algún framework(**
 ## Estructrura del proyecto
   - **Compiler:** Guarda el cache generado de la construccion de plantillas Smarty
   - **Config:** Almacena el archivo de configuracón de la base de datos
-  - **Core:** Es el motor de la aplicacón donde se tienen diferentes directorios
+  - **Core:** Contiene la aplicación del sitio web
       *  _Controller:_ Es la carpeta donde se almacenan los controladores de la aplicación
-      *  _Lib:_ Contiene librerias como el sistema de rutas o la generación de las vistas
-      *  _help:_ Contiene diversos metodos de utilidad, como validación de campos.
+      *  _Exception:_ Contiene las excepciones del sistema.
+      *  _Lib:_ Contiene librerias para el funcionamiento del sitio
       *  _Model:_ Contiene los modelo de datos de la aplicación
       *  _ORM:_ Contiene el motor de conexión con la base de datos. 
-      *  _sql_ Almacena los scripts de la base de datos, asi como ejemplos de uso del código.
+      *  _sql_ Almacena de manera provicional el sript para hacer uso de la base de datos.
   - **Syles:** 
       *  _Css:_ Guarda la cascada de estilos de la aplicación
       *  _Fonts:_ Fuentes utilizadas 
