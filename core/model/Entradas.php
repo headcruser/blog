@@ -14,5 +14,11 @@ use core\lib\Model\Entity;
   */
 final class Entradas extends Entity
 {
+  /*id|autor_id|url|titulo|texto|fecha|activa*/
+
+  /**
+   * Name Table
+   * @var string
+   */
   protected static $table='entradas';
 }

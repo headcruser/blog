@@ -91,7 +91,7 @@ abstract class Entity extends EtORM
      * OBTIENE LA COLUMNAS DE LA TABLA 
      * @return type object Arreglo de objetos con las columnas especificadas
      */
-    public function getColumnas(){
-        return $this->$properties;
+    protected function getColumnas(){
+        return $this->properties;
     }
 }

@@ -1,8 +1,6 @@
-<?php namespace core\model;
-
-use core\lib\Model\Entity;
-	
-/** Modelo de la tabla Usuario 
+<?php namespace core\model;	
+/** 
+  * Modelo Usuario 
   *
   * Esta clase define al modelo Usuarios, implementando 
   * Validaciones sin realizar validaciones adicionales
@@ -15,34 +13,98 @@ use core\lib\Model\Entity;
   * @email: headcruser@gmail.com
   * @license: GNU General Public License (GPL)
   */
-//id|nombre|email|password|fecha_registro|activo;
-  final class Usuario extends Entity
+final class Usuario
 {
-  protected static $table='usuarios';    
-  /**
-   * getNombre
-   * 
-   * Devuelve el valor de la propiedad especificada 
-   *  strtoupper($this->properties['name']); Devuelve el valor en mayuscula
-   * @param string $name 
-   * @return object|null Regresa el valor de la propiedad Especificada,
-   * en caso de no existir ni un método o propiedad con el nombre se regresa null
-   */
-  public function getNombre()
+  /**id|nombre|email|password|fecha_registro|activo;*/
+
+    private $id;
+    private $nombre;
+    private $email;
+    private $password;
+    private $fecha_registro;
+    private $activo;
+
+  public function __construct(string $idUser=null,
+                              string $nomb=null,
+                              string $email=null,
+                              string $pass=null,
+                              string $fecha=null,
+                              string $act=null)
   {
-    return $this->properties['nombre'];
+    $this->id=$idUser;
+    $this->nombre=$nomb;
+    $this->email=$email;
+    $this->password=$pass;
+    $this->fecha_registro=$fecha;
+    $this->activo=$act;
   }
-  /**
-   * setNombre
-   * 
-   * Se aplica la logica de negocio para poder 
-   * Realizar las validaciones del campo
-   * @param string $name Nombre de la propiedad
-   * @param mixed $valor Valor que se le va a asignar
-   * @return void No regresa Ningún valor posible
-   */
-  public function setNombre($name, $valor)
+
+  public static function create(string $userID,
+                                string $nomb,
+                                string $email,
+                                string $pass,
+                                string $fecha,
+                                string $activo) : Usuario
   {
-      $this->properties['nombre'] = trim(strip_tags($valor));
+      return new static($userID,$nomb,$email,$pass,$fecha,$activo);
   }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setId($idValor)
+  {
+      $this->id= trim(strip_tags($idValor));
+  }
+  public function getNombre():string
+  {
+    return $this->nombre;
+  }
+  public function setNombre(string $nameUser)
+  {
+      $this->nombre = trim(strip_tags($nameUser));
+  }
+
+  public function getEmail():string
+  {
+    return $this->email;
+  }
+
+  public function setEmail(string $emailUser)
+  {
+      $this->email = trim(strip_tags($emailUser));
+  }
+
+  public function getPassword():string
+  {
+    return $this->password;
+  }
+
+  public function setPassword(string $passUser)
+  {
+      $this->password = trim(strip_tags($passUser));
+  }
+
+  public function getFecha():string
+  {
+    return $this->fecha_registro;
+  }
+
+  public function setFecha(string $fechaReg)
+  {
+      $this->fecha_registro = trim(strip_tags($fechaReg));
+  }
+
+  public function getActivo():string
+  {
+    return $this->activo;
+  }
+
+  public function setActive(string $fechaReg)
+  {
+      $this->activo = trim(strip_tags($fechaReg));
+  }
+
 }
