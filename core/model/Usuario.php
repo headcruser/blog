@@ -84,7 +84,16 @@ final class Usuario
 
   public function setPassword(string $passUser)
   {
-      $this->password = trim(strip_tags($passUser));
+      $this->password= $this->clearString($passUser);
+      $this->password= password_hash($passUser, PASSWORD_DEFAULT);        
+  }
+  private function clearString():string
+  {
+    $campo = trim( $campo );
+    $campo = stripcslashes( $campo );
+    $campo = htmlspecialchars( $campo );
+    $campo = strip_tags( $campo );
+    return $campo;
   }
 
   public function getFecha():string

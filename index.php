@@ -41,7 +41,7 @@
 	
 	$loader->load('services.yml');
 	
-	/** @var GameRepository $gameRepository */
+	/** @var UserRepository $UserRepository */
 	$userRepository = $container->get('user-repository');
 	$usuarios=$userRepository->find(3);
 	d($usuarios);
