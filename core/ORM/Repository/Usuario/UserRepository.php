@@ -1,15 +1,15 @@
 <?php namespace core\ORM\Repository\Usuario;
 use core\model\Usuario;
+use core\ORM\Storage\interfaceStorage;
 /**
- * User
+ * UserRepository
  * 
- * Define las operaciones básicas para que el repositorio
- * pueda realizar consultas mas avanzadas
+ * Repositorio Encargado de recuperar la información del usuario.
+ * Esta clase provee de metodos utiles para la busqueda de elementos.
  * 
  * @version: php7
  * @author: Daniel Martinez <headcruser@gmail.com>
  * @copyright: Daniel Martinez
- * @license: GNU General Public License (GPL)
  */
 class UserRepository
 {
@@ -42,8 +42,11 @@ class UserRepository
             {
                 $collection[] = Usuario::create(
                     $item['id'],
-                    $item['name'],
-                    $item['email']
+                    $item['nombre'],
+                    $item['email'],
+                    $item['password'],
+                    $item['fecha_registro'],
+                    $item['activo']
                 );
             }
         }

@@ -20,8 +20,9 @@
 	
 	use core\model\Usuario;
 	use core\ORM\Storage\Usuario\UsuarioStorage;
+	use core\ORM\Repository\Usuario\UserRepository;
 	
-	$storage=new UsuarioStorage();
-	$usuario=$storage->where('id',1);
-	d($usuario);
+	$repository=new UserRepository( new UsuarioStorage );	
+	$usuarios=$repository->findAll();
+	d($usuarios);
 	//$storage->save(Usuario::create("1","Daniel","tortis_90@hotmail.com","pass","2016","1") );
