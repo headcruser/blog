@@ -3,6 +3,10 @@ use core\lib\View\RenderView;
 use core\lib\Controllers\ActionControllerInterface;
 use core\lib\JsonFormat;
 use core\Exception\GenericException;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Symfony\Component\Config\FileLocator;
+use Mannion007\RepositoryPattern\Repository\GameRepository;
                          
 /** 
   * Controller
@@ -21,6 +25,7 @@ abstract class Controller implements ActionControllerInterface
 {
     private $_view;
     private $_jsonArray;
+    protected $container;
     /**
      * __construct
      * 
@@ -31,7 +36,14 @@ abstract class Controller implements ActionControllerInterface
     {
         $this->_view=new RenderView();
         $this->_jsonArray=new JsonFormat();
-        
+
+        $this->container = new ContainerBuilder();
+
+        $loader = new YamlFileLoader(
+            $this->container,
+            new FileLocator( RUTA_BASE . 'config' )
+        );
+        $loader->load('services.yml');        
     }
 
      /**

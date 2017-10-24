@@ -21,6 +21,12 @@ class indexController extends Controller
 		if(isset($_SESSION['nombre']))
 			header('location: http://192.168.86.129/blog/admin');
 
+		// /** @var UserRepository $UserRepository */
+		// $userRepository = $this->container->get('user-repository');
+		// $usuarios=$userRepository->find(3);
+		// d($usuarios);
+
+		
 		$entradas=new Entradas();
 		$datos = $entradas->fetchAll();
 		$campos=$entradas->getNombresColumnas($datos);
