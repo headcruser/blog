@@ -2,12 +2,13 @@
 
 use core\ORM\Storage\MysqlStorageAdapter;
 use core\model\Usuario;
+use core\ORM\Database\Driver;
 
 final class UsuarioStorage extends MysqlStorageAdapter
 {
-    public function __construct()
+    public function __construct(Driver $driver)
     {
-        parent::__construct('usuarios');
+        parent::__construct('usuarios',$driver);
     }
 
     public function save(Usuario $data)

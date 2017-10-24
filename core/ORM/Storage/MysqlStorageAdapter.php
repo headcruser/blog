@@ -1,6 +1,7 @@
 <?php namespace core\ORM\Storage;
 use \PDO;
 use \PDOException;
+use core\ORM\Database\Driver;
 use core\ORM\Database\Connection;
 use core\ORM\Storage\interfaceStorage;
 use core\ORM\Database\Driver\MysqlDriver;
@@ -36,12 +37,12 @@ abstract class MysqlStorageAdapter implements interfaceStorage
      */
     protected $table;
     
-    public function __construct(string $nameTable)
+    public function __construct(string $nameTable,Driver $driver)
     {
         $this->table=$nameTable;
 
         $this->connection = new Connection([
-            'driver' => new MysqlDriver(),
+            'driver' => $driver,
             'name'=> "connectionBlog"
             ]);
         

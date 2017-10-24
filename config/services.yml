@@ -1,0 +1,14 @@
+services:
+  driver-db:
+    class: core\ORM\Database\Driver\MysqlDriver
+
+  mysql-usuario-storage:
+    class: core\ORM\Storage\Usuario\UsuarioStorage
+    arguments:
+      - "@driver-db"
+
+  user-repository:
+    class: core\ORM\Repository\Usuario\UserRepository
+    arguments:
+      - "@mysql-usuario-storage"
+  

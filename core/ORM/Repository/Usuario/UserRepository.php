@@ -21,11 +21,9 @@ class UserRepository
         $this->storageAdapter = $storageAdapter;
     }
 
-    public function find(int $gameId)
+    public function find(int $idUser)
     {
-        $gameFromStorage = $this->storageAdapter->find($gameId);
-
-        return null;
+        return $this->buildCollection($this->storageAdapter->find($idUser));
     }
 
     public function findAll() : array
