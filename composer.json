@@ -16,8 +16,11 @@
     },
     "require": {
         "smarty/smarty": "dev-trunk",
-         "kint-php/kint": "0.9",
-         "wixel/gump":   "dev-master",
-        "nilportugues/sql-query-builder": "dev-master"
+        "kint-php/kint": "0.9",
+        "wixel/gump":   "dev-master",
+        "nilportugues/sql-query-builder": "dev-master",
+        "symfony/dependency-injection": "^3.1",
+        "symfony/config": "^3.1",
+        "symfony/yaml": "^3.1"
     }
 }
