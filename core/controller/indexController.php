@@ -3,11 +3,13 @@ use core\lib\Controllers\Controller;
 use core\model\Entradas;
 use core\model\Usuario;
 /**
+* indexController
+* 
 * Control de la página principal del sistema.
 *
-* @author  Headcruser
+* @version: php7
+* @author: Daniel Martinez <headcruser@gmail.com>
 * @copyright: Daniel Martinez
-* @version 2017_v1
 * @license https://opensource.org/licenses/mit-license.php MIT License
 */
 class indexController extends Controller

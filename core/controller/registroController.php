@@ -4,11 +4,13 @@ use core\model\Usuario;
 use core\help\help;
 
 /**
+* RegistroController
+* 
 * Registro de nuevos usuarios
 *
-* @author  Headcruser
+* @version: php7
+* @author: Daniel Martinez <headcruser@gmail.com>
 * @copyright: Daniel Martinez
-* @version 2017_v1
 * @license https://opensource.org/licenses/mit-license.php MIT License
 */
 class registroController extends Controller

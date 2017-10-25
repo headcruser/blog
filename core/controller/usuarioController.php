@@ -2,11 +2,13 @@
 use core\lib\Controllers\Controller;
 use core\model\Usuario;
 /**
+* usuarioController
+* 
 * Administración de usuarios
 *
-* @author  Headcruser
+* @version: php7
+* @author: Daniel Martinez <headcruser@gmail.com>
 * @copyright: Daniel Martinez
-* @version 2017_v1
 * @license https://opensource.org/licenses/mit-license.php MIT License
 */
 class usuarioController extends Controller

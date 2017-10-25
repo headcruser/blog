@@ -6,9 +6,10 @@ use core\lib\Autentication\AutenticationService;
 * AuthController 
 *
 * Control de acceso al sistema de usuarios
-* @author  Headcruser
+*
+* @version: php7
+* @author: Daniel Martinez <headcruser@gmail.com>
 * @copyright: Daniel Martinez
-* @version 2017_v1
 * @license https://opensource.org/licenses/mit-license.php MIT License
 */
 class AuthController extends Controller
