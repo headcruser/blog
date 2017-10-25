@@ -2,14 +2,14 @@
 
 use core\ORM\Database\Driver;
 use \PDO;
-
 /**
 * Driver Mysql
 *
 * Se encarga de gestionar la conexión con el servidor de BD.
-* @author  Headcruser
+*
+* @version: php7
+* @author: Daniel Martinez <headcruser@gmail.com>
 * @copyright: Daniel Martinez
-* @version 2017_v1
 * @license https://opensource.org/licenses/mit-license.php MIT License
 */
 class MysqlDriver extends Driver

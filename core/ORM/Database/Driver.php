@@ -2,18 +2,16 @@
 
 use InvalidArgumentException;
 use PDO;
-
 /** 
  * Abstract Driver 
  * 
  * Representa un driver de base de datos que contiene todas las 
  * especificaciones de un motor de de construcción de consultas.
  *
- * @author  Headcruser
+ * @version: php7
+ * @author: Daniel Martinez <headcruser@gmail.com>
  * @copyright: Daniel Martinez
- * @version 2017_v1
  * @license https://opensource.org/licenses/mit-license.php MIT License
- * @property  $_connection
  */
 abstract class Driver
 {

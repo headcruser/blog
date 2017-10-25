@@ -1,13 +1,14 @@
 <?php namespace core\ORM\Database\Driver;
 
 use PDO;
-
 /**
+* PDODriverTrait
+*
 * Establece la conexión con el servidor mediante PDO
 *
-* @author  Headcruser
+* @version: php7
+* @author: Daniel Martinez <headcruser@gmail.com>
 * @copyright: Daniel Martinez
-* @version 2017_v1
 * @license https://opensource.org/licenses/mit-license.php MIT License
 */
 trait PDODriverTrait

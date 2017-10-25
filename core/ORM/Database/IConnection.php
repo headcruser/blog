@@ -3,9 +3,10 @@
 * Interface conection
 *
 * Methods on conection
-* @author  Headcruser
+*
+* @version: php7
+* @author: Daniel Martinez <headcruser@gmail.com>
 * @copyright: Daniel Martinez
-* @version 2017_v1
 * @license https://opensource.org/licenses/mit-license.php MIT License
 */
 interface IConnection

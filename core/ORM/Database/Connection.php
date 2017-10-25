@@ -5,11 +5,14 @@ use core\ORM\Database\IConnection;
 use core\ORM\Database\Exception\MissingConnectionException;
 use core\ORM\Database\Exception\MissingExtensionException;
 /**
+* Connection.
+* 
 * Encapsula la conexión, dependiendo el driver implementado. 
 * Fork de Cake php
-* @author  Headcruser
+*
+* @version: php7
+* @author: Daniel Martinez <headcruser@gmail.com>
 * @copyright: Daniel Martinez
-* @version 2017_v1
 * @license https://opensource.org/licenses/mit-license.php MIT License
 */
 class Connection implements IConnection
