@@ -10,6 +10,7 @@ use core\ORM\Storage\interfaceStorage;
  * @version: php7
  * @author: Daniel Martinez <headcruser@gmail.com>
  * @copyright: Daniel Martinez
+ * @license https://opensource.org/licenses/mit-license.php MIT License
  */
 class CommentRepository
 {
