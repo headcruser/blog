@@ -6,9 +6,9 @@
  * encargados de realizar las operaciones con la base de datos;
  * 
  * @version: php7
- * @author: Daniel Martinez | headcruser@gmail.com
+ * @author: Daniel Martinez <headcruser@gmail.com>
  * @copyright: Daniel Martinez
- * @license: GNU General Public License (GPL)
+ * @license https://opensource.org/licenses/mit-license.php MIT License
  */
 interface interfaceStorage
 {

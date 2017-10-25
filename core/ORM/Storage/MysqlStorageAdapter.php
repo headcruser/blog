@@ -7,14 +7,17 @@ use core\ORM\Storage\interfaceStorage;
 use core\ORM\Database\Driver\MysqlDriver;
 use NilPortugues\Sql\QueryBuilder\Builder\GenericBuilder;
 /**
- * Mysql Storage
+ * MysqlStorageAdapter
  * 
- * Define las operaciones básicas para que el repositorio
- * pueda realizar consultas mas avanzadas
+ * Define las operaciones básicas para que los repositorios 
+ * puedan realizar consultas mas especificas. 
+ * Esta clase en particular, realiza las operaciones basicas
+ * definidas para las demas clases hijas.
  * 
  * @version: php7
- * @author: Daniel Martinez | headcruser@gmail.com
+ * @author: Daniel Martinez <headcruser@gmail.com>
  * @copyright: Daniel Martinez
+ * @license https://opensource.org/licenses/mit-license.php MIT License
  */
 abstract class MysqlStorageAdapter implements interfaceStorage
 {
@@ -91,7 +94,7 @@ abstract class MysqlStorageAdapter implements interfaceStorage
      * @param type $valor Elemento de la columna a buscar
      * @return type Array Regresa un arreglo con los elementos encontrados
      */
-    public function where($columna,$valor)
+    protected function where($columna,$valor)
     {        
         $data=array();
         $select=$this->select();
@@ -143,7 +146,14 @@ abstract class MysqlStorageAdapter implements interfaceStorage
 
         return true;
     }
-
+     /**
+     * delete
+     * 
+     * Construye la consulta delete. 
+     * @param string $valor Valor de la columna a elminar 
+     * @param string $columna Especifica que columna es la que se elminara
+     * @return Regresa el Query basico delete. 
+     */
     protected function delete($valor=null,$columna=null)
     {
         $delete = $this->Querybuilder
@@ -155,8 +165,15 @@ abstract class MysqlStorageAdapter implements interfaceStorage
 
         return $delete;
     }
-
-    public function update($column,$values)
+    /**
+     * update
+     * 
+     * Construye la consulta update.
+     * @param string $valor Valor de la columna que se actualizara. 
+     * @param string $columna Especifica que columna es la que se actualizara.
+     * @return Regresa el Query basico delete. 
+     */
+    protected function update($column,$values)
     {
         $update = $this->Querybuilder
             ->update()
@@ -170,7 +187,6 @@ abstract class MysqlStorageAdapter implements interfaceStorage
 
         return $delete;
     }
-
     /**
      * buildingQuery
      * 
