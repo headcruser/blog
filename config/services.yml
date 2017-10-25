@@ -2,13 +2,23 @@ services:
   driver-db:
     class: core\ORM\Database\Driver\MysqlDriver
 
-  mysql-usuario-storage:
+  dbUsuario:
     class: core\ORM\Storage\Usuario\UsuarioStorage
+    arguments:
+      - "@driver-db"
+  
+  dbEntrada:
+    class: core\ORM\Storage\Entradas\EntradaStorage
+    arguments:
+      - "@driver-db"
+    
+  dbComentario:
+    class: core\ORM\Storage\Comentarios\ComentarioStorage
     arguments:
       - "@driver-db"
 
   user-repository:
     class: core\ORM\Repository\Usuario\UserRepository
     arguments:
-      - "@mysql-usuario-storage"
+      - "@dbUsuario"
   

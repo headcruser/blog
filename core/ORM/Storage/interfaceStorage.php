@@ -14,5 +14,5 @@ interface interfaceStorage
 {
     public function find(int $entityID);
     public function findAll(array $columns=[] ) : array;
-    public function delete($id);
+    public function remove($id);
 }

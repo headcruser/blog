@@ -125,15 +125,52 @@ abstract class MysqlStorageAdapter implements interfaceStorage
         return $select;
     }
     /**
-     * delete
+     * remove
      * 
      * Elimina un usuario de la base de datos.
      * @param int $id codigo de identificación del usuario.
      * @return void 
      */
-    public function delete($id)
+    public function remove($id)
     {
+        $delete=$this->delete($id);
+        $SQL=$this->buildingQuery($delete);
+        $values = $this->Querybuilder->getValues();        
+        $res=self::executeQuery($SQL,$values);
+    
+        if(!$res->execute())
+            return false;
+
+        return true;
     }
+
+    protected function delete($valor=null,$columna=null)
+    {
+        $delete = $this->Querybuilder
+            ->delete()
+            ->setTable($this->table);
+        $delete
+            ->where()
+            ->equals( (is_null($columna)?"id":$columna),$valor);
+
+        return $delete;
+    }
+
+    public function update($column,$values)
+    {
+        $update = $this->Querybuilder
+            ->update()
+            ->setTable($this->table);
+        
+        $update->setValues($values);
+
+        $delete
+            ->where()
+            ->equals('id',$id);
+
+        return $delete;
+    }
+
     /**
      * buildingQuery
      * 

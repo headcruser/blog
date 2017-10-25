@@ -20,22 +20,24 @@ class indexController extends Controller
 	{
 		if(isset($_SESSION['nombre']))
 			header('location: http://192.168.86.129/blog/admin');
+		 
+		//   $data=$this->container->get('dbComentario')->findAll();
+		//   d($data);
 
-		// /** @var UserRepository $UserRepository */
-		// $userRepository = $this->container->get('user-repository');
-		// $usuarios=$userRepository->find(3);
-		// d($usuarios);
-
+		//  $usuarioStorage->remove(15);
+		 
+		//  $usuarios=$this->container->get('user-repository')->findAll();
+		//  d($usuarios);
 		
-		$entradas=new Entradas();
-		$datos = $entradas->fetchAll();
-		$campos=$entradas->getNombresColumnas($datos);
+		// $entradas=new Entradas();
+		// $datos = $entradas->fetchAll();
+		// $campos=$entradas->getNombresColumnas($datos);
 
-		$this->assign("titulo","Bienvenido a la pagina principal");
-		$this->assign("datos",$datos);
-		$this->assign("campos",$campos);
+		// $this->assign("titulo","Bienvenido a la pagina principal");
+		// $this->assign("datos",$datos);
+		// $this->assign("campos",$campos);
 		
-		return $this->renderView("home.index");
+		// return $this->renderView("home.index");
 	}
 	/**
 	 * Entradas
