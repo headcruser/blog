@@ -39,6 +39,8 @@ abstract class MysqlStorageAdapter implements interfaceStorage
      * @var string $table
      */
     protected $table;
+
+    const SCHEMA='blog';
     
     public function __construct(string $nameTable,Driver $driver)
     {
@@ -224,5 +226,39 @@ abstract class MysqlStorageAdapter implements interfaceStorage
             $this->connection->disconnect();
         }
         return $res;
+    }
+
+    /**
+     * tableColumns
+     * 
+     * Consulta los nombres de los campos de la tabla correspondientes.
+     * La siguiente consulta solo funciona para mysql
+     * 
+     * SELECT COLUMN_NAME 
+     *      FROM INFORMATION_SCHEMA.COLUMNS 
+     * WHERE table_name='$this->table' 
+     * AND table_schema='blog'";
+     *
+     * 
+     * @return array Regresa un arreglo, con el nombre de las columnas
+     */
+    public function tableColumns():array
+    {
+        $datos=array();
+         
+         $select = $this->Querybuilder
+         ->select()
+         ->setTable('INFORMATION_SCHEMA.COLUMNS');
+         $select->setColumns(['COLUMN_NAME']);
+         $select->where()
+                ->equals( 'table_name', $this->table )
+                ->equals('table_schema',self::SCHEMA);
+
+        $SQL=$this->buildingQuery($select);
+        $values = $this->Querybuilder->getValues();   
+        $res=self::executeQuery($SQL,$values);
+        $datos=$res->FetchAll(PDO::FETCH_ASSOC);
+
+        return $datos;
     }
 }

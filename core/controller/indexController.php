@@ -22,24 +22,12 @@ class indexController extends Controller
 	{
 		if(isset($_SESSION['nombre']))
 			header('location: http://192.168.86.129/blog/admin');
-		 
-		//   $data=$this->container->get('dbComentario')->findAll();
-		//   d($data);
-
-		//  $usuarioStorage->remove(15);
-		 
-		//  $usuarios=$this->container->get('user-repository')->findAll();
-		//  d($usuarios);
 		
-		// $entradas=new Entradas();
-		// $datos = $entradas->fetchAll();
-		// $campos=$entradas->getNombresColumnas($datos);
-
-		// $this->assign("titulo","Bienvenido a la pagina principal");
-		// $this->assign("datos",$datos);
-		// $this->assign("campos",$campos);
+		$this->assign("titulo","Bienvenido a la pagina principal");
+		$this->assign("datos", $this->container->get('dbEntrada')->findAll() );
+		$this->assign("campos", $this->container->get('dbEntrada')->tableColumns());
 		
-		// return $this->renderView("home.index");
+		return $this->renderView("home.index");
 	}
 	/**
 	 * Entradas
