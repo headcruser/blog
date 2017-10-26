@@ -27,4 +27,8 @@ final class ComentarioStorage extends MysqlStorageAdapter
         echo "<pre>";
         d($data);
     }
+    public function getColumns():array
+    {
+        return $this->columns;
+    }
 }

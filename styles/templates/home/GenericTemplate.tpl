@@ -3,7 +3,7 @@
 <head>    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    {block name=estilos}  {* Hojas de Estilos*}
+      {* Estilos para todas las paginas *}
       <link rel="stylesheet" href="{$smarty.const.CSS}bootstrap.min.css"/>
       <link rel="stylesheet" href="{$smarty.const.CSS}font-awesome.min.css">        
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600i,700" 
@@ -19,9 +19,7 @@
       {*Estilos para el panel administrador*}
       <link rel="stylesheet" href="{$smarty.const.CSS}/metisMenu/metisMenu.min.css"/>
       <link rel="stylesheet" href="{$smarty.const.CSS}/metisMenu/sb-admin-2.css"/>
-    {/block}
-
-    {block name=js}{*Archvos para javascript*}
+      {block name=estilos}{/block}{* Hojas de Estilo que se deben agregar*}
       <script src="{$smarty.const.JS}jquery.js"></script>
       <script src="{$smarty.const.JS}bootstrap.min.js"></script>
       <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
@@ -35,11 +33,10 @@
       {*Archivos para menus*}
       <script src="{$smarty.const.JS}metisMenu/metisMenu.min.js"></script>
       <script src="{$smarty.const.JS}metisMenu/sb-admin-2.js"></script>
-    {/block}
-
-      <link rel="shortcut icon" href="{$smarty.const.IMG}iconPrincipal.ico"/>      
-      {* Agrega una imagen en hmtml
-      {html_image file="{$smarty.const.IMG}iconPrincipal.ico"} *}
+      {block name=js}{/block} {*Archvos para javascript*}
+      {block name=shortIcon} {* Icono para pestañas*}      
+        <link rel="shortcut icon" href="{$smarty.const.IMG}iconPrincipal.ico"/>
+      {/block}
     
     <title>{block name=title}TITULO DEFAULT{/block}</title>
   </head>

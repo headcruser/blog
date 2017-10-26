@@ -39,6 +39,12 @@ abstract class MysqlStorageAdapter implements interfaceStorage
      * @var string $table
      */
     protected $table;
+    /**
+     * Contiene las columnas de la tabla especificada
+     * 
+     * @var array $table
+     */
+    protected $columns=[];
 
     const SCHEMA='blog';
     
@@ -52,6 +58,7 @@ abstract class MysqlStorageAdapter implements interfaceStorage
             ]);
         
         $this->Querybuilder = new GenericBuilder();
+        $this->columns=$this->tableColumns();
     }
     /**
      * FindAll
@@ -227,7 +234,6 @@ abstract class MysqlStorageAdapter implements interfaceStorage
         }
         return $res;
     }
-
     /**
      * tableColumns
      * 
@@ -242,7 +248,7 @@ abstract class MysqlStorageAdapter implements interfaceStorage
      * 
      * @return array Regresa un arreglo, con el nombre de las columnas
      */
-    public function tableColumns():array
+    private function tableColumns():array
     {
         $datos=array();
          
@@ -259,6 +265,29 @@ abstract class MysqlStorageAdapter implements interfaceStorage
         $res=self::executeQuery($SQL,$values);
         $datos=$res->FetchAll(PDO::FETCH_ASSOC);
 
+        $datos=$this->clearDataTableColumns($datos);
         return $datos;
     }
+    /**
+     * clearDataTableColumns
+     * 
+     * Limpia la información de las tablas y lo deja en un array 
+     * simple para utilizarse.
+     * @param array $arrayColumns Recibe el arreglo de la consulta
+     * @return array Regresa el array limpio
+     */
+    private function clearDataTableColumns(array $arrayColumns):array
+    {
+        $columnas=[];
+		foreach ($arrayColumns as $key => $value) 
+            $columnas[$key]= $value['COLUMN_NAME'];
+
+        return $columnas;
+    }
+    /**
+     * getColumns
+     * Obtiene el nombre de las columnas
+     * @return array Regresa el arreglo con las columnas de cada tabla
+     */
+    public abstract function getColumns():array;
 }

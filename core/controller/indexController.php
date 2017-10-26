@@ -25,7 +25,6 @@ class indexController extends Controller
 		
 		$this->assign("titulo","Bienvenido a la pagina principal");
 		$this->assign("datos", $this->container->get('dbEntrada')->findAll() );
-		$this->assign("campos", $this->container->get('dbEntrada')->tableColumns());
 		
 		return $this->renderView("home.index");
 	}

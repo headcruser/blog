@@ -34,7 +34,9 @@ class Router
                               "/auth"=>"AuthController",
                               "/registro"=>"registroController",
                               "/admin" =>"adminController",
-                              "/usuario" =>"usuarioController");
+                              "/usuario" =>"usuarioController",
+                              "/entrada" =>"EntradaController"
+                            );
     $this->setUri();
   }
   /**

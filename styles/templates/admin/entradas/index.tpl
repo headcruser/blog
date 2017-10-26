@@ -1,4 +1,8 @@
 {extends file="home/GenericTemplate.tpl"}
+{block name=js}
+    <script src="{$smarty.const.JS}angular.min.js"></script>
+    <script src="{$smarty.const.JS}controladores/EntradaController.js"></script>
+{/block}
 {block name=title} Entradas Disponibles {/block}
 {block name=body}
 <div class="container-fluid panel panel-primary">
@@ -20,9 +24,9 @@
             <div class="default col-md-9">
                 <div class="row">
                 <div class="col-md-12">
-                <div class="panel panel-primary">
+                <div class="panel panel-primary" ng-app="entradaApp" ng-controller="EntradaController">
                     <div class="panel panel-heading text-center"> 
-                        <b>Entradas del usuario {$smarty.session.nombre}</b>
+                        <b>Entradas</b>
                     </div>
                     <div class="panel-body" width="95%">
                     {if isset($alerta)}
@@ -32,16 +36,12 @@
                                 <strong>Error! </strong> {$variables.alerta}
                         </div>
                     {/if}
-                    {if isset($accion)}
-                        {if $accion eq 1}
-                            {include file='admin/usuario/crearUsuario.tpl'}
-                        {/if}
-                        {if $accion eq 2}
-                            {include file='admin/entradas/listarEntradas.tpl'}
-                        {/if}
+                    
+                        
+                        {include file='admin/entradas/listarEntradas.tpl'}
+                        <input type="text" ng-model="name">
+                        hello: [[ name ]]
                             
-                    {/if}
-            
                     </div>
                 </div>
             </div>

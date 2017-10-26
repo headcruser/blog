@@ -27,4 +27,8 @@ final class EntradaStorage extends MysqlStorageAdapter
         echo "<pre>";
         d($data);
     }
+    public function getColumns():array
+    {
+        return $this->columns;
+    }
 }
