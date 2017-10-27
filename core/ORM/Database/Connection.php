@@ -195,4 +195,15 @@ class Connection implements IConnection
             'config' => $config
         ];
     }
+    /**
+     * getSchema
+     * 
+     * Obtiene en nombre de la base de datos.
+     * 
+     * @return string Regresa el nombre de la base de datos actual
+     */
+    public function getSchema():string
+    {
+        return $this->_driver->schema();
+    }
 }

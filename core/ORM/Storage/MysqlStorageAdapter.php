@@ -45,8 +45,6 @@ abstract class MysqlStorageAdapter implements interfaceStorage
      * @var array $table
      */
     protected $columns=[];
-
-    const SCHEMA='blog';
     
     public function __construct(string $nameTable,Driver $driver)
     {
@@ -182,7 +180,7 @@ abstract class MysqlStorageAdapter implements interfaceStorage
      * @param string $columna Especifica que columna es la que se actualizara.
      * @return Regresa el Query basico delete. 
      */
-    protected function update($column,$values)
+    protected function update($columna,$values)
     {
         $update = $this->Querybuilder
             ->update()
@@ -192,7 +190,7 @@ abstract class MysqlStorageAdapter implements interfaceStorage
 
         $delete
             ->where()
-            ->equals('id',$id);
+            ->equals((is_null($columna)?"id":$columna),$values);
 
         return $delete;
     }
@@ -258,7 +256,7 @@ abstract class MysqlStorageAdapter implements interfaceStorage
          $select->setColumns(['COLUMN_NAME']);
          $select->where()
                 ->equals( 'table_name', $this->table )
-                ->equals('table_schema',self::SCHEMA);
+                ->equals('table_schema',$this->connection->getSchema());
 
         $SQL=$this->buildingQuery($select);
         $values = $this->Querybuilder->getValues();   
