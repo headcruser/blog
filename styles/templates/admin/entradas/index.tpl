@@ -5,12 +5,13 @@
 {/block}
 {block name=title} Entradas Disponibles {/block}
 {block name=body}
-<div class="container-fluid panel panel-primary">
+<div class="container panel panel-primary">
     <div class="row">
         <div class"col-md-12">
             <h1 class="panel panel-heading text-center">Administrar entradas</h1>
         </div>
     </div>
+
     <div class="row">
         <div class="default col-md-3 " >
             <div class="list-group panel panel-primary">
@@ -21,33 +22,22 @@
             </div>
         </div>
 
-            <div class="default col-md-9">
-                <div class="row">
+        <div class="default col-md-9">
+            <div class="row">
                 <div class="col-md-12">
-                <div class="panel panel-primary" ng-app="entradaApp" ng-controller="EntradaController">
-                    <div class="panel panel-heading text-center"> 
-                        <b>Entradas</b>
-                    </div>
-                    <div class="panel-body" width="95%">
-                    {if isset($alerta)}
-                        <div class="alert alert-danger">
-                                <a href="http://{$smarty.server.SERVER_NAME}/blog/usuario/crear" 
-                                type="button" class="close" data-dismiss="alert">&times;</a>
-                                <strong>Error! </strong> {$variables.alerta}
+                    <div class="panel panel-primary" ng-app="entradaApp" ng-controller="EntradaController">
+                        <div class="panel panel-heading text-center"> 
+                            <b>Entradas</b>
                         </div>
-                    {/if}
-                    
-                        
-                        {include file='admin/entradas/listarEntradas.tpl'}
-                        <input type="text" ng-model="name">
-                        hello: [[ name ]]
-                            
+                        <div class="panel-body">
+                            <input type="text" class="form-control" placeholder="Buscar" ng-model="buscarEntrada">
+                            <hr>
+                            {include file='admin/entradas/listarEntradas.tpl'}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
-
     </div>
 </div>
 {/block}

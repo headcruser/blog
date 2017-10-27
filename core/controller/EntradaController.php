@@ -19,7 +19,7 @@ class EntradaController extends Controller
 	 */
 	public function index()
 	{
-		$this->assign("campos", $this->container->get('dbEntrada')->getColumns());
+		$this->assign("campos", ['#','url','titulo','fecha','activa']);
 		return $this->renderView("admin.entradas.index");
 	}
 	/**
@@ -29,7 +29,7 @@ class EntradaController extends Controller
 	public function listar()
 	{		
         
-        $datos=$this->container->get('dbEntrada')->findAll();
+        $datos=$this->container->get('dbEntrada')->findAll(['id','url','titulo','fecha','activa']);
         print ( $this->formatterToJson( $datos ) );
 
 		//return $this->renderView("admin.usuario.index",'variables',$variables);
