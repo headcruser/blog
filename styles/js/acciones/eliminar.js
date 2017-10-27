@@ -4,7 +4,7 @@ function confirmar(url)
     $.confirm({
         theme: 'light',
         title: 'Eliminar',
-        content: '¿Desea eliminar al usuario?',
+        content: '¿Desea eliminar el registro?',
         autoClose: 'cancelAction|15000',
         animation: 'zoom',
         buttons: 

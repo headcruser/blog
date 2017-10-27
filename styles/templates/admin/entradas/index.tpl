@@ -2,6 +2,7 @@
 {block name=js}
     <script src="{$smarty.const.JS}angular.min.js"></script>
     <script src="{$smarty.const.JS}controladores/EntradaController.js"></script>
+    <script src="{$smarty.const.JS}/acciones/eliminar.js"></script>
 {/block}
 {block name=title} Entradas Disponibles {/block}
 {block name=body}
@@ -38,6 +39,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
 </div>
 {/block}

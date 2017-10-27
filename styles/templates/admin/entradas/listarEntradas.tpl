@@ -17,13 +17,14 @@
 			<td>[[ entrada.url ]]</td>
 			<td>[[ entrada.titulo ]]</td>
 			<td>[[ entrada.fecha ]]</td>
-			<td>[[ entrada.activa ]]</td>
+			<td ng-if="entrada.activa == 1">Activada</td>
+			<td ng-if="entrada.activa == 0">Desactivada</td>
 			<td>
-				<a class="btn btn-primary" href="http://{$smarty.server.SERVER_NAME}/blog/usuario/editar/{$elemento.id}">
+				<a class="btn btn-primary" href="">
 					<span class="glyphicon glyphicon-pencil"></span>
 				</a>
 				<a class="btn btn-danger" 
-					onclick="confirmar('http://{$smarty.server.SERVER_NAME}/blog/usuario/eliminar/{$elemento.id}')"> 
+					onclick="confirmar('#')"> 
 					<span class="glyphicon glyphicon-trash"></span>
 				</a>
 			</td>
