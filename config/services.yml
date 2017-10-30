@@ -22,3 +22,13 @@ services:
     arguments:
       - "@dbUsuario"
   
+  entry-repository:
+    class: core\ORM\Repository\Entrada\EntryRepository
+    arguments:
+      - "@dbEntrada"
+
+  comment-repository:
+    class: core\ORM\Repository\Comentario\CommentRepository
+    arguments:
+      - "@dbComentario"
+  

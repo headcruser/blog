@@ -22,9 +22,9 @@ class EntryRepository
         $this->storageAdapter = $storageAdapter;
     }
 
-    public function find(int $idUser)
+    public function find(int $idEntry)
     {
-        return $this->buildCollection($this->storageAdapter->find($idUser));
+        return $this->buildCollection($this->storageAdapter->find($idEntry));
     }
 
     public function findAll() : array

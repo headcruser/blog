@@ -22,9 +22,9 @@ class CommentRepository
         $this->storageAdapter = $storageAdapter;
     }
 
-    public function find(int $idUser)
+    public function find(int $idComment)
     {
-        return $this->buildCollection($this->storageAdapter->find($idUser));
+        return $this->buildCollection($this->storageAdapter->find($idComment));
     }
 
     public function findAll() : array

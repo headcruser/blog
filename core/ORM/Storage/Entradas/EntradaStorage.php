@@ -1,7 +1,7 @@
 <?php namespace core\ORM\Storage\Entradas;
 
 use core\ORM\Storage\MysqlStorageAdapter;
-use core\model\Entradas;
+use core\lib\Model\Model;
 use core\ORM\Database\Driver;
 /**
 * EntradaStorage
@@ -21,7 +21,7 @@ final class EntradaStorage extends MysqlStorageAdapter
         parent::__construct('entradas',$driver);
     }
 
-    public function save(Entradas $data)
+    public function save(Model $data)
     {
         print("Guardando Tabla " .$this->table);
         echo "<pre>";
