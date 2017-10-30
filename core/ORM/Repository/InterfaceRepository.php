@@ -1,9 +1,8 @@
-<?php namespace core\ORM\Storage;
+<?php namespace core\ORM\Repository;
 /**
- * IntefaceStorage
+ * IntefacRepository
  * 
- * Define las operaciones genericas para para todos los repositorios
- * encargados de realizar las operaciones con la base de datos;
+ * Define las operaciones para los repositorios del sistema
  * 
  * @version: php7
  * @author: Daniel Martinez <headcruser@gmail.com>
@@ -14,5 +13,4 @@ interface interfaceStorage
 {
     public function find(int $entityID);
     public function findAll(array $columns=[] ) : array;
-    public function remove($id);
 }

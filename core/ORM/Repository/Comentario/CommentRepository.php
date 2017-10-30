@@ -1,6 +1,6 @@
 <?php namespace core\ORM\Repository\Comentario;
 use core\model\Comentario;
-use core\ORM\Storage\interfaceStorage;
+use core\ORM\Storage\InterfaceStorage;
 /**
  * CommentRepository
  * 

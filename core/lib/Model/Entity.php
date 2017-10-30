@@ -3,16 +3,15 @@
 use core\ORM\EtORM;
 use core\lib\Model\Inflector;
 
-/** Contiene un modelo generico para implementar una tabla en concreto 
-  * @class: Modelo
-  * @project: BlogProyect
-  * @date: 15-09-2017
-  * @version: php7
-  * @author: Daniel Martinez 
-  * @copyright: Daniel Martinez
-  * @email: headcruser@gmail.com
-  * @license: GNU General Public License (GPL)
-  */
+/** 
+ * Entity
+ * 
+ * Contiene un modelo generico para implementar una tabla en concreto 
+ * @version: php7
+ * @author: Daniel Martinez <headcruser@gmail.com>
+ * @copyright: Daniel Martinez
+ * @license https://opensource.org/licenses/mit-license.php MIT License
+*/
 abstract class Entity extends EtORM
 {
    use Inflector;

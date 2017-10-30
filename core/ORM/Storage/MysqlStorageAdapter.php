@@ -3,7 +3,7 @@ use \PDO;
 use \PDOException;
 use core\ORM\Database\Driver;
 use core\ORM\Database\Connection;
-use core\ORM\Storage\interfaceStorage;
+use core\ORM\Storage\InterfaceStorage;
 use core\ORM\Database\Driver\MysqlDriver;
 use NilPortugues\Sql\QueryBuilder\Builder\GenericBuilder;
 /**
@@ -19,7 +19,7 @@ use NilPortugues\Sql\QueryBuilder\Builder\GenericBuilder;
  * @copyright: Daniel Martinez
  * @license https://opensource.org/licenses/mit-license.php MIT License
  */
-abstract class MysqlStorageAdapter implements interfaceStorage
+abstract class MysqlStorageAdapter implements InterfaceStorage
 {
     /**
      * Conexion a base de datos;

@@ -17,23 +17,19 @@ abstract class Model
    use Inflector;
 
    /** Contiene las propiedades de manera Dinámica
-    * @var array
+    * @var array $propierties
     */
     protected $properties = array();
 
-    /** Nombre del modelo  @var string $nameModel*/
-    protected $nameModel;    
-
-    public function __construct(array $prop = [])
-    {
-        $this->properties = $prop;
-    }
+    /** Nombre del modelo  
+     * @var string $nameModel*/
+    protected $nameModel;        
     /**
      * Obtiene las columnas del 
      * @return type object Arreglo de objetos con las columnas especificadas
      */
-    protected function getColumns():array
+    public function getColumns():array
     {
-        return $this->$properties();
+        return $this->properties;
     }
 }

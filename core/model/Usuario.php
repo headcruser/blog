@@ -1,44 +1,64 @@
 <?php namespace core\model;	
+use core\lib\Model\Model;
 /** 
   * Modelo Usuario 
   *
-  * Esta clase define al modelo Usuarios, implementando 
-  * Validaciones sin realizar validaciones adicionales
-  * @class: Usuario
-  * @project: BlogProyect
-  * @date: 12-09-2017
+  * Esta clase define al modelo Usuarios. 
+  *
   * @version: php7
-  * @author: Daniel Martinez 
+  * @author: Daniel Martinez <headcruser@gmail.com>
   * @copyright: Daniel Martinez
-  * @email: headcruser@gmail.com
-  * @license: GNU General Public License (GPL)
+  * @license https://opensource.org/licenses/mit-license.php MIT License
   */
-final class Usuario
+final class Usuario extends Model
 {
   /**id|nombre|email|password|fecha_registro|activo;*/
-
-    private $id;
-    private $nombre;
-    private $email;
-    private $password;
-    private $fecha_registro;
-    private $activo;
-
+  private $id;
+  private $nombre;
+  private $email;
+  private $password;
+  private $fecha_registro;
+  private $activo;
+  protected $properties = array('id',
+                                'nombre',
+                                'email',
+                                'password',
+                                'fecha_registro',
+                                'activo');
+  /**
+   * __construct
+   * 
+   * Construye el modelo Entradas
+   * @var mixed
+   */
   public function __construct(string $idUser=null,
                               string $nomb=null,
                               string $email=null,
                               string $pass=null,
                               string $fecha=null,
-                              string $act=null)
-  {
-    $this->id=$idUser;
-    $this->nombre=$nomb;
-    $this->email=$email;
-    $this->password=$pass;
-    $this->fecha_registro=$fecha;
-    $this->activo=$act;
+                              string $act=null){
+    $this->id=$this->clearInput($idUser);
+    $this->nombre=$this->clearInput($nomb);
+    $this->email=$this->clearInput($email);
+    $this->password=$this->clearInput($pass);
+    $this->fecha_registro=$this->clearInput($fecha);
+    $this->activo=$this->clearInput($act);
   }
 
+  /**
+   * Create
+   * 
+   * Funcion statica que crea un objeto de la clase
+   * 
+   * @param string id
+   * @param string nomb
+   * @param string email
+   * @param string pass
+   * @param string fecha
+   * @param string activo
+   * 
+   * @return \core\model\Usuario
+   */
   public static function create(string $userID,
                                 string $nomb,
                                 string $email,
@@ -48,72 +68,25 @@ final class Usuario
   {
       return new static($userID,$nomb,$email,$pass,$fecha,$activo);
   }
-
-  public function getId()
+  //Getters
+  public function getId(){ return $this->id; }
+  public function getNombre():string { return $this->nombre; }
+  public function getEmail():string { return $this->email;  }
+  public function getPassword():string { return $this->password;}  
+  public function getFecha():string { return $this->fecha_registro;}
+  public function getActivo():string{ return $this->activo;}
+  /**
+   * __toString
+   * @return string cadena que representa al objeto 
+   */
+  public function __toString(): string
   {
-    return $this->id;
+      return  '<pre>'.
+              'ID        :'.$this->id.'<br>'.
+              'NOMBRE    :'.$this->nombre.'<br>'.
+              'EMAIL     :'.$this->email.'<br>'.
+              'PASSWORD  :'.$this->password.'<br>'.
+              'FECHA     :'.$this->fecha_registro.'<br>'.
+              'ACTIVO    :'.$this->activo;
   }
-
-  public function setId($idValor)
-  {
-      $this->id= trim(strip_tags($idValor));
-  }
-  public function getNombre():string
-  {
-    return $this->nombre;
-  }
-  public function setNombre(string $nameUser)
-  {
-      $this->nombre = trim(strip_tags($nameUser));
-  }
-
-  public function getEmail():string
-  {
-    return $this->email;
-  }
-
-  public function setEmail(string $emailUser)
-  {
-      $this->email = trim(strip_tags($emailUser));
-  }
-
-  public function getPassword():string
-  {
-    return $this->password;
-  }
-
-  public function setPassword(string $passUser)
-  {
-      $this->password= $this->clearString($passUser);
-      $this->password= password_hash($passUser, PASSWORD_DEFAULT);        
-  }
-  private function clearString():string
-  {
-    $campo = trim( $campo );
-    $campo = stripcslashes( $campo );
-    $campo = htmlspecialchars( $campo );
-    $campo = strip_tags( $campo );
-    return $campo;
-  }
-
-  public function getFecha():string
-  {
-    return $this->fecha_registro;
-  }
-
-  public function setFecha(string $fechaReg)
-  {
-      $this->fecha_registro = trim(strip_tags($fechaReg));
-  }
-
-  public function getActivo():string
-  {
-    return $this->activo;
-  }
-
-  public function setActive(string $fechaReg)
-  {
-      $this->activo = trim(strip_tags($fechaReg));
-  }
-
 }

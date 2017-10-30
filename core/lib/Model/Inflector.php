@@ -4,10 +4,9 @@
   * Helps to Models
   * 
   * @version: php7
-  * @author: Daniel Martinez 
+  * @author: Daniel Martinez <headcruser@gmail.com>
   * @copyright: Daniel Martinez
-  * @email: headcruser@gmail.com
-  * @license: GNU General Public License (GPL)
+  * @license https://opensource.org/licenses/mit-license.php MIT License
   */
 trait Inflector 
 {
@@ -33,7 +32,7 @@ trait Inflector
     * 
     * @return type String Regresa el campo limpio
     */
-    public static function clearInput(string $campo)
+    public final function clearInput(string $campo)
     {
         $campo = trim($campo);
         $campo = stripcslashes($campo);

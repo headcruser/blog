@@ -1,6 +1,7 @@
 <?php namespace core\ORM\Repository\Usuario;
 use core\model\Usuario;
-use core\ORM\Storage\interfaceStorage;
+use core\ORM\Storage\InterfaceStorage;
+use core\ORM\Repository\InterfaceRepository;
 /**
  * UserRepository
  * 
