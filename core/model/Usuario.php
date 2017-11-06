@@ -89,4 +89,10 @@ final class Usuario extends Model
               'FECHA     :'.$this->fecha_registro.'<br>'.
               'ACTIVO    :'.$this->activo;
   }
+
+  public function setPassword(string $passUser)
+  {
+      $this->password= $this->clearInput($passUser);
+      $this->password= password_hash($passUser, PASSWORD_DEFAULT);        
+  }
 }
