@@ -34,10 +34,15 @@ Esta estructura puede variar, dependiendo del estandar implementado por framewor
 ***
 ## Esquema de la base de datos
 
-A continuación se presenta el diagrama de la base de datos.
-
-<p align="center"><img src="./styles/img/esquemaBD/EsquemaBlog(BD).svg">
+### Modelo E-R
+<p align="center"><img src="./styles/img/esquemaBD/DIAGRAMA_ER.png">
 </p>
+
+### Modelo Relacional
+
+<p align="center"><img src="./styles/img/esquemaBD/DIAGRAMA_RELACIONAL.png">
+</p>
+
 
 El Esquema de base de datos, representa la estructura de datos, en donde se almacenan los siguientes elmementos
 
