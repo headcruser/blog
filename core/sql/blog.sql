@@ -9,7 +9,7 @@ CREATE TABLE usuarios (
 	email VARCHAR(255) NOT NULL UNIQUE,
 	password VARCHAR(255) NOT NULL,
 	fecha_registro DATETIME NOT NULL,
-	activo TINYINT NOT NULL,
+	activo TINYINT(1) NOT NULL,
 	PRIMARY KEY(id)
 );
 
@@ -20,7 +20,7 @@ CREATE TABLE entradas (
         titulo VARCHAR(255) NOT NULL UNIQUE,
         texto TEXT CHARACTER SET utf8 NOT NULL,
         fecha DATETIME NOT NULL,
-        activa TINYINT NOT NULL,
+        activa TINYINT(1) NOT NULL,
         PRIMARY KEY(id),
         FOREIGN KEY(autor_id)
             REFERENCES usuarios(id)
@@ -100,7 +100,7 @@ CREATE TABLE  auditoria_usuarios(
     email_nuevo varchar(255),
     usuario varchar(40),
     modificado datetime,
-    activo TINYINT,
+    activo TINYINT(1),
     id_usuario int(4),
     CONSTRAINT PK_AUDITORIA primary key(codAudit));
 
@@ -170,3 +170,4 @@ CREATE TRIGGER updateAuditoria BEFORE UPDATE ON usuarios
               CURRENT_USER(),
               NOW(),
               NEW.id);
+
