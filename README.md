@@ -1,4 +1,4 @@
-<p align="center"><img src="./styles/img/about/BlogHeadcruser.JPG">
+<p align="center"><img src="./doc/sources/about/BlogHeadcruser.JPG">
 </p>
 
 
@@ -30,15 +30,15 @@ El proyecto tiene la finalidad de crear una página web, dónde de manera fictic
 
 ## Capturas del sitio
 **Index** 
-<p align="center"><img src="./styles/img/MaquetacionBlog/inicio.png">
+<p align="center"><img src="./doc/sources/Maquetacion/inicio.png">
 </p>
 
 **Registro usuarios**
-<p align="center"><img src="./styles/img/MaquetacionBlog/registro.png">
+<p align="center"><img src="./doc/sources/Maquetacion/registro.png">
 </p>
 
 **Login del sitio**
-<p align="center"><img src="./styles/img/MaquetacionBlog/DisignLogin.png">
+<p align="center"><img src="./doc/sources/Maquetacion/DisignLogin.png">
 </p>
 
 # INSTALACION
@@ -64,4 +64,4 @@ Otro aspecto importante es la base de datos, la cual se encuentra en **core/sql/
 Script disponible de momento solo para mysql.
 ~~~
 
-Finalmente si se desea tener mayor información acerca del proyecto, recomiendo pasar a la [composer](/doc/Documentacion.md). 
+Finalmente si se desea tener mayor información acerca del proyecto, recomiendo pasar a la [Documentación](/doc/Documentacion.md). 

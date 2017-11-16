@@ -14,12 +14,12 @@ Diseñar una página web con tematica de blog, con la finalidad de integrar dist
 # DISEÑO DEL MODELO DE DATOS
 
 ### Modelo E-R
-<p align="center"><img src="./styles/img/esquemaBD/DIAGRAMA_ER.png">
+<p align="center"><img src="./sources/BD/DIAGRAMA_ER.png">
 </p>
 
 ### Modelo Relacional
 
-<p align="center"><img src="./styles/img/esquemaBD/DIAGRAMA_RELACIONAL.png">
+<p align="center"><img src="./sources/BD/DIAGRAMA_RELACIONAL.png">
 </p>
 
 
