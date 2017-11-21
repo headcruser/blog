@@ -46,8 +46,8 @@ Diseñar una página web con tematica de blog, con la finalidad de integrar dist
   - Ver numero de articulos publicados
 ***
 
-# (REQ1)ESTRUCTURA
-## Estructura del sitio web
+# (REQ1) ESTRUCTURA
+## Estructura de navegación
 
 - *Inicio ( home )*
   - Autores
@@ -75,8 +75,10 @@ Diseñar una página web con tematica de blog, con la finalidad de integrar dist
     - Foto
     - Datos Personales
 
+## Estructura de archivos
+<p align="center"><img src="./sources/estructura/estructuraBlog.png"></p>
 
-# (REQ2)DISEÑO DEL MODELO DE DATOS
+# (REQ2) DISEÑO DEL MODELO DE DATOS
 
 ### Modelo E-R
 <p align="center"><img src="./sources/BD/DIAGRAMA_ER.png">
