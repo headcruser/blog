@@ -2,13 +2,6 @@
 </p>
 
 
-# ACERCA DE ESTE PROYECTO
-El proyecto tiene la finalidad de crear una página web, dónde de manera ficticia, se trabaje un blog, dónde diversos autores puedan publicar sus articulos de manera sencilla, poder ser leidos por los usuarios que visiten la página.
-
-  __**Daniel Martinez, Octubre 2017**__
-
-***
-
 ## Estructrura del proyecto
   - **Compiler:** cache generado de las plantillas Smarty
   - **Config:** Almacena el archivo de configuracón de la base de datos
@@ -64,4 +57,4 @@ Otro aspecto importante es la base de datos, la cual se encuentra en **core/sql/
 Script disponible de momento solo para mysql.
 ~~~
 
-Finalmente si se desea tener mayor información acerca del proyecto, recomiendo pasar a la [Documentación](/doc/Documentacion.md). 
+Finalmente si se desea tener mayor información acerca de la estructura del proyecto, puede revisar el [indice](/doc/Indice.md) del contenido. 
