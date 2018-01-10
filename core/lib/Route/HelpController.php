@@ -6,11 +6,11 @@ use core\Exception\NoFoundControllerException;
 trait HelpController
 {
     /**
-	 * Obtiene el controlador seleccionado 
-	 * @param string $metodo Es la funcion a ejecutar  
-	 * @param string $controlador Es el control a cargar 
+	 * Obtiene el controlador seleccionado
+	 * @param string $metodo Es la funcion a ejecutar
+	 * @param string $controlador Es el control a cargar
      * @param mixed $params Obtiene los parametros a establecer
-	 * @return type void 
+	 * @return type void
 	 */
     public function getController(string $metodo,string $controlador,$params = null)
 	{
@@ -18,17 +18,17 @@ trait HelpController
 
 		if(! $this->isIndex( $metodo ) )
 			$metodoControler=$metodo;
-        
+
         $this->incluirControlador( $controlador );
-        $this->executeController( $controlador,$metodoControler,$params );		
+        $this->executeController( $controlador,$metodoControler,$params );
     }
     /**
      * isIndex
-     * 
-     * Revisa si la cadena contiene index o viene vacia 
+     *
+     * Revisa si la cadena contiene index o viene vacia
      * Si se cumplen Ambos casos retorna True.
-     * @param string $name 
-     * @return bool 
+     * @param string $name
+     * @return bool
      */
     private function isIndex(string $name):bool
     {
@@ -43,17 +43,17 @@ trait HelpController
 	{
 		if( ! file_exists(CONTROLLERS.$controlador.'.php') )
             throw new NoFoundControllerException(['reason' => "El controlador no existe"]);
-		
-		require_once CONTROLLERS.$controlador.'.php';		
+
+		require_once CONTROLLERS.$controlador.'.php';
     }
     /**
      * executeController
-     * 
+     *
      * Ejecuta el metodo Especificado
      * @param string $controller        Nombre del controlador
      * @param string $methodContoller   Nombre del metodo del controlador
      * @param array|null $params        Numero de Parametros
-     * @return mixed 
+     * @return mixed
      */
     private function executeController($controller,$methodContoller,$params)
     {
@@ -65,10 +65,10 @@ trait HelpController
         if( ! is_callable(array($claseTemporal,$methodContoller)))
             throw new MethodNoFoundException(['reason' => "El Método no existes"]);
 
-        if (!  $this->isIndex($methodContoller) ) 
-            return call_user_func_array(array($claseTemporal, $methodContoller), $params);		        
-        
-        if (count($params) == 0) 
+        if (!  $this->isIndex($methodContoller) )
+            return call_user_func_array(array($claseTemporal, $methodContoller), $params);
+
+
             $claseTemporal->$methodContoller();
     }
 }

@@ -1,0 +1,11 @@
+<?xml version ="1.0"?>
+<ruleset name="CPWEB">
+    <description>Mis Reglas para Formatear Archivos php</description>
+    <arg name="colors"/>
+    <arg value="p"/>
+
+    <file>core</file>
+
+    <rule ref="PSR2"></rule>
+
+</ruleset>

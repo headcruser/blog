@@ -1,0 +1,27 @@
+# Archivo de configuración del servidor
+RewriteEngine on
+
+# Ruta base del proyecto
+RewriteBase /blog/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^(.+)$ index.php?uri=$1 [QSA,L]
+
+# Previene que se abran archivos y directorios
+Options All -Indexes
+
+# Protección al archivo htacces
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>
+
+#Optimiza css/html/js
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/x-javascript
+
+#Otorga prioriodad a index.php
+DirectoryIndex index.php index.html
+
+#revisar el archivo ubicado en /etc/apache2/sites-enabled/000-default.configuración
+#Usuario:conta
+#password: 1234

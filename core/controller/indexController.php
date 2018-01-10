@@ -4,7 +4,7 @@ use core\model\Entradas;
 use core\model\Usuario;
 /**
 * indexController
-* 
+*
 * Control de la página principal del sistema.
 *
 * @version: php7
@@ -22,10 +22,10 @@ class indexController extends Controller
 	{
 		if(isset($_SESSION['nombre']))
 			header('location: http://192.168.86.129/blog/admin');
-		
+
 		$this->assign("titulo","Bienvenido a la pagina principal");
-		$this->assign("datos", $this->container->get('dbEntrada')->findAll() );
-		
+		// $this->assign("datos", $this->container->get('dbEntrada')->findAll() );
+
 		return $this->renderView("home.index");
 	}
 	/**
@@ -35,7 +35,7 @@ class indexController extends Controller
 	 * @return Vista Muestra al usuario la vista.
 	 */
 	public function entradas()
-	{		
+	{
 		return $this->renderView('home.Entradas');
 	}
 	/**
@@ -52,7 +52,7 @@ class indexController extends Controller
 	 * Autores
 	 *
 	 * Muestra una vista de los autores de cada Blog
-	 * @return Vista Muestra al usuario la vista Generada 
+	 * @return Vista Muestra al usuario la vista Generada
 	 */
 	public function autores()
 	{
@@ -66,7 +66,7 @@ class indexController extends Controller
 	 * @return Vista Muestra al usuario la vista.
 	 */
 	public function articulo()
-	{		
+	{
 		return $this->renderView('home.LeerArticulo');
 	}
 }
