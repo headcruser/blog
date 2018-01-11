@@ -1,8 +1,9 @@
 <?php namespace core\lib\View;
 
+use Smarty;
+use core\lib\View\RendererInterface;
 use core\lib\View\RenderException\ViewPathException;
 use core\lib\View\RenderException\ViewNoFoundException;
-use Smarty;
 
 /**
   * RenderView
@@ -10,58 +11,67 @@ use Smarty;
   * Rendereriza el modelo Vista del usuario utilizando smarty
   * Como gestor de plantillas.
   *
-  * @project: BlogProyect
-  * @date: 13-10-2017
-  * @version: php7
+  * @version: 1.2
   * @author: Daniel Martinez
   * @copyright: Daniel Martinez
   * @email: headcruser@gmail.com
   * @license: GNU General Public License (GPL)
   */
-class RenderView
+class RenderView implements RendererInterface
 {
-    private $template;
+    /**
+     * Extension Smarty
+     * @var string
+     */
     const EXTENSION_FILE='.tpl';
+    /**
+     * Delimiter for Path
+     * @var string
+     */
     const DELIMITER = '.';
-
-    public function __construct()
-    {
+    /**
+     * Const Folder Smarty
+     * @var string
+     */
+    const DEFAULT_NAMESPACE= '__SMARTY';
+    /**
+     * Reference Smarty Template
+     * @var Smarty
+     */
+    private $template;
+    public function __construct(
+        string $templateDir = 'C:\xampp2\htdocs\blog\styles\templates',
+        string $compileDir = 'C:\xampp2\htdocs\blog\compiler',
+        string $cache = 'C:\xampp2\htdocs\blog\compiler\cache'
+    ) {
         $this->template=new Smarty();
-        $this->template->setTemplateDir(PATH_VIEW);
-        $this->template->setCompileDir(RUTA_BASE."compiler");
-        $this->template->setCacheDir(RUTA_BASE."compiler/cache");
+        $this->template->setTemplateDir(
+            array(self::DEFAULT_NAMESPACE=>$templateDir)
+        );
+
+        $this->template->setCompileDir($compileDir);
+        $this->template->setCacheDir($cache);
     }
      /**
      * Render
-     *
-     * Renderiza las vistas del usuario, especificando la
-     * ruta en donde se encuentra la vista.
-     *
-     * Para Pasar una variable al gestor de plantillas, se
-     * hace la siguiente sintaxis:
-     *
-     * (<Nombre_Plantilla>,<Nombre_variable>,<valor_variable>)
-     * ("index","usus",$usuarios)
-     *  En
-     *  $usus = $usuarios;
-     *
-     * En el caso de asignar un array, existe una limitación
-     * extrae los keys y los convierte a variables.
-     * extract($key,EXTR_PREFIX_SAME,"");
+     * Permit Render a View.
+     *  load view normality from template Smarty
+     *      $this->render('view')
+     * if exist in other folder inside template smarty
+     *      $this->render('layout.footer')
      *
      * @param string $path Indica el nombre de la ruta del template
      * @param array|null $key Especifica un nombre para la variable
      * @param array|null $value Pasa un argumento como objeto
-     * @return RenderView
+     * @return string
      */
-    public function render(string $path, $key = null, $value = null)
+    public function render(string $path, $key = null, $value = null):string
     {
         if ($this->isEmptyPath($path)) {
             throw new ViewPathException(
                 ['reason' =>'Escribe una ruta']
             );
         }
-
         $ruta = $this->buildPath($path);
 
         if (!file_exists($ruta)) {
@@ -74,8 +84,7 @@ class RenderView
             ${$key} = $value;
             $this->template->assign("$key", ${$key});
         }
-
-        return $this->template->display($ruta);
+        return $this->template->fetch($ruta);
     }
 
     public function assign($key = null, $value = null)
@@ -89,6 +98,34 @@ class RenderView
     public function isEmptyPath($pathUser)
     {
         return is_null($pathUser) || empty($pathUser);
+    }
+
+     /**
+     * addpath
+     *
+     * Add a route to load the views
+     * @param string $namespace workespace view
+     * @param null|string $path Path Directory
+     * @return void
+     */
+    public function addpath(string $namespace, ?string $path = null):void
+    {
+        if (is_null($path)) {
+            $this->paths[self::DEFAULT_NAMESPACE]=$namespace;
+        } else {
+            $this->paths[$namespace]=$path;
+        }
+    }
+     /**
+     * addGlobal
+     * Adding local Variables to view using
+     * @param string $key name for reference
+     * @param object $value element adding
+     * @return void
+     */
+    public function addGlobal(string $key, $value):void
+    {
+        $this->assign($key, $value);
     }
     /**
      * BuildPath
@@ -107,10 +144,11 @@ class RenderView
             if ($i == ($sizeArray-1)) {
                 $path .= $arrayPath[$i].self::EXTENSION_FILE;
             } else {
-                $path .= $arrayPath[$i].'/';
+                $path .= $arrayPath[$i].DIRECTORY_SEPARATOR;
             }
         }
-        return PATH_VIEW.$path;
+
+        return $this->template->getTemplateDir(self::DEFAULT_NAMESPACE).$path;
     }
     /**
      * pathConverToArray
