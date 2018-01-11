@@ -1,5 +1,7 @@
 <?php namespace core\Exception;
+
 use RuntimeException;
+
 /**
 * Excepcion General para el sistema
 *
@@ -35,7 +37,7 @@ class GenericException extends RuntimeException
      * Crea Exepciones pudiendo especificar el codigo de exepcion perosnalizado
      * when debug = 0.
      *
-     * @param string|array $Recibe un mensaje en formato de array o string, donde especifica 
+     * @param string|array $Recibe un mensaje en formato de array o string, donde especifica
      *   Se puede acceder al mensaje, utilizando Exception::$_messageTemplate
      * @param int|null $code Codigo de error, sobre el estandar HTTP para los errores.
      * @param \Exception|null $previous the previous exception.

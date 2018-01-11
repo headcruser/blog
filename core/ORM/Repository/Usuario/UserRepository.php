@@ -1,13 +1,15 @@
 <?php namespace core\ORM\Repository\Usuario;
+
 use core\model\Usuario;
 use core\ORM\Storage\InterfaceStorage;
 use core\ORM\Repository\InterfaceRepository;
+
 /**
  * UserRepository
- * 
+ *
  * Repositorio Encargado de recuperar la información del usuario.
  * Esta clase provee de metodos utiles para la busqueda de elementos.
- * 
+ *
  * @version: php7
  * @author: Daniel Martinez <headcruser@gmail.com>
  * @copyright: Daniel Martinez
@@ -36,10 +38,8 @@ class UserRepository
     private function buildCollection(array $items) : array
     {
         $collection = [];
-        if (0 < count($items)) 
-        {
-            foreach ($items as $item) 
-            {
+        if (0 < count($items)) {
+            foreach ($items as $item) {
                 $collection[] = Usuario::create(
                     $item['id'],
                     $item['nombre'],

@@ -2,10 +2,11 @@
 
 use InvalidArgumentException;
 use PDO;
-/** 
- * Abstract Driver 
- * 
- * Representa un driver de base de datos que contiene todas las 
+
+/**
+ * Abstract Driver
+ *
+ * Representa un driver de base de datos que contiene todas las
  * especificaciones de un motor de de construcción de consultas.
  *
  * @version: php7
@@ -85,7 +86,7 @@ abstract class Driver
     abstract public function isConnected():bool;
 
     /**
-     * Prepara la consulta escrita mediante sql 
+     * Prepara la consulta escrita mediante sql
      *
      * @param string $query Consulta SQL
      * @return Statement
@@ -120,7 +121,7 @@ abstract class Driver
     abstract public function quote($value, $type);
     /**
      * Regresa un arreglo con la información del estado de la conexión
-     * 
+     *
      * @access public
      * @return array
      */

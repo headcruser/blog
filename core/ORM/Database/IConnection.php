@@ -1,4 +1,5 @@
 <?php namespace core\ORM\Database;
+
 /**
 * Interface conection
 *
@@ -19,7 +20,7 @@ interface IConnection
     public function configName():string;
     /**
      * Obtiene los datos de configuracion utilizados para crear la conexión.
-     * 
+     *
      * @return array
      */
     public function config():array;

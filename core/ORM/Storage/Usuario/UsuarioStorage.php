@@ -3,11 +3,12 @@
 use core\ORM\Storage\MysqlStorageAdapter;
 use core\model\Usuario;
 use core\ORM\Database\Driver;
+
 /**
 * UsuarioStorage
 *
 * Se encaga de realizar consultas especializadas para los Usuario
-* por ejemplo en el caso de ejecucion de vistas. 
+* por ejemplo en el caso de ejecucion de vistas.
 *
 * @version: php7
 * @author: Daniel Martinez <headcruser@gmail.com>
@@ -18,7 +19,7 @@ final class UsuarioStorage extends MysqlStorageAdapter
 {
     public function __construct(Driver $driver)
     {
-        parent::__construct('usuarios',$driver);
+        parent::__construct('usuarios', $driver);
     }
 
     public function save(Usuario $data)
@@ -31,5 +32,4 @@ final class UsuarioStorage extends MysqlStorageAdapter
     {
         return $this->columns;
     }
-    
 }

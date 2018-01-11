@@ -1,6 +1,7 @@
 <?php namespace core\ORM\Database\Exception;
 
 use core\Exception\GenericException;
+
 /**
 * Conexion no establecida.
 *
@@ -15,4 +16,3 @@ final class MissingConnectionException extends GenericException
 {
     protected $_messageTemplate = 'Conexión a la base de datos no pude establecerce: %s';
 }
-

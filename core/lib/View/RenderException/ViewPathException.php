@@ -1,6 +1,7 @@
 <?php namespace core\lib\View\RenderException;
 
 use core\Exception\GenericException;
+
 /**
 * ViewException
 *
@@ -9,7 +10,7 @@ use core\Exception\GenericException;
 * @project: BlogProyect
 * @date: 13-10-2017
 * @version: php7
-* @author: Daniel Martinez 
+* @author: Daniel Martinez
 * @copyright: Daniel Martinez
 * @email: headcruser@gmail.com
 * @license: GNU General Public License (GPL)

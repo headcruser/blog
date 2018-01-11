@@ -4,10 +4,11 @@ use core\ORM\Database\Driver;
 use core\ORM\Database\IConnection;
 use core\ORM\Database\Exception\MissingConnectionException;
 use core\ORM\Database\Exception\MissingExtensionException;
+
 /**
 * Connection.
-* 
-* Encapsula la conexión, dependiendo el driver implementado. 
+*
+* Encapsula la conexión, dependiendo el driver implementado.
 * Fork de Cake php
 *
 * @version: php7
@@ -19,14 +20,14 @@ class Connection implements IConnection
 {
     /**
      * Contiene los parametros de configuración para esta conexión
-     * 
+     *
      * @var array
      */
     protected $_config;
     /**
      * Objeto Driver
-     * 
-     * Responsable de crear la conexion real 
+     *
+     * Responsable de crear la conexion real
      *
      * @var \core\ORM\Database
      */
@@ -40,8 +41,9 @@ class Connection implements IConnection
     {
         $this->_config = $config;
 
-        if (!empty($config['driver']))
+        if (!empty($config['driver'])) {
             $driver = $config['driver'];
+        }
         
         $this->setDriver($driver);
     }
@@ -54,8 +56,9 @@ class Connection implements IConnection
      */
     public function setDriver(Driver $driver)
     {
-        if (!$driver->enabled()) 
+        if (!$driver->enabled()) {
             throw new MissingExtensionException(['driver' => get_class($driver)]);
+        }
         
         $this->_driver = $driver;
 
@@ -127,10 +130,10 @@ class Connection implements IConnection
      *
      * Desconecta el driver asociado con la conexión
      */
-     public function __destruct()
-     {
-         $this->_driver=null;
-     }
+    public function __destruct()
+    {
+        $this->_driver=null;
+    }
       /**
      * Prepara una sentencia Sql para ser Ejecutada.
      *
@@ -150,7 +153,6 @@ class Connection implements IConnection
     public function begin():bool
     {
         return $this->_driver->beginTransaction();
-           
     }
     /**
      * Commits current transaction.
@@ -167,7 +169,7 @@ class Connection implements IConnection
      * @return bool
      */
     public function rollback():bool
-    {       
+    {
         return $this->_driver->rollbackTransaction();
     }
     public function lastInsertId($table = null)
@@ -197,9 +199,9 @@ class Connection implements IConnection
     }
     /**
      * getSchema
-     * 
+     *
      * Obtiene en nombre de la base de datos.
-     * 
+     *
      * @return string Regresa el nombre de la base de datos actual
      */
     public function getSchema():string

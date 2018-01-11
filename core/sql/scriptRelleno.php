@@ -1,4 +1,4 @@
-<?php 
+<?php
 for ($usuarios = 0; $usuarios < 100; $usuarios++) {
     $nombre = sa(10);
     $email = sa(5).'@'.sa(3);
@@ -28,7 +28,8 @@ for ($comentarios = 0; $comentarios < 100; $comentarios++) {
     RepositorioComentario::insertar_comentario(Conexion::obtener_conexion(), $comentario);
 }
 
-function sa($longitud) {
+function sa($longitud)
+{
     $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $numero_caracteres = strlen($caracteres);
     $string_aleatorio = '';
@@ -40,7 +41,8 @@ function sa($longitud) {
     return $string_aleatorio;
 }
 
-function lorem() {
+function lorem()
+{
     $lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quam tortor, semper pretium velit sed, pulvinar posuere lectus. Nam eget hendrerit ante. Nunc sit amet eros at sapien tincidunt tempor. Quisque at urna ipsum. Praesent tincidunt magna sit amet ipsum luctus malesuada. Sed eget nibh vel mi dignissim egestas vitae vel leo. Donec id pulvinar erat. In sed metus ante. Etiam leo nunc, condimentum ut consectetur consectetur, aliquet auctor augue.
 
 Aenean in erat odio. Sed sit amet eros faucibus, facilisis nibh sed, posuere lectus. Nunc quis ex sit amet neque euismod maximus. In interdum urna orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla porta diam, quis dignissim massa placerat eu. Nulla dignissim, enim eu rutrum faucibus, lorem arcu fringilla augue, non suscipit tortor ligula nec mauris. Ut rhoncus sit amet leo et placerat. Suspendisse vitae porta felis, eget placerat risus. Nullam et arcu libero. Aenean sit amet semper urna. Duis tincidunt felis sapien, eget faucibus risus feugiat eget. Donec viverra eu ex non volutpat. Etiam tempus lorem vitae orci pharetra porta. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
@@ -51,51 +53,48 @@ Donec sodales mattis magna, a aliquet sem cursus in. Sed ut sodales metus, vitae
 
 Cras venenatis eu erat ac tincidunt. Duis ante diam, dignissim id turpis at, ullamcorper commodo orci. Mauris in sagittis erat. Proin ipsum est, rhoncus ac tortor id, posuere mattis elit. Vestibulum viverra augue quis felis pellentesque semper. Cras magna nisi, sollicitudin non luctus quis, pharetra in lacus. Donec volutpat ante quis elit dapibus lacinia. Donec rutrum luctus urna, consectetur ullamcorper turpis porta ac. Aliquam sodales lorem eget turpis cursus, sed consequat turpis tincidunt. Proin commodo eros vel lobortis iaculis. Donec tincidunt lacinia sapien, et iaculis sapien venenatis nec. In id ex tellus. Suspendisse velit nibh, interdum egestas metus dictum, elementum egestas dui.';
 
-    return $lorem; 
+    return $lorem;
 }
 
 // SCRIPT PARA LLENAR LAS TABLAS CON DATOS 
 // FALTA UN SCRIPT PARA RESETEAR LOS INDEX
 
-    for ($usuarios = 0; $usuarios < 10; $usuarios++) 
-    {
-     $usuario=new Usuario();
-        $usuario->nombre = self::sa(10);
-        $usuario->email = self::sa(8).'@'.self::sa(5).'.com';
-        $usuario->password = password_hash('123456', PASSWORD_DEFAULT);
-        $usuario->fecha_registro=date("Y-m-d");
-        $usuario->activo=1;
-        $usuario->guardar();
-    }
+for ($usuarios = 0; $usuarios < 10; $usuarios++) {
+    $usuario=new Usuario();
+    $usuario->nombre = self::sa(10);
+    $usuario->email = self::sa(8).'@'.self::sa(5).'.com';
+    $usuario->password = password_hash('123456', PASSWORD_DEFAULT);
+    $usuario->fecha_registro=date("Y-m-d");
+    $usuario->activo=1;
+    $usuario->guardar();
+}
 
 
 
-    for ($entradas = 0; $entradas < 10; $entradas++) 
-    {
-     $entrada=new Entradas();
-     $entrada->autor_id = $entradas+1;
+for ($entradas = 0; $entradas < 10; $entradas++) {
+    $entrada=new Entradas();
+    $entrada->autor_id = $entradas+1;
         
-     $titulo=self::sa(10);
-        $entrada->titulo =$titulo;
-        $entrada->url = $titulo;
-        $entrada->texto = self::lorem();
-        $entrada->fecha=date("Y-m-d");
-        $entrada->activa=1;
-        $entrada->guardar();
-    }
+    $titulo=self::sa(10);
+    $entrada->titulo =$titulo;
+    $entrada->url = $titulo;
+    $entrada->texto = self::lorem();
+    $entrada->fecha=date("Y-m-d");
+    $entrada->activa=1;
+    $entrada->guardar();
+}
 
 
-    for ($comentarios = 0; $comentarios < 10; $comentarios++) 
-    {
-        $comentario=new Comentario();
+for ($comentarios = 0; $comentarios < 10; $comentarios++) {
+    $comentario=new Comentario();
         
-        $comentario->autor_id= rand(1,10);
-        $comentario->entrada_id=rand(1,10);
-        $comentario->titulo = self::sa(10);
-        $comentario->texto = self::lorem();
-        $comentario->fecha=date("Y-m-d");
-        $comentario->guardar();
-    }
+    $comentario->autor_id= rand(1, 10);
+    $comentario->entrada_id=rand(1, 10);
+    $comentario->titulo = self::sa(10);
+    $comentario->texto = self::lorem();
+    $comentario->fecha=date("Y-m-d");
+    $comentario->guardar();
+}
 
 
 // ALMACENAR EJEMPLOS EN EL INDEX
@@ -126,7 +125,7 @@ Cras venenatis eu erat ac tincidunt. Duis ante diam, dignissim id turpis at, ull
         //Codigo Busca
         //$usuarioBuscado=$usuario->find(3);
 
-        //Codigo where 
+        //Codigo where
         //$usuarioBuscado->where("nombre","Daniel")
 
         //Codigo procedimiento

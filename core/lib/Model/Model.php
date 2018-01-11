@@ -2,11 +2,12 @@
 
 use core\lib\Model\Inflector;
 use GUMP;
+
 /**
   * Model
-  *   
+  *
   * Define un modelo Generico para las entidades del sistema
-  * 
+  *
   * @version: php7
   * @author: Daniel Martinez <headcruser@gmail.com>
   * @copyright: Daniel Martinez
@@ -14,18 +15,18 @@ use GUMP;
   */
 abstract class Model
 {
-   use Inflector;
+    use Inflector;
 
    /** Contiene las propiedades de manera Dinámica
     * @var array $propierties
     */
     protected $properties = array();
 
-    /** Nombre del modelo  
+    /** Nombre del modelo
      * @var string $nameModel*/
-    protected $nameModel;        
+    protected $nameModel;
     /**
-     * Obtiene las columnas del 
+     * Obtiene las columnas del
      * @return type object Arreglo de objetos con las columnas especificadas
      */
     public function getColumns():array

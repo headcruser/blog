@@ -1,9 +1,10 @@
 <?php
 use core\lib\Controllers\Controller;
 use core\model\Entrada;
+
 /**
 * EntradaController
-* 
+*
 * Administración de las entradas
 *
 * @version: php7
@@ -13,38 +14,38 @@ use core\model\Entrada;
 */
 class EntradaController extends Controller
 {
-	/**
-	 * Muestra la pagina principal
-	 * @return type void
-	 */
-	public function index()
-	{
-		$this->assign("campos", ['#','url','titulo','fecha','activa']);
-		return $this->renderView("admin.entradas.index");
-	}
-	/**
-	 * Muestra El registro de usuario
-	 * @return type Vista Muestra la vista al usuario
-	 */
-	public function listar()
-	{		
+    /**
+     * Muestra la pagina principal
+     * @return type void
+     */
+    public function index()
+    {
+        $this->assign("campos", ['#','url','titulo','fecha','activa']);
+        return $this->renderView("admin.entradas.index");
+    }
+    /**
+     * Muestra El registro de usuario
+     * @return type Vista Muestra la vista al usuario
+     */
+    public function listar()
+    {
         
         $datos=$this->container->get('dbEntrada')->findAll(['id','url','titulo','fecha','activa']);
-        print ( $this->formatterToJson( $datos ) );
+        print ( $this->formatterToJson($datos) );
 
-		//return $this->renderView("admin.usuario.index",'variables',$variables);
-	}
+        //return $this->renderView("admin.usuario.index",'variables',$variables);
+    }
 
-	/**
-	 * Edita a un usuario especificado
-	 * @param 	$id 	identificador del usuario
-	 * @return type Vista Muestra la vista al usuario
-	 */
-	public function editar($id)
-	{
-	}
+    /**
+     * Edita a un usuario especificado
+     * @param   $id     identificador del usuario
+     * @return type Vista Muestra la vista al usuario
+     */
+    public function editar($id)
+    {
+    }
 
-	public function eliminar($id)
-	{		
-	}
+    public function eliminar($id)
+    {
+    }
 }

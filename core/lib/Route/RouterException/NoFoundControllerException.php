@@ -1,6 +1,7 @@
 <?php namespace core\Exception;
 
 use core\Exception\GenericException;
+
 /**
 * Controlador no encontrado.
 *

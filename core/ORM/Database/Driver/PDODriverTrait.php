@@ -1,6 +1,7 @@
 <?php namespace core\ORM\Database\Driver;
 
 use PDO;
+
 /**
 * PDODriverTrait
 *
@@ -54,7 +55,7 @@ trait PDODriverTrait
     }
     /**
       * isConnected
-      *  
+      *
       * Revisa si el driver esta conectado con el servidor
       *
       * @return bool
@@ -83,8 +84,8 @@ trait PDODriverTrait
     }
     /**
      * prepare
-     * 
-     * Prepara una sentencia Sql 
+     *
+     * Prepara una sentencia Sql
      *
      * @param string $query The query to turn into a prepared statement.
      * @return StatementInterface
@@ -92,7 +93,7 @@ trait PDODriverTrait
     public function prepare($query)
     {
         $this->connect();
-        $statement = $this->_connection->prepare( $query);
+        $statement = $this->_connection->prepare($query);
         return $statement;
     }
     /**
@@ -116,8 +117,9 @@ trait PDODriverTrait
     public function commitTransaction()
     {
         $this->connect();
-        if (!$this->_connection->inTransaction())
+        if (!$this->_connection->inTransaction()) {
             return false;
+        }
         
         return $this->_connection->commit();
     }
@@ -129,15 +131,16 @@ trait PDODriverTrait
     public function rollbackTransaction()
     {
         $this->connect();
-        if (!$this->_connection->inTransaction())
+        if (!$this->_connection->inTransaction()) {
             return false;
+        }
         
         return $this->_connection->rollback();
     }
     /**
      * Entrecomilla el string de entrada (si fuera necesario) y escapa los
-     * caracteres especiales contenidos en dicho string, usando un estilo 
-     * de entrecomillado apropiado para el controlador subyacente. 
+     * caracteres especiales contenidos en dicho string, usando un estilo
+     * de entrecomillado apropiado para el controlador subyacente.
      *
      * @param mixed $value Cadena a entrecomiillar.
      * @param string $type Tipo utillizado para poder realizar el entrecomillado
@@ -152,7 +155,7 @@ trait PDODriverTrait
      * Regresa el ultimo id generado por la tabla en secuencia de la base de datos
      *
      * @param string|null $table nombre de la tabla para obtener el ultimo valor insertado
-     * @return string|int 
+     * @return string|int
      */
     public function lastInsertId($table = null, $column = null)
     {

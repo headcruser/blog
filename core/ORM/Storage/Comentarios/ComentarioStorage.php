@@ -3,11 +3,12 @@
 use core\ORM\Storage\MysqlStorageAdapter;
 use core\model\Comentario;
 use core\ORM\Database\Driver;
+
 /**
 * ComentarioStorage
 *
 * Se encaga de realizar consultas especializadas para los comentarios
-* por ejemplo en el caso de ejecucion de vistas. 
+* por ejemplo en el caso de ejecucion de vistas.
 *
 * @version: php7
 * @author: Daniel Martinez <headcruser@gmail.com>
@@ -18,7 +19,7 @@ final class ComentarioStorage extends MysqlStorageAdapter
 {
     public function __construct(Driver $driver)
     {
-        parent::__construct('comentarios',$driver);
+        parent::__construct('comentarios', $driver);
     }
 
     public function save(Comentario $data)

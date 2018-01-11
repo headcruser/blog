@@ -2,6 +2,7 @@
 
 use core\ORM\Database\Driver;
 use \PDO;
+
 /**
 * Driver Mysql
 *
@@ -36,12 +37,12 @@ class MysqlDriver extends Driver
     protected $_version;
     /**
      * Establece una conexion con la base de datos
-     * 
+     *
      * Este metódo es utilizado para realizar la conexión
      * a una Base de datos, el cual hace uso de un traitPDO
-     * el cual tiene la configuración para conectarse a 
+     * el cual tiene la configuración para conectarse a
      * traves de PDO.
-     * 
+     *
      * @access public
      * @return bool true on success
      */

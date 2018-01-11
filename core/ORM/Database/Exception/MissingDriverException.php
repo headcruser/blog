@@ -1,11 +1,12 @@
 <?php namespace core\ORM\Database\Exception;
 
 use core\Exception\GenericException;
+
 /**
 * MissingDriverException
 *
 * Lanza una excepción si no se encuentra el driver Correspondiente
-* 
+*
 * @version: php7
 * @author: Daniel Martinez <headcruser@gmail.com>
 * @copyright: Daniel Martinez

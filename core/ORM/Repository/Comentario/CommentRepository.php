@@ -1,12 +1,14 @@
 <?php namespace core\ORM\Repository\Comentario;
+
 use core\model\Comentario;
 use core\ORM\Storage\InterfaceStorage;
+
 /**
  * CommentRepository
- * 
+ *
  * Repositorio encargado de construir las consultas básicas
  * de los comentarios.
- * 
+ *
  * @version: php7
  * @author: Daniel Martinez <headcruser@gmail.com>
  * @copyright: Daniel Martinez
@@ -35,10 +37,8 @@ class CommentRepository
     private function buildCollection(array $items) : array
     {
         $collection = [];
-        if (0 < count($items)) 
-        {
-            foreach ($items as $item) 
-            {
+        if (0 < count($items)) {
+            foreach ($items as $item) {
                 $collection[] = Comentario::create(
                     $item['id'],
                     $item['autor_id'],

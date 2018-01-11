@@ -1,6 +1,7 @@
 <?php namespace core\lib\Route\RouteException;
 
 use core\Exception\GenericException;
+
 /**
 * Clase No Econtrada.
 *

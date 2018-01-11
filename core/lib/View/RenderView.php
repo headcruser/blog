@@ -3,21 +3,22 @@
 use core\lib\View\RenderException\ViewPathException;
 use core\lib\View\RenderException\ViewNoFoundException;
 use Smarty;
-/** 
-  * RenderView 
-  * 
+
+/**
+  * RenderView
+  *
   * Rendereriza el modelo Vista del usuario utilizando smarty
   * Como gestor de plantillas.
-  * 
+  *
   * @project: BlogProyect
   * @date: 13-10-2017
   * @version: php7
-  * @author: Daniel Martinez 
+  * @author: Daniel Martinez
   * @copyright: Daniel Martinez
   * @email: headcruser@gmail.com
   * @license: GNU General Public License (GPL)
   */
-class RenderView 
+class RenderView
 {
     private $template;
     const EXTENSION_FILE='.tpl';
@@ -31,55 +32,57 @@ class RenderView
         $this->template->setCacheDir(RUTA_BASE."compiler/cache");
     }
      /**
-     * Render 
-     * 
+     * Render
+     *
      * Renderiza las vistas del usuario, especificando la
      * ruta en donde se encuentra la vista.
-     * 
-     * Para Pasar una variable al gestor de plantillas, se 
-     * hace la siguiente sintaxis: 
+     *
+     * Para Pasar una variable al gestor de plantillas, se
+     * hace la siguiente sintaxis:
      *
      * (<Nombre_Plantilla>,<Nombre_variable>,<valor_variable>)
      * ("index","usus",$usuarios)
-     *  En 
+     *  En
      *  $usus = $usuarios;
-     * 
+     *
      * En el caso de asignar un array, existe una limitación
      * extrae los keys y los convierte a variables.
      * extract($key,EXTR_PREFIX_SAME,"");
-     * 
+     *
      * @param string $path Indica el nombre de la ruta del template
      * @param array|null $key Especifica un nombre para la variable
      * @param array|null $value Pasa un argumento como objeto
      * @return RenderView
      */
-    public function render(string $path,$key=null,$value=null)
+    public function render(string $path, $key = null, $value = null)
     {
-        if( $this->isEmptyPath( $path ) )
+        if ($this->isEmptyPath($path)) {
             throw new ViewPathException(
-                ['reason' =>'Escribe una ruta']);
+                ['reason' =>'Escribe una ruta']
+            );
+        }
 
-        $ruta = $this->buildPath( $path );
+        $ruta = $this->buildPath($path);
 
-        if(!file_exists($ruta))
+        if (!file_exists($ruta)) {
             throw new ViewNoFoundException(
-                ['reason' => 'Revisa '.$ruta]);
+                ['reason' => 'Revisa '.$ruta]
+            );
+        }
 
-        if(!is_null($key))
-        {
+        if (!is_null($key)) {
             ${$key} = $value;
-            $this->template->assign("$key",${$key});        
+            $this->template->assign("$key", ${$key});
         }
 
         return $this->template->display($ruta);
     }
 
-    public function assign($key=null,$value=null)
+    public function assign($key = null, $value = null)
     {
-        if(!is_null($key))
-        {
+        if (!is_null($key)) {
             ${$key} = $value;
-            $this->template->assign("$key",${$key});        
+            $this->template->assign("$key", ${$key});
         }
     }
 
@@ -89,41 +92,41 @@ class RenderView
     }
     /**
      * BuildPath
-     * 
-     * Construye una ruta a partir de un array 
+     *
+     * Construye una ruta a partir de un array
      * @param array $arrayRuta Array que contiene la ruta
      * @return string Regresa una cadena con la ruta construida
     */
-    private function buildPath( string $pathTemplate ):string
+    private function buildPath(string $pathTemplate):string
     {
-        $arrayPath=$this->pathConverToArray( $pathTemplate );
-        $sizeArray=count( $arrayPath );
+        $arrayPath=$this->pathConverToArray($pathTemplate);
+        $sizeArray=count($arrayPath);
         $path = '';
 
-        for($i =0;$i < $sizeArray; $i++)
-        { 
-            if ( $i == ($sizeArray-1) )
+        for ($i =0; $i < $sizeArray; $i++) {
+            if ($i == ($sizeArray-1)) {
                 $path .= $arrayPath[$i].self::EXTENSION_FILE;
-            else
+            } else {
                 $path .= $arrayPath[$i].'/';
+            }
         }
         return PATH_VIEW.$path;
     }
     /**
      * pathConverToArray
-     * 
+     *
      * Convierte la ruta a un arreglo, utilizando el delimitador '.'
      * Por ejemplo
      * (home.controller)
-     * 
+     *
      * Resultado
      * array(home,controller)
-     * 
-     * @param string $path Ruta que se desea converir. 
+     *
+     * @param string $path Ruta que se desea converir.
      * @return array Regresa la ruta contenida en un array
      */
-    private function pathConverToArray( string $path ):array
+    private function pathConverToArray(string $path):array
     {
-        return explode( self::DELIMITER,$path );
+        return explode(self::DELIMITER, $path);
     }
 }

@@ -8,7 +8,7 @@ RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteRule ^(.+)$ index.php?uri=$1 [QSA,L]
 
 # Previene que se abran archivos y directorios
-Options All -Indexes
+#Options All -Indexes
 
 # Protección al archivo htacces
 <Files .htaccess>
@@ -17,7 +17,7 @@ Options All -Indexes
 </Files>
 
 #Optimiza css/html/js
-AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/x-javascript
+#AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript #application/x-javascript
 
 #Otorga prioriodad a index.php
 DirectoryIndex index.php index.html

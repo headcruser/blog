@@ -1,12 +1,14 @@
 <?php namespace core\ORM\Repository\Entrada;
+
 use core\model\Entradas;
 use core\ORM\Storage\interfaceStorage;
+
 /**
  * EntryRepository
- * 
+ *
  * Repositorio encargado de construir las consultas básicas
  * de las entradas.
- * 
+ *
  * @version: php7
  * @author: Daniel Martinez <headcruser@gmail.com>
  * @copyright: Daniel Martinez
@@ -35,10 +37,8 @@ class EntryRepository
     private function buildCollection(array $items) : array
     {
         $collection = [];
-        if (0 < count($items)) 
-        {
-            foreach ($items as $item) 
-            {
+        if (0 < count($items)) {
+            foreach ($items as $item) {
                 $collection[] = Entradas::create(
                     $item['id'],
                     $item['autor_id'],
