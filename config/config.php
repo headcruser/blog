@@ -1,31 +1,32 @@
 <?php
     /**
-	 * Archivo de configuración del sistema
-	 *
-	 * @author 	Headcruser
-	 * @copyright: Daniel Martinez
-	 * @version 2017_v1
-	 * @license https://opensource.org/licenses/mit-license.php MIT License
+     * Archivo de configuración del sistema
+     *
+     * @author  Headcruser
+     * @copyright: Daniel Martinez
+     * @version 2017_v1
+     * @license https://opensource.org/licenses/mit-license.php MIT License
      */
+    //SYSTEM
+    define('DS', DIRECTORY_SEPARATOR);
+    define('PATH', dirname(__DIR__, 1).DS);
 
-    //Parametros de condiguracón de servidor
+    define('PATH_APP', PATH.'core'.DS);
+    define('CONTROLLERS', PATH_APP.'controller'.DS);
+    define('PATH_VIEW', PATH.'styles'.DS.'templates'.DS);
+    define('INDEX', dirname($_SERVER['PHP_SELF'])."/");
+
+    //STYLES
+    define('CSS', INDEX.'styles/css/');
+    define('JS', INDEX.'styles/js/');
+    define('IMG', INDEX.'styles/img/');
+    define('TEMPLATES', INDEX.'styles/templates/');
+
+    //DATABASE
     define('SERVIDOR', 'localhost');
     define('USUARIO', 'conta');
     define('PASSWORD', '123');
     define('DB_NAME', 'blog');
     define('PUERTO', '3306');
     define('ENCODING', 'utf8');
-
-    //Crea las rutas del motor de la aplicacion
-    define ('PATH_APP', RUTA_BASE."core/");
-    define ('CONTROLLERS', PATH_APP.'controller/');
-    define ('PATH_VIEW', RUTA_BASE."styles/templates/");
-
-    //Ruta principal
-    define ('INDEX', dirname($_SERVER['PHP_SELF'])."/");
-
-    //Constantes para sytles
-    define ('CSS', INDEX.'styles/css/');
-    define ('JS', INDEX.'styles/js/');
-    define ('IMG', INDEX.'styles/img/');
-    define ('TEMPLATES', INDEX.'styles/templates/');
+    define('ENGINE', 'mysql');

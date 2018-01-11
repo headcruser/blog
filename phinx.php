@@ -1,21 +1,21 @@
 <?php
-require 'public/index.php';
+require 'index.php';
 
 return[
     'paths'=>[
-        'migrations'    =>__DIR__.DS.'db',
-        'seeds'         =>__DIR__.DS.'db'
+        'migrations'    =>__DIR__.DS.'db'.DS.'migrations',
+        'seeds'         =>__DIR__.DS.'db'.DS.'seeds'
     ],
     'environments'=>[
         'default_database'  => 'development',
         'development'       =>[
                         'adapter'=> ENGINE,
-                        'host'  =>HOST,
-                        'name'=> NAME,
-                        'user'=> USER,
-                        'pass'=> PASS,
-                        'port'=> PORT,
-                        'charset'=> CHARSET,
+                        'host'  =>SERVIDOR,
+                        'name'=> DB_NAME,
+                        'user'=> USUARIO,
+                        'pass'=> PASSWORD,
+                        'port'=> PUERTO,
+                        'charset'=> ENCODING,
                     ]
     ]
 ];
