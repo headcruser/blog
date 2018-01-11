@@ -40,9 +40,9 @@ class RenderView implements RendererInterface
      */
     private $template;
     public function __construct(
-        string $templateDir = 'C:\xampp2\htdocs\blog\styles\templates',
-        string $compileDir = 'C:\xampp2\htdocs\blog\compiler',
-        string $cache = 'C:\xampp2\htdocs\blog\compiler\cache'
+        string $templateDir = '.\blog\styles\templates',
+        string $compileDir = '.\blog\compiler',
+        string $cache = '.\blog\compiler\cache'
     ) {
         $this->template=new Smarty();
         $this->template->setTemplateDir(
@@ -86,7 +86,14 @@ class RenderView implements RendererInterface
         }
         return $this->template->fetch($ruta);
     }
-
+     /**
+     * assign
+     *
+     * Assing a Variable to Smarty template
+     * @param mixed $key
+     * @param mixed $value
+     * @return void
+     */
     public function assign($key = null, $value = null)
     {
         if (!is_null($key)) {
@@ -94,12 +101,17 @@ class RenderView implements RendererInterface
             $this->template->assign("$key", ${$key});
         }
     }
-
-    public function isEmptyPath($pathUser)
+    /**
+     * isEmptyPath
+     *
+     * Check Path is Empty
+     * @param string $pathUser
+     * @return bool
+     */
+    public function isEmptyPath(string $pathUser):bool
     {
         return is_null($pathUser) || empty($pathUser);
     }
-
      /**
      * addpath
      *
@@ -110,11 +122,7 @@ class RenderView implements RendererInterface
      */
     public function addpath(string $namespace, ?string $path = null):void
     {
-        if (is_null($path)) {
-            $this->paths[self::DEFAULT_NAMESPACE]=$namespace;
-        } else {
-            $this->paths[$namespace]=$path;
-        }
+        $this->template->addTemplateDir($path, $namespace);
     }
      /**
      * addGlobal
@@ -153,15 +161,12 @@ class RenderView implements RendererInterface
     /**
      * pathConverToArray
      *
-     * Convierte la ruta a un arreglo, utilizando el delimitador '.'
-     * Por ejemplo
-     * (home.controller)
-     *
-     * Resultado
+     * Split the path using the delimiter'.'.
+     * Result:
      * array(home,controller)
      *
      * @param string $path Ruta que se desea converir.
-     * @return array Regresa la ruta contenida en un array
+     * @return array return Array path
      */
     private function pathConverToArray(string $path):array
     {
