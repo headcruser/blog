@@ -1,7 +1,7 @@
 <?php namespace System\Route;
 
  use System\View\RenderView;
- use System\Route\HelpContoller;
+ use System\Route\Exception\RouterException;
 
 class Router
 {
@@ -81,14 +81,14 @@ class Router
     public function run($url)
     {
         if (!isset($this->routes[$_SERVER['REQUEST_METHOD']])) {
-            throw new \Exception("Not Exist Routes", 1);
+            throw new RouterException('Not Exist Routes');
         }
         foreach ($this->routes[$_SERVER['REQUEST_METHOD']] as $route) {
             if ($route->match($url)) {
                 return $route;//return $route->call();
             }
         }
-         throw new \Exception('No maching routes', 1);
+         throw new RouterException(['No maching routes']);
     }
     /**
      * url

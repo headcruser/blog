@@ -1,4 +1,4 @@
-<?php namespace core\lib\ManagerSession;
+<?php namespace System\ManagerSession;
 
 /*
 * Gestiona las sessiones de los usuarios
@@ -6,7 +6,7 @@
 class Session
 {
 
-   
+
     private $sessionState;
     const SESSION_STARTED=true;
 
@@ -54,10 +54,10 @@ class Session
     **/
     public function destroy():bool
     {
-       
+
             $this->sessionState = !session_destroy();
             unset($_SESSION);
-           
+
             return !$this->sessionState;
     }
 }

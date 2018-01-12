@@ -8,18 +8,17 @@ use System\Route\Router;
 
 class indexController
 {
-    private $router;
     private $renderer;
 
     public function __construct(Router $router, RendererInterface $renderer)
     {
-        $this->router=$router;
+
         $this->renderer=$renderer;
-        $this->router->get('/', 'index#index', 'blog.index');
-        $this->router->get('/entradas', 'index#entradas', 'blog.entradas');
-        $this->router->get('/favoritos', 'index#favoritos', 'blog.favoritos');
-        $this->router->get('/autores', 'index#autores', 'blog.autores');
-        $this->router->get('/articulo', 'index#articulo', 'blog.articulo');
+        $router->get('/', 'index#index', 'blog.index');
+        $router->get('/entradas', 'index#entradas', 'blog.entradas');
+        $router->get('/favoritos', 'index#favoritos', 'blog.favoritos');
+        $router->get('/autores', 'index#autores', 'blog.autores');
+        $router->get('/articulo', 'index#articulo', 'blog.articulo');
     }
     /**
      * Muestra la pagina principal

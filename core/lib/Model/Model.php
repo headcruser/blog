@@ -1,6 +1,6 @@
-<?php namespace core\lib\Model;
+<?php namespace System\Model;
 
-use core\lib\Model\Inflector;
+use System\Model\Inflector;
 use GUMP;
 
 /**

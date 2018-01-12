@@ -1,4 +1,4 @@
-<?php namespace core\lib\Autentication;
+<?php namespace System\Autentication;
 
 /** Register
   *

@@ -1,8 +1,8 @@
-<?php namespace core\lib\Autentication;
+<?php namespace System\Autentication;
 
-use core\ORM\EtORM;
-use core\lib\Autentication\Register;
-use core\lib\ManagerSession\Session;
+use System\ORM\EtORM;
+use System\Autentication\Register;
+use System\ManagerSession\Session;
 
 /** @class: Sistema De autenticacion
   * @project: BlogProyect
@@ -16,7 +16,7 @@ use core\lib\ManagerSession\Session;
 class AutenticationService extends EtORM implements Register
 {
     private $session;
-  
+
     public function __construct(Session $managerSession)
     {
         $this->session=$managerSession;
@@ -31,7 +31,7 @@ class AutenticationService extends EtORM implements Register
     {
       /**Ejecuto el procedimiento Almacenado PA_LOGIN*/
         $usuarioLogin=$this->checkUser($email);
-    
+
       //Esta vacio
         if (!isset($usuarioLogin['id'])) {
             return false;
@@ -41,9 +41,9 @@ class AutenticationService extends EtORM implements Register
         if (!password_verify($password, $usuarioLogin['password'])) {
             return false;
         }
-      
+
         $this->addSession($usuarioLogin);
-    
+
         return true;
     }
   /**

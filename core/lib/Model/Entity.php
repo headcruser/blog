@@ -1,7 +1,7 @@
-<?php namespace core\lib\Model;
+<?php namespace System\Model;
 
-use core\ORM\EtORM;
-use core\lib\Model\Inflector;
+use System\ORM\EtORM;
+use System\Model\Inflector;
 
 /**
  * Entity
@@ -54,7 +54,7 @@ abstract class Entity extends EtORM
     public function getProperty(string $name)
     {
         $dynamicMethod = 'get' . $this->studly($name);
- 
+
         if (method_exists($this, $dynamicMethod)) {
             return $this->$dynamicMethod();
         }
@@ -81,7 +81,7 @@ abstract class Entity extends EtORM
     public function setProperty($name, $valor)
     {
         $dynamicMethod = 'set' . $this->studly($name);
-     
+
         if (! method_exists($this, $dynamicMethod)) {
             return $this->properties[$name] = $valor;
         }

@@ -1,4 +1,4 @@
-<?php namespace core\lib\Model;
+<?php namespace System\Model;
 
 /** Inflector
   *
