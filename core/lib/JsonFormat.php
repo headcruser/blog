@@ -1,4 +1,4 @@
-<?php namespace core\lib;
+<?php namespace System;
 
 /** Clase JsonFormat
   *
@@ -27,7 +27,7 @@ final class JsonFormat
         header('Content-type: application/json');
         header("Cache-Control: no-cache");
         header("Pragma: no-cache");
-        
+
         return json_encode($data);
     }
 }

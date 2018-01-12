@@ -1,14 +1,14 @@
-<?php namespace core\lib\Controllers;
+<?php namespace System\Controllers;
 
-use core\lib\View\RenderView;
-use core\lib\Controllers\ActionControllerInterface;
-use core\lib\JsonFormat;
+use System\View\RenderView;
+use System\Controllers\ActionControllerInterface;
+use System\JsonFormat;
 use core\Exception\GenericException;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\Config\FileLocator;
 use Mannion007\RepositoryPattern\Repository\GameRepository;
-                         
+
 /**
   * Controller
   *
@@ -35,14 +35,14 @@ abstract class Controller implements ActionControllerInterface
      */
     public function __construct()
     {
-        $this->_view=new RenderView();
+        $this->_view=new RenderView(TEMPLATES, COMPILER, CACHE);
         $this->_jsonArray=new JsonFormat();
 
         $this->container = new ContainerBuilder();
 
         $loader = new YamlFileLoader(
             $this->container,
-            new FileLocator(RUTA_BASE . 'config')
+            new FileLocator(PATH . 'config')
         );
         $loader->load('services.yml');
     }
@@ -60,7 +60,7 @@ abstract class Controller implements ActionControllerInterface
     protected function renderView(string $path, $key = null, $value = null)
     {
         try {
-            $this->_view->render($path, $key, $value);
+            echo $this->_view->render($path, $key, $value);
         } catch (\Exception $e) {
             $this->_view->render('error.exception', "message", $e->getMessage());
         }

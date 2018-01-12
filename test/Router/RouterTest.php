@@ -18,4 +18,11 @@ class RouterTest extends TestCase
 
         $this->assertEquals('blog', $router->url('blog.index'));
     }
+
+    public function testExecuteViewController(){
+
+        $router=new Router(isset($_GET["uri"])?$_GET["uri"]:"/");
+        $router->get('/', 'index#index', 'blog.index');
+        $router->run();
+    }
 }

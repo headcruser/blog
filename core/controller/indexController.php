@@ -1,5 +1,7 @@
 <?php
-use core\lib\Controllers\Controller;
+namespace core\controller;
+
+use System\Controllers\Controller;
 use core\model\Entradas;
 use core\model\Usuario;
 
@@ -21,13 +23,7 @@ class indexController extends Controller
      */
     public function index()
     {
-        if (isset($_SESSION['nombre'])) {
-            header('location: http://192.168.86.129/blog/admin');
-        }
-
-        $this->assign("titulo", "Bienvenido a la pagina principal");
-        // $this->assign("datos", $this->container->get('dbEntrada')->findAll() );
-
+        $this->assign('titulo', 'Bienvenido a página principal');
         return $this->renderView("home.index");
     }
     /**

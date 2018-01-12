@@ -1,7 +1,7 @@
-<?php namespace core\lib\Route;
+<?php namespace System\Route;
 
- use core\lib\View\RenderView;
- use core\lib\Route\HelpContoller;
+ use System\View\RenderView;
+ use System\Route\HelpContoller;
 
 class Router
 {

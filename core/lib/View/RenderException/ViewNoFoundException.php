@@ -1,4 +1,4 @@
-<?php namespace core\lib\View\RenderException;
+<?php namespace System\View\RenderException;
 
 use core\Exception\GenericException;
 
@@ -18,6 +18,6 @@ use core\Exception\GenericException;
 final class ViewNoFoundException extends GenericException
 {
     protected $_messageTemplate =
-        'La Plantilla Que intentas Ejecutar, No se encuentra 
+        'La Plantilla Que intentas Ejecutar, No se encuentra
         dentro del directorio de plantillas : %s';
 }

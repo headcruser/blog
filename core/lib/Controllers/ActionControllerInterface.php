@@ -1,4 +1,4 @@
-<?php namespace core\lib\Controllers;
+<?php namespace System\Controllers;
 
 /**
   * Controller

@@ -12,7 +12,7 @@
                 <h2 class="profesion">Blog headcruser</h2>
             </div>
         </div>
-    </div>      
+    </div>
 </header>
 {* Contenedor pricipal *}
 <div class="container">
@@ -56,11 +56,12 @@
         </div>
 
         <div class="col-md-8">
+        {if isset($datos)}
         {foreach $datos as $elemento}
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-default">
-                        
+
                             <div class="panel-heading">
                                 <span class="glyphicon glyphicon-time" aria-hidden="true"></span>  {$elemento.titulo}
                             </div>
@@ -80,14 +81,31 @@
                 </div>
             </div>
         {/foreach}
-        
+        {else}
+             <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+
+                            <div class="panel-heading">
+                                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>  Titulo
+                            </div>
+                            <div class="panel-body">
+                                <p>
+                                    <strong>Entradas Vacias</strong>
+                                </p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        {/if}
+
          <ul class="pagination">
             <li><a href="#">1</a></li>
             <li><a href="#">2</a></li>
             <li><a href="#">3</a></li>
             <li><a href="#">4</a></li>
             <li><a href="#">5</a></li>
-        </ul> 
+        </ul>
 
         </div>
     </div>

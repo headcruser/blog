@@ -1,5 +1,5 @@
 <?php
-namespace core\lib\View;
+namespace System\View;
 
 interface RendererInterface
 {

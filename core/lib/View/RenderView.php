@@ -1,9 +1,9 @@
-<?php namespace core\lib\View;
+<?php namespace System\View;
 
 use Smarty;
-use core\lib\View\RendererInterface;
-use core\lib\View\RenderException\ViewPathException;
-use core\lib\View\RenderException\ViewNoFoundException;
+use System\View\RendererInterface;
+use System\View\RenderException\ViewPathException;
+use System\View\RenderException\ViewNoFoundException;
 
 /**
   * RenderView

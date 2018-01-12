@@ -1,4 +1,4 @@
-<?php namespace core\lib\View\RenderException;
+<?php namespace System\View\RenderException;
 
 use core\Exception\GenericException;
 
