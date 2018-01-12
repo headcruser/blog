@@ -3,181 +3,111 @@
  use core\lib\View\RenderView;
  use core\lib\Route\HelpContoller;
 
-/**
-  * Router Class
-  *
-  * Gestiona el enrutamiento del sistema.
-  *
-  * @project: BlogProyect
-  * @date: 12-10-2017
-  * @version: php7
-  * @author: Daniel Martinez
-  * @copyright: Daniel Martinez
-  * @email: headcruser@gmail.com
-  * @license: GNU General Public License (GPL)
-  */
 class Router
 {
-    private $uri;
-    private $_systemControllers;
-    const SLASH ='/';
-    use HelpController;
-
+    /**
+     * $url page
+     * @var string
+     */
+    private $url;
+    /**
+     * routes
+     * @var array
+     */
+    private $routers=[];
+    /**
+     * Named Routes
+     * @var array
+     */
+    private $namedRoutes=[];
   /**
    * __construct
-   *
-   * Construye el objeto enrutador
    */
-    public function __construct()
+    public function __construct($url)
     {
-        $this->_controllers=array( "/"=>"indexController",
-                              "/home"=>"indexController",
-                              "/auth"=>"AuthController",
-                              "/registro"=>"registroController",
-                              "/admin" =>"adminController",
-                              "/usuario" =>"usuarioController",
-                              "/entrada" =>"EntradaController"
-                            );
-        $this->setUri();
+        $this->url=$url;
     }
-  /**
-   * setUri
-   *
-   * Asigna la ruta del navegador web,
-   * mediante la superglobal Get.
-   *
-   * @return void
-   */
-    private function setUri()
-    {
-        $this->uri=isset($_GET["uri"])?$_GET["uri"]:self::SLASH;
-    }
-  /**
-   * Submit
-   *
-     * Enruta al usuario a la página correspondiente
-   * dependendo la ruta del navegador.
-   *
-     * @return type void
-     */
-    public function submit()
-    {
-        if ($this->uri!=self::SLASH) {
-            return $this->readerPath($this->uri);
-        }
-        
-        if ($this->searchKeyInControllers(self::SLASH)) {
-            foreach ($this->_controllers as $ruta => $controller) {
-                if ($ruta == self::SLASH) {
-                    $controlador=$controller;
-                }
-            }
-      
-            $this->getController('index', $controlador);
-        }
-    }
-  /**
-     * readerPath
+    /**
+     * get
      *
-     * Lee la ruta especificada por el usuario
-     * @param array $ruta Contiene la ruta del usuario
-     * @return void No retorna ningun Valor
+     * Assing url mediatiing post
+     *
+     * @param mixed $path
+     * @param mixed $calleable
+     * @param mixed $name
+     * @return mixed
      */
-    public function readerPath(string $uri)
+    public function get($path, $calleable, $name = null):Route
     {
-        $dividePaths=$this->partitionPath($uri);
-        $estado=false;
-        foreach ($this->_controllers as $ruta => $controller) {
-            if ($this->clearCharacterSlash($ruta) !=="") {
-                if ($this->searchFirstMatch($uri, $ruta)) {
-                    $arrayParams  = array();
-                    $estado       = true;
-                    $controlador  = $controller;
-                    $metodo       = "";
-                    $cantidadRuta = $this->numRoutes($ruta);
-                    $cantidad     = count($dividePaths);
-                    if ($cantidad > $cantidadRuta) {
-                        $metodo = $dividePaths[$cantidadRuta];
-                        for ($i = 0; $i < $cantidad; $i++) {
-                            if ($i > $cantidadRuta) {
-                                $arrayParams[] = $dividePaths[$i];
-                            }
-                        }
-                    }
-                    $this->getController($metodo, $controlador, $arrayParams);
-                }
+        return $this->add($path, $calleable, $name, 'GET');
+    }
+    /**
+     * post
+     *
+     * Assing url mediatiing post
+     * @param mixed $path
+     * @param mixed $calleable
+     * @param mixed $name
+     * @return mixed
+     */
+    public function post($path, $calleable, $name = null):Route
+    {
+        return $this->add($path, $calleable, $name, 'POST');
+    }
+    /**
+     * add
+     *
+     * Ading route path for router
+     * @param string $path
+     * @param string $calleable
+     * @param string $name
+     * @param string $method
+     * @return route
+     */
+    private function add($path, $calleable, $name, $method)
+    {
+        $route=new Route($path, $calleable);
+        $this->routes[$method][]=$route;
+
+        if (is_string($calleable)&& $name===null) {
+            $name=$calleable;
+        }
+        if ($name) {
+            $this->namedRoutes[$name]=$route;
+        }
+        return $route;
+    }
+    /**
+     * run
+     *
+     * Execute function controller
+     * thow exception if no matching routes
+     * @return callable
+     */
+    public function run()
+    {
+        if (!isset($this->routes[$_SERVER['REQUEST_METHOD']])) {
+            throw new Exception("Error Processing Request", 1);
+        }
+        foreach ($this->routes[$_SERVER['REQUEST_METHOD']] as $route) {
+            if ($route->match($this->url)) {
+                return $route->call();
             }
         }
-        if ($estado == false) {
-            $_view=new RenderView();
-            return $_view->render('error.404');
+         throw new \Exception('No maching routes', 1);
+    }
+    /**
+     * url
+     * get url mediating your name
+     * @param string $name
+     * @param array $params
+     * @return string url associated
+     */
+    public function url($name, $params = [])
+    {
+        if (!isset($this->namedRoutes[$name])) {
+            throw new Exception("No route matches this name");
         }
-    }
-  /**
-     * PartitionPath
-     *
-     * Divide una cadena a partir del delimitator '/'.
-     * Por ejemplo: "/index/html"
-     * array(index,html);
-   * Utiliza la super Global server, para obtener la ruta
-   * del navegador.
-   *
-     * @return array Regresa un arreglo con la cadena dividida
-     */
-    private function partitionPath(string $path): array
-    {
-        return explode(self::SLASH, $path);
-    }
-  /**
-   * clearCharacterSlash
-   *
-   * Limpia la cadena, quitando los / econtrados
-   * @param string $word Palabra que se debe limpiar
-   * @return string Devuelve una cadena Libre de /
-   */
-    private function clearCharacterSlash($word):string
-    {
-        return trim($word, self::SLASH);
-    }
-  /**
-     * NumRoutes
-     *
-     * Cuenta el numero de rutas encontradas en la cadena
-     * Por ejemplo: "/index/login"
-     * resultado=2 (index, login);
-     * @param string Cadena que se va a dividir en un array de rutas
-     * @return array Regresa un arreglo con la cadena dividida
-     */
-    public function numRoutes(string $path): int
-    {
-        return count(explode(self::SLASH, trim($path, self::SLASH)));
-    }
-  /**
-   * searchFirstMatch
-   *
-   * Encuentra la primera ocurrencia de un substring en un string.
-   *
-   * @param string $haystack Lugar en dónde hay que buscar
-   * @param string $needle Aguja que hay que buscar
-   * @return bool
-   * Devuelve True Si encontro alguna coincidencia
-   * Devuelve False en caso de no encontrar coincidencias
-   */
-    private function searchFirstMatch(string $haystack, string $needle): bool
-    {
-        return strpos($haystack, $this->clearCharacterSlash($needle)) !==false;
-    }
-  /**
-   * searchKeyInControllers
-   *
-   * Realiza Busqueda de una clave dentro de un arreglo asociativo
-   *
-   * @param string $key Valor a buscar en el arreglo de controladores
-   * @return bool Devuelve True Si encontro alguna coincidencia,
-   * en caso de no encontrar coincidencias, Devuelve False
-   */
-    private function searchKeyInControllers(string $key):bool
-    {
-        return array_key_exists($key, $this->_controllers);
+        return $this->namedRoutes[$name]->getURL($params);
     }
 }
