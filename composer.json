@@ -13,8 +13,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "core\\":"core/",
-            "System\\":"core/lib"
+            "core\\":"src/",
+            "System\\":"src/lib"
         }
     },
     "require": {
