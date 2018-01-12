@@ -83,23 +83,6 @@ class Route
         return '([^/]+)';
     }
     /**
-     * Call
-     *
-     * Load controller in the namespace core\controollers
-     *
-     * @return callable Return funtion calleble method
-     */
-    public function call()
-    {
-        if (is_string($this->callback)) {
-            $params=explode('#', $this->callback);
-            $controller="core\\controller\\".$params[0]."Controller";
-            $controller=new $controller();
-            return call_user_func_array([$controller,$params[1]], $this->matches);
-        }
-        return call_user_func_array($this->callback, $this->matches);
-    }
-    /**
      * getURL
      *
      * Get url for Route Specific
@@ -117,5 +100,34 @@ class Route
             $path=str_replace(":$k", $v, $path);
         }
         return $path;
+    }
+
+    /**
+     * Get call to funtion associated
+     *
+     * @return  callable
+     */
+    public function getCallback()
+    {
+        return $this->callback;
+    }
+    /**
+     * Get regex Expresion
+     *
+     * @return  string
+     */
+    public function getMatches()
+    {
+        return $this->matches;
+    }
+
+    /**
+     * Get path Url
+     *
+     * @return  string
+     */
+    public function getPath()
+    {
+        return $this->path;
     }
 }

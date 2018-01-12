@@ -6,11 +6,6 @@
 class Router
 {
     /**
-     * $url page
-     * @var string
-     */
-    private $url;
-    /**
      * routes
      * @var array
      */
@@ -23,9 +18,8 @@ class Router
   /**
    * __construct
    */
-    public function __construct($url)
+    public function __construct()
     {
-        $this->url=$url;
     }
     /**
      * get
@@ -84,14 +78,14 @@ class Router
      * thow exception if no matching routes
      * @return callable
      */
-    public function run()
+    public function run($url)
     {
         if (!isset($this->routes[$_SERVER['REQUEST_METHOD']])) {
-            throw new Exception("Error Processing Request", 1);
+            throw new \Exception("Not Exist Routes", 1);
         }
         foreach ($this->routes[$_SERVER['REQUEST_METHOD']] as $route) {
-            if ($route->match($this->url)) {
-                return $route->call();
+            if ($route->match($url)) {
+                return $route;//return $route->call();
             }
         }
          throw new \Exception('No maching routes', 1);
@@ -109,5 +103,13 @@ class Router
             throw new Exception("No route matches this name");
         }
         return $this->namedRoutes[$name]->getURL($params);
+    }
+
+    public function generateUri(string $nameRoute = null)
+    {
+        if (!array_key_exists($nameRoute, $this->namedRoutes)) {
+            return 'Route no found';
+        }
+        return '/'.$this->namedRoutes[$nameRoute]->getPath();
     }
 }

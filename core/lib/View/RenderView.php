@@ -63,9 +63,9 @@ class RenderView implements RendererInterface
      * @param string $path Indica el nombre de la ruta del template
      * @param array|null $key Especifica un nombre para la variable
      * @param array|null $value Pasa un argumento como objeto
-     * @return string
+     * @return void
      */
-    public function render(string $path, $key = null, $value = null):string
+    public function render(string $path, $key = null, $value = null)
     {
         if ($this->isEmptyPath($path)) {
             throw new ViewPathException(
@@ -84,7 +84,7 @@ class RenderView implements RendererInterface
             ${$key} = $value;
             $this->template->assign("$key", ${$key});
         }
-        return $this->template->fetch($ruta);
+        return $this->template->display($ruta);
     }
      /**
      * assign

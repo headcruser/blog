@@ -1,4 +1,21 @@
+parameters:
+    TEMPLATES:  C:\xampp2\htdocs\blog\styles\templates
+    TEMP_C:     C:\xampp2\htdocs\blog\compiler
+    CACHE :     C:\xampp2\htdocs\blog\compiler\cache
+
+
 services:
+  router:
+    class: System\Route\Router
+
+  render:
+    class: System\View\RenderView
+    arguments: ['%TEMPLATES%', '%TEMP_C%' , '%CACHE%']
+
+  index:
+    class: core\controller\indexController
+    arguments: ['@router', '@render']
+
   driver-db:
     class: core\ORM\Database\Driver\MysqlDriver
 
@@ -6,12 +23,12 @@ services:
     class: core\ORM\Storage\Usuario\UsuarioStorage
     arguments:
       - "@driver-db"
-  
+
   dbEntrada:
     class: core\ORM\Storage\Entradas\EntradaStorage
     arguments:
       - "@driver-db"
-    
+
   dbComentario:
     class: core\ORM\Storage\Comentarios\ComentarioStorage
     arguments:
@@ -21,7 +38,7 @@ services:
     class: core\ORM\Repository\Usuario\UserRepository
     arguments:
       - "@dbUsuario"
-  
+
   entry-repository:
     class: core\ORM\Repository\Entrada\EntryRepository
     arguments:
@@ -31,4 +48,3 @@ services:
     class: core\ORM\Repository\Comentario\CommentRepository
     arguments:
       - "@dbComentario"
-  

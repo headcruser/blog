@@ -25,7 +25,7 @@ interface RendererInterface
      * @param array $params
      * @return string
      */
-    public function render(string $path, $key = null, $value = null):string;
+    public function render(string $path, $key = null, $value = null);
     /**
      * addGlobal
      *

@@ -1,30 +1,34 @@
 <?php
 namespace core\controller;
 
-use System\Controllers\Controller;
-use core\model\Entradas;
 use core\model\Usuario;
+use core\model\Entradas;
+use System\View\RendererInterface;
+use System\Route\Router;
 
-/**
-* indexController
-*
-* Control de la página principal del sistema.
-*
-* @version: php7
-* @author: Daniel Martinez <headcruser@gmail.com>
-* @copyright: Daniel Martinez
-* @license https://opensource.org/licenses/mit-license.php MIT License
-*/
-class indexController extends Controller
+class indexController
 {
+    private $router;
+    private $renderer;
+
+    public function __construct(Router $router, RendererInterface $renderer)
+    {
+        $this->router=$router;
+        $this->renderer=$renderer;
+        $this->router->get('/', 'index#index', 'blog.index');
+        $this->router->get('/entradas', 'index#entradas', 'blog.entradas');
+        $this->router->get('/favoritos', 'index#favoritos', 'blog.favoritos');
+        $this->router->get('/autores', 'index#autores', 'blog.autores');
+        $this->router->get('/articulo', 'index#articulo', 'blog.articulo');
+    }
     /**
      * Muestra la pagina principal
      * @return type void
      */
     public function index()
     {
-        $this->assign('titulo', 'Bienvenido a página principal');
-        return $this->renderView("home.index");
+        $this->renderer->assign('titulo', 'Bienvenido a página principal');
+        return $this->renderer->render("home.index");
     }
     /**
      * Entradas
@@ -34,7 +38,7 @@ class indexController extends Controller
      */
     public function entradas()
     {
-        return $this->renderView('home.Entradas');
+        return $this->renderer->render('home.Entradas');
     }
     /**
      * Favoritos
@@ -44,7 +48,7 @@ class indexController extends Controller
      */
     public function favoritos()
     {
-        return $this->renderView("home.Favoritos");
+        return $this->renderer->render("home.Favoritos");
     }
     /**
      * Autores
@@ -55,7 +59,7 @@ class indexController extends Controller
     public function autores()
     {
         //(dir.tpl), <nomVar> ,<Contenido>
-        return $this->renderView("home.Autores");
+        return $this->renderer->render("home.Autores");
     }
     /**
      * Articulo
@@ -65,6 +69,6 @@ class indexController extends Controller
      */
     public function articulo()
     {
-        return $this->renderView('home.LeerArticulo');
+        return $this->renderer->render('home.LeerArticulo');
     }
 }

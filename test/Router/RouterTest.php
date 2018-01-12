@@ -25,4 +25,14 @@ class RouterTest extends TestCase
         $router->get('/', 'index#index', 'blog.index');
         $router->run();
     }
+
+    public function testGenerateUri()
+    {
+        $router=new Router();
+        $router->get('/', 'index#index', 'blog.index');
+        $router->get('/entradas', 'index#entradas', 'blog.entradas');
+        $router->get('/entradas/autores', 'index#entradas', 'blog.enAi');
+
+        echo $router->generateUri('blog.entradas');
+    }
 }

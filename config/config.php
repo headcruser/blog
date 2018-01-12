@@ -12,10 +12,6 @@ define('CSS', INDEX.'styles/css/');
 define('JS', INDEX.'styles/js/');
 define('IMG', INDEX.'styles/img/');
 
-//SMARTY
-define('TEMPLATES', PATH.'styles/templates/');
-define('COMPILER', PATH.'compiler'.DS);
-define('CACHE', COMPILER.'cache');
 
 //DATABASE
 define('SERVIDOR', 'localhost');

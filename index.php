@@ -3,8 +3,7 @@ require_once 'vendor/autoload.php';
 include  'config/config.php';
 session_start();
 
-use System\Route\Router;
+use System\App;
 
-$router=new Router(isset($_GET["uri"])?$_GET["uri"]:"/");
-$router->get('/', 'index#index', 'blog.index');
-$router->run();
+$app=new App();
+$app->run(isset($_GET["uri"])?$_GET["uri"]:"/");
