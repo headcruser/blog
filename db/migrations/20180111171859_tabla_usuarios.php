@@ -28,6 +28,13 @@ class TablaUsuarios extends AbstractMigration
      */
     public function change()
     {
-
+        $usuarios = $this->table('usuarios');
+        $usuarios->addColumn('alias', 'string', ['limit' => 10])
+              ->addColumn('email', 'string', ['limit' => 60])
+              ->addColumn('password', 'string', ['limit' => 255])
+              ->addColumn('fecha_registro', 'datetime', ['default' => 'CURRENT_TIMESTAMP'])
+              ->addColumn('activo', 'boolean')
+              ->addColumn('foto', 'string', ['limit' => 60])
+              ->save();
     }
 }

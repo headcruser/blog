@@ -15,8 +15,8 @@ define('IMG', INDEX.'styles/img/');
 
 //DATABASE
 define('SERVIDOR', 'localhost');
-define('USUARIO', 'conta');
-define('PASSWORD', '123');
+define('USUARIO', 'root');
+define('PASSWORD', 'admin120324');
 define('DB_NAME', 'blog');
 define('PUERTO', '3306');
 define('ENCODING', 'utf8');
