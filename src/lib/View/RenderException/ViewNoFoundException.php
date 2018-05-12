@@ -1,6 +1,6 @@
 <?php namespace System\View\RenderException;
 
-use core\Exception\GenericException;
+use System\Exception;
 
 /**
 * ViewNoFoundException
@@ -15,9 +15,13 @@ use core\Exception\GenericException;
 * @email: headcruser@gmail.com
 * @license: GNU General Public License (GPL)
 */
-final class ViewNoFoundException extends GenericException
+final class ViewNoFoundException extends Exception
 {
-    protected $_messageTemplate =
-        'La Plantilla Que intentas Ejecutar, No se encuentra
-        dentro del directorio de plantillas : %s';
+	protected $_messageTemplate =
+	'La Plantilla Que intentas Ejecutar, No se encuentra
+	dentro del directorio de plantillas : %s';
+
+	public function __construct($message){
+		parent::__construct($message);
+	}
 }

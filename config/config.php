@@ -2,22 +2,34 @@
 //SYSTEM
 define('DS', DIRECTORY_SEPARATOR);
 define('PATH', dirname(__DIR__, 1).DS);
-define('PATH_APP', PATH.'core'.DS);
-define('CONTROLLERS', PATH_APP.'controller'.DS);
-define('PATH_VIEW', PATH.'styles'.DS.'templates'.DS);
-define('INDEX', dirname($_SERVER['PHP_SELF'])."/");
 
-//STYLES
-define('CSS', INDEX.'styles/css/');
-define('JS', INDEX.'styles/js/');
-define('IMG', INDEX.'styles/img/');
+require PATH.DS.'vendor'.DS.'autoload.php';
 
+return [
+    // CONFIGURATION DATABASE
+    'database.host'             =>'localhost',
+    'database.user'             =>'root',
+    'database.password'             =>'admin120324',
+    'database.name'             =>'blog',
+    'database.port'             =>'3306',
 
-//DATABASE
-define('SERVIDOR', 'localhost');
-define('USUARIO', 'root');
-define('PASSWORD', 'admin120324');
-define('DB_NAME', 'blog');
-define('PUERTO', '3306');
-define('ENCODING', 'utf8');
-define('ENGINE', 'mysql');
+        // SMARTY CONFIGUTATION
+    'smarty.templates'      =>PATH.'templates'.DS,
+    'smarty.templates_c'    =>PATH.'compiler'.DS,
+        'smartycache'                   =>PATH.'compiler'.DS.'cache'.DS,
+        \PDO::class=>function (\Psr\Container\ContainerInterface $c) {
+            try {
+                $conexion = new \PDO(
+                    'mysql:host='.$c->get('database.host').';dbname='.$c->get('database.name'),
+                    $c->get('database.user'),
+                    $c->get('database.password'),
+                    [
+                    PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_OBJ,
+                    PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION
+                    ]
+                );
+            } catch (\PDOException $e) {
+                die("ERROR: " . $e->getMessage());
+            }
+        }
+];

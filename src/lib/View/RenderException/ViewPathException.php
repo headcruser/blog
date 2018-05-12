@@ -1,6 +1,6 @@
 <?php namespace System\View\RenderException;
 
-use core\Exception\GenericException;
+use System\Exception;
 
 /**
 * ViewException
@@ -15,7 +15,7 @@ use core\Exception\GenericException;
 * @email: headcruser@gmail.com
 * @license: GNU General Public License (GPL)
 */
-final class ViewPathException extends GenericException
+final class ViewPathException extends Exception
 {
     protected $_messageTemplate = 'La ruta de la vista Esta Vacia: %s';
 }

@@ -1,5 +1,5 @@
 parameters:
-    TEMPLATES:  C:\xampp2\htdocs\blog\styles\templates
+    TEMPLATES:  C:\xampp2\htdocs\blog\templates
     TEMP_C:     C:\xampp2\htdocs\blog\compiler
     CACHE :     C:\xampp2\htdocs\blog\compiler\cache
 

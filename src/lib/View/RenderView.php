@@ -40,7 +40,7 @@ class RenderView implements RendererInterface
      */
     private $template;
     public function __construct(
-        string $templateDir = '.\blog\styles\templates',
+        string $templateDir = '.\blog\templates',
         string $compileDir = '.\blog\compiler',
         string $cache = '.\blog\compiler\cache'
     ) {
@@ -67,17 +67,19 @@ class RenderView implements RendererInterface
      */
     public function render(string $path, $key = null, $value = null)
     {
+
         if ($this->isEmptyPath($path)) {
             throw new ViewPathException(
                 ['reason' =>'Escribe una ruta']
             );
-        }
+				}
         $ruta = $this->buildPath($path);
 
         if (!file_exists($ruta)) {
+					print_r(['La ruta no existe' => 'Revisa '.$ruta]);
             throw new ViewNoFoundException(
                 ['reason' => 'Revisa '.$ruta]
-            );
+						);
         }
 
         if (!is_null($key)) {
