@@ -3,7 +3,7 @@ namespace System\View;
 
 interface RendererInterface
 {
-    /**
+   /**
      * addpath
      *
      * Add a route to load the views
@@ -25,7 +25,7 @@ interface RendererInterface
      * @param array $params
      * @return string
      */
-    public function render(string $path, $key = null, $value = null);
+    public function render(string $view, array $params = []):string;
     /**
      * addGlobal
      *

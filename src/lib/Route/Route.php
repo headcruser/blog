@@ -5,33 +5,39 @@ namespace System\Route;
  * Class Router
  *
  * Represent a matched route
+ *
  * @package Framework\Router
  */
 class Route
 {
     /**
      * Path Url
+     *
      * @var string
      */
     private $path;
     /**
      * Call to funtion associated
+     *
      * @var callable
      */
     private $callback;
     /**
      * Regex Expresion
+     *
      * @var string
      */
     private $matches;
     /**
      * Params for the route
+     *
      * @var array
      */
     private $params=[];
     /**
      * __construct
-     * @param string $path
+     *
+     * @param string   $path
      * @param callable $callback
      */
     public function __construct(string $path, $callback)
@@ -41,8 +47,9 @@ class Route
     }
     /**
      * Assign a Regex Expresion for the url Define
-     * @param string $param
-     * @param string $regex
+     *
+     * @param  string $param
+     * @param  string $regex
      * @return Route Return reference this class
      */
     public function with($param, $regex):self
@@ -52,7 +59,8 @@ class Route
     }
     /**
      * match url
-     * @param string $url
+     *
+     * @param  string $url
      * @return bool returns true if it finds a match
      */
     public function match($url)
@@ -87,7 +95,7 @@ class Route
      *
      * Get url for Route Specific
      *
-     * @param string|array $param
+     * @param  string|array $param
      * @return string
      */
     public function getURL($param)
@@ -105,7 +113,7 @@ class Route
     /**
      * Get call to funtion associated
      *
-     * @return  callable
+     * @return callable
      */
     public function getCallback()
     {
@@ -114,7 +122,7 @@ class Route
     /**
      * Get regex Expresion
      *
-     * @return  string
+     * @return string
      */
     public function getMatches()
     {
@@ -124,7 +132,7 @@ class Route
     /**
      * Get path Url
      *
-     * @return  string
+     * @return string
      */
     public function getPath()
     {

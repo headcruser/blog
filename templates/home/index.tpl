@@ -91,7 +91,7 @@
                             </div>
                             <div class="panel-body">
                                 <p>
-                                    <strong>{$router->url('blog.entradas')}</strong>
+                                    <strong></strong>
                                 </p>
                             </div>
                     </div>

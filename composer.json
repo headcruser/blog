@@ -22,9 +22,6 @@
         "kint-php/kint": "0.9",
         "wixel/gump":   "dev-master",
         "nilportugues/sql-query-builder": "dev-master",
-        "symfony/dependency-injection": "^3.1",
-        "symfony/config": "^3.1",
-        "symfony/yaml": "^3.1",
         "robmorgan/phinx": "^0.9.2",
         "php-di/php-di": "^6.0"
     },

@@ -13,47 +13,49 @@ use core\controller\indexController;
 
 class App
 {
-	/**
-	 * Modules for Application
-	 * @var array
-	 */
-	private $modules=[];
+    /**
+     * Modules for Application
+     *
+     * @var array
+     */
+    private $modules=[];
 
-	/**
-	 * $definition configutation
-	 *
-	 * @var string
-	 */
-	private $definition;
+    /**
+     * $definition configutation
+     *
+     * @var string
+     */
+    private $definition;
 
-	private $container;
+    private $container;
 
-	private $controllers=[];
-	/**
-	* Reference Router Class
-	* @var Router
-	*/
-	private $router;
+    private $controllers=[];
+    /**
+     * Reference Router Class
+     *
+     * @var Router
+     */
+    private $router;
 
-	public function __construct(string $definition)
-	{
-		$this->definition = $definition;
-	}
+    public function __construct(string $definition)
+    {
+        $this->definition = $definition;
+    }
 
-	 /**
+    /**
      * getContainer
      *
      * @return Container
      */
     public function getContainer()
     {
-			if ($this->container === null) {
-				$builder = new \DI\ContainerBuilder();
-				$builder->writeProxiesToFile(true, dirname(__DIR__, 2).'/cache/temp/proxies');
-				$builder->addDefinitions($this->definition);
-				$this->container = $builder->build();
-			}
-			return $this->container;
+        if ($this->container === null) {
+            $builder = new \DI\ContainerBuilder();
+            $builder->writeProxiesToFile(true, dirname(__DIR__, 2).'/cache/temp/proxies');
+            $builder->addDefinitions($this->definition);
+            $this->container = $builder->build();
+        }
+        return $this->container;
     }
 
 

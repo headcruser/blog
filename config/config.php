@@ -1,7 +1,15 @@
 <?php
+
+use System\Route\Router;
+use System\View\RendererInterface;
+use System\View\SmartyViewFactory;
+
 //SYSTEM
 define('DS', DIRECTORY_SEPARATOR);
 define('PATH', dirname(__DIR__, 1).DS);
+define('CSS', 'css/');
+define('JS', 'js/');
+define('IMG', 'img/');
 
 require PATH.DS.'vendor'.DS.'autoload.php';
 
@@ -16,7 +24,12 @@ return [
         // SMARTY CONFIGUTATION
     'smarty.templates'      =>PATH.'templates'.DS,
     'smarty.templates_c'    =>PATH.'compiler'.DS,
-        'smartycache'                   =>PATH.'compiler'.DS.'cache'.DS,
+    'smarty.cache'                   =>PATH.'compiler'.DS.'cache'.DS,
+
+        //System
+        RendererInterface::class=> \DI\factory(SmartyViewFactory::class),
+
+        // PDO CONNECTION
         \PDO::class=>function (\Psr\Container\ContainerInterface $c) {
             try {
                 $conexion = new \PDO(
@@ -24,9 +37,9 @@ return [
                     $c->get('database.user'),
                     $c->get('database.password'),
                     [
-                    PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_OBJ,
-                    PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION
-                    ]
+                            PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_OBJ,
+                            PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION
+                            ]
                 );
             } catch (\PDOException $e) {
                 die("ERROR: " . $e->getMessage());
