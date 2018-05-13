@@ -5,20 +5,15 @@ use System\View\RenderView;
 use System\Controllers\ActionControllerInterface;
 use System\JsonFormat;
 use System\Route\Router;
-use core\Exception\GenericException;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
-use Symfony\Component\Config\FileLocator;
-use core\controller\indexController;
 
 class App
 {
     /**
-     * Modules for Application
+     * controller for Application
      *
      * @var array
      */
-    private $modules=[];
+    private $controllers=[];
 
     /**
      * $definition configutation
@@ -27,15 +22,12 @@ class App
      */
     private $definition;
 
-    private $container;
-
-    private $controllers=[];
     /**
-     * Reference Router Class
+     * $container
      *
-     * @var Router
+     * @var Container
      */
-    private $router;
+    private $container;
 
     public function __construct(string $definition)
     {
@@ -43,7 +35,20 @@ class App
     }
 
     /**
-     * getContainer
+     * addController
+     * Adding Controller from aplication
+     *
+     * @param  string $controller
+     * @return App
+     */
+    public function addController(string $controller):self
+    {
+        $this->controllers[] = $controller;
+        return $this;
+    }
+
+    /**
+     * getContainer Dependency
      *
      * @return Container
      */
@@ -53,10 +58,45 @@ class App
             $builder = new \DI\ContainerBuilder();
             $builder->writeProxiesToFile(true, dirname(__DIR__, 2).'/cache/temp/proxies');
             $builder->addDefinitions($this->definition);
+
+            foreach ($this->controllers as $controller) {
+                if ($controller::DEFINITIONS) {
+                    $builder->addDefinitions($controller::DEFINITIONS);
+                }
+            }
             $this->container = $builder->build();
         }
         return $this->container;
     }
 
+    /**
+     * run
+     * Execute to specific Controller
+     * @param string $path
+     * @return void
+     */
+    public function run(string $path)
+    {
+        try {
+            foreach ($this->controllers as $controller) {
+                $this->getContainer()->get($controller);
+            }
 
+            if (empty($path)) {
+                   return header('Location', substr($path, 0, -1));
+            }
+
+            $route = $this->container->get(Router::class)->run($path);
+
+            $controller = $this->getContainer()->get($route->buildNamespaceController());
+
+            if (!$controller) {
+                throw new \Exception("Controller Not exist", 1);
+            }
+
+            echo call_user_func_array([$controller,$route->getMethod()], $route->getMatches());
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+        }
+    }
 }

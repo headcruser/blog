@@ -1,27 +1,31 @@
 <?php
-namespace core\controller;
+namespace App\controller;
 
-use core\model\Usuario;
-use core\model\Entradas;
-use System\View\RendererInterface;
+use System\Controller;
 use System\Route\Router;
+use System\model\Usuario;
+use System\model\Entradas;
+use System\View\RendererInterface;
 
-class indexController
+class IndexController extends Controller
 {
+    const DEFINITIONS = __DIR__.DIRECTORY_SEPARATOR.'config.php';
+
     private $renderer;
 
     public function __construct(Router $router, RendererInterface $renderer)
     {
-
-        $this->renderer=$renderer;
+        $this->renderer = $renderer;
         $router->get('/', 'index#index', 'blog.index');
-        $router->get('/entradas', 'index#entradas', 'blog.entradas');
+                $router->get('/entradas', 'index#entradas', 'blog.entradas');
+                $router->get('/entradas/:id', 'index#entradas', 'blog.entradas');
         $router->get('/favoritos', 'index#favoritos', 'blog.favoritos');
         $router->get('/autores', 'index#autores', 'blog.autores');
         $router->get('/articulo', 'index#articulo', 'blog.articulo');
     }
     /**
      * Muestra la pagina principal
+     *
      * @return type void
      */
     public function index()
@@ -33,9 +37,10 @@ class indexController
      * Entradas
      *
      * Muestra una vista de las entradas en general
+     *
      * @return Vista Muestra al usuario la vista.
      */
-    public function entradas()
+    public function entradas($id)
     {
         return $this->renderer->render('home.Entradas');
     }
@@ -43,6 +48,7 @@ class indexController
      * Favoritos
      *
      * Muestra una vista de favoritos
+     *
      * @return Vista Muestra al usuario la vista
      */
     public function favoritos()
@@ -53,6 +59,7 @@ class indexController
      * Autores
      *
      * Muestra una vista de los autores de cada Blog
+     *
      * @return Vista Muestra al usuario la vista Generada
      */
     public function autores()
@@ -64,6 +71,7 @@ class indexController
      * Articulo
      *
      * Muestra el contenido de una entrada
+     *
      * @return Vista Muestra al usuario la vista.
      */
     public function articulo()

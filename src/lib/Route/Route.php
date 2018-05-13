@@ -27,13 +27,27 @@ class Route
      *
      * @var string
      */
-    private $matches;
+    private $matches = [];
     /**
      * Params for the route
      *
      * @var array
      */
     private $params=[];
+
+    /**
+     * $class
+     *
+     * @var string
+     */
+    private $class;
+
+    /**
+     * $method
+     *
+     * @var string
+     */
+    private $method;
     /**
      * __construct
      *
@@ -42,8 +56,11 @@ class Route
      */
     public function __construct(string $path, $callback)
     {
-        $this->path=trim($path, '/');
-        $this->callback=$callback;
+        $this->path = $path;
+        $this->callback = $callback;
+        $params = explode('#', $this->callback);
+        $this->class = ucwords($params[0]);
+        $this->method = $params[1];
     }
     /**
      * Assign a Regex Expresion for the url Define
@@ -65,31 +82,19 @@ class Route
      */
     public function match($url)
     {
-        $url=trim($url, '/');
-        $path=preg_replace_callback('#:([\w]+)#', [$this,'paramMatch'], $this->path);
-        $regex="#^$path$#i";
+        $url = trim($url, '/');
+        $path = preg_replace('#:([\w]+)#', '([^/]+)', trim($this->path, '/'));
+        $regex = "#^$path$#i";
 
         if (!preg_match($regex, $url, $matches)) {
             return false;
         }
         array_shift($matches);
-        $this->matches=$matches;
+        $this->matches = $matches;
+
         return true;
     }
-    /**
-     * paramMatch
-     *
-     * Search Regex for the url
-     *
-     * @return callable Return funtion calleble method
-     */
-    private function paramMatch($match)
-    {
-        if (isset($this->params[$match[1]])) {
-            return '('.$this->params[$match[1]].')';
-        }
-        return '([^/]+)';
-    }
+
     /**
      * getURL
      *
@@ -100,42 +105,53 @@ class Route
      */
     public function getURL($param)
     {
-        $path=$this->path;
-        if (count($param)===0) {
+        $path = $this->path;
+        if (count($param) === 0) {
             return str_replace(":id", "", $path);
         }
         foreach ($param as $k => $v) {
-            $path=str_replace(":$k", $v, $path);
+            $path = str_replace(":$k", $v, $path);
         }
         return $path;
     }
 
     /**
-     * Get call to funtion associated
-     *
-     * @return callable
-     */
-    public function getCallback()
-    {
-        return $this->callback;
-    }
-    /**
-     * Get regex Expresion
+     * buildNamespaceController
      *
      * @return string
+     */
+    public function buildNamespaceController():string
+    {
+        return "App\\controller\\".$this->class."Controller";
+    }
+
+    /**
+     * getMethod
+     *
+     * @return void
+     */
+    public function getMethod():string
+    {
+        return $this->method;
+    }
+
+    /**
+     * getClass
+     *
+     * @return void
+     */
+    public function getClass():string
+    {
+        return $this->class;
+    }
+
+    /**
+     * getMatches
+     *
+     * @return mixed
      */
     public function getMatches()
     {
         return $this->matches;
-    }
-
-    /**
-     * Get path Url
-     *
-     * @return string
-     */
-    public function getPath()
-    {
-        return $this->path;
     }
 }

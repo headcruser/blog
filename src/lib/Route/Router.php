@@ -7,17 +7,19 @@ class Router
 {
     /**
      * routes
+     *
      * @var array
      */
     private $routers=[];
     /**
      * Named Routes
+     *
      * @var array
      */
     private $namedRoutes=[];
-  /**
-   * __construct
-   */
+    /**
+     * __construct
+     */
     public function __construct()
     {
     }
@@ -26,9 +28,9 @@ class Router
      *
      * Assing url mediatiing post
      *
-     * @param mixed $path
-     * @param mixed $calleable
-     * @param mixed $name
+     * @param  mixed $path
+     * @param  mixed $calleable
+     * @param  mixed $name
      * @return mixed
      */
     public function get($path, $calleable, $name = null):Route
@@ -39,9 +41,10 @@ class Router
      * post
      *
      * Assing url mediatiing post
-     * @param mixed $path
-     * @param mixed $calleable
-     * @param mixed $name
+     *
+     * @param  mixed $path
+     * @param  mixed $calleable
+     * @param  mixed $name
      * @return mixed
      */
     public function post($path, $calleable, $name = null):Route
@@ -52,22 +55,23 @@ class Router
      * add
      *
      * Ading route path for router
-     * @param string $path
-     * @param string $calleable
-     * @param string $name
-     * @param string $method
+     *
+     * @param  string $path
+     * @param  string $calleable
+     * @param  string $name
+     * @param  string $method
      * @return route
      */
     private function add($path, $calleable, $name, $method)
     {
-        $route=new Route($path, $calleable);
-        $this->routes[$method][]=$route;
+        $route = new Route($path, $calleable);
+        $this->routes[$method][] = $route;
 
-        if (is_string($calleable)&& $name===null) {
-            $name=$calleable;
+        if (is_string($calleable)&& $name == null) {
+            $name = $calleable;
         }
         if ($name) {
-            $this->namedRoutes[$name]=$route;
+            $this->namedRoutes[$name] = $route;
         }
         return $route;
     }
@@ -76,6 +80,7 @@ class Router
      *
      * Execute function controller
      * thow exception if no matching routes
+     *
      * @return callable
      */
     public function run($url)
@@ -83,6 +88,7 @@ class Router
         if (!isset($this->routes[$_SERVER['REQUEST_METHOD']])) {
             throw new RouterException('Not Exist Routes');
         }
+
         foreach ($this->routes[$_SERVER['REQUEST_METHOD']] as $route) {
             if ($route->match($url)) {
                 return $route;//return $route->call();
@@ -93,8 +99,9 @@ class Router
     /**
      * url
      * get url mediating your name
-     * @param string $name
-     * @param array $params
+     *
+     * @param  string $name
+     * @param  array  $params
      * @return string url associated
      */
     public function url($name, $params = [])

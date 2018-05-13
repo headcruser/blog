@@ -21,13 +21,19 @@ return [
     'database.name'             =>'blog',
     'database.port'             =>'3306',
 
-        // SMARTY CONFIGUTATION
-    'smarty.templates'      =>PATH.'templates'.DS,
-    'smarty.templates_c'    =>PATH.'compiler'.DS,
-    'smarty.cache'                   =>PATH.'compiler'.DS.'cache'.DS,
+    // SMARTY CONFIGUTATION
+    'smarty.templates'   =>PATH.'templates'.DS,
+    'smarty.templates_c' =>PATH.'compiler'.DS,
+    'smarty.cache'       =>PATH.'compiler'.DS.'cache'.DS,
 
-        //System
-        RendererInterface::class=> \DI\factory(SmartyViewFactory::class),
+    // Controllers
+    'controllers' => [
+      'index'=>\System\controller\indexController::class
+    ],
+
+    //System
+    RendererInterface::class=> \DI\factory(SmartyViewFactory::class),
+    Router::class=>DI\create(),
 
         // PDO CONNECTION
         \PDO::class=>function (\Psr\Container\ContainerInterface $c) {
