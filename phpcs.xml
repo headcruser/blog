@@ -5,6 +5,7 @@
     <arg value="p"/>
 
     <file>src</file>
+		<exclude-pattern>*/config/*</exclude-pattern>
 
     <rule ref="PSR2"></rule>
 
